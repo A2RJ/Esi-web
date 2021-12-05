@@ -25,34 +25,82 @@
   }
 }
 
+.todo-list-rounded {
+  .form-check {
+    .form-check-label  {
+      input:checked {
+        & + {
+          .input-helper {
+            &:before {
+              border-radius: 100%;
+            }
+          }
+        }
+      }
+    }
+  .flag-color {
+    color: $flag-color;
+    line-height: 1;
+  }
+  }
+ 
+}
+
 .list-wrapper {
   height: 100%;
-  max-height: 390px;
-  overflow: scroll;
+  max-height: 100%;
+
   ul {
     padding: 0;
     text-align: left;
     list-style: none;
     margin-bottom: 0;
+
     li {
       @extend .d-flex;
       @extend .align-items-center;
       @extend .justify-content-start;
-      font-size: .9375rem;
-      padding: 1.063rem 1.4rem;
-      border: none;
-      margin-bottom: 0.812rem;
-      border-radius: 7px;
-      background: $table-accent-bg;
-      .form-check{
+      font-size: 0.9375rem;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid $border-color;
+
+      .form-check {
         @extend %ellipsor;
         max-width: 90%;
-        margin-top: .25rem;
-        margin-bottom: .25rem;
-        .form-check-label{
+        &.w-100 {
+          max-width: 100%;
+        }
+
+        .form-check-label {
           @extend%ellipsor;
         }
       }
+      .col-content{
+        width: 100%;
+        >div{
+          width: 100%;
+        }
+      }
+    }
+    &.todo-list-rounded {
+      .form-check {
+        .form-check-label  {
+          input:checked {
+            & + {
+              .input-helper {
+                &:before {
+                  border-radius: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+      .flag-color {
+        color: $flag-color;
+        line-height: 1;
+      }
+     
     }
   }
 
@@ -61,28 +109,28 @@
   }
 
   .remove {
-    @extend .ml-auto;
-    @extend .text-secondary;
-    .rtl & {
-      @extend .ml-0;
-      @extend .mr-auto;
-    }
+    margin-left: auto;
     cursor: pointer;
-    font-size: .7rem;
+    font-size: 1.3rem;
     font-weight: 600;
+    color: $primary;
     width: 1.25rem;
     height: 1.25rem;
-    line-height: 1.25rem;
+    line-height: 20px;
     text-align: center;
+
+    .rtl & {
+      margin-right: auto;
+      margin-left: 0;
+    }
   }
 
   .completed {
-    .form-check {
-      text-decoration: line-through;
-      text-decoration-color: theme-color(info);
-    }
+    text-decoration: line-through;
+    text-decoration-color: $primary;
+
     .remove {
-      @extend .text-primary;
+      text-decoration: none;
     }
   }
 }

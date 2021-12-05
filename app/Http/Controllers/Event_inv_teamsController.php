@@ -21,8 +21,9 @@ class Event_inv_teamsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'event_id' => 'required',
-            'inv_team_id' => 'required',
+            "id_event_int_teams" => "required",
+            "event_id" => "required",
+            "squad_id" => "required",
         ]);
 
         Event_inv_teams::create($request->all());

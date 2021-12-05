@@ -30,10 +30,13 @@
 .img-sm {
   width: 43px;
   height: 43px;
+  &.rounded-10 {
+    border-radius: 10px;
+  }
 }
 .img-xs {
-  width: 37px;
-  height: 37px;
+  width: 32px;
+  height: 32px;
 }
 .img-ss {
   width: 26px;
@@ -90,7 +93,10 @@
 }
 
 .text-small {
-  font-size: 13px;
+  font-size: 12px;
+  &.ps-4 {
+    padding-left: 30px !important;
+  }
 }
 
 .flex-grow {
@@ -104,4 +110,7 @@
 }
 .min-width-cell {
   min-width: 110px;
+}
+.font-weight-medium {
+  font-weight: 500;
 }

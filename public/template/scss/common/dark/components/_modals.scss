@@ -7,6 +7,8 @@
       .modal-header{
         padding: $modal-header-padding-y $modal-header-padding-x;
         .close{
+          border: none;
+          background: transparent;
           span{
             font-size: 20px;
             font-weight: 400;

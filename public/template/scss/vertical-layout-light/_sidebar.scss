@@ -33,11 +33,14 @@
         white-space: nowrap;
         padding: $sidebar-menu-padding-top $sidebar-menu-padding-right $sidebar-menu-padding-bottom $sidebar-menu-padding-left;
         color: $sidebar-light-menu-color;
-        border-radius: 8px;
+        border-radius: 0px 20px 20px 0px;
         @include transition-duration(0.45s);
         transition-property: color;
         -webkit-transition-property: color;
-
+        font-weight: 400;
+        @media (max-width: 991px) {
+          border-radius: 0;
+        }
         i {
           color: inherit;
 
@@ -66,8 +69,8 @@
             }
 
             &:before {
-              content: "\e649";
-              font-family: "themify";
+              content: "\F142";
+              font-family: "Material Design Icons";
               font-style: normal;
               display: block;
               font-size: 0.687rem;
@@ -104,20 +107,25 @@
       }
 
       &.active {
-        border-radius: 8px;
+        border-radius: 0px 20px 20px 0px;
         > .nav-link {
             background: $sidebar-light-menu-active-bg;
             position: relative;
+            font-weight: bold;
+            font-size: 13px;
             i,
             .menu-title,
             .menu-arrow {
               color: $sidebar-light-menu-active-color;
             }
+            .menu-title {
+             font-size: 13px;
+            }
             i {
               &.menu-arrow {
                 &::before {
                   content: "\e64b";
-                }
+                } 
               }
             }
         }
@@ -132,12 +140,25 @@
         }
 
       }
+      &.nav-category {
+        color: $sidebar-light-category-color;
+        border-bottom: 1px solid $sidebar-nav-category-border-color;
+        margin: 0 30px;
+        font-size: 11px;
+        font-weight: 700;
+        padding: 20px 0px 5px 0px;
+        text-transform: uppercase;
+        .sidebar-dark & {
+          color: $sidebar-dark-category-color;
+          border-bottom: none;
+        }
+      }
     }
 
     &:not(.sub-menu) {
-      margin-top: 1.45rem;
-      margin-left: 1rem;
-      margin-right: 1rem;
+      margin-top: 0;
+      margin-left: 0;
+      margin-right: 0;
       > .nav-item {
         margin-top: .2rem;
         &:hover {
@@ -155,7 +176,7 @@
           }
         }
         &.active {
-          background: $sidebar-light-menu-hover-bg;
+          background: transparent;
         }
       }
     }
@@ -209,6 +230,10 @@
       .nav-item {
         .nav-link {
           color: $sidebar-dark-menu-color;
+          position: relative;
+          .sidebar-icon-only {
+            color: $dark;
+          }
           i {
             color: inherit;
             &.menu-icon {
@@ -227,6 +252,15 @@
         &.active {
           > .nav-link {
             background: $sidebar-dark-menu-active-bg;
+            &:before {
+              content: '';
+              width: 2px;
+              height: 100%;
+              background: $white;
+              left: 0;
+              top:0;
+              position: absolute;
+            }
             .menu-title,
             i {
               color: $sidebar-dark-menu-active-color; 
@@ -239,12 +273,25 @@
           &:hover {
             > .nav-link {
               background: $sidebar-dark-menu-hover-bg;
-              color: $sidebar-dark-menu-hover-color;                                    
+              color: $sidebar-dark-menu-hover-color;  
+              &:before {
+                content: '';
+                width: 2px;
+                height: 100%;
+                background: $white;
+                left: 0;
+                top:0;
+                position: absolute;
+              }  
+              .menu-arrow {
+                color: $sidebar-dark-menu-hover-color;
+              }                                
             }
           }
           .nav-link {
             &[aria-expanded="true"] {
               background: #1a1f26;
+              color: $white;
             }
           }
         }

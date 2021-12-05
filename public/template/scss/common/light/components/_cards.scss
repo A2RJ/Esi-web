@@ -9,6 +9,15 @@
   -webkit-transition:background $action-transition-duration $action-transition-timing-function;
   -moz-transition:background $action-transition-duration $action-transition-timing-function;
   -ms-transition:background $action-transition-duration $action-transition-timing-function;
+  border: none;
+  &.card-rounded {
+    border-radius: 15px;
+    box-shadow: none;
+    border: none;
+  }
+  &.table-darkBGImg {
+    background: #1E283D url("../../images/dashboard/darkBG.png") repeat-y right top;
+  }
   &.tale-bg {
     background: #DAE7FF;
   }
@@ -28,6 +37,22 @@
     text-transform: capitalize;
     font-size: 1.125rem;
     font-weight: 600;
+    &.card-title-dash {
+      font-style: normal;
+      font-weight: 800;
+      font-size: 16px;
+      line-height: 22px;
+      color: $body-color;
+      margin-bottom: 2px;
+      &.card-subtitle-dash {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 18px;
+        color: $body-color;
+        margin: 0;
+      }
+    }
   }
   .card-subtitle {
     @extend .text-gray;
@@ -52,9 +77,6 @@
 	}
 	&.card-outline-danger {
 		border: 1px solid theme-color("danger");
-	}
-	&.card-rounded {
-		@include border-radius(5px);
 	}
 
   &.card-faded {
@@ -121,10 +143,22 @@
     }
   }
 }
-
+@media (min-width: 576px) {
+  .card-columns {
+    column-count: 3;
+    column-gap: 1.25rem;
+    orphans: 1;
+    widows: 1;
+    .card {
+      display: inline-block;
+      width: 100%;
+      margin-bottom: 0.75rem;
+    }
+  }
+}
 @each $color, $value in $theme-colors {
   .card-inverse-#{$color} {
-    @include card-inverse-variant(rgba(theme-color($color), .2), theme-color-level($color, 1), theme-color-level($color, 3));
+    @include card-inverse-variant(rgba($value, .2), theme-color-level($color, 1), theme-color-level($color, 3));
   }
 }
 

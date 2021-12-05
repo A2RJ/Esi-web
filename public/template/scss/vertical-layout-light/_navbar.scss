@@ -1,22 +1,24 @@
 /* Navbar */
 
 .navbar {
-  font-weight: 400;
+  font-weight: 400; 
   transition:background $action-transition-duration $action-transition-timing-function;
   -webkit-transition:background $action-transition-duration $action-transition-timing-function;
   -moz-transition:background $action-transition-duration $action-transition-timing-function;
   -ms-transition:background $action-transition-duration $action-transition-timing-function;
-  -webkit-box-shadow:0px 5px 21px -5px #CDD1E1;
-  -moz-box-shadow: 0px 5px 21px -5px #CDD1E1;
-  box-shadow:0px 5px 21px -5px #CDD1E1;
+  box-shadow: none;
+  background: $navbar-default-bg;
   .sidebar-dark & {
     box-shadow: none;
   }
 
   .navbar-brand-wrapper {
-    background: $white;
+    background: $sidebar-light-bg; 
     .sidebar-dark & {
       background: $sidebar-dark-bg;
+      @media (max-width: 991px) {
+        background: $sidebar-light-bg; 
+      }
     }
     transition: width $action-transition-duration $action-transition-timing-function, background $action-transition-duration $action-transition-timing-function;
     -webkit-transition: width $action-transition-duration $action-transition-timing-function, background $action-transition-duration $action-transition-timing-function;
@@ -24,11 +26,16 @@
     -ms-transition: width $action-transition-duration $action-transition-timing-function, background $action-transition-duration $action-transition-timing-function;
     width: $sidebar-width-lg;
     height: $navbar-height;
+    padding: 20px 35px;
+    @media (max-width: 991px) {
+      padding: 20px 0;
+    }
     .navbar-brand {
-      color: lighten(color(gray-dark), 20%);
+      color: lighten($gray-dark, 20%);
       font-size: 1.5rem;
       margin-right: 0;
-      padding: .25rem 0;
+      padding: 0;
+      line-height: 1;
       
       &.brand-logo-mini {
         display: none;
@@ -37,7 +44,7 @@
       &:active,
       &:focus,
       &:hover {
-        color: lighten(color(gray-dark), 10%);
+        color: lighten($gray-dark, 10%);
       }
 
       img {
@@ -52,10 +59,40 @@
     .brand-logo-mini {
       padding-left: 0;
       text-align: center;
-      img {
+      img { 
         width: calc(#{$sidebar-width-icon} - 30px );
         max-width: 100%;
         margin: auto;
+      }
+    }
+    .navbar-toggler {
+      border: 0;
+      color: inherit;
+      font-size: 1rem;
+      padding: 0;
+      border-radius: 0;
+      &:focus {
+        box-shadow: none;
+      }
+      &:not(.navbar-toggler-right) {
+        @media (max-width: 991px) {
+          display: none;
+        }
+        transform: rotate(0deg);
+        @include transition(transform .3s linear);
+        .sidebar-icon-only & {
+          transform: rotate(180deg);
+        }
+      }
+      &.navbar-toggler-right{
+        @media (max-width:991px){
+          padding-left: 15px;
+          padding-right: 0;
+        }
+      }
+      .sidebar-dark & {
+        padding-left: 0;
+        color: $white;
       }
     }
   }
@@ -67,16 +104,19 @@
     -moz-transition: width $action-transition-duration $action-transition-timing-function;
     -ms-transition: width $action-transition-duration $action-transition-timing-function;
     color: $navbar-menu-color;
-    padding-right: 2.375rem;
-    padding-left: 2.375rem;
+    padding-left: 3.5rem;
+    padding-right: 2.187rem;
+    padding-top: 30px;
+    padding-bottom: 25px;
     width: calc(100% - #{$sidebar-width-lg});
     height: $navbar-height;
     @media (max-width: 991px) {
       width: calc(100% - 55px);
+      padding-top: 12px;
       padding-left: 15px;
       padding-right: 11px;
+      height: auto;
     }
-
     .navbar-toggler {
       border: 0;
       color: inherit;
@@ -97,6 +137,9 @@
         @media (max-width:991px){
           padding-left: 15px;
           padding-right: 0;
+          &:focus {
+            box-shadow: none;
+          }
         }
       }
       .sidebar-dark & {
@@ -109,14 +152,35 @@
       @extend .flex-row;
       @extend .align-items-center;
       .nav-item {
-        margin-left: 1rem;
-        margin-right: 1rem;
+        margin-left: 1.25rem;
+          @media (max-width: 992px) {
+            margin-left: 10px;
+            margin-right: 0px;
+          }
         &:last-child {
           margin-right: 0;
         }
         .nav-link {
-          color: inherit;
-          font-size: $navbar-font-size; 
+          color: $navbar-link-color;
+          font-size: $navbar-font-size;
+          vertical-align: middle;
+
+          @media (max-width: 767px) {
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
+          }
+
+          i {
+            font-size: 1.25rem;
+            vertical-align: middle;
+            margin-right: 0;
+            &.icon-lg {
+              font-size: 1.4rem;
+            }
+          }
+        }
+        .small-text {
+          font-size: 0.75rem;
         }
         &.nav-search {
           margin-left: 2rem;
@@ -189,6 +253,7 @@
             right: 0;
             left: auto;
             top: 70px;
+            padding-top: 0;
             .rtl & {
               right: auto;
               left: 0;
@@ -197,10 +262,12 @@
               @extend .d-flex;
               @extend .align-items-center;
               margin-bottom: 0;
-              padding: 0.687rem 1.562rem;
+              padding: 5px 25px;
               cursor: pointer;
+              border-bottom: 1px solid $border-color;
+              line-height: 1;
               i {
-                font-size: 17px;
+                font-size: 24px;
               }
 
               .badge {
@@ -210,10 +277,11 @@
                 max-width: 200px;
                 overflow: hidden;
                 text-overflow: ellipsis;
+                line-height: 1;
               }
               .rtl & {
                 i {
-                  @extend .mr-0;
+                  @extend .me-0;
                   margin-left: 10px;
                 }
                 .badge {
@@ -228,7 +296,7 @@
             }
           }
           i {
-            margin-right: .5rem;
+            margin-right: 0;
             vertical-align: middle;
           }
           @media (max-width: 991px) {
@@ -244,23 +312,155 @@
             position: relative;
             padding: 0;
             text-align: center;
-            i {
-              font-size: 1.25rem;
-              margin-right: 0;
-              vertical-align: middle;
-            }
             .count {
               position: absolute;
-              left: 36%;
-              width: 12px;
-              height: 12px;
+              left: 45%;
+              width: 7px;
+              height: 7px;
               border-radius: 100%;
-              background: theme-color(primary);
-              top: 1px;
+              background: $danger;
+              color: $white;
+              font-size: 11px;
+              top: -2px;
+              font-weight: 600;
+              line-height: 1rem;
               border: 1px solid $white;
-            }
+              text-align: center;
+          }
             &:after {
               display: none;
+            }
+          }
+        }
+
+        .welcome-text {
+          font-family: $type1;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 28px;
+          line-height: 38px;
+          color: $welcome-grey;
+          margin-bottom: 10px;
+          .text-dark {
+            color: $black;
+          }
+        }
+        .welcome-sub-text {
+          font-family: $type1;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 22px;
+          color: $welcome-grey;
+          margin-bottom: 0;
+        }
+        .dropdown-bordered {
+          padding: 8px 15px;
+          border: 1px solid $border-grey;
+          border-radius: 6px;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 12px;
+          line-height: 16px;
+          font-family: $type1;
+          min-width: 170px;
+          height: 34px;
+          background: $white;
+          &.dropdown-toggle {
+            &:after {
+              position: absolute;
+              right: 15px;
+              top: 35%;
+              margin-left: auto;
+              color: $black;
+            }
+          }
+        }
+        .navbar-date-picker {
+          background: $white;
+          font-family: $type1;
+          height: 36px;
+          border: 1px solid $border-grey;
+          border-radius: 6px;
+          .calendar-icon {
+            color: $black;
+            font-size: 12px;
+          }
+          .input-group-prepend {
+            height: 34px;
+            border-color:transparent;
+            border-radius: 6px 0 0 6px;
+            background: r=transparent;
+            border-right: 1px solid $border-color;
+            & > .input-group-text {
+              border-color:transparent;
+              border-right: 1px solid $border-color;
+              background: transparent;
+              height: 100%;
+
+            }
+          }
+          .form-control {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 16px;
+            color: $black;
+            border: none;
+            border-left: none;
+            max-width: 120px;
+            height: 34px;
+            border-radius: 0 6px 6px 0;
+          }
+        }
+        .search-form {
+          position: relative;
+          margin-right: 0;
+          vertical-align: middle;
+          height: 14px;
+
+          .rtl & {
+            margin-right: 0;
+            margin-left: 0;
+          }
+
+          i {
+            font-size: 1.25rem;
+            position: absolute;
+            left: 0;
+            top: 60%;
+            transform: translateY(-50%);
+            color: $navbar-menu-icon-color;
+
+            .rtl & {
+              left: auto;
+              right: 0;
+            }
+          }
+
+          input{
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            width: 0;
+            height: 24px;
+            padding: 0 0 0 20px;
+            position: relative;
+            transition: width 400ms ease, background 400ms ease;
+
+            &:focus{
+              background-color: transparent;
+              border-bottom: 1px solid $navbar-menu-icon-color;
+              border-radius: 0;
+              padding-left: 30px;
+              cursor: text;
+              outline: 0;
+              width: 140px;
+
+              .rtl & {
+                padding-right: 30px;
+                padding-left: 0;
+              }
             }
           }
         }
@@ -326,15 +526,15 @@
         background: $white;
         border-left: 1px solid $border-color;
         .navbar-toggler {
-          color: theme-color(dark);
+          color: $dark;
         }
         .nav-item {
           .nav-link {
-            color: theme-color(dark);
+            color: $dark;
           }
           &.nav-search {
             .input-group {
-              background: rgba(theme-color(dark), .24);
+              background: rgba($dark, .24);
             }
           }
         }
@@ -351,7 +551,7 @@
           .nav-link {
             &.count-indicator {
               .count {
-                background: theme-color(primary);
+                background: $primary;
               }
             }
           }

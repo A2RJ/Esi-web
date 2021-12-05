@@ -17,3 +17,14 @@
     @include badge-outline-variations($value);
   }
 }
+@each $color, $value in $theme-colors {
+  .badge-opacity-#{$color} {
+    @include badge-opacity-variations($value);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .badge-#{$color} {
+    @include badge-variations($value);
+  }
+}

@@ -102,7 +102,7 @@ class Generate extends Command
 
         $template = str_replace(
             ['{{crudName}}', '{{foreach}}', '{{id}}', '{{listHeader}}', '{{listBody}}'],
-            [$name, strtolower($name), $id, $listHeader, $listBody],
+            [lcfirst($name), strtolower($name), $id, $listHeader, $listBody],
             $this->getStub('index')
         );
         file_put_contents(app_path("../resources/views/{$name}/index.blade.php"), $template);
@@ -113,20 +113,15 @@ class Generate extends Command
         $listInput = '';
         foreach ($row as $value) {
             $listInput .= '
-            <div class="flex flex-wrap -mx-3 mb-6">
-            <div class="w-full px-3">
-              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-              ' . $value . '
-              </label>
-              <input name="' . $value . '" id="' . $value . '" type="text" placeholder="' . $value . '" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-              <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you like</p>
+            <div class="form-group">
+                <label for="' . $value . '">' . $value . '</label>
+                <input type="text" class="form-control" name="' . $value . '" id="' . $value . '" placeholder="' . $value . '">
             </div>
-          </div>
             ';
         }
         $template = str_replace(
             ['{{crudName}}', '{{listInput}}'],
-            [$name, $listInput],
+            [lcfirst($name), $listInput],
             $this->getStub('create')
         );
         file_put_contents(app_path("../resources/views/{$name}/create.blade.php"), $template);
@@ -137,20 +132,15 @@ class Generate extends Command
         $listInput = '';
         foreach ($row as $value) {
             $listInput .= '
-            <div class="flex flex-wrap -mx-3 mb-6">
-            <div class="w-full px-3">
-              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-              ' . $value . '
-              </label>
-              <input name="' . $value . '" id="' . $value . '" type="text" placeholder="{{ $' . strtolower($name) . '->' . $value . ' }}" value="{{ $' . strtolower($name) . '->' . $value . ' }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-              <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you like</p>
+            <div class="form-group">
+                <label for="' . $value . '">' . $value . '</label>
+                <input class="form-control" name="' . $value . '" id="' . $value . '" type="text" placeholder="{{ $' . strtolower($name) . '->' . $value . ' }}" value="{{ $' . strtolower($name) . '->' . $value . ' }}">
             </div>
-          </div>
             ';
         }
         $template = str_replace(
             ['{{crudName}}', '{{foreach}}', '{{id}}', '{{listInput}}'],
-            [$name, strtolower($name), $id, $listInput],
+            [lcfirst($name), strtolower($name), $id, $listInput],
             $this->getStub('edit')
         );
         file_put_contents(app_path("../resources/views/{$name}/edit.blade.php"), $template);

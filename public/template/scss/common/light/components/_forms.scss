@@ -11,7 +11,7 @@
 
   .input-group-text {
     border-color: $border-color;
-    padding: $input-padding-y .75rem;
+    padding: .5rem .75rem;
     color: $input-placeholder-color;
   }
 }
@@ -20,6 +20,7 @@
   font-weight: 400;
   font-size: $input-font-size;
   border-radius: 4px;
+  height: $input-height;
 }
 
 select {
@@ -50,7 +51,7 @@ select {
   }
   &.has-danger {
     .form-control {
-      border-color: theme-color(danger);
+      border-color: $danger;
     }
   }
   .file-upload-default {

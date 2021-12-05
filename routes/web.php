@@ -28,6 +28,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/test', function () {
+    return view('test.index');
+});
+
 // users
 Route::prefix('/users')->group(function () {
     Route::get('/', [UserController::class, 'index']);
@@ -36,7 +40,7 @@ Route::prefix('/users')->group(function () {
     Route::post('/store', [UserController::class, 'store']);
     Route::get('/edit/{id}', [UserController::class, 'edit']);
     Route::post('/update/{id}', [UserController::class, 'update']);
-    Route::get('/delete/{id}', [UserController::class, 'delete']);
+    Route::get('/destroy/{id}', [UserController::class, 'destroy']);
 });
 
 // players
@@ -47,7 +51,7 @@ Route::prefix('/players')->group(function () {
     Route::post('/store', [PlayersController::class, 'store']);
     Route::get('/edit/{id}', [PlayersController::class, 'edit']);
     Route::post('/update/{id}', [PlayersController::class, 'update']);
-    Route::get('/delete/{id}', [PlayersController::class, 'delete']);
+    Route::get('/destroy/{id}', [PlayersController::class, 'destroy']);
 });
 
 // squads
@@ -58,7 +62,7 @@ Route::prefix('/squads')->group(function () {
     Route::post('/store', [SquadsController::class, 'store']);
     Route::get('/edit/{id}', [SquadsController::class, 'edit']);
     Route::post('/update/{id}', [SquadsController::class, 'update']);
-    Route::get('/delete/{id}', [SquadsController::class, 'delete']);
+    Route::get('/destroy/{id}', [SquadsController::class, 'destroy']);
 });
 
 // squad inv players
@@ -69,7 +73,7 @@ Route::prefix('/squadinvplayers')->group(function () {
     Route::post('/store', [Squad_inv_playersController::class, 'store']);
     Route::get('/edit/{id}', [Squad_inv_playersController::class, 'edit']);
     Route::post('/update/{id}', [Squad_inv_playersController::class, 'update']);
-    Route::get('/delete/{id}', [Squad_inv_playersController::class, 'delete']);
+    Route::get('/destroy/{id}', [Squad_inv_playersController::class, 'destroy']);
 });
 
 // managements
@@ -80,7 +84,7 @@ Route::prefix('/managements')->group(function () {
     Route::post('/store', [ManagementsController::class, 'store']);
     Route::get('/edit/{id}', [ManagementsController::class, 'edit']);
     Route::post('/update/{id}', [ManagementsController::class, 'update']);
-    Route::get('/delete/{id}', [ManagementsController::class, 'delete']);
+    Route::get('/destroy/{id}', [ManagementsController::class, 'destroy']);
 });
 
 // managements inv squads
@@ -91,7 +95,7 @@ Route::prefix('/managementsinvsquads')->group(function () {
     Route::post('/store', [Management_inv_squadsController::class, 'store']);
     Route::get('/edit/{id}', [Management_inv_squadsController::class, 'edit']);
     Route::post('/update/{id}', [Management_inv_squadsController::class, 'update']);
-    Route::get('/delete/{id}', [Management_inv_squadsController::class, 'delete']);
+    Route::get('/destroy/{id}', [Management_inv_squadsController::class, 'destroy']);
 });
 
 // games
@@ -102,7 +106,7 @@ Route::prefix('/games')->group(function () {
     Route::post('/store', [GamesController::class, 'store']);
     Route::get('/edit/{id}', [GamesController::class, 'edit']);
     Route::post('/update/{id}', [GamesController::class, 'update']);
-    Route::get('/delete/{id}', [GamesController::class, 'delete']);
+    Route::get('/destroy/{id}', [GamesController::class, 'destroy']);
 });
 
 // game categories
@@ -113,7 +117,7 @@ Route::prefix('/gamecategories')->group(function () {
     Route::post('/store', [Game_categoriesController::class, 'store']);
     Route::get('/edit/{id}', [Game_categoriesController::class, 'edit']);
     Route::post('/update/{id}', [Game_categoriesController::class, 'update']);
-    Route::get('/delete/{id}', [Game_categoriesController::class, 'delete']);
+    Route::get('/destroy/{id}', [Game_categoriesController::class, 'destroy']);
 });
 
 // events
@@ -124,38 +128,38 @@ Route::prefix('/events')->group(function () {
     Route::post('/store', [EventsController::class, 'store']);
     Route::get('/edit/{id}', [EventsController::class, 'edit']);
     Route::post('/update/{id}', [EventsController::class, 'update']);
-    Route::get('/delete/{id}', [EventsController::class, 'delete']);
+    Route::get('/destroy/{id}', [EventsController::class, 'destroy']);
 });
 
 // event teams
-Route::prefix('/eventteams')->group(function () {
+Route::prefix('/event_teams')->group(function () {
     Route::get('/', [Event_teamsController::class, 'index']);
     Route::get('/create', [Event_teamsController::class, 'create']);
     Route::get('/show/{id}', [Event_teamsController::class, 'show']);
     Route::post('/store', [Event_teamsController::class, 'store']);
     Route::get('/edit/{id}', [Event_teamsController::class, 'edit']);
     Route::post('/update/{id}', [Event_teamsController::class, 'update']);
-    Route::get('/delete/{id}', [Event_teamsController::class, 'delete']);
+    Route::get('/destroy/{id}', [Event_teamsController::class, 'destroy']);
 });
 
 // event inv teams
-Route::prefix('/eventinvteams')->group(function () {
+Route::prefix('/event_inv_teams')->group(function () {
     Route::get('/', [Event_inv_teamsController::class, 'index']);
     Route::get('/create', [Event_inv_teamsController::class, 'create']);
     Route::get('/show/{id}', [Event_inv_teamsController::class, 'show']);
     Route::post('/store', [Event_inv_teamsController::class, 'store']);
     Route::get('/edit/{id}', [Event_inv_teamsController::class, 'edit']);
     Route::post('/update/{id}', [Event_inv_teamsController::class, 'update']);
-    Route::get('/delete/{id}', [Event_inv_teamsController::class, 'delete']);
+    Route::get('/destroy/{id}', [Event_inv_teamsController::class, 'destroy']);
 });
 
 // event winners
-Route::prefix('/eventwinners')->group(function () {
+Route::prefix('/event_winner')->group(function () {
     Route::get('/', [Event_winnerController::class, 'index']);
     Route::get('/create', [Event_winnerController::class, 'create']);
     Route::get('/show/{id}', [Event_winnerController::class, 'show']);
     Route::post('/store', [Event_winnerController::class, 'store']);
     Route::get('/edit/{id}', [Event_winnerController::class, 'edit']);
     Route::post('/update/{id}', [Event_winnerController::class, 'update']);
-    Route::get('/delete/{id}', [Event_winnerController::class, 'delete']);
+    Route::get('/destroy/{id}', [Event_winnerController::class, 'destroy']);
 });

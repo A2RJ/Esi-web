@@ -44,12 +44,12 @@
 	}
 	&.nav-tabs-vertical-custom {
 		@extend .nav-tabs-vertical;
-		background: theme-color(primary);
+		background: $primary;
 		border-radius: 4px;
 		.nav-link {
 			background: transparent;
 			border-color: rgba($white, .2);
-			color: darken(theme-color(primary), 30%);
+			color: darken($primary, 30%);
 			font-weight: 600;
 			padding: 1.75rem;
 			&.active {
@@ -92,7 +92,7 @@
 			background: $nav-pills-custom-bg;
 			color: $black;
 			&.active {
-				background: theme-color(danger);
+				background: $danger;
 				color: $white;
 			}
 		}
@@ -105,7 +105,7 @@
     .nav-link {
 			color: $value;
 			&.active {
-				background: theme-color($color);
+				background: $color;
 			}
 		}
   }
@@ -128,4 +128,38 @@
 		border: 0;
 		padding-left: 0;
 	}
+}
+.home-tab {
+	font-family: $type1;
+.nav-tabs {
+	font-family: $type1;
+	border-bottom: none;
+	.nav-item {
+		.nav-link {
+			font-style: normal; 
+			font-weight: 500;
+			font-size: 13px;
+			line-height: 18px;
+			color: $body-color;
+			padding: 12px 14px;
+			border: none;
+			border-right: 1px solid $border-color;
+			font-family: $type1;
+			background: transparent;
+			@media (max-width:991px) {
+				padding: 5px 4px;
+				margin-bottom: 15px;
+			}
+			&.active {
+				background: transparent;
+				color: $nav-tab-active-color;
+			}
+		}
+	}
+}
+.tab-content {
+	padding: 24px 0;
+	font-family: $type1;
+	border: none;
+}
 }

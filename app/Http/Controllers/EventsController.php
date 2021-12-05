@@ -41,7 +41,7 @@ class EventsController extends Controller
         ]);
         Events::create($request->all());
 
-        return redirect('/event');
+        return redirect('/events');
     }
 
     public function edit($id)
@@ -54,7 +54,7 @@ class EventsController extends Controller
     {
         Events::findOrFail($id)->update($request->all());
 
-        return redirect('/event');
+        return redirect('/events');
     }
 
     public function destroy($id)
@@ -62,6 +62,6 @@ class EventsController extends Controller
         $event = Events::findOrFail($id);
         $event->delete();
 
-        return redirect('/event');
+        return redirect('/events');
     }
 }

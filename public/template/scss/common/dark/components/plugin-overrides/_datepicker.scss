@@ -77,7 +77,7 @@
 								content: "";
 								width: 28px;
 								height: 28px;
-								background: theme-color(success);
+								background: $success;
 								@include border-radius(4px);
 								display: block;
 								margin: auto;
@@ -100,7 +100,7 @@
 								content: "";
 								width: 28px;
 								height: 28px;
-								background: theme-color(primary);
+								background: $primary;
 								@include border-radius(4px);
 								display: block;
 								margin: auto;
@@ -126,12 +126,12 @@
 					&.range-end {
 					  background: transparent;
 						position: relative;
-						color: theme-color(success);
+						color: $success;
 						&::before {
 							content: "";
 							width: 28px;
 							height: 28px;
-							background: rgba(theme-color(success), .2);
+							background: rgba($success, .2);
 							border-radius: 4px;
 							display: block;
 							margin: auto;
@@ -184,7 +184,7 @@
 				}
 
 				&.datepicker-switch {
-					color: theme-color(primary);
+					color: $primary;
 					padding-bottom: 0.5rem;
 					padding-top: 0.5rem;
 				}

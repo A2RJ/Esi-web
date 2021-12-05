@@ -73,7 +73,7 @@
       }
     }
 
-    $('[data-toggle="minimize"]').on("click", function() {
+    $('[data-bs-toggle="minimize"]').on("click", function() {
       if ((body.hasClass('sidebar-toggle-display')) || (body.hasClass('sidebar-absolute'))) {
         body.toggleClass('sidebar-hidden');
       } else {

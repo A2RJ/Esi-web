@@ -3,7 +3,7 @@
 .template-demo {
   > .btn {
     @extend .mt-3;
-    @extend .mr-2;
+    @extend .me-2;
   }
 
   .slider-wrap {
@@ -12,13 +12,13 @@
 
   > .btn-toolbar {
     @extend .mt-3;
-    @extend .mr-3;
+    @extend .me-3;
   }
 
   > .btn-group,
   >  .btn-group-vertical {
     @extend .mt-2;
-    @extend .mr-2;
+    @extend .me-2;
   }
 
   .progress {
@@ -51,7 +51,7 @@
 
   > .dropdown {
     display: inline-block;
-    @extend .mr-2;
+    @extend .me-2;
     margin-bottom: 0.5rem;
   }
 
@@ -235,7 +235,7 @@
         content: '';
         width: 1px;
         height: 60px;
-        background: theme-color(info);
+        background: $info;
         position: absolute;
         right: 0;
         top: 25%;
@@ -376,7 +376,7 @@
 .navbar-brand {
   &.landing {
     img {
-      height: 34px;
+      height: 20px;
     }
   }
 }

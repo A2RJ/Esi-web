@@ -21,12 +21,14 @@ class Event_teamsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'event_id' => 'required',
-            'team_id' => 'required',
+            "id_event_teams" => "required",
+            "squad_id" => "required",
+            "isfree" => "required",
+            "ispaid" => "required",
         ]);
 
         Event_teams::create($request->all());
-        return redirect()->route('event_teams.index')->with('message', 'Item created successfully.');
+        return redirect('event_teams')->with('message', 'Item created successfully.');
     }
 
     public function edit($id)
@@ -38,7 +40,7 @@ class Event_teamsController extends Controller
     public function update(Request $request, $id)
     {
         Event_teams::findOrFail($id)->update($request->all());
-        return redirect()->route('event_teams.index')->with('message', 'Item updated successfully.');
+        return redirect('event_teams')->with('message', 'Item updated successfully.');
     }
 
     public function show($id)
@@ -50,6 +52,6 @@ class Event_teamsController extends Controller
     public function destroy($id)
     {
         $event_team = Event_teams::findOrFail($id)->delete();
-        return redirect()->route('event_teams.index')->with('message', 'Item deleted successfully.');
+        return redirect()->route('event_teams')->with('message', 'Item deleted successfully.');
     }
 }

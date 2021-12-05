@@ -3,15 +3,13 @@
 
 @section('content')
     <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Add New {{crudName}}</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{crudName}}/index" title="Go back"> <i class="fas fa-backward "></i> </a>
-            </div>
-        </div>
-    </div>
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Add New {{crudName}}</h4>
+                    <p class="card-description">
+                    <a class="btn btn-primary" href="/{{crudName}}" title="Go back"> Batal </a>
+                    </p>
 
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -23,15 +21,13 @@
             </ul>
         </div>
     @endif
-    <form action="/{{crudName}}/store" method="POST" class="w-full max-w-lg">
+    <form action="/{{crudName}}/store" method="POST" class="forms-sample">
         @csrf
 
-        <div class="row">
             {{listInput}}
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
-        </div>
 
     </form>
 @endsection

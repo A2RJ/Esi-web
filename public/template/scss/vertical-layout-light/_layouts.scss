@@ -6,6 +6,10 @@
     .navbar {
       .navbar-brand-wrapper {
         width: $sidebar-width-mini;
+        background: $sidebar-icon-only-bg;
+        .navbar-brand {
+          display: none;
+        }
       }
       .navbar-menu-wrapper {
         width: calc(100% - #{$sidebar-width-mini});
@@ -13,6 +17,7 @@
     }
     .sidebar {
       width: $sidebar-width-mini;
+      background: $sidebar-icon-only-bg;
       .nav {
         .nav-item {
           padding: 0;
@@ -24,6 +29,8 @@
             text-align: center;
             position: relative;
             border-bottom: none;
+            margin-bottom: .875rem;
+            padding: 10px 24px;
             .menu-title {
               display: block;
               margin: auto;
@@ -37,7 +44,7 @@
                 display:block;
                 margin-right: auto;
                 margin-left: auto;
-                margin-bottom: .625rem;
+                margin-bottom: .25rem;
               }
               &.menu-arrow {
                 display: inline-block;
@@ -48,6 +55,9 @@
                 @include transform(translateY(-50%));
               }
             }
+          }
+          &.nav-category {
+            display: none;
           }
         }
         &.sub-menu {
@@ -93,6 +103,13 @@
     .navbar {
       .navbar-brand-wrapper {
         width: $sidebar-width-icon;
+        padding-left: 1.625rem;
+        background: $sidebar-icon-only-bg;
+        .navbar-toggler {
+          @at-root #{selector-append(".sidebar-dark", &)} {
+            color: $sidebar-light-menu-color;
+          }
+        }
         .brand-logo {
           display: none;
         }
@@ -102,10 +119,12 @@
       }
       .navbar-menu-wrapper {
         width: calc(100% - #{$sidebar-width-icon});
+       
       }
     }
     .sidebar {
       width: $sidebar-width-icon;
+      background: $sidebar-icon-only-bg;
       .nav {
         overflow: visible;
         margin-left: 0;
@@ -118,6 +137,9 @@
             padding-right: .5rem;            
             text-align: center;
             position: static;
+            @at-root #{selector-append(".sidebar-dark", &)} {
+              color: $sidebar-light-menu-color;
+            }
             .menu-title,
             .badge,.menu-sub-title {
               display: none;
@@ -125,9 +147,11 @@
             .menu-title {
               @include border-radius(0 5px 5px 0px);
               background: $sidebar-light-menu-hover-bg;
-
               @at-root #{selector-append(".rtl", &)} {
                 @include border-radius(5px 0 0 5px);
+              }
+              @at-root #{selector-append(".sidebar-dark", &)} {
+                background: $sidebar-light-menu-color;
               }
             }
             i {
@@ -135,6 +159,10 @@
                 margin-right: 0;
                 margin-left: 0;
                 margin-bottom: 0;
+                color: $sidebar-icon-only-light-color;
+                @at-root #{selector-append(".sidebar-dark", &)} {
+                  color: $sidebar-icon-only-light-color;
+                }
               }
               &.menu-arrow {
                 display: none;
@@ -159,7 +187,7 @@
                 @include align-items(center);
                 background: $sidebar-light-menu-hover-bg;
                 @at-root #{selector-append(".sidebar-dark", &)} {
-                    background: $icon-only-menu-bg-dark;
+                    background: $icon-only-menu-bg-light;
                 }
                 padding: 0.5rem 1.4rem;
                 left: $sidebar-width-icon;
@@ -180,7 +208,7 @@
                           box-shadow: -4px 0px 7px 0px rgba(182, 185, 189, 0.25);                                
                 }
                 @at-root #{selector-append(".sidebar-dark", &)} {
-                  color: $white;
+                  color: $sidebar-light-menu-color;
                 }
                 &:after {
                   display: none;
@@ -190,7 +218,7 @@
                 .menu-title {
                   background: $sidebar-light-menu-hover-bg;
                   @at-root #{selector-append(".sidebar-dark", &)} {
-                    background: $icon-only-menu-bg-dark;
+                    background: $icon-only-menu-bg-light;
                   }
                 }
               }
@@ -217,11 +245,33 @@
               }
             }
           }
+          &.nav-category {
+            display: none;
+          }
+          &.active {
+            .nav-link {
+              &:before {
+                content: "";
+                position: absolute;
+                width: 3px;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background: $primary;
+              }
+              i {
+                &.menu-icon {
+                  color: $primary;
+                }
+              }
+            }
+          }
         }
         &:not(.sub-menu) {
           .nav-item {
             &.active {
               border-radius: 0;
+              background: transparent;
             }
             &:hover {
               .nav-link {
@@ -233,7 +283,7 @@
         &.sub-menu {
           padding: $sidebar-icon-only-submenu-padding;
           @at-root #{selector-append(".sidebar-dark", &)} {
-            background: $icon-only-menu-bg-dark;
+            background: $icon-only-menu-bg-light;
           }
           .nav-item {
             .nav-link {
@@ -244,10 +294,10 @@
         }
       }
     }
-
     .main-panel {
       width: calc(100% - #{$sidebar-width-icon});
     }
+    
   }
 }
 
