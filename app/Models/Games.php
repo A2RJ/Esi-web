@@ -16,5 +16,5 @@ class Games extends Model
      */
     protected $primaryKey = 'id_game';
 
-    protected $fillable =  [ "id_game", "game_name", "game_image",  ];
+    protected $fillable =  [ "id_game", "game_name", "game_image", "created_at", "updated_at",  ];
 }

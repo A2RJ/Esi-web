@@ -16,7 +16,7 @@
                 <p class="card-description">
                 Add class <code>.table-hover</code>
                 </p>
-                 <a class="btn btn-success" href="{{crudName}}/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                 <a class="btn btn-success" href="/{{crudName}}/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
             Tambah
             </a>
                 <div class="table-responsive">
@@ -35,9 +35,9 @@
                         {{listBody}}
                         <td class="px-4 py-3">
                         <div class="flex items-center space-x-4 text-sm">
-                        <a href="{{crudName}}/show/{{$data->{{id}} }}" title="show" class="badge badge-info">Show</a>
-                        <a href="{{crudName}}/edit/{{$data->{{id}} }}" class="badge badge-warning">Edit</a>
-                        <a href="{{crudName}}/destroy/{{$data->{{id}} }}" class="badge badge-danger">Delete</a>
+                        <a href="/{{crudName}}/show/{{$data->{{id}} }}" title="show" class="badge badge-info">Show</a>
+                        <a href="/{{crudName}}/edit/{{$data->{{id}} }}" class="badge badge-warning">Edit</a>
+                        <a href="/{{crudName}}/destroy/{{$data->{{id}} }}" class="badge badge-danger">Delete</a>
                         </div>
                         </td>
                     </tr>

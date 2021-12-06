@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -26,17 +27,20 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
+            "id_user" => "required",
+            "user_role" => "required",
+            "email" => "required",
+            "password" => "required",
+            "kontak" => "required",
+            "alamat" => "required",
+            "gender" => "required",
+            "user_image" => "required",
         ]);
-        User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
-        ]);
+        $user  = User::create($request->all());
+        $user->password = Hash::make($request->password);
+        $user->save();
         // redirect with flash data
-        return redirect()->route('users.index')->with('success', 'User created successfully');
+        return redirect('users')->with('success', 'User created successfully');
     }
 
     public function edit($id)

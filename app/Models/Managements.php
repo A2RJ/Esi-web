@@ -16,5 +16,5 @@ class Managements extends Model
      */
     protected $primaryKey = 'id_management';
 
-    protected $fillable =  [ "id_management", "user_id", "management_name", "management_image", "kontak", "web_url", "alamat",  ];
+    protected $fillable =  [ "id_management", "user_id", "management_name", "management_image", "kontak", "web_url", "alamat", "created_at", "updated_at",  ];
 }

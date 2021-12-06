@@ -380,12 +380,12 @@
           </li>
           <li class="nav-item nav-category">Events</li>
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-bs-toggle="collapse" href="#Events" aria-expanded="false" aria-controls="Events">
               <i class="menu-icon mdi mdi-floor-plan"></i>
               <span class="menu-title">Events</span>
               <i class="menu-arrow"></i> 
             </a>
-            <div class="collapse" id="ui-basic">
+            <div class="collapse" id="Events">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="/events">Events</a></li>
                 <li class="nav-item"> <a class="nav-link" href="/event_teams">Event Teams</a></li>
@@ -394,65 +394,71 @@
               </ul>
             </div>
           </li>
-          <li class="nav-item nav-category">Forms and Datas</li>
+          <li class="nav-item nav-category">Games</li>
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
-              <i class="menu-icon mdi mdi-card-text-outline"></i>
-              <span class="menu-title">Form elements</span>
-              <i class="menu-arrow"></i>
+            <a class="nav-link" data-bs-toggle="collapse" href="#Games" aria-expanded="false" aria-controls="Games">
+              <i class="menu-icon mdi mdi-floor-plan"></i>
+              <span class="menu-title">Games</span>
+              <i class="menu-arrow"></i> 
             </a>
-            <div class="collapse" id="form-elements">
+            <div class="collapse" id="Games">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Basic Elements</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/games">Games</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/game_categories">Game Category</a></li>
               </ul>
             </div>
           </li>
+          <li class="nav-item nav-category">Managements</li>
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-              <i class="menu-icon mdi mdi-chart-line"></i>
-              <span class="menu-title">Charts</span>
-              <i class="menu-arrow"></i>
+            <a class="nav-link" data-bs-toggle="collapse" href="#Managements" aria-expanded="false" aria-controls="Managements">
+              <i class="menu-icon mdi mdi-floor-plan"></i>
+              <span class="menu-title">Managements</span>
+              <i class="menu-arrow"></i> 
             </a>
-            <div class="collapse" id="charts">
+            <div class="collapse" id="Managements">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/managements">Managements</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/management_inv_squads">Managements Invite Squad</a></li>
               </ul>
             </div>
           </li>
+          <li class="nav-item nav-category">Squads</li>
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
-              <i class="menu-icon mdi mdi-table"></i>
-              <span class="menu-title">Tables</span>
-              <i class="menu-arrow"></i>
+            <a class="nav-link" data-bs-toggle="collapse" href="#Squads" aria-expanded="false" aria-controls="Squads">
+              <i class="menu-icon mdi mdi-floor-plan"></i>
+              <span class="menu-title">Squads</span>
+              <i class="menu-arrow"></i> 
             </a>
-            <div class="collapse" id="tables">
+            <div class="collapse" id="Squads">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/squads">Squads</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/management_inv_squads">Managements Invite Squad</a></li>
               </ul>
             </div>
           </li>
+          <li class="nav-item nav-category">Players</li>
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
-              <i class="menu-icon mdi mdi-layers-outline"></i>
-              <span class="menu-title">Icons</span>
-              <i class="menu-arrow"></i>
+            <a class="nav-link" data-bs-toggle="collapse" href="#Players" aria-expanded="false" aria-controls="Players">
+              <i class="menu-icon mdi mdi-floor-plan"></i>
+              <span class="menu-title">Players</span>
+              <i class="menu-arrow"></i> 
             </a>
-            <div class="collapse" id="icons">
+            <div class="collapse" id="Players">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Mdi icons</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/squads">Players</a></li>
               </ul>
             </div>
           </li>
-          <li class="nav-item nav-category">pages</li>
+          <li class="nav-item nav-category">Users</li>
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-              <i class="menu-icon mdi mdi-account-circle-outline"></i>
-              <span class="menu-title">User Pages</span>
-              <i class="menu-arrow"></i>
+            <a class="nav-link" data-bs-toggle="collapse" href="#Users" aria-expanded="false" aria-controls="Users">
+              <i class="menu-icon mdi mdi-floor-plan"></i>
+              <span class="menu-title">Users</span>
+              <i class="menu-arrow"></i> 
             </a>
-            <div class="collapse" id="auth">
+            <div class="collapse" id="Users">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
+                <li class="nav-item"> <a class="nav-link" href="/users">Users</a></li>
               </ul>
             </div>
           </li>

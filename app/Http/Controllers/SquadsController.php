@@ -37,13 +37,14 @@ class SquadsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
-            'description' => 'required',
-            'image' => 'required',
+            "id_squad" => "required",
+            "squad_name" => "required",
+            "squad_leader" => "required",
+            "management_id" => "required",
         ]);
 
         Squads::create($request->all());
-        return redirect()->route('squads.index')->with('success', 'Squad created successfully');
+        return redirect('squads')->with('success', 'Squad created successfully');
     }
 
     /**
@@ -79,14 +80,8 @@ class SquadsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'description' => 'required',
-            'image' => 'required',
-        ]);
-
         Squads::find($id)->update($request->all());
-        return redirect()->route('squads.index')->with('success', 'Squad updated successfully');
+        return redirect('squads')->with('success', 'Squad updated successfully');
     }
 
     /**
@@ -98,6 +93,6 @@ class SquadsController extends Controller
     public function destroy($id)
     {
         Squads::find($id)->delete();
-        return redirect()->route('squads.index')->with('success', 'Squad deleted successfully');
+        return redirect('squads')->with('success', 'Squad deleted successfully');
     }
 }

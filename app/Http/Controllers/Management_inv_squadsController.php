@@ -37,13 +37,13 @@ class Management_inv_squadsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
-            'description' => 'required',
-            'status' => 'required',
+            "id_management_inv_squad" => "required",
+            "management_id" => "required",
+            "squad_id" => "required",
         ]);
 
         Management_inv_squads::create($request->all());
-        return redirect()->route('management_inv_squads.index')
+        return redirect('management_inv_squads')
             ->with('success', 'Management_inv_squads created successfully');
     }
 
@@ -80,14 +80,8 @@ class Management_inv_squadsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'description' => 'required',
-            'status' => 'required',
-        ]);
-
         Management_inv_squads::find($id)->update($request->all());
-        return redirect()->route('management_inv_squads.index')
+        return redirect('management_inv_squads')
             ->with('success', 'Management_inv_squads updated successfully');
     }
 
@@ -100,7 +94,7 @@ class Management_inv_squadsController extends Controller
     public function destroy($id)
     {
         Management_inv_squads::find($id)->delete();
-        return redirect()->route('management_inv_squads.index')
+        return redirect('management_inv_squads')
             ->with('success', 'Management_inv_squads deleted successfully');
     }
 }

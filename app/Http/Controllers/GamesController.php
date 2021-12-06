@@ -37,11 +37,9 @@ class GamesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'image' => 'required',
-            'price' => 'required',
-            'stock' => 'required',
+            "id_game" => "required",
+            "game_name" => "required",
+            "game_image" => "required",
         ]);
 
         Games::create($request->all());
@@ -82,16 +80,7 @@ class GamesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'image' => 'required',
-            'price' => 'required',
-            'stock' => 'required',
-        ]);
-
         Games::find($id)->update($request->all());
-
         return redirect('/games')->with('success', 'Game has been updated');
     }
 

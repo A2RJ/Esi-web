@@ -16,5 +16,5 @@ class Management_inv_squads extends Model
      */
     protected $primaryKey = 'id_management_inv_squad';
 
-    protected $fillable =  [ "id_management_inv_squad", "management_id", "squad_id",  ];
+    protected $fillable =  ["id_management_inv_squad", "management_id", "squad_id", "created_at", "updated_at",];
 }

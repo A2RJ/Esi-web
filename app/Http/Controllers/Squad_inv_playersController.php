@@ -37,14 +37,14 @@ class Squad_inv_playersController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'player_id' => 'required',
-            'squad_id' => 'required',
-            'position' => 'required',
-            'status' => 'required',
+            "id_squad_inv_player" => "required",
+            "squad_id" => "required",
+            "player_id" => "required",
+            "status" => "required",
         ]);
         Squad_inv_players::create($request->all());
-        return redirect()->route('squad_inv_players.index')
-                        ->with('success','Squad_inv_players created successfully');
+        return redirect('squad_inv_players')
+            ->with('success', 'Squad_inv_players created successfully');
     }
 
     /**
@@ -56,7 +56,7 @@ class Squad_inv_playersController extends Controller
     public function show($id)
     {
         $squad_inv_players = Squad_inv_players::find($id);
-        return view('squad_inv_players.show',compact('squad_inv_players'));
+        return view('squad_inv_players.show', compact('squad_inv_players'));
     }
 
     /**
@@ -68,7 +68,7 @@ class Squad_inv_playersController extends Controller
     public function edit($id)
     {
         $squad_inv_players = Squad_inv_players::find($id);
-        return view('squad_inv_players.edit',compact('squad_inv_players'));
+        return view('squad_inv_players.edit', compact('squad_inv_players'));
     }
 
     /**
@@ -80,15 +80,9 @@ class Squad_inv_playersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'player_id' => 'required',
-            'squad_id' => 'required',
-            'position' => 'required',
-            'status' => 'required',
-        ]);
         Squad_inv_players::find($id)->update($request->all());
-        return redirect()->route('squad_inv_players.index')
-                        ->with('success','Squad_inv_players updated successfully');
+        return redirect('squad_inv_players')
+            ->with('success', 'Squad_inv_players updated successfully');
     }
 
     /**
@@ -100,7 +94,7 @@ class Squad_inv_playersController extends Controller
     public function destroy($id)
     {
         Squad_inv_players::find($id)->delete();
-        return redirect()->route('squad_inv_players.index')
-                        ->with('success','Squad_inv_players deleted successfully');
+        return redirect('squad_inv_players')
+            ->with('success', 'Squad_inv_players deleted successfully');
     }
 }

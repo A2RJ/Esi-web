@@ -28,7 +28,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', function () {
+Route::get('/home', function () {
     return view('test.index');
 });
 
@@ -66,7 +66,7 @@ Route::prefix('/squads')->group(function () {
 });
 
 // squad inv players
-Route::prefix('/squadinvplayers')->group(function () {
+Route::prefix('/squad_inv_players')->group(function () {
     Route::get('/', [Squad_inv_playersController::class, 'index']);
     Route::get('/create', [Squad_inv_playersController::class, 'create']);
     Route::get('/show/{id}', [Squad_inv_playersController::class, 'show']);
@@ -88,7 +88,7 @@ Route::prefix('/managements')->group(function () {
 });
 
 // managements inv squads
-Route::prefix('/managementsinvsquads')->group(function () {
+Route::prefix('/management_inv_squads')->group(function () {
     Route::get('/', [Management_inv_squadsController::class, 'index']);
     Route::get('/create', [Management_inv_squadsController::class, 'create']);
     Route::get('/show/{id}', [Management_inv_squadsController::class, 'show']);
@@ -110,7 +110,7 @@ Route::prefix('/games')->group(function () {
 });
 
 // game categories
-Route::prefix('/gamecategories')->group(function () {
+Route::prefix('/game_categories')->group(function () {
     Route::get('/', [Game_categoriesController::class, 'index']);
     Route::get('/create', [Game_categoriesController::class, 'create']);
     Route::get('/show/{id}', [Game_categoriesController::class, 'show']);

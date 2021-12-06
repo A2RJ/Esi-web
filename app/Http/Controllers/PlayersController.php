@@ -37,10 +37,12 @@ class PlayersController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'position' => 'required',
-            'number' => 'required',
-            'team_id' => 'required',
+            "id_player" => "required",
+            "user_id" => "required",
+            "squad_id" => "required",
+            "ingame_name" => "required",
+            "ingame_id" => "required",
+            "player_image" => "required",
         ]);
 
         Players::create($request->all());
@@ -80,13 +82,6 @@ class PlayersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required',
-            'position' => 'required',
-            'number' => 'required',
-            'team_id' => 'required',
-        ]);
-
         Players::find($id)->update($request->all());
         return redirect('/players/create')->with('success', 'Player has been updated');
     }

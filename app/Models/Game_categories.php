@@ -16,5 +16,5 @@ class Game_categories extends Model
      */
     protected $primaryKey = 'id_game_category';
 
-    protected $fillable =  [ "id_game_category", "game_category",  ];
+    protected $fillable =  ["id_game_category", "game_category", "created_at", "updated_at",];
 }
