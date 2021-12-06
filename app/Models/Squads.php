@@ -16,5 +16,5 @@ class Squads extends Model
      */
     protected $primaryKey = 'id_squad';
 
-    protected $fillable =  [ "id_squad", "squad_name", "squad_leader", "management_id", "created_at", "updated_at",  ];
+    protected $fillable =  [ "squad_name", "squad_leader", "management_id"  ];
 }

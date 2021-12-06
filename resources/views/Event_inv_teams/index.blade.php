@@ -24,9 +24,8 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>id_event_int_teams</th>
-                                <th>event_id</th>
-                                <th>squad_id</th>
+                                <th>event</th>
+                                <th>squad</th>
                                 <th>created_at</th>
                                 <th>updated_at</th>
                                 <th>Action</th>
@@ -36,16 +35,15 @@
                             @foreach ($event_inv_teams as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{$data->id_event_int_teams}}</td>
-                                <td>{{$data->event_id}}</td>
-                                <td>{{$data->squad_id}}</td>
+                                <td>{{$data->events->event_name}}</td>
+                                <td>{{$data->squads->squad_name}}</td>
                                 <td>{{$data->created_at}}</td>
                                 <td>{{$data->updated_at}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
-                                        <a href="/event_inv_teams/show/{{$data->id_event_inv_teams }}" title="show" class="badge badge-info">Show</a>
-                                        <a href="/event_inv_teams/edit/{{$data->id_event_inv_teams }}" class="badge badge-warning">Edit</a>
-                                        <a href="/event_inv_teams/destroy/{{$data->id_event_inv_teams }}" class="badge badge-danger">Delete</a>
+                                        <a href="/event_inv_teams/show/{{$data->id_event_inv_teams}}" title="show" class="badge badge-info">Show</a>
+                                        <a href="/event_inv_teams/edit/{{$data->id_event_inv_teams}}" class="badge badge-warning">Edit</a>
+                                        <a href="/event_inv_teams/destroy/{{$data->id_event_inv_teams}}" class="badge badge-danger">Delete</a>
                                     </div>
                                 </td>
                             </tr>

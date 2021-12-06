@@ -3,15 +3,15 @@
 
 @section('content')
 <div class="row">
+    @if ($message = Session::get('success'))
+    <div class="alert alert-success">
+        <p>{{ $message }}</p>
+    </div>
+    @endif
+
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                @if ($message = Session::get('success'))
-                <div class="alert alert-success">
-                    <p>{{ $message }}</p>
-                </div>
-                @endif
-
                 <h4 class="card-title">Hoverable Table</h4>
                 <p class="card-description">
                     Add class <code>.table-hover</code>
@@ -24,16 +24,10 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>id_user</th>
-                                <th>user_role</th>
-                                <th>email</th>
-                                <th>password</th>
-                                <th>kontak</th>
-                                <th>alamat</th>
-                                <th>gender</th>
-                                <th>user_image</th>
-                                <th>created_at</th>
-                                <th>updated_at</th>
+                                <th>user role</th>
+                                <th>nama</th>
+                                <th>created at</th>
+                                <th>updated at</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -41,14 +35,8 @@
                             @foreach ($users as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{$data->id_user}}</td>
                                 <td>{{$data->user_role}}</td>
-                                <td>{{$data->email}}</td>
-                                <td>{{$data->password}}</td>
-                                <td>{{$data->kontak}}</td>
-                                <td>{{$data->alamat}}</td>
-                                <td>{{$data->gender}}</td>
-                                <td>{{$data->user_image}}</td>
+                                <td>{{$data->nama}}</td>
                                 <td>{{$data->created_at}}</td>
                                 <td>{{$data->updated_at}}</td>
                                 <td class="px-4 py-3">

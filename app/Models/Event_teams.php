@@ -16,5 +16,17 @@ class Event_teams extends Model
      */
     protected $primaryKey = 'id_event_teams';
 
-    protected $fillable =  ["id_event_teams", "squad_id", "isfree", "ispaid", "created_at", "updated_at",];
+    protected $fillable =  ["event_id", "squad_id", "isfree", "ispaid"];
+
+    // squads
+    public function squads()
+    {
+        return $this->hasOne(Squads::class, 'id_squad', 'squad_id');
+    }
+
+    // events
+    public function events()
+    {
+        return $this->hasOne(Events::class, 'id_event', 'event_id');
+    }
 }

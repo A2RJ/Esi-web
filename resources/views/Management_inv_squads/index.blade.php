@@ -24,8 +24,6 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>id_management_inv_squad</th>
-                                <th>management_id</th>
                                 <th>squad_id</th>
                                 <th>created_at</th>
                                 <th>updated_at</th>
@@ -36,9 +34,7 @@
                             @foreach ($management_inv_squads as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{$data->id_management_inv_squad}}</td>
-                                <td>{{$data->management_id}}</td>
-                                <td>{{$data->squad_id}}</td>
+                                <td>{{$data->squad->squad_name}}</td>
                                 <td>{{$data->created_at}}</td>
                                 <td>{{$data->updated_at}}</td>
                                 <td class="px-4 py-3">

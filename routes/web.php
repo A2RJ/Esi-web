@@ -8,6 +8,7 @@ use App\Http\Controllers\Game_categoriesController;
 use App\Http\Controllers\GamesController;
 use App\Http\Controllers\Management_inv_squadsController;
 use App\Http\Controllers\ManagementsController;
+use App\Http\Controllers\PlayersController;
 use App\Http\Controllers\Squad_inv_playersController;
 use App\Http\Controllers\SquadsController;
 use App\Http\Controllers\UserController;

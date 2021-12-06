@@ -17,5 +17,17 @@ class Event_winner extends Model
      */
     protected $primaryKey = 'id_event_winner';
 
-    protected $fillable =  ["id_event_winner", "event_id", "squad_id", "created_at", "updated_at",];
+    protected $fillable =  ["event_id", "squad_id"];
+
+    // squads
+    public function squads()
+    {
+        return $this->hasOne(Squads::class, 'id_squad', 'squad_id');
+    }
+
+    // events
+    public function events()
+    {
+        return $this->hasOne(Events::class, 'id_event', 'event_id');
+    }
 }

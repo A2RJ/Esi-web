@@ -16,5 +16,10 @@ class Squad_inv_players extends Model
      */
     protected $primaryKey = 'id_squad_inv_player';
 
-    protected $fillable =  ["id_squad_inv_player", "squad_id", "player_id", "status", "created_at", "updated_at",];
+    protected $fillable =  ["squad_id", "player_id", "status"];
+
+    public function player()
+    {
+        return $this->hasMany(Players::class, 'id_player', 'player_id');
+    }
 }

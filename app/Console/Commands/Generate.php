@@ -96,7 +96,7 @@ class Generate extends Command
         $listBody = '';
 
         foreach ($row as $value) {
-            $listHeader .= '<th>' . $value . '</th>';
+            $listHeader .= '<th>' . str_replace('_', ' ', $value) . '</th>';
             $listBody .= '<td>{{$data->' . $value . '}}</td>';
         }
 
@@ -114,7 +114,7 @@ class Generate extends Command
         foreach ($row as $value) {
             $listInput .= '
             <div class="form-group">
-                <label for="' . $value . '">' . $value . '</label>
+                <label for="' . $value . '">' . str_replace('_', ' ', $value) . '</label>
                 <input type="text" class="form-control" name="' . $value . '" id="' . $value . '" placeholder="' . $value . '">
             </div>
             ';
@@ -133,7 +133,7 @@ class Generate extends Command
         foreach ($row as $value) {
             $listInput .= '
             <div class="form-group">
-                <label for="' . $value . '">' . $value . '</label>
+                <label for="' . $value . '">' . str_replace('_', ' ', $value) . '</label>
                 <input class="form-control" name="' . $value . '" id="' . $value . '" type="text" placeholder="{{ $' . strtolower($name) . '->' . $value . ' }}" value="{{ $' . strtolower($name) . '->' . $value . ' }}">
             </div>
             ';
@@ -152,7 +152,7 @@ class Generate extends Command
         foreach ($row as $value) {
             $showData .= '<div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>' . $value . ':</strong>
+                    <strong>' . str_replace('_', ' ', $value) . ':</strong>
                     {{ $' . strtolower($name) . '->' . $value . ' }}
                 </div>
             </div>

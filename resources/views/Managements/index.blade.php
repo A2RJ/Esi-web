@@ -24,13 +24,9 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>id_management</th>
                                 <th>user_id</th>
                                 <th>management_name</th>
                                 <th>management_image</th>
-                                <th>kontak</th>
-                                <th>web_url</th>
-                                <th>alamat</th>
                                 <th>created_at</th>
                                 <th>updated_at</th>
                                 <th>Action</th>
@@ -40,13 +36,9 @@
                             @foreach ($managements as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{$data->id_management}}</td>
                                 <td>{{$data->user_id}}</td>
                                 <td>{{$data->management_name}}</td>
                                 <td>{{$data->management_image}}</td>
-                                <td>{{$data->kontak}}</td>
-                                <td>{{$data->web_url}}</td>
-                                <td>{{$data->alamat}}</td>
                                 <td>{{$data->created_at}}</td>
                                 <td>{{$data->updated_at}}</td>
                                 <td class="px-4 py-3">

@@ -23,8 +23,7 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th>id_squad</th>
+                                <th>#</th> 
                                 <th>squad_name</th>
                                 <th>squad_leader</th>
                                 <th>management_id</th>
@@ -36,8 +35,7 @@
                         <tbody>
                             @foreach ($squads as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{$data->id_squad}}</td>
+                                <td>{{ $loop->iteration }}</td> 
                                 <td>{{$data->squad_name}}</td>
                                 <td>{{$data->squad_leader}}</td>
                                 <td>{{$data->management_id}}</td>

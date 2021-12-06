@@ -24,12 +24,9 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>id_player</th>
-                                <th>user_id</th>
-                                <th>squad_id</th>
-                                <th>ingame_name</th>
-                                <th>ingame_id</th>
-                                <th>player_image</th>
+                                <th>user</th>
+                                <th>squad</th>
+                                <th>game</th>
                                 <th>created_at</th>
                                 <th>updated_at</th>
                                 <th>Action</th>
@@ -39,12 +36,9 @@
                             @foreach ($players as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{$data->id_player}}</td>
-                                <td>{{$data->user_id}}</td>
-                                <td>{{$data->squad_id}}</td>
-                                <td>{{$data->ingame_name}}</td>
-                                <td>{{$data->ingame_id}}</td>
-                                <td>{{$data->player_image}}</td>
+                                <td>{{$data->user->nama}}</td>
+                                <td>{{$data->squad->squad_name}}</td>
+                                <td>{{$data->game->game_name}}</td>
                                 <td>{{$data->created_at}}</td>
                                 <td>{{$data->updated_at}}</td>
                                 <td class="px-4 py-3">

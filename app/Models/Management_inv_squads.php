@@ -16,5 +16,10 @@ class Management_inv_squads extends Model
      */
     protected $primaryKey = 'id_management_inv_squad';
 
-    protected $fillable =  ["id_management_inv_squad", "management_id", "squad_id", "created_at", "updated_at",];
+    protected $fillable =  ["management_id", "squad_id"];
+
+    public function squad()
+    {
+        return $this->hasOne(Squads::class, 'id_squad', 'squad_id');
+    }
 }

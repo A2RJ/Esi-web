@@ -24,9 +24,8 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>id_event_winner</th>
-                                <th>event_id</th>
-                                <th>squad_id</th>
+                                <th>event</th>
+                                <th>squad</th>
                                 <th>created_at</th>
                                 <th>updated_at</th>
                                 <th>Action</th>
@@ -36,9 +35,8 @@
                             @foreach ($event_winner as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{$data->id_event_winner}}</td>
-                                <td>{{$data->event_id}}</td>
-                                <td>{{$data->squad_id}}</td>
+                                <td>{{$data->events->event_name}}</td>
+                                <td>{{$data->squads->squad_name}}</td>
                                 <td>{{$data->created_at}}</td>
                                 <td>{{$data->updated_at}}</td>
                                 <td class="px-4 py-3">

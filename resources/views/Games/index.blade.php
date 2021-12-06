@@ -24,9 +24,8 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>id_game</th>
                                 <th>game_name</th>
-                                <th>game_image</th>
+                                <th>category</th>
                                 <th>created_at</th>
                                 <th>updated_at</th>
                                 <th>Action</th>
@@ -36,9 +35,8 @@
                             @foreach ($games as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{$data->id_game}}</td>
                                 <td>{{$data->game_name}}</td>
-                                <td>{{$data->game_image}}</td>
+                                <td>{{$data->category->game_category}}</td>
                                 <td>{{$data->created_at}}</td>
                                 <td>{{$data->updated_at}}</td>
                                 <td class="px-4 py-3">

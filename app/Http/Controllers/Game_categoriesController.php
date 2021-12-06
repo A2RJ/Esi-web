@@ -8,7 +8,7 @@ class Game_categoriesController extends Controller
 {
     public function index()
     {
-        $game_categories = Game_categories::all();
+        $game_categories = Game_categories::paginate(10);
         return view('game_categories.index', compact('game_categories'));
     }
 
@@ -20,7 +20,6 @@ class Game_categoriesController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'id_game_category' => 'required',
             'game_category' => 'required',
         ]);
 

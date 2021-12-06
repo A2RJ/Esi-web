@@ -25,31 +25,23 @@
                 <form action="/event_winner/update/{{$event_winner->id_event_winner}}" method="POST">
                     @csrf
                     <!-- @method('PUT') -->
-
-
+                    <!-- looping events and squads -->
                     <div class="form-group">
-                        <label for="id_event_winner">id_event_winner</label>
-                        <input class="form-control" name="id_event_winner" id="id_event_winner" type="text" placeholder="{{ $event_winner->id_event_winner }}" value="{{ $event_winner->id_event_winner }}">
+                        <label for="event_id">event</label>
+                        <select class="form-control" name="event_id" id="event_id">
+                            @foreach($events as $event)
+                            <option value="{{ $event->id_event }}" {{ $event->id_event == $event_winner->id_event ? 'selected' : '' }}>{{ $event->event_name }}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="event_id">event_id</label>
-                        <input class="form-control" name="event_id" id="event_id" type="text" placeholder="{{ $event_winner->event_id }}" value="{{ $event_winner->event_id }}">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="squad_id">squad_id</label>
-                        <input class="form-control" name="squad_id" id="squad_id" type="text" placeholder="{{ $event_winner->squad_id }}" value="{{ $event_winner->squad_id }}">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="created_at">created_at</label>
-                        <input class="form-control" name="created_at" id="created_at" type="text" placeholder="{{ $event_winner->created_at }}" value="{{ $event_winner->created_at }}">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="updated_at">updated_at</label>
-                        <input class="form-control" name="updated_at" id="updated_at" type="text" placeholder="{{ $event_winner->updated_at }}" value="{{ $event_winner->updated_at }}">
+                        <label for="squad_id">squad</label>
+                        <select class="form-control" name="squad_id" id="squad_id">
+                            @foreach($squads as $squad)
+                            <option value="{{ $squad->id_squad }}" {{ $squad->id_squad == $event_winner->id_squad ? 'selected' : '' }}>{{ $squad->squad_name }}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="mt-5">

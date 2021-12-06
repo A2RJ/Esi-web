@@ -3,54 +3,61 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event_inv_teams;
+use App\Models\Events;
+use App\Models\Squads;
 use Illuminate\Http\Request;
 
 class Event_inv_teamsController extends Controller
 {
     public function index()
     {
-        $event_inv_teams = Event_inv_teams::all();
+        $event_inv_teams = Event_inv_teams::with('squads', 'events')
+            ->paginate(10);
         return view('event_inv_teams.index', compact('event_inv_teams'));
     }
 
     public function create()
     {
-        return view('event_inv_teams.create');
+        $events = Events::all();
+        $squads = Squads::all();
+        return view('event_inv_teams.create', compact('events', 'squads'));
     }
 
     public function store(Request $request)
     {
         $this->validate($request, [
-            "id_event_int_teams" => "required",
             "event_id" => "required",
             "squad_id" => "required",
         ]);
 
         Event_inv_teams::create($request->all());
-        return redirect()->route('event_inv_teams.index')->with('success', 'Event_inv_teams created successfully');
+        return redirect('event_inv_teams')->with('success', 'Event_inv_teams created successfully');
     }
 
     public function show($id)
     {
-        $event_inv_teams = Event_inv_teams::findOrFail($id);
+        $event_inv_teams = Event_inv_teams::join('events', 'events.id_event', 'event_inv_teams.event_id')
+            ->findOrFail($id);
         return view('event_inv_teams.show', compact('event_inv_teams'));
     }
 
     public function edit($id)
     {
+        $events = Events::all();
+        $squads = Squads::all();
         $event_inv_teams = Event_inv_teams::findOrFail($id);
-        return view('event_inv_teams.edit', compact('event_inv_teams'));
+        return view('event_inv_teams.edit', compact('event_inv_teams', 'events', 'squads'));
     }
 
     public function update(Request $request, $id)
     {
         Event_inv_teams::find($id)->update($request->all());
-        return redirect()->route('event_inv_teams.index')->with('success', 'Event_inv_teams updated successfully');
+        return redirect('event_inv_teams')->with('success', 'Event_inv_teams updated successfully');
     }
 
     public function destroy($id)
     {
         Event_inv_teams::findOrFail($id)->delete();
-        return redirect()->route('event_inv_teams.index')->with('success', 'Event_inv_teams deleted successfully');
+        return redirect('event_inv_teams')->with('success', 'Event_inv_teams deleted successfully');
     }
 }

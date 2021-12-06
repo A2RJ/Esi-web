@@ -445,7 +445,7 @@
             </a>
             <div class="collapse" id="Players">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="/squads">Players</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/players">Players</a></li>
               </ul>
             </div>
           </li>

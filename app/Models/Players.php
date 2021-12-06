@@ -16,5 +16,20 @@ class Players extends Model
      */
     protected $primaryKey = 'id_player';
 
-    protected $fillable =  ["id_player", "user_id", "squad_id", "ingame_name", "ingame_id", "player_image", "created_at", "updated_at",];
+    protected $fillable =  ["user_id", "squad_id", "game_id", "ingame_name", "ingame_id", "player_image"];
+
+    public function user()
+    {
+        return $this->hasOne(Users::class, 'id_user', 'user_id');
+    }
+
+    public function game()
+    {
+        return $this->hasOne(Games::class, 'id_game', 'game_id');
+    }
+
+    public function squad()
+    {
+        return $this->hasOne(Squads::class, 'id_squad', 'squad_id');
+    }
 }

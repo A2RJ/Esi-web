@@ -23,31 +23,26 @@
                 @endif
                 <form action="/event_inv_teams/store" method="POST" class="forms-sample">
                     @csrf
-
-
+                    <!-- looping event -->
                     <div class="form-group">
-                        <label for="id_event_int_teams">id_event_int_teams</label>
-                        <input type="text" class="form-control" name="id_event_int_teams" id="id_event_int_teams" placeholder="id_event_int_teams">
+                        <label for="event_id">event</label>
+                        <select class="form-control" name="event_id" id="event_id">
+                            <option value="">Pilih Event</option>
+                            @foreach($events as $data)
+                            <option value="{{ $data->id_event }}">{{ $data->event_name }}</option>
+                            @endforeach
+                        </select>
                     </div>
 
+                    <!-- looping squads -->
                     <div class="form-group">
-                        <label for="event_id">event_id</label>
-                        <input type="text" class="form-control" name="event_id" id="event_id" placeholder="event_id">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="squad_id">squad_id</label>
-                        <input type="text" class="form-control" name="squad_id" id="squad_id" placeholder="squad_id">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="created_at">created_at</label>
-                        <input type="text" class="form-control" name="created_at" id="created_at" placeholder="created_at">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="updated_at">updated_at</label>
-                        <input type="text" class="form-control" name="updated_at" id="updated_at" placeholder="updated_at">
+                        <label for="squad_id">squad</label>
+                        <select class="form-control" name="squad_id" id="squad_id">
+                            <option value="">Pilih Squad</option>
+                            @foreach($squads as $data)
+                            <option value="{{ $data->id_squad }}">{{ $data->squad_name }}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">

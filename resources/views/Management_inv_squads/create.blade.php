@@ -23,31 +23,20 @@
                 @endif
                 <form action="/management_inv_squads/store" method="POST" class="forms-sample">
                     @csrf
-
-
-                    <div class="form-group">
-                        <label for="id_management_inv_squad">id_management_inv_squad</label>
-                        <input type="text" class="form-control" name="id_management_inv_squad" id="id_management_inv_squad" placeholder="id_management_inv_squad">
-                    </div>
-
                     <div class="form-group">
                         <label for="management_id">management_id</label>
                         <input type="text" class="form-control" name="management_id" id="management_id" placeholder="management_id">
                     </div>
 
+                    <!-- looping squads -->
                     <div class="form-group">
                         <label for="squad_id">squad_id</label>
-                        <input type="text" class="form-control" name="squad_id" id="squad_id" placeholder="squad_id">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="created_at">created_at</label>
-                        <input type="text" class="form-control" name="created_at" id="created_at" placeholder="created_at">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="updated_at">updated_at</label>
-                        <input type="text" class="form-control" name="updated_at" id="updated_at" placeholder="updated_at">
+                        <select class="form-control" name="squad_id" id="squad_id">
+                            <option value="">-- Pilih --</option>
+                            @foreach($squads as $squad)
+                            <option value="{{ $squad->id_squad }}">{{ $squad->squad_name }}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">

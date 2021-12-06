@@ -24,7 +24,6 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>id_game_category</th>
                                 <th>game_category</th>
                                 <th>created_at</th>
                                 <th>updated_at</th>
@@ -35,7 +34,6 @@
                             @foreach ($game_categories as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{$data->id_game_category}}</td>
                                 <td>{{$data->game_category}}</td>
                                 <td>{{$data->created_at}}</td>
                                 <td>{{$data->updated_at}}</td>

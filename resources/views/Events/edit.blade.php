@@ -25,21 +25,24 @@
         <form action="/events/update/{{$event->id_event}}" method="POST">
           @csrf
           <!-- @method('PUT') -->
-
-
+          <!-- select games -->
           <div class="form-group">
-            <label for="id_event">id_event</label>
-            <input class="form-control" name="id_event" id="id_event" type="text" placeholder="{{ $event->id_event }}" value="{{ $event->id_event }}">
+            <label for="id_game">Games</label>
+            <select class="form-control" name="id_game" id="id_game">
+              @foreach($games as $game)
+              <option value="{{$game->id_game}}" {{$game->id_game == $event->game_id ? 'selected' : ''}}>{{$game->game_name}}</option>
+              @endforeach
+            </select>
           </div>
 
+          <!-- select users -->
           <div class="form-group">
-            <label for="game_id">game_id</label>
-            <input class="form-control" name="game_id" id="game_id" type="text" placeholder="{{ $event->game_id }}" value="{{ $event->game_id }}">
-          </div>
-
-          <div class="form-group">
-            <label for="user_id">user_id</label>
-            <input class="form-control" name="user_id" id="user_id" type="text" placeholder="{{ $event->user_id }}" value="{{ $event->user_id }}">
+            <label for="id_user">Users</label>
+            <select class="form-control" name="id_user" id="id_user">
+              @foreach($users as $user)
+              <option value="{{$user->id_user}}" {{$user->id_user == $event->id_user ? 'selected' : ''}}>{{$user->nama}}</option>
+              @endforeach
+            </select>
           </div>
 
           <div class="form-group">
@@ -80,16 +83,6 @@
           <div class="form-group">
             <label for="end">end</label>
             <input class="form-control" name="end" id="end" type="text" placeholder="{{ $event->end }}" value="{{ $event->end }}">
-          </div>
-
-          <div class="form-group">
-            <label for="created_at">created_at</label>
-            <input class="form-control" name="created_at" id="created_at" type="text" placeholder="{{ $event->created_at }}" value="{{ $event->created_at }}">
-          </div>
-
-          <div class="form-group">
-            <label for="updated_at">updated_at</label>
-            <input class="form-control" name="updated_at" id="updated_at" type="text" placeholder="{{ $event->updated_at }}" value="{{ $event->updated_at }}">
           </div>
 
           <div class="mt-5">

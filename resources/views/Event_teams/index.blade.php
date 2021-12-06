@@ -24,8 +24,8 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>id_event_teams</th>
-                                <th>squad_id</th>
+                                <th>Events</th>
+                                <th>Squad</th>
                                 <th>isfree</th>
                                 <th>ispaid</th>
                                 <th>created_at</th>
@@ -37,10 +37,10 @@
                             @foreach ($event_teams as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{$data->id_event_teams}}</td>
-                                <td>{{$data->squad_id}}</td>
-                                <td>{{$data->isfree}}</td>
-                                <td>{{$data->ispaid}}</td>
+                                <td>{{$data->events->event_name}}</td>
+                                <td>{{$data->squads->squad_name}}</td>
+                                <td>{{$data->isfree == 1 ? 'YA' : 'TIDAK'}}</td>
+                                <td>{{$data->ispaid == 1 ? 'YA' : 'TIDAK'}}</td>
                                 <td>{{$data->created_at}}</td>
                                 <td>{{$data->updated_at}}</td>
                                 <td class="px-4 py-3">

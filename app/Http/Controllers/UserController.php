@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::all();
+        $users = User::paginate(10);
         return view('users.index', compact('users'));
     }
     public function show($id)
@@ -29,6 +29,7 @@ class UserController extends Controller
         $this->validate($request, [
             "id_user" => "required",
             "user_role" => "required",
+            "nama" => "required",
             "email" => "required",
             "password" => "required",
             "kontak" => "required",
@@ -39,7 +40,6 @@ class UserController extends Controller
         $user  = User::create($request->all());
         $user->password = Hash::make($request->password);
         $user->save();
-        // redirect with flash data
         return redirect('users')->with('success', 'User created successfully');
     }
 
@@ -51,25 +51,15 @@ class UserController extends Controller
 
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users,email,' . $id,
-            'password' => 'confirmed',
-        ]);
-        $user = User::find($id);
-        $user->name = $request->name;
-        $user->email = $request->email;
-        if ($request->password) {
-            $user->password = bcrypt($request->password);
-        }
-        $user->save();
-        return redirect('/users');
+        $user = User::find($id)->update($request->all());
+        // $user->password = Hash::make($request->password);
+        // $user->save();
+        return redirect('/users')->with('success', 'User updated successfully');
     }
 
     public function destroy($id)
     {
-        $user = User::find($id);
-        $user->delete();
-        return redirect('/users');
+        $user = User::find($id)->delete();
+        return redirect('/users')->with('success', 'User deleted successfully');
     }
 }

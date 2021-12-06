@@ -2,10 +2,10 @@
 @section('title', 'events')
 
 @section('content')
-<div class="col-lg-12 grid-margin stretch-card">
-    <div class="card">
-        <div class="card-body">
-            <div class="row">
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
                 @if ($message = Session::get('success'))
                 <div class="alert alert-success">
                     <p>{{ $message }}</p>
@@ -24,19 +24,10 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>id_event</th>
-                                <th>game_id</th>
-                                <th>user_id</th>
+                                <th>owner</th>
                                 <th>event_name</th>
-                                <th>event_image</th>
+                                <th>game</th>
                                 <th>slot</th>
-                                <th>pricepool</th>
-                                <th>detail</th>
-                                <th>peraturan</th>
-                                <th>start</th>
-                                <th>end</th>
-                                <th>created_at</th>
-                                <th>updated_at</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -44,19 +35,10 @@
                             @foreach ($events as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{$data->id_event}}</td>
-                                <td>{{$data->game_id}}</td>
-                                <td>{{$data->user_id}}</td>
+                                <td>{{$data->owner->nama}}</td>
                                 <td>{{$data->event_name}}</td>
-                                <td>{{$data->event_image}}</td>
+                                <td>{{$data->game->game_name}}</td>
                                 <td>{{$data->slot}}</td>
-                                <td>{{$data->pricepool}}</td>
-                                <td>{{$data->detail}}</td>
-                                <td>{{$data->peraturan}}</td>
-                                <td>{{$data->start}}</td>
-                                <td>{{$data->end}}</td>
-                                <td>{{$data->created_at}}</td>
-                                <td>{{$data->updated_at}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
                                         <a href="/events/show/{{$data->id_event }}" title="show" class="badge badge-info">Show</a>

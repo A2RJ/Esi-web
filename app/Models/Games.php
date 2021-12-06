@@ -16,5 +16,11 @@ class Games extends Model
      */
     protected $primaryKey = 'id_game';
 
-    protected $fillable =  [ "id_game", "game_name", "game_image", "created_at", "updated_at",  ];
+    protected $fillable =  [ "game_name", "game_image", "game_category_id"  ];
+
+    // with game category
+    public function category()
+    {
+        return $this->hasOne(Game_categories::class, 'id_game_category', 'game_category_id');
+    }
 }

@@ -16,13 +16,13 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>id_user:</strong>
+                    <strong>id user:</strong>
                     {{ $users->id_user }}
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>user_role:</strong>
+                    <strong>user role:</strong>
                     {{ $users->user_role }}
                 </div>
             </div>
@@ -58,19 +58,19 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>user_image:</strong>
+                    <strong>user image:</strong>
                     {{ $users->user_image }}
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>created_at:</strong>
+                    <strong>created at:</strong>
                     {{ $users->created_at }}
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>updated_at:</strong>
+                    <strong>updated at:</strong>
                     {{ $users->updated_at }}
                 </div>
             </div>
