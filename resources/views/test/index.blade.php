@@ -1,4 +1,4 @@
-@extends('template.index')
+@extends('layouts.dashboard')
 
 @section('content')
 <div class="row">
