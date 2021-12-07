@@ -66,6 +66,11 @@
           </div>
 
           <div class="form-group">
+            <label for="isfree">isfree</label>
+            <input class="form-control" name="isfree" id="isfree" type="text" placeholder="{{ $event->isfree }}" value="{{ $event->isfree }}">
+          </div>
+
+          <div class="form-group">
             <label for="detail">detail</label>
             <input class="form-control" name="detail" id="detail" type="text" placeholder="{{ $event->detail }}" value="{{ $event->detail }}">
           </div>

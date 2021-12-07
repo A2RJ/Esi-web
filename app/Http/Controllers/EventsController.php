@@ -42,6 +42,7 @@ class EventsController extends Controller
             "event_image" => "required",
             "slot" => "required",
             "pricepool" => "required",
+            "isfree" => "required",
             "detail" => "required",
             "peraturan" => "required",
             "start" => "required",

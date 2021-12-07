@@ -17,7 +17,7 @@ class CreateSquadsTable extends Migration
             $table->integer('id_squad', true);
             $table->string('squad_name', 50);
             $table->integer('squad_leader');
-            $table->integer('management_id');
+            $table->integer('management_id')->nullable();
             $table->timestamps();
         });
     }

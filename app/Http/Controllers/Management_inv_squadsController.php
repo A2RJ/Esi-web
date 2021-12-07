@@ -56,4 +56,26 @@ class Management_inv_squadsController extends Controller
         Management_inv_squads::find($id)->delete();
         return redirect('management_inv_squads')->with('success', 'Management_inv_squads deleted successfully');
     }
+
+    // get management_inv_squads by squad_id
+    public function getManagementInvSquadsBySquadId($id)
+    {
+        return Management_inv_squads::where('squad_id', $id)->where('status', false)->get();
+    }
+
+    // accept management_inv_squads
+    public function acceptManagementInvSquads($id_management, $id_squad)
+    {
+        Management_inv_squads::find($id_management)->update(['status' => true]);
+        Squads::find($id_squad)->update(['management_id' => $id_management]);
+        return true;
+    }
+
+    // decline management_inv_squads
+    public function declineManagementInvSquads($id_management, $id_squad)
+    {
+        Management_inv_squads::find($id_management)->update(['status' => false]);
+        Squads::find($id_squad)->update(['management_id' => null]);
+        return true;
+    }
 }

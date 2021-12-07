@@ -28,7 +28,6 @@ class Event_teamsController extends Controller
         $this->validate($request, [
             "event_id" => "required",
             "squad_id" => "required",
-            "isfree" => "required",
             "ispaid" => "required",
         ]);
 

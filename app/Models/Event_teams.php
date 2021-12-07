@@ -16,7 +16,7 @@ class Event_teams extends Model
      */
     protected $primaryKey = 'id_event_teams';
 
-    protected $fillable =  ["event_id", "squad_id", "isfree", "ispaid"];
+    protected $fillable =  ["event_id", "squad_id", "ispaid"];
 
     // squads
     public function squads()

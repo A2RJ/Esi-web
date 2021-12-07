@@ -23,8 +23,9 @@
   <!-- endinject -->
   <link rel="shortcut icon" href="/template/images/favicon.png" />
 </head>
+
 <body>
-  <div class="container-scroller"> 
+  <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
@@ -42,7 +43,7 @@
           </a>
         </div>
       </div>
-      <div class="navbar-menu-wrapper d-flex align-items-top"> 
+      <div class="navbar-menu-wrapper d-flex align-items-top">
         <ul class="navbar-nav">
           <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
             <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">John Doe</span></h1>
@@ -53,7 +54,7 @@
           <li class="nav-item dropdown d-none d-lg-block">
             <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Select Category </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
-              <a class="dropdown-item py-3" >
+              <a class="dropdown-item py-3">
                 <p class="mb-0 font-weight-medium float-left">Select category</p>
               </a>
               <div class="dropdown-divider"></div>
@@ -135,7 +136,7 @@
               </a>
             </div>
           </li>
-          <li class="nav-item dropdown"> 
+          <li class="nav-item dropdown">
             <a class="nav-link count-indicator" id="countDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="icon-bell"></i>
               <span class="count"></span>
@@ -205,8 +206,12 @@
         <div id="theme-settings" class="settings-panel">
           <i class="settings-close ti-close"></i>
           <p class="settings-heading">SIDEBAR SKINS</p>
-          <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border me-3"></div>Light</div>
-          <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border me-3"></div>Dark</div>
+          <div class="sidebar-bg-options selected" id="sidebar-light-theme">
+            <div class="img-ss rounded-circle bg-light border me-3"></div>Light
+          </div>
+          <div class="sidebar-bg-options" id="sidebar-dark-theme">
+            <div class="img-ss rounded-circle bg-dark border me-3"></div>Dark
+          </div>
           <p class="settings-heading mt-2">HEADER SKINS</p>
           <div class="color-tiles mx-0 px-4">
             <div class="tiles success"></div>
@@ -378,12 +383,14 @@
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
+          <?php if (auth()->user->user_role == 'admin') : ?>
+          <?php endif; ?>
           <li class="nav-item nav-category">Events</li>
           <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#Events" aria-expanded="false" aria-controls="Events">
               <i class="menu-icon mdi mdi-floor-plan"></i>
               <span class="menu-title">Events</span>
-              <i class="menu-arrow"></i> 
+              <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="Events">
               <ul class="nav flex-column sub-menu">
@@ -399,7 +406,7 @@
             <a class="nav-link" data-bs-toggle="collapse" href="#Games" aria-expanded="false" aria-controls="Games">
               <i class="menu-icon mdi mdi-floor-plan"></i>
               <span class="menu-title">Games</span>
-              <i class="menu-arrow"></i> 
+              <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="Games">
               <ul class="nav flex-column sub-menu">
@@ -413,7 +420,7 @@
             <a class="nav-link" data-bs-toggle="collapse" href="#Managements" aria-expanded="false" aria-controls="Managements">
               <i class="menu-icon mdi mdi-floor-plan"></i>
               <span class="menu-title">Managements</span>
-              <i class="menu-arrow"></i> 
+              <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="Managements">
               <ul class="nav flex-column sub-menu">
@@ -427,7 +434,7 @@
             <a class="nav-link" data-bs-toggle="collapse" href="#Squads" aria-expanded="false" aria-controls="Squads">
               <i class="menu-icon mdi mdi-floor-plan"></i>
               <span class="menu-title">Squads</span>
-              <i class="menu-arrow"></i> 
+              <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="Squads">
               <ul class="nav flex-column sub-menu">
@@ -441,7 +448,7 @@
             <a class="nav-link" data-bs-toggle="collapse" href="#Players" aria-expanded="false" aria-controls="Players">
               <i class="menu-icon mdi mdi-floor-plan"></i>
               <span class="menu-title">Players</span>
-              <i class="menu-arrow"></i> 
+              <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="Players">
               <ul class="nav flex-column sub-menu">
@@ -454,7 +461,7 @@
             <a class="nav-link" data-bs-toggle="collapse" href="#Users" aria-expanded="false" aria-controls="Users">
               <i class="menu-icon mdi mdi-floor-plan"></i>
               <span class="menu-title">Users</span>
-              <i class="menu-arrow"></i> 
+              <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="Users">
               <ul class="nav flex-column sub-menu">
@@ -515,4 +522,3 @@
 </body>
 
 </html>
-

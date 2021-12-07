@@ -66,6 +66,11 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="isfree">isfree</label>
+                        <input type="text" class="form-control" name="isfree" id="isfree" placeholder="isfree">
+                    </div>
+
+                    <div class="form-group">
                         <label for="detail">detail</label>
                         <input type="text" class="form-control" name="detail" id="detail" placeholder="detail">
                     </div>

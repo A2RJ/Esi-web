@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Players;
 use App\Models\Squad_inv_players;
 use Illuminate\Http\Request;
 
@@ -52,5 +53,27 @@ class Squad_inv_playersController extends Controller
     {
         Squad_inv_players::find($id)->delete();
         return redirect('squad_inv_players')->with('success', 'Squad_inv_players deleted successfully');
+    }
+
+    // get squad_inv_players by player_id
+    public function getSquadInvPlayersByPlayerId($id)
+    {
+        return Squad_inv_players::where('player_id', $id)->get();
+    }
+
+    // accept squad_inv_players
+    public function acceptSquadInvPlayers($id_squad, $id_player)
+    {
+        Squad_inv_players::find($id_squad)->update(['status' => true]);
+        Players::find($id_player)->update(['squad_id' => $id_squad]);
+        return true;
+    }
+
+    // decline squad_inv_players
+    public function declineSquadInvPlayers($id_squad, $id_player)
+    {
+        Squad_inv_players::find($id_squad)->update(['status' => false]);
+        Players::find($id_player)->update(['squad_id' => null]);
+        return true;
     }
 }

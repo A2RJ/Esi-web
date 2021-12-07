@@ -16,7 +16,7 @@ class Events extends Model
      */
     protected $primaryKey = 'id_event';
 
-    protected $fillable =  ["game_id", "user_id", "event_name", "event_image", "slot", "pricepool", "detail", "peraturan", "start", "end"];
+    protected $fillable =  ["game_id", "user_id", "event_name", "event_image", "slot", "pricepool", "isfree", "detail", "peraturan", "start", "end"];
 
     // event_teams
     public function event_teams()
