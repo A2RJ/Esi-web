@@ -1,3 +1,6 @@
+<?php
+
+use Illuminate\Support\Facades\Auth; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -189,7 +192,14 @@
               <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"></i> Messages</a>
               <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary me-2"></i> Activity</a>
               <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i> FAQ</a>
-              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
+              <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                <i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out
+              </a>
+
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+              </form>
             </div>
           </li>
         </ul>
@@ -383,92 +393,113 @@
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
-          <?php if (auth()->user->user_role == 'admin') : ?>
+          <?php if (Auth::user()->user_role == 'admin' || Auth::user()->user_role == 'management' ||  Auth::user()->user_role == 'player') : ?>
+            <li class="nav-item nav-category">Events</li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#Events" aria-expanded="false" aria-controls="Events">
+                <i class="menu-icon mdi mdi-floor-plan"></i>
+                <span class="menu-title">Events</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="collapse" id="Events">
+                <ul class="nav flex-column sub-menu">
+                  <?php if (Auth::user()->user_role == 'admin') : ?>
+                    <li class="nav-item"> <a class="nav-link" href="/events">All Events</a></li>
+                  <?php endif; ?>
+                  <li class="nav-item"> <a class="nav-link" href="/events/events/{{Auth::user()->id_user}}">My Events</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/event_teams">Event Teams</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/event_inv_teams">Invited Teams</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/event_winner">Event Winner</a></li>
+                </ul>
+              </div>
+            </li>
           <?php endif; ?>
-          <li class="nav-item nav-category">Events</li>
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#Events" aria-expanded="false" aria-controls="Events">
-              <i class="menu-icon mdi mdi-floor-plan"></i>
-              <span class="menu-title">Events</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="Events">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="/events">Events</a></li>
-                <li class="nav-item"> <a class="nav-link" href="/event_teams">Event Teams</a></li>
-                <li class="nav-item"> <a class="nav-link" href="/event_inv_teams">Invited Teams</a></li>
-                <li class="nav-item"> <a class="nav-link" href="/event_winner">Event Winner</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item nav-category">Games</li>
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#Games" aria-expanded="false" aria-controls="Games">
-              <i class="menu-icon mdi mdi-floor-plan"></i>
-              <span class="menu-title">Games</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="Games">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="/games">Games</a></li>
-                <li class="nav-item"> <a class="nav-link" href="/game_categories">Game Category</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item nav-category">Managements</li>
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#Managements" aria-expanded="false" aria-controls="Managements">
-              <i class="menu-icon mdi mdi-floor-plan"></i>
-              <span class="menu-title">Managements</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="Managements">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="/managements">Managements</a></li>
-                <li class="nav-item"> <a class="nav-link" href="/management_inv_squads">Managements Invite Squad</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item nav-category">Squads</li>
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#Squads" aria-expanded="false" aria-controls="Squads">
-              <i class="menu-icon mdi mdi-floor-plan"></i>
-              <span class="menu-title">Squads</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="Squads">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="/squads">Squads</a></li>
-                <li class="nav-item"> <a class="nav-link" href="/management_inv_squads">Managements Invite Squad</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item nav-category">Players</li>
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#Players" aria-expanded="false" aria-controls="Players">
-              <i class="menu-icon mdi mdi-floor-plan"></i>
-              <span class="menu-title">Players</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="Players">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="/players">Players</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item nav-category">Users</li>
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#Users" aria-expanded="false" aria-controls="Users">
-              <i class="menu-icon mdi mdi-floor-plan"></i>
-              <span class="menu-title">Users</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="Users">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="/users">Users</a></li>
-              </ul>
-            </div>
-          </li>
+          <?php if (Auth::user()->user_role == 'admin') : ?>
+            <li class="nav-item nav-category">Games</li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#Games" aria-expanded="false" aria-controls="Games">
+                <i class="menu-icon mdi mdi-floor-plan"></i>
+                <span class="menu-title">Games</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="collapse" id="Games">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="/games">Games</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/game_categories">Game Category</a></li>
+                </ul>
+              </div>
+            </li>
+          <?php endif; ?>
+          <?php if (Auth::user()->user_role == 'admin' || Auth::user()->user_role == 'management') : ?>
+            <li class="nav-item nav-category">Managements</li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#Managements" aria-expanded="false" aria-controls="Managements">
+                <i class="menu-icon mdi mdi-floor-plan"></i>
+                <span class="menu-title">Managements</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="collapse" id="Managements">
+                <ul class="nav flex-column sub-menu">
+                  <?php if (Auth::user()->user_role == 'admin') : ?>
+                    <li class="nav-item"> <a class="nav-link" href="/managements">All Managements</a></li>
+                  <?php endif; ?>
+                  <li class="nav-item"> <a class="nav-link" href="/managements/managements/{{Auth::user()->id_user}}">My Managements</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/management_inv_squads">Managements Invite Squad</a></li>
+                </ul>
+              </div>
+            </li>
+          <?php endif; ?>
+          <?php if (Auth::user()->user_role == 'admin' || Auth::user()->user_role == 'management' ||  Auth::user()->user_role == 'player') : ?>
+            <li class="nav-item nav-category">Squads</li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#Squads" aria-expanded="false" aria-controls="Squads">
+                <i class="menu-icon mdi mdi-floor-plan"></i>
+                <span class="menu-title">Squads</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="collapse" id="Squads">
+                <ul class="nav flex-column sub-menu">
+                  <?php if (Auth::user()->user_role == 'admin') : ?>
+                    <li class="nav-item"> <a class="nav-link" href="/squads">All Squads</a></li>
+                  <?php endif; ?>
+                  <li class="nav-item"> <a class="nav-link" href="/squads/squads/{{Auth::user()->id_user}}">My Squads</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/squad_inv_players">Squad Invite player</a></li>
+                </ul>
+              </div>
+            </li>
+          <?php endif; ?>
+          <?php if (Auth::user()->user_role == 'admin' || Auth::user()->user_role == 'management' ||  Auth::user()->user_role == 'player') : ?>
+            <li class="nav-item nav-category">Game Account</li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#GameAccount" aria-expanded="false" aria-controls="GameAccount">
+                <i class="menu-icon mdi mdi-floor-plan"></i>
+                <span class="menu-title">Game Account</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="collapse" id="GameAccount">
+                <ul class="nav flex-column sub-menu">
+                  <?php if (Auth::user()->user_role == 'admin') : ?>
+                    <li class="nav-item"> <a class="nav-link" href="/players">All Game Account</a></li>
+                  <?php endif; ?>
+                  <li class="nav-item"> <a class="nav-link" href="/players/account/{{Auth::user()->id_user}}">My Game Account</a></li>
+                </ul>
+              </div>
+            </li>
+          <?php endif; ?>
+          <?php if (Auth::user()->user_role == 'admin') : ?>
+            <li class="nav-item nav-category">Users</li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#Users" aria-expanded="false" aria-controls="Users">
+                <i class="menu-icon mdi mdi-floor-plan"></i>
+                <span class="menu-title">Users</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="collapse" id="Users">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="/users">Users</a></li>
+                </ul>
+              </div>
+            </li><?php endif; ?>
           <li class="nav-item nav-category">help</li>
           <li class="nav-item">
             <a class="nav-link" href="http://bootstrapdash.com/demo/star-admin2-free/docs/documentation.html">

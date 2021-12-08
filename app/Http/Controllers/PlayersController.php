@@ -46,6 +46,12 @@ class PlayersController extends Controller
         return view('players.show', compact('players'));
     }
 
+    public function account($id)
+    {
+        $players = Players::where('user_id', $id)->paginate(10);
+        return view('players.account', compact('players'));
+    }
+
     public function edit($id)
     {
         $users = Users::all();

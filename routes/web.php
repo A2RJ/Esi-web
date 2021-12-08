@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Event_inv_teamsController;
 use App\Http\Controllers\Event_teamsController;
 use App\Http\Controllers\Event_winnerController;
@@ -27,7 +28,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// Auth::routes();
+Auth::routes();
 
 Route::get('/', function () {
     return view('welcome');
@@ -37,6 +38,16 @@ Route::get('/home', function () {
     return view('test.index');
 });
 
+// admin
+Route::prefix('admin')->group(function () {
+    Route::get('/', [AdminController::class, 'index']);
+    Route::get('/create', [AdminController::class, 'create']);
+    Route::get('/show/{id}', [AdminController::class, 'show']);
+    Route::post('/store', [AdminController::class, 'store']);
+    Route::get('/edit/{id}', [AdminController::class, 'edit']);
+    Route::post('/update/{id}', [AdminController::class, 'update']);
+    Route::get('/destroy/{id}', [AdminController::class, 'destroy']);
+});
 // users
 Route::prefix('/users')->group(function () {
     Route::get('/', [UserController::class, 'index']);
@@ -53,6 +64,7 @@ Route::prefix('/players')->group(function () {
     Route::get('/', [PlayersController::class, 'index']);
     Route::get('/create', [PlayersController::class, 'create']);
     Route::get('/show/{id}', [PlayersController::class, 'show']);
+    Route::get('/account/{id}', [PlayersController::class, 'account']);
     Route::post('/store', [PlayersController::class, 'store']);
     Route::get('/edit/{id}', [PlayersController::class, 'edit']);
     Route::post('/update/{id}', [PlayersController::class, 'update']);
@@ -64,6 +76,7 @@ Route::prefix('/squads')->group(function () {
     Route::get('/', [SquadsController::class, 'index']);
     Route::get('/create', [SquadsController::class, 'create']);
     Route::get('/show/{id}', [SquadsController::class, 'show']);
+    Route::get('/squads/{id}', [SquadsController::class, 'squads']);
     Route::post('/store', [SquadsController::class, 'store']);
     Route::get('/edit/{id}', [SquadsController::class, 'edit']);
     Route::post('/update/{id}', [SquadsController::class, 'update']);
@@ -86,6 +99,7 @@ Route::prefix('/managements')->group(function () {
     Route::get('/', [ManagementsController::class, 'index']);
     Route::get('/create', [ManagementsController::class, 'create']);
     Route::get('/show/{id}', [ManagementsController::class, 'show']);
+    Route::get('/managements/{id}', [ManagementsController::class, 'managements']);
     Route::post('/store', [ManagementsController::class, 'store']);
     Route::get('/edit/{id}', [ManagementsController::class, 'edit']);
     Route::post('/update/{id}', [ManagementsController::class, 'update']);
@@ -130,6 +144,7 @@ Route::prefix('/events')->group(function () {
     Route::get('/', [EventsController::class, 'index']);
     Route::get('/create', [EventsController::class, 'create']);
     Route::get('/show/{id}', [EventsController::class, 'show']);
+    Route::get('/events/{id}', [EventsController::class, 'events']);
     Route::post('/store', [EventsController::class, 'store']);
     Route::get('/edit/{id}', [EventsController::class, 'edit']);
     Route::post('/update/{id}', [EventsController::class, 'update']);
