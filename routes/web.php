@@ -93,6 +93,7 @@ Route::group(['prefix' => 'squad_inv_players', 'middleware' => 'auth'], function
     Route::get('/inviteFromSquad', [Squad_inv_playersController::class, 'inviteFromSquad']);
     Route::get('/create', [Squad_inv_playersController::class, 'create']);
     Route::get('/show/{id}', [Squad_inv_playersController::class, 'show']);
+    Route::get('/terima/{id}', [Squad_inv_playersController::class, 'terima']);
     Route::post('/store', [Squad_inv_playersController::class, 'store']);
     Route::get('/edit/{id}', [Squad_inv_playersController::class, 'edit']);
     Route::post('/update/{id}', [Squad_inv_playersController::class, 'update']);
@@ -102,9 +103,10 @@ Route::group(['prefix' => 'squad_inv_players', 'middleware' => 'auth'], function
 // request squads
 Route::group(['prefix' => 'request_squads', 'middleware' => 'auth'], function () {
     Route::get('/', [Request_squadsController::class, 'index']);
-    Route::get('/requestFromSquads', [Request_squadsController::class, 'requestFromSquads']);
+    Route::get('/requestFromPlayers', [Request_squadsController::class, 'requestFromPlayers']);
     Route::get('/create', [Request_squadsController::class, 'create']);
     Route::get('/show/{id}', [Request_squadsController::class, 'show']);
+    Route::get('/terima/{id}', [Request_squadsController::class, 'terima']);
     Route::post('/store', [Request_squadsController::class, 'store']);
     Route::get('/edit/{id}', [Request_squadsController::class, 'edit']);
     Route::post('/update/{id}', [Request_squadsController::class, 'update']);

@@ -19,4 +19,16 @@ class Request_squads extends Model
     protected $primaryKey = 'id_request_squad';
 
     protected $fillable =  ["player_id", "squad_id", "status", ];
+
+    // hasOne squad
+    public function squads()
+    {
+        return $this->hasOne(Squads::class, 'id_squad', 'squad_id');
+    }
+
+    // hasOne player
+    public function players()
+    {
+        return $this->hasOne(Players::class, 'id_player', 'player_id');
+    }
 }

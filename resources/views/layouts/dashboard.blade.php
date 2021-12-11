@@ -466,7 +466,7 @@ use Illuminate\Support\Facades\Auth; ?>
                   <!-- Invite player -->
                   <li class="nav-item"> <a class="nav-link" href="/squad_inv_players">Invite squad player</a></li>
                   <!-- Request join squad from player -->
-                  <li class="nav-item"> <a class="nav-link" href="/request_squads/requestFromSquads">Request join from squad</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/request_squads/requestFromPlayers">Request join from player</a></li>
                 </ul>
               </div>
             </li>

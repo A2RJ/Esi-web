@@ -95,20 +95,14 @@ class Squad_inv_playersController extends Controller
         return view('squad_inv_players.invite', compact('squad_inv_players'));
     }
 
-    // accept squad_inv_players
-    public function acceptSquadInvPlayers($id_squad, $id_player)
+    public function terima($id)
     {
-        Squad_inv_players::find($id_squad)->update(['status' => true]);
-        Players::find($id_player)->update(['squad_id' => $id_squad]);
+        $squad = Squad_inv_players::find($id);
+        $squad1 = $squad;
+        $squad1->update(['status' => 1]);
 
-        return true;
-    }
+        Players::find($squad->player_id)->update(['squad_id' => $squad->squad_id]);
 
-    // decline squad_inv_players
-    public function declineSquadInvPlayers($id_squad, $id_player)
-    {
-        Squad_inv_players::find($id_squad)->update(['status' => false]);
-        Players::find($id_player)->update(['squad_id' => null]);
-        return true;
+        return redirect('squad_inv_players')->with('success', 'Player has been added to squad');
     }
 }

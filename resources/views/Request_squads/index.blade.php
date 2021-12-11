@@ -35,14 +35,12 @@
                             @foreach ($request_squads as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{$data->player_id}}</td>
-                                <td>{{$data->squad_id}}</td>
-                                <td>{{$data->status}}</td>
+                                <td>{{$data->players->ingame_name}}</td>
+                                <td>{{$data->squads->squad_name}}</td>
+                                <td>{{$data->status ? 'Accepted' : 'Waiting'}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
-                                        <a href="/request_squads/show/{{$data->id_request_squad }}" title="show" class="badge badge-info">Show</a>
-                                        <a href="/request_squads/edit/{{$data->id_request_squad }}" class="badge badge-warning">Edit</a>
-                                        <a href="/request_squads/destroy/{{$data->id_request_squad }}" class="badge badge-danger">Delete</a>
+                                        <a href="/request_squads/destroy/{{$data->id_request_squad }}" class="badge badge-danger">{{$data->status ? 'Delete' : 'Batal'}}</a>
                                     </div>
                                 </td>
                             </tr>

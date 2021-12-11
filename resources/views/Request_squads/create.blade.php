@@ -23,15 +23,26 @@
                 @endif
                 <form action="/request_squads/store" method="POST" class="forms-sample">
                     @csrf
-
+                    <!-- players -->
                     <div class="form-group">
-                        <label for="player_id">player id</label>
-                        <input type="text" class="form-control" name="player_id" id="player_id" placeholder="player_id">
+                        <label for="player_id">player_id</label>
+                        <select class="form-control" name="player_id" id="player_id">
+                            <option value="">Please select</option>
+                            @foreach ($players as $player)
+                            <option value="{{ $player->id_player }}">{{ $player->ingame_name }}</option>
+                            @endforeach
+                        </select>
                     </div>
 
+                    <!-- squads -->
                     <div class="form-group">
-                        <label for="squad_id">squad id</label>
-                        <input type="text" class="form-control" name="squad_id" id="squad_id" placeholder="squad_id">
+                        <label for="squad_id">squad_id</label>
+                        <select class="form-control" name="squad_id" id="squad_id">
+                            <option value="">Please select</option>
+                            @foreach ($squads as $squad)
+                            <option value="{{ $squad->id_squad }}">{{ $squad->squad_name }}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="form-group">

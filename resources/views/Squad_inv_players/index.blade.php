@@ -40,7 +40,7 @@
                                 <td>{{$data->status == 0 ? 'Waiting' : 'Accepted'}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
-                                        <a href="/squad_inv_players/destroy/{{$data->id_squad_inv_player }}" class="badge badge-danger">Batal</a>
+                                        <a href="/squad_inv_players/destroy/{{$data->id_squad_inv_player }}" class="badge badge-danger">{{$data->status ? 'Delete' : 'Batal'}}</a>
                                     </div>
                                 </td>
                             </tr>
