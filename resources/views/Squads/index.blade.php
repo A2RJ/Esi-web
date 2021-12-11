@@ -37,8 +37,8 @@
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td>{{ $loop->iteration }}</td> 
                                 <td>{{$data->squad_name}}</td>
-                                <td>{{$data->squad_leader}}</td>
-                                <td>{{$data->management_id}}</td>
+                                <td>{{$data->leader->ingame_name}}</td>
+                                <td>{{$data->management ? $data->management->management_name : 'Tidak join management'}}</td>
                                 <td>{{$data->created_at}}</td>
                                 <td>{{$data->updated_at}}</td>
                                 <td class="px-4 py-3">

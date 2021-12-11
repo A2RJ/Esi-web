@@ -27,8 +27,8 @@
           <!-- @method('PUT') -->
           <!-- select games -->
           <div class="form-group">
-            <label for="id_game">Games</label>
-            <select class="form-control" name="id_game" id="id_game">
+            <label for="game_id">Games</label>
+            <select class="form-control" name="game_id" id="game_id">
               @foreach($games as $game)
               <option value="{{$game->id_game}}" {{$game->id_game == $event->game_id ? 'selected' : ''}}>{{$game->game_name}}</option>
               @endforeach
@@ -37,8 +37,8 @@
 
           <!-- select users -->
           <div class="form-group">
-            <label for="id_user">Users</label>
-            <select class="form-control" name="id_user" id="id_user">
+            <label for="user_id">Users</label>
+            <select class="form-control" name="user_id" id="user_id">
               @foreach($users as $user)
               <option value="{{$user->id_user}}" {{$user->id_user == $event->id_user ? 'selected' : ''}}>{{$user->nama}}</option>
               @endforeach

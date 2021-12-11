@@ -23,28 +23,6 @@
                 @endif
                 <form action="/players/store" method="POST" class="forms-sample">
                     @csrf
-                    <!-- select users -->
-                    <div class="form-group">
-                        <label for="user_id">Select User</label>
-                        <select class="form-control form-control-lg" id="user_id" name="user_id">
-                            <option value="">Select User</option>
-                            @foreach($users as $user)
-                            <option value="{{ $user->id_user }}">{{ $user->nama }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
-                    <!-- select squads -->
-                    <div class="form-group">
-                        <label for="squad_id">Select Squad</label>
-                        <select class="form-control form-control-lg" id="squad_id" name="squad_id">
-                            <option value="">Select Squad</option>
-                            @foreach($squads as $squad)
-                            <option value="{{ $squad->id_squad }}">{{ $squad->squad_name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
                     <!-- select games -->
                     <div class="form-group">
                         <label for="games">games</label>

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth; ?>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Star Admin2 </title>
+  <title>ESI @yield('title')</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="/template/vendors/feather/feather.css">
   <link rel="stylesheet" href="/template/vendors/mdi/css/materialdesignicons.min.css">
@@ -406,7 +406,7 @@ use Illuminate\Support\Facades\Auth; ?>
                   <?php if (Auth::user()->user_role == 'admin') : ?>
                     <li class="nav-item"> <a class="nav-link" href="/events">All Events</a></li>
                   <?php endif; ?>
-                  <li class="nav-item"> <a class="nav-link" href="/events/events/{{Auth::user()->id_user}}">My Events</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/events/events">My Events</a></li>
                   <li class="nav-item"> <a class="nav-link" href="/event_teams">Event Teams</a></li>
                   <li class="nav-item"> <a class="nav-link" href="/event_inv_teams">Invited Teams</a></li>
                   <li class="nav-item"> <a class="nav-link" href="/event_winner">Event Winner</a></li>
@@ -443,7 +443,7 @@ use Illuminate\Support\Facades\Auth; ?>
                   <?php if (Auth::user()->user_role == 'admin') : ?>
                     <li class="nav-item"> <a class="nav-link" href="/managements">All Managements</a></li>
                   <?php endif; ?>
-                  <li class="nav-item"> <a class="nav-link" href="/managements/managements/{{Auth::user()->id_user}}">My Managements</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/managements/managements">My Managements</a></li>
                   <li class="nav-item"> <a class="nav-link" href="/management_inv_squads">Managements Invite Squad</a></li>
                 </ul>
               </div>
@@ -462,8 +462,11 @@ use Illuminate\Support\Facades\Auth; ?>
                   <?php if (Auth::user()->user_role == 'admin') : ?>
                     <li class="nav-item"> <a class="nav-link" href="/squads">All Squads</a></li>
                   <?php endif; ?>
-                  <li class="nav-item"> <a class="nav-link" href="/squads/squads/{{Auth::user()->id_user}}">My Squads</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="/squad_inv_players">Squad Invite player</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/squads/squads">My Squads</a></li>
+                  <!-- Invite player -->
+                  <li class="nav-item"> <a class="nav-link" href="/squad_inv_players">Invite squad player</a></li>
+                  <!-- Request join squad from player -->
+                  <li class="nav-item"> <a class="nav-link" href="/request_squads/requestFromSquads">Request join from squad</a></li>
                 </ul>
               </div>
             </li>
@@ -481,7 +484,11 @@ use Illuminate\Support\Facades\Auth; ?>
                   <?php if (Auth::user()->user_role == 'admin') : ?>
                     <li class="nav-item"> <a class="nav-link" href="/players">All Game Account</a></li>
                   <?php endif; ?>
-                  <li class="nav-item"> <a class="nav-link" href="/players/account/{{Auth::user()->id_user}}">My Game Account</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/players/players">My Game Account</a></li>
+                  <!-- Invite from squads -->
+                  <li class="nav-item"> <a class="nav-link" href="/squad_inv_players/inviteFromSquad">Invite from squad</a></li>
+                  <!-- Request join to a squad -->
+                  <li class="nav-item"> <a class="nav-link" href="/request_squads">Request join to squad</a></li>
                 </ul>
               </div>
             </li>

@@ -21,6 +21,6 @@ class Player
             return $next($request);
         }
 
-        return "You are not authorized to view this page";
+        return redirect('/error');
     }
 }

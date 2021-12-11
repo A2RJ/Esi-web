@@ -62,6 +62,19 @@ class EventsController extends Controller
 
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            "game_id" => "required",
+            "user_id" => "required",
+            "event_name" => "required",
+            "event_image" => "required",
+            "slot" => "required",
+            "pricepool" => "required",
+            "isfree" => "required",
+            "detail" => "required",
+            "peraturan" => "required",
+            "start" => "required",
+            "end" => "required"
+        ]);
         Events::findOrFail($id)->update($request->all());
         return redirect('/events')->with('success', 'Data berhasil diubah');
     }
@@ -71,5 +84,12 @@ class EventsController extends Controller
         $event = Events::findOrFail($id);
         $event->delete();
         return redirect('/events')->with('success', 'Data berhasil dihapus');
+    }
+
+    // ambil data event berdasarkan user login
+    public function events()
+    {
+        $events = Events::where('user_id', auth()->user()->id_user)->paginate(10);
+        return view('events.index', compact('events'));
     }
 }

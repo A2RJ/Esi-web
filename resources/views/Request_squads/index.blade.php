@@ -1,23 +1,23 @@
 @extends('layouts.dashboard')
-@section('title', 'squad_inv_players')
+@section('title', 'request_squads')
 
 @section('content')
 <div class="row">
+    @if ($message = Session::get('success'))
+    <div class="alert alert-success">
+        <p>{{ $message }}</p>
+    </div>
+    @endif
+
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                @if ($message = Session::get('success'))
-                <div class="alert alert-success">
-                    <p>{{ $message }}</p>
-                </div>
-                @endif
-
-                <h4 class="card-title">Invite player</h4>
+                <h4 class="card-title">Request join</h4>
                 <p class="card-description">
                     <!-- Add class <code>.table-hover</code> -->
-                    Menu untuk invite player
+                    Menu player request join squad
                 </p>
-                <a class="btn btn-success" href="/squad_inv_players/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                <a class="btn btn-success" href="/request_squads/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
                     Tambah
                 </a>
                 <div class="table-responsive">
@@ -25,22 +25,24 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>squad_id</th>
-                                <th>player_id</th>
+                                <th>player id</th>
+                                <th>squad id</th>
                                 <th>status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($squad_inv_players as $data)
+                            @foreach ($request_squads as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{$data->squad_name}}</td>
-                                <td>{{$data->ingame_name}}</td>
-                                <td>{{$data->status == 0 ? 'Waiting' : 'Accepted'}}</td>
+                                <td>{{$data->player_id}}</td>
+                                <td>{{$data->squad_id}}</td>
+                                <td>{{$data->status}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
-                                        <a href="/squad_inv_players/destroy/{{$data->id_squad_inv_player }}" class="badge badge-danger">Batal</a>
+                                        <a href="/request_squads/show/{{$data->id_request_squad }}" title="show" class="badge badge-info">Show</a>
+                                        <a href="/request_squads/edit/{{$data->id_request_squad }}" class="badge badge-warning">Edit</a>
+                                        <a href="/request_squads/destroy/{{$data->id_request_squad }}" class="badge badge-danger">Delete</a>
                                     </div>
                                 </td>
                             </tr>

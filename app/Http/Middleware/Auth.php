@@ -4,9 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
 
-class Management
+class Auth
 {
     /**
      * Handle an incoming request.
@@ -17,10 +17,9 @@ class Management
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->user_role == 'management') {
-            return $next($request);
-        }
-
-        return redirect('/error');
+        // check if user is logged in
+        return FacadesAuth::check()
+            ? $next($request)
+            : redirect('/login');
     }
 }

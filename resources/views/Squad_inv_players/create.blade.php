@@ -21,21 +21,40 @@
                     </ul>
                 </div>
                 @endif
+
+                <!-- check message error -->
+                @if(Session::has('error'))
+                <div class="alert alert-danger">
+                    {{Session::get('error')}}
+                </div>
+                @endif
                 <form action="/squad_inv_players/store" method="POST" class="forms-sample">
                     @csrf
+                    <!-- select users -->
                     <div class="form-group">
-                        <label for="squad_id">squad_id</label>
-                        <input type="text" class="form-control" name="squad_id" id="squad_id" placeholder="squad_id">
+                        <label for="player_id">Player</label>
+                        <select class="form-control form-control-lg" id="player_id" name="player_id">
+                            <option value="">Select player</option>
+                            @foreach($players as $player)
+                            <option value="{{ $player->id_player }}">{{ $player->ingame_name }}</option>
+                            @endforeach
+                        </select>
                     </div>
 
+                    <!-- select squads -->
                     <div class="form-group">
-                        <label for="player_id">player_id</label>
-                        <input type="text" class="form-control" name="player_id" id="player_id" placeholder="player_id">
+                        <label for="squad_id">Select Squad</label>
+                        <select class="form-control form-control-lg" id="squad_id" name="squad_id">
+                            <option value="">Select Squad</option>
+                            @foreach($squads as $squad)
+                            <option value="{{ $squad->id_squad }}">{{ $squad->squad_name }}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="form-group">
                         <label for="status">status</label>
-                        <input type="text" class="form-control" name="status" id="status" placeholder="status">
+                        <input type="text" class="form-control" name="status" id="status" value="0" readonly>
                     </div>
 
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">

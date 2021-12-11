@@ -7,6 +7,7 @@ use App\Models\Players;
 use App\Models\Squads;
 use App\Models\Users;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PlayersController extends Controller
 {
@@ -27,9 +28,9 @@ class PlayersController extends Controller
 
     public function store(Request $request)
     {
+        $request['user_id'] = Auth::user()->id_user;
+        $request['squad_id'] = null;
         $request->validate([
-            "user_id" => "required",
-            "squad_id" => "required",
             "game_id" => "required",
             "ingame_name" => "required",
             "ingame_id" => "required",
@@ -71,5 +72,14 @@ class PlayersController extends Controller
     {
         Players::find($id)->delete();
         return redirect('/players')->with('success', 'Player has been deleted');
+    }
+
+    // ambil data player berdasarkan user login
+    public function players()
+    {
+        $players = Players::with('user', 'game', 'squad')
+            ->where('user_id', Auth::user()->id_user)
+            ->paginate(10);
+        return view('players.index', compact('players'));
     }
 }

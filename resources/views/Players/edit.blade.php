@@ -25,28 +25,6 @@
                 <form action="/players/update/{{$players->id_player}}" method="POST">
                     @csrf
                     <!-- @method('PUT') -->
-                    <!-- select users -->
-                    <div class="form-group">
-                        <label for="user_id">User</label>
-                        <select class="form-control" name="user_id" id="user_id">
-                            <option>Pilih User</option>
-                            @foreach($users as $user)
-                            <option value="{{$user->id_user}}" {{$user->id_user == $players->user_id ? 'selected' : ''}}>{{$user->nama}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
-                    <!-- select squads -->
-                    <div class="form-group">
-                        <label for="squad_id">Squad</label>
-                        <select class="form-control" name="squad_id" id="squad_id">
-                            <option>Pilih Squad</option>
-                            @foreach($squads as $squad)
-                            <option value="{{$squad->id_squad}}" {{$squad->id_squad == $players->squad_id ? 'selected' : ''}}>{{$squad->squad_name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
                     <!-- select game -->
                     <div class="form-group">
                         <label for="game_id">Game</label>

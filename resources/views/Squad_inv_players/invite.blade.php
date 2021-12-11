@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
-@section('title', 'players')
+@section('title', 'squad_inv_players')
 
 @section('content')
 <div class="row">
@@ -12,40 +12,34 @@
                 </div>
                 @endif
 
-                <h4 class="card-title">Hoverable Table</h4>
+                <h4 class="card-title">Invited from squads</h4>
                 <p class="card-description">
-                    Add class <code>.table-hover</code>
+                    <!-- Add class <code>.table-hover</code> -->
+                    Menu invite player dari squad
                 </p>
-                <a class="btn btn-success" href="/players/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
-                    Tambah
-                </a>
+
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>user</th>
-                                <th>squad</th>
-                                <th>game</th>
-                                <th>created_at</th>
-                                <th>updated_at</th>
+                                <th>squad_id</th>
+                                <th>player_id</th>
+                                <th>status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($players as $data)
+                            @foreach ($squad_inv_players as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td>{{ $loop->iteration }}</td>
+                                <td>{{$data->squad_name}}</td>
                                 <td>{{$data->ingame_name}}</td>
-                                <td>{{$data->squad ? $data->squad->squad_name : 'Tidak join squad'}}</td>
-                                <td>{{$data->game->game_name}}</td>
-                                <td>{{$data->created_at}}</td>
-                                <td>{{$data->updated_at}}</td>
+                                <td>{{$data->status == 0 ? 'Waiting' : 'Accepted'}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
-                                        <a href="/players/show/{{$data->id_player }}" title="show" class="badge badge-info">Show</a>
-                                        <a href="/players/edit/{{$data->id_player }}" class="badge badge-warning">Edit</a>
-                                        <a href="/players/destroy/{{$data->id_player }}" class="badge badge-danger">Delete</a>
+                                        <a href="/squad_inv_players/show/{{$data->id_squad_inv_player }}" title="show" class="badge badge-info">Terima</a>
+                                        <a href="/squad_inv_players/destroy/{{$data->id_squad_inv_player }}" class="badge badge-danger">Tolak</a>
                                     </div>
                                 </td>
                             </tr>

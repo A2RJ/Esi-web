@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Managements;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ManagementsController extends Controller
 {
@@ -55,5 +56,12 @@ class ManagementsController extends Controller
     {
         Managements::find($id)->delete();
         return redirect('managements')->with('success', 'Management deleted successfully.');
+    }
+
+    // ambil management berdasarkan user login
+    public function managements()
+    {
+        $managements = Managements::where('user_id', Auth::user()->id)->paginate(10);
+        return view('managements.index', compact('managements'));
     }
 }

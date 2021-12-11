@@ -1,14 +1,14 @@
 @extends('layouts.dashboard')
-@section('title', 'squads')
+@section('title', 'request_squads')
 
 @section('content')
 <div class="row">
     <div class="col-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Add New squads</h4>
+                <h4 class="card-title">Add New request_squads</h4>
                 <p class="card-description">
-                    <a class="btn btn-primary" href="/squads" title="Go back"> Batal </a>
+                    <a class="btn btn-primary" href="/request_squads" title="Go back"> Batal </a>
                 </p>
 
                 @if ($errors->any())
@@ -21,22 +21,22 @@
                     </ul>
                 </div>
                 @endif
-                <form action="/squads/store" method="POST" class="forms-sample">
-                    @csrf 
-                    <!-- select players -->
+                <form action="/request_squads/store" method="POST" class="forms-sample">
+                    @csrf
+
                     <div class="form-group">
-                        <label for="squad_leader">Select Players</label>
-                        <select class="form-control form-control-lg" id="squad_leader" name="squad_leader">
-                            <option value="">Select Player</option>
-                            @foreach($players as $player)
-                            <option value="{{ $player->id_player }}">{{ $player->ingame_name }}</option>
-                            @endforeach
-                        </select>
+                        <label for="player_id">player id</label>
+                        <input type="text" class="form-control" name="player_id" id="player_id" placeholder="player_id">
                     </div>
 
                     <div class="form-group">
-                        <label for="squad_name">squad_name</label>
-                        <input type="text" class="form-control" name="squad_name" id="squad_name" placeholder="squad_name">
+                        <label for="squad_id">squad id</label>
+                        <input type="text" class="form-control" name="squad_id" id="squad_id" placeholder="squad_id">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="status">status</label>
+                        <input type="text" class="form-control" name="status" id="status" placeholder="status">
                     </div>
 
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">

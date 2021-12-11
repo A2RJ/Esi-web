@@ -11,7 +11,11 @@
 -   Sebagai user
 -   -   Dapat mempunyai beberapa akun game (player)
 -   -   Dapat membuat squad dan invite player
--   -   Dapat membuat event (kelola event, invite squad, tim partisipan, pemenan event)
+-   -   Dapat membuat event (kelola event, invite squad, tim partisipan, pemenang event)
 -   Sebagai manajemen
 -   -   Dapat membuat squad dan invite player
 -   -   Dapat membuat event (kelola event, invite squad, tim partisipan, pemenant event)
+
+# next update
+- Invite squad player (list, tambah, batal) & invite from squad (list, terima, tolak)
+- Request join to squad (list, tambah, batal) & request join from squad (list, terima, tolak)
