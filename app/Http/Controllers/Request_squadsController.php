@@ -14,6 +14,7 @@ class Request_squadsController extends Controller
     public function index()
     {
         $request_squads = Request_squads::with('squads', 'players')
+            ->where('player_id', Auth::user()->id_user)
             ->paginate(10);
         return view('request_squads.index', compact('request_squads'));
     }
@@ -41,7 +42,7 @@ class Request_squadsController extends Controller
             return redirect('squad_inv_players/create')
                 ->with('error', 'Player is already in a squad');
         }
-        
+
         Request_squads::create($request->all());
         return redirect('request_squads')->with('success', 'Request_squads created successfully');
     }
@@ -98,8 +99,9 @@ class Request_squadsController extends Controller
     public function terima($id)
     {
         $request_squads = Request_squads::findOrFail($id);
-        Request_squads::findOrFail($id)->update(['status' => 1]);
         Players::where('id_player', $request_squads->player_id)->update(['squad_id' => $request_squads->squad_id]);
+        $request_squads->status = 1;
+        $request_squads->save();
 
         return redirect('request_squads/requestFromPlayers')->with('success', 'Request_squads updated successfully');
     }

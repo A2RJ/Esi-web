@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event_teams;
 use Illuminate\Http\Request;
 use App\Models\Events;
 use App\Models\Games;
 use App\Models\Squads;
 use App\Models\Users;
+use Illuminate\Support\Facades\Auth;
 
 class EventsController extends Controller
 {
@@ -23,7 +25,11 @@ class EventsController extends Controller
         $event = Events::join('games', 'events.game_id', 'games.id_game')
             ->with('owner')
             ->findOrFail($id);
-        return view('events.show', compact('event'));
+        $teams = Event_teams::join('squads', 'event_teams.squad_id', 'squads.id_squad')
+            ->where('event_teams.event_id', $id)
+            ->get();
+        
+        return view('events.show', compact('event', 'teams'));
     }
 
     public function create()
@@ -35,6 +41,8 @@ class EventsController extends Controller
 
     public function store(Request $request)
     {
+        $request['user_id'] = Auth::user()->id_user;
+
         $this->validate($request, [
             "game_id" => "required",
             "user_id" => "required",
@@ -62,6 +70,8 @@ class EventsController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request['user_id'] = Auth::user()->id_user;
+
         $this->validate($request, [
             "game_id" => "required",
             "user_id" => "required",

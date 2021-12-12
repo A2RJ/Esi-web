@@ -23,9 +23,15 @@
                 @endif
                 <form action="/management_inv_squads/store" method="POST" class="forms-sample">
                     @csrf
+                    <!-- select managements -->
                     <div class="form-group">
-                        <label for="management_id">management_id</label>
-                        <input type="text" class="form-control" name="management_id" id="management_id" placeholder="management_id">
+                        <label for="management_id">Management</label>
+                        <select class="form-control" name="management_id" id="management_id">
+                            <option value="">-- Pilih --</option>
+                            @foreach($managements as $management)
+                            <option value="{{ $management->id_management  }}">{{ $management->management_name }}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <!-- looping squads -->

@@ -1,51 +1,49 @@
 @extends('layouts.dashboard')
-@section('title', 'management_inv_squads')
+@section('title', 'request_managements')
 
 @section('content')
 <div class="row">
+    @if ($message = Session::get('success'))
+    <div class="alert alert-success">
+        <p>{{ $message }}</p>
+    </div>
+    @endif
+
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                @if ($message = Session::get('success'))
-                <div class="alert alert-success">
-                    <p>{{ $message }}</p>
-                </div>
-                @endif
-
                 <h4 class="card-title">Hoverable Table</h4>
                 <p class="card-description">
                     Add class <code>.table-hover</code>
                 </p>
-                <a class="btn btn-success" href="/management_inv_squads/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
-                    Tambah
-                </a>
+
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>management</th>
-                                <th>squad_id</th>
-                                <th>tanggal invite</th>
+                                <th>squad id</th>
+                                <th>management id</th>
                                 <th>status</th>
+                                <th>Tanggal invite</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($management_inv_squads as $data)
+                            @foreach ($request_managements as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{$data->management_name}}</td>
-                                <td>{{$data->squad_name}}</td>
+                                <td>{{$data->squad->squad_name}}</td>
+                                <td>{{$data->management->management_name}}</td>
+                                <td>{{$data->status ? 'Diterima' : 'Waiting'}}</td>
                                 <td>{{$data->created_at}}</td>
-                                <td>{{$data->status ? 'Accepted' : 'Waiting'}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
                                         <?php if ($data->status) { ?>
-                                            <a href="/management_inv_squads/destroy/{{$data->id_management_inv_squad }}" class="badge badge-danger">Delete</a>
+                                            <a href="/request_managements/destroy/{{$data->id_request_management }}" class="badge badge-danger">Delete</a>
                                         <?php } else { ?>
-                                            <a href="/management_inv_squads/terima/{{$data->id_management_inv_squad }}" class="badge badge-info">Terima</a>
-                                            <a href="/management_inv_squads/destroy/{{$data->id_management_inv_squad }}" class="badge badge-danger">Tolak</a>
+                                            <a href="/request_managements/terima/{{$data->id_request_management }}" class="badge badge-info">Terima</a>
+                                            <a href="/request_managements/destroy/{{$data->id_request_management }}" class="badge badge-danger">Tolak</a>
                                         <?php } ?>
                                     </div>
                                 </td>

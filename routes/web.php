@@ -10,6 +10,7 @@ use App\Http\Controllers\GamesController;
 use App\Http\Controllers\Management_inv_squadsController;
 use App\Http\Controllers\ManagementsController;
 use App\Http\Controllers\PlayersController;
+use App\Http\Controllers\Request_managementsController;
 use App\Http\Controllers\Request_squadsController;
 use App\Http\Controllers\Squad_inv_playersController;
 use App\Http\Controllers\SquadsController;
@@ -128,12 +129,27 @@ Route::group(['prefix' => 'managements', 'middleware' => 'auth'], function () {
 // managements inv squads
 Route::group(['prefix' => 'management_inv_squads', 'middleware' => 'auth'], function () {
     Route::get('/', [Management_inv_squadsController::class, 'index']);
+    Route::get('/invite', [Management_inv_squadsController::class, 'invite']);
     Route::get('/create', [Management_inv_squadsController::class, 'create']);
     Route::get('/show/{id}', [Management_inv_squadsController::class, 'show']);
+    Route::get('/terima/{id}', [Management_inv_squadsController::class, 'terima']);
     Route::post('/store', [Management_inv_squadsController::class, 'store']);
     Route::get('/edit/{id}', [Management_inv_squadsController::class, 'edit']);
     Route::post('/update/{id}', [Management_inv_squadsController::class, 'update']);
     Route::get('/destroy/{id}', [Management_inv_squadsController::class, 'destroy']);
+});
+
+// request managements
+Route::group(['prefix' => 'request_managements', 'middleware' => 'auth'], function () {
+    Route::get('/', [Request_managementsController::class, 'index']);
+    Route::get('/requestFromSquads', [Request_managementsController::class, 'requestFromSquads']);
+    Route::get('/create', [Request_managementsController::class, 'create']);
+    Route::get('/show/{id}', [Request_managementsController::class, 'show']);
+    Route::get('/terima/{id}', [Request_managementsController::class, 'terima']);
+    Route::post('/store', [Request_managementsController::class, 'store']);
+    Route::get('/edit/{id}', [Request_managementsController::class, 'edit']);
+    Route::post('/update/{id}', [Request_managementsController::class, 'update']);
+    Route::get('/destroy/{id}', [Request_managementsController::class, 'destroy']);
 });
 
 // games

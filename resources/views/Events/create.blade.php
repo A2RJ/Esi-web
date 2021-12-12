@@ -34,17 +34,6 @@
                         </select>
                     </div>
 
-                    <!-- select users -->
-                    <div class="form-group">
-                        <label for="users">Users</label>
-                        <select class="form-control" id="user_id" name="user_id">
-                            <option value="">-- Select Users --</option>
-                            @foreach($users as $user)
-                            <option value="{{ $user->id_user }}">{{ $user->nama }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
                     <div class="form-group">
                         <label for="event_name">event_name</label>
                         <input type="text" class="form-control" name="event_name" id="event_name" placeholder="event_name">

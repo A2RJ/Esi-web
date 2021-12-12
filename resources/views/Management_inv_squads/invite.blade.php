@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
-@section('title', 'event_teams')
+@section('title', 'management_inv_squads')
 
 @section('content')
 <div class="row">
@@ -16,38 +16,35 @@
                 <p class="card-description">
                     Add class <code>.table-hover</code>
                 </p>
-                <a class="btn btn-success" href="/event_teams/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
-                    Tambah
-                </a>
+
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Events</th>
-                                <th>Squad</th>
-                                <th>isfree</th>
-                                <th>ispaid</th>
-                                <th>created_at</th>
-                                <th>updated_at</th>
+                                <th>management</th>
+                                <th>squad_id</th>
+                                <th>tanggal invite</th>
+                                <th>status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($event_teams as $data)
+                            @foreach ($management_inv_squads as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{$data->event_name}}</td>
+                                <td>{{$data->management_name}}</td>
                                 <td>{{$data->squad_name}}</td>
-                                <td>{{$data->isfree == 1 ? 'YA' : 'TIDAK'}}</td>
-                                <td>{{$data->ispaid == 1 ? 'YA' : 'TIDAK'}}</td>
                                 <td>{{$data->created_at}}</td>
-                                <td>{{$data->updated_at}}</td>
+                                <td>{{$data->status ? 'Accepted' : 'Waiting'}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
-                                        <!-- <a href="/event_teams/show/{{$data->id_event_teams }}" title="show" class="badge badge-info">Show</a> -->
-                                        <a href="/event_teams/edit/{{$data->id_event_teams }}" class="badge badge-warning">Edit</a>
-                                        <a href="/event_teams/destroy/{{$data->id_event_teams }}" class="badge badge-danger">Delete</a>
+                                        <?php if ($data->status) { ?>
+                                            <a href="/management_inv_squads/destroy/{{$data->id_management_inv_squad }}" class="badge badge-danger">Delete</a>
+                                        <?php } else { ?>
+                                            <a href="/management_inv_squads/terima/{{$data->id_management_inv_squad }}" class="badge badge-info">Terima</a>
+                                            <a href="/management_inv_squads/destroy/{{$data->id_management_inv_squad }}" class="badge badge-danger">Tolak</a>
+                                        <?php } ?>
                                     </div>
                                 </td>
                             </tr>

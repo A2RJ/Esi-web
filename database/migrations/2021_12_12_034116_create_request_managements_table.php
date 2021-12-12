@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateManagementInvSquadsTable extends Migration
+class CreateRequestManagementsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateManagementInvSquadsTable extends Migration
      */
     public function up()
     {
-        Schema::create('management_inv_squads', function (Blueprint $table) {
-            $table->integer('id_management_inv_squad');
-            $table->integer('management_id');
+        Schema::create('request_managements', function (Blueprint $table) {
+            $table->integer('id_request_management', true);
             $table->integer('squad_id');
+            $table->integer('management_id');
             $table->boolean('status')->nullable();
-            $table->timestamps();
+            $table->date('created_at')->default('CURRENT_TIMESTAMP');
+            $table->date('updated_at')->default('CURRENT_TIMESTAMP');
         });
     }
 
@@ -29,6 +30,6 @@ class CreateManagementInvSquadsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('management_inv_squads');
+        Schema::dropIfExists('request_managements');
     }
 }

@@ -22,6 +22,7 @@ class ManagementsController extends Controller
 
     public function store(Request $request)
     {
+        $request['user_id'] = Auth::user()->id_user;
         $this->validate($request, [
             "user_id" => "required",
             "management_name" => "required",
@@ -31,6 +32,7 @@ class ManagementsController extends Controller
             "alamat" => "required",
         ]);
         Managements::create($request->all());
+        if (Auth::user()->user_role == 'management') return redirect('/managements/managements')->with('success', 'Management created successfully.');
         return redirect('managements')->with('success', 'Management created successfully.');
     }
 
@@ -49,19 +51,23 @@ class ManagementsController extends Controller
     public function update(Request $request, $id)
     {
         Managements::find($id)->update($request->all());
+        
+        if (Auth::user()->user_role == 'management') return redirect('/managements/managements')->with('success', 'Management created successfully.');
         return redirect('managements')->with('success', 'Management updated successfully.');
     }
 
     public function destroy($id)
     {
         Managements::find($id)->delete();
+
+        if (Auth::user()->user_role == 'management') return redirect('/managements/managements')->with('success', 'Management created successfully.');
         return redirect('managements')->with('success', 'Management deleted successfully.');
     }
 
     // ambil management berdasarkan user login
     public function managements()
     {
-        $managements = Managements::where('user_id', Auth::user()->id)->paginate(10);
+        $managements = Managements::where('user_id', Auth::user()->id_user)->paginate(10);
         return view('managements.index', compact('managements'));
     }
 }

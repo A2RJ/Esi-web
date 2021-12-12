@@ -35,16 +35,6 @@
             </select>
           </div>
 
-          <!-- select users -->
-          <div class="form-group">
-            <label for="user_id">Users</label>
-            <select class="form-control" name="user_id" id="user_id">
-              @foreach($users as $user)
-              <option value="{{$user->id_user}}" {{$user->id_user == $event->id_user ? 'selected' : ''}}>{{$user->nama}}</option>
-              @endforeach
-            </select>
-          </div>
-
           <div class="form-group">
             <label for="event_name">event_name</label>
             <input class="form-control" name="event_name" id="event_name" type="text" placeholder="{{ $event->event_name }}" value="{{ $event->event_name }}">

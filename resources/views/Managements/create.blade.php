@@ -24,11 +24,6 @@
                 <form action="/managements/store" method="POST" class="forms-sample">
                     @csrf
                     <div class="form-group">
-                        <label for="user_id">user_id</label>
-                        <input type="text" class="form-control" name="user_id" id="user_id" placeholder="user_id">
-                    </div>
-
-                    <div class="form-group">
                         <label for="management_name">management_name</label>
                         <input type="text" class="form-control" name="management_name" id="management_name" placeholder="management_name">
                     </div>

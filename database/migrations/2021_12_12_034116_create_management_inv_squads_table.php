@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSquadInvPlayersTable extends Migration
+class CreateManagementInvSquadsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateSquadInvPlayersTable extends Migration
      */
     public function up()
     {
-        Schema::create('squad_inv_players', function (Blueprint $table) {
-            $table->integer('id_squad_inv_player', true);
+        Schema::create('management_inv_squads', function (Blueprint $table) {
+            $table->integer('id_management_inv_squad', true);
+            $table->integer('management_id');
             $table->integer('squad_id');
-            $table->integer('player_id');
             $table->boolean('status')->nullable();
             $table->timestamps();
         });
@@ -29,6 +29,6 @@ class CreateSquadInvPlayersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('squad_inv_players');
+        Schema::dropIfExists('management_inv_squads');
     }
 }

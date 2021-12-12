@@ -445,6 +445,7 @@ use Illuminate\Support\Facades\Auth; ?>
                   <?php endif; ?>
                   <li class="nav-item"> <a class="nav-link" href="/managements/managements">My Managements</a></li>
                   <li class="nav-item"> <a class="nav-link" href="/management_inv_squads">Managements Invite Squad</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/request_managements/requestFromSquads">Request join from Squad</a></li>
                 </ul>
               </div>
             </li>
@@ -467,6 +468,9 @@ use Illuminate\Support\Facades\Auth; ?>
                   <li class="nav-item"> <a class="nav-link" href="/squad_inv_players">Invite squad player</a></li>
                   <!-- Request join squad from player -->
                   <li class="nav-item"> <a class="nav-link" href="/request_squads/requestFromPlayers">Request join from player</a></li>
+                  <!-- invite from managements -->
+                  <li class="nav-item"> <a class="nav-link" href="/management_inv_squads/invite">Invite from managements</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/request_managements">Request join to managements</a></li>
                 </ul>
               </div>
             </li>

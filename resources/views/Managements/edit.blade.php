@@ -26,11 +26,6 @@
                     @csrf
                     <!-- @method('PUT') -->
                     <div class="form-group">
-                        <label for="user_id">user_id</label>
-                        <input class="form-control" name="user_id" id="user_id" type="text" placeholder="{{ $management->user_id }}" value="{{ $management->user_id }}">
-                    </div>
-
-                    <div class="form-group">
                         <label for="management_name">management_name</label>
                         <input class="form-control" name="management_name" id="management_name" type="text" placeholder="{{ $management->management_name }}" value="{{ $management->management_name }}">
                     </div>

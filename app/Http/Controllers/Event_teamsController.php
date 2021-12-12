@@ -6,13 +6,18 @@ use App\Models\Event_teams;
 use App\Models\Events;
 use App\Models\Squads;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class Event_teamsController extends Controller
 {
     public function index()
     {
-        $event_teams = Event_teams::with('squads', 'events')
+        $event_teams = Event_teams::join('events', 'event_teams.event_id', 'events.id_event')
+            ->join('squads', 'event_teams.squad_id', 'squads.id_squad')
+            ->select('event_teams.*', 'events.event_name', 'squads.squad_name')
+            ->where('events.user_id', Auth::user()->id_user)
             ->paginate(10);
+
         return view('event_teams.index', compact('event_teams'));
     }
 
