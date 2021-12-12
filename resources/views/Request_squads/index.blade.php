@@ -12,9 +12,8 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Request join</h4>
+                <h4 class="card-title">Request join to squads</h4>
                 <p class="card-description">
-                    <!-- Add class <code>.table-hover</code> -->
                     Menu player request join squad
                 </p>
                 <a class="btn btn-success" href="/request_squads/create" title="Create a data"> <i class="fas fa-plus-circle"></i>

@@ -54,7 +54,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('/destroy/{id}', [AdminController::class, 'destroy']);
 });
 // users
-Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'users', 'middleware' => ['auth', 'admin']], function () {
     Route::get('/', [UserController::class, 'index']);
     Route::get('/create', [UserController::class, 'create']);
     Route::get('/show/{id}', [UserController::class, 'show']);
@@ -65,7 +65,7 @@ Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
 });
 
 // players
-Route::group(['prefix' => 'players', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'players', 'middleware' => ['auth', 'player', 'management', 'admin']], function () {
     Route::get('/', [PlayersController::class, 'index']);
     Route::get('/create', [PlayersController::class, 'create']);
     Route::get('/show/{id}', [PlayersController::class, 'show']);

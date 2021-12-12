@@ -3,18 +3,18 @@
 
 @section('content')
 <div class="row">
-    @if ($message = Session::get('success'))
-    <div class="alert alert-success">
-        <p>{{ $message }}</p>
-    </div>
-    @endif
-
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Hoverable Table</h4>
+                @if ($message = Session::get('success'))
+                <div class="alert alert-success">
+                    <p>{{ $message }}</p>
+                </div>
+                @endif
+
+                <h4 class="card-title">Admin</h4>
                 <p class="card-description">
-                    Add class <code>.table-hover</code>
+                   Kelola admin yang terdaftar
                 </p>
                 <a class="btn btn-success" href="/admin/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
                     Tambah

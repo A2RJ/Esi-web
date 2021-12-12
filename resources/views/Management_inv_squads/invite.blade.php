@@ -12,9 +12,9 @@
                 </div>
                 @endif
 
-                <h4 class="card-title">Hoverable Table</h4>
+                <h4 class="card-title">Invite From Management</h4>
                 <p class="card-description">
-                    Add class <code>.table-hover</code>
+                    Daftar management yang meminta untuk bergabung dengan management nya
                 </p>
 
                 <div class="table-responsive">

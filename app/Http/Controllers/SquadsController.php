@@ -33,6 +33,8 @@ class SquadsController extends Controller
 
         $squad = Squads::create($request->all());
         Players::where('id_player', $request->squad_leader)->update(['squad_id' => $squad->id_squad]);
+
+        if(Auth::user()->user_role !== 'admin') return redirect('squads/squads')->with('success', 'Squad created successfully');
         return redirect('squads')->with('success', 'Squad created successfully');
     }
 
@@ -53,12 +55,16 @@ class SquadsController extends Controller
     {
         $squad = Squads::find($id)->update($request->all());
         Players::where('id_player', $request->squad_leader)->update(['squad_id' => $squad->id_squad]);
+
+        if(Auth::user()->user_role !== 'admin') return redirect('squads/squads')->with('success', 'Squad created successfully');
         return redirect('squads')->with('success', 'Squad updated successfully');
     }
 
     public function destroy($id)
     {
         Squads::find($id)->delete();
+
+        if(Auth::user()->user_role !== 'admin') return redirect('squads/squads')->with('success', 'Squad created successfully');
         return redirect('squads')->with('success', 'Squad deleted successfully');
     }
 
@@ -71,18 +77,6 @@ class SquadsController extends Controller
             ->with('leader', 'management')
             ->paginate(10);
             
-        return view('squads.index', compact('squads'));
-    }
-
-    public function squadDetail($id)
-    {
-        $squads = Squads::join('players', 'squads.id_squad', 'players.squad_id')
-            ->join('managements', 'squads.management_id', 'managements.id_management')
-            ->select('squads.*', 'players.ingame_name', 'managements.management_name')
-            ->with('players')
-            ->find($id)
-            ->paginate(10);
-        return $squads;
         return view('squads.index', compact('squads'));
     }
 }

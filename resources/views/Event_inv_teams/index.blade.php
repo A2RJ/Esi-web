@@ -12,9 +12,9 @@
                 </div>
                 @endif
 
-                <h4 class="card-title">Hoverable Table</h4>
+                <h4 class="card-title">Invite teams</h4>
                 <p class="card-description">
-                    Add class <code>.table-hover</code>
+                    Invite teams untuk join events mu
                 </p>
                 <a class="btn btn-success" href="/event_inv_teams/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
                     Tambah
@@ -26,8 +26,7 @@
                                 <th>#</th>
                                 <th>event</th>
                                 <th>squad</th>
-                                <th>created_at</th>
-                                <th>updated_at</th>
+                                <th>Tanggal invite</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -38,7 +37,6 @@
                                 <td>{{$data->events->event_name}}</td>
                                 <td>{{$data->squads->squad_name}}</td>
                                 <td>{{$data->created_at}}</td>
-                                <td>{{$data->updated_at}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
                                         <a href="/event_inv_teams/show/{{$data->id_event_inv_teams}}" title="show" class="badge badge-info">Show</a>

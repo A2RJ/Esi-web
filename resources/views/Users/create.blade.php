@@ -22,7 +22,7 @@
                 </div>
                 @endif
                 <form action="/users/store" method="POST" class="forms-sample">
-                    @csrf 
+                    @csrf
                     <div class="form-group">
                         <label for="user_role">user role</label>
                         <input type="text" class="form-control" name="user_role" id="user_role" placeholder="user_role">
@@ -66,6 +66,9 @@
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
-
                 </form>
-                @endsection
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

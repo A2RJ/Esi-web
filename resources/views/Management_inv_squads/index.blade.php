@@ -12,9 +12,9 @@
                 </div>
                 @endif
 
-                <h4 class="card-title">Hoverable Table</h4>
+                <h4 class="card-title">Management Invite Squad</h4>
                 <p class="card-description">
-                    Add class <code>.table-hover</code>
+                    Daftar squad yang telah diinvite untuk bergabung dalam management, invite squad dengan klik tombol tambah
                 </p>
                 <a class="btn btn-success" href="/management_inv_squads/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
                     Tambah

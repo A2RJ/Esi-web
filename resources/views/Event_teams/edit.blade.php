@@ -6,7 +6,7 @@
     <div class="col-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Add New event_teams</h4>
+                <h4 class="card-title">Edit New event_teams</h4>
                 <p class="card-description">
                     <a class="btn btn-primary" href="/event_teams" title="Go back"> Batal </a>
                 </p>
@@ -59,6 +59,9 @@
                     <div class="mt-5">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
-
                 </form>
-                @endsection
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

@@ -6,7 +6,7 @@
     <div class="col-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Add New event_inv_teams</h4>
+                <h4 class="card-title">Invite team</h4>
                 <p class="card-description">
                     <a class="btn btn-primary" href="/event_inv_teams" title="Go back"> Batal </a>
                 </p>
@@ -48,6 +48,9 @@
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
-
                 </form>
-                @endsection
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

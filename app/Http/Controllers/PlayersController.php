@@ -38,6 +38,8 @@ class PlayersController extends Controller
         ]);
 
         Players::create($request->all());
+
+        if(Auth::user()->user_role !== 'admin') return redirect('players.players')->with('success', 'Player created successfully');
         return redirect('/players')->with('success', 'Player has been added');
     }
 
@@ -65,12 +67,16 @@ class PlayersController extends Controller
     public function update(Request $request, $id)
     {
         Players::find($id)->update($request->all());
+
+        if(Auth::user()->user_role !== 'admin') return redirect('players.players')->with('success', 'Player created successfully');
         return redirect('/players')->with('success', 'Player has been updated');
     }
 
     public function destroy($id)
     {
         Players::find($id)->delete();
+
+        if(Auth::user()->user_role !== 'admin') return redirect('players.players')->with('success', 'Player created successfully');
         return redirect('/players')->with('success', 'Player has been deleted');
     }
 

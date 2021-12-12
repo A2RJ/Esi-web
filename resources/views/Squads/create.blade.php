@@ -22,7 +22,7 @@
                 </div>
                 @endif
                 <form action="/squads/store" method="POST" class="forms-sample">
-                    @csrf 
+                    @csrf
                     <!-- select players -->
                     <div class="form-group">
                         <label for="squad_leader">Select Players</label>
@@ -42,6 +42,9 @@
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
-
                 </form>
-                @endsection
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

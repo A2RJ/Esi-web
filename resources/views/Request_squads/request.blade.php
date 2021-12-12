@@ -14,8 +14,7 @@
             <div class="card-body">
                 <h4 class="card-title">Request join squad</h4>
                 <p class="card-description">
-                    <!-- Add class <code>.table-hover</code> -->
-                    Menu request join squad dari user
+                    Daftar request join squad dari player
                 </p>
 
                 <div class="table-responsive">

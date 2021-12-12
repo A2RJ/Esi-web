@@ -12,9 +12,9 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Hoverable Table</h4>
+                <h4 class="card-title">Users</h4>
                 <p class="card-description">
-                    Add class <code>.table-hover</code>
+                    Daftar user yang terdaftar di sistem
                 </p>
                 <a class="btn btn-success" href="/users/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
                     Tambah
@@ -26,8 +26,7 @@
                                 <th>#</th>
                                 <th>user role</th>
                                 <th>nama</th>
-                                <th>created at</th>
-                                <th>updated at</th>
+                                <th>Tanggal daftar</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -38,7 +37,6 @@
                                 <td>{{$data->user_role}}</td>
                                 <td>{{$data->nama}}</td>
                                 <td>{{$data->created_at}}</td>
-                                <td>{{$data->updated_at}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
                                         <a href="/users/show/{{$data->id_user }}" title="show" class="badge badge-info">Show</a>

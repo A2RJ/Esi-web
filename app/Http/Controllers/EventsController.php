@@ -57,6 +57,7 @@ class EventsController extends Controller
             "end" => "required"
         ]);
         Events::create($request->all());
+        if(Auth::user()->user_role !== 'admin') return redirect('events/events')->with('success', 'Event created successfully');
         return redirect('/events')->with('success', 'Data berhasil ditambahkan');
     }
 
@@ -86,6 +87,8 @@ class EventsController extends Controller
             "end" => "required"
         ]);
         Events::findOrFail($id)->update($request->all());
+
+        if(Auth::user()->user_role !== 'admin') return redirect('events/events')->with('success', 'Event created successfully');
         return redirect('/events')->with('success', 'Data berhasil diubah');
     }
 
@@ -93,6 +96,8 @@ class EventsController extends Controller
     {
         $event = Events::findOrFail($id);
         $event->delete();
+
+        if(Auth::user()->user_role !== 'admin') return redirect('events/events')->with('success', 'Event created successfully');
         return redirect('/events')->with('success', 'Data berhasil dihapus');
     }
 

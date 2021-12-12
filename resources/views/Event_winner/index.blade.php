@@ -12,9 +12,9 @@
                 </div>
                 @endif
 
-                <h4 class="card-title">Hoverable Table</h4>
+                <h4 class="card-title">Events Winners</h4>
                 <p class="card-description">
-                    Add class <code>.table-hover</code>
+                    Pemenang Event
                 </p>
                 <a class="btn btn-success" href="/event_winner/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
                     Tambah

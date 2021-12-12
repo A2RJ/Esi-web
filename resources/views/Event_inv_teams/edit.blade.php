@@ -6,7 +6,7 @@
     <div class="col-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Add New event_inv_teams</h4>
+                <h4 class="card-title">Edit invited team</h4>
                 <p class="card-description">
                     <a class="btn btn-primary" href="/event_inv_teams" title="Go back"> Batal </a>
                 </p>
@@ -25,7 +25,7 @@
                 <form action="/event_inv_teams/update/{{$event_inv_teams->id_event_inv_teams}}" method="POST">
                     @csrf
                     <!-- @method('PUT') -->
-                   <!-- looping events -->
+                    <!-- looping events -->
                     <div class="form-group">
                         <label for="event_id">event</label>
                         <select class="form-control" name="event_id" id="event_id">
@@ -48,6 +48,9 @@
                     <div class="mt-5">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
-
                 </form>
-                @endsection
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

@@ -6,7 +6,7 @@
     <div class="col-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Add New request_managements</h4>
+                <h4 class="card-title">Add New request join managements</h4>
                 <p class="card-description">
                     <a class="btn btn-primary" href="/request_managements" title="Go back"> Batal </a>
                 </p>
@@ -25,7 +25,7 @@
                     @csrf
                     <!-- select squads -->
                     <div class="form-group">
-                        <label for="squad_id">Squads {{auth()->user()->id_user}}</label>
+                        <label for="squad_id">Squads</label>
                         <select class="form-control" id="squad_id" name="squad_id">
                             <option value="">-- Pilih Squad --</option>
                             @foreach($squads as $squad)
@@ -36,7 +36,7 @@
 
                     <!-- select managements -->
                     <div class="form-group">
-                        <label for="management_id">Managements {{auth()->user()->id_user}}</label>
+                        <label for="management_id">Managements</label>
                         <select class="form-control" id="management_id" name="management_id">
                             <option value="">-- Pilih Management --</option>
                             @foreach($managements as $management)

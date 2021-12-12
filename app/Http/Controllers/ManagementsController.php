@@ -64,7 +64,6 @@ class ManagementsController extends Controller
         return redirect('managements')->with('success', 'Management deleted successfully.');
     }
 
-    // ambil management berdasarkan user login
     public function managements()
     {
         $managements = Managements::where('user_id', Auth::user()->id_user)->paginate(10);
