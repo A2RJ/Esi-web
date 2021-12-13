@@ -25,7 +25,7 @@
                     @csrf
                     <!-- looping event -->
                     <div class="form-group">
-                        <label for="event_id">event</label>
+                        <label for="event_id">Event</label>
                         <select class="form-control" name="event_id" id="event_id">
                             <option value="">Pilih Event</option>
                             @foreach($events as $data)
@@ -36,7 +36,7 @@
 
                     <!-- looping squads -->
                     <div class="form-group">
-                        <label for="squad_id">squad</label>
+                        <label for="squad_id">Squad</label>
                         <select class="form-control" name="squad_id" id="squad_id">
                             <option value="">Pilih Squad</option>
                             @foreach($squads as $data)

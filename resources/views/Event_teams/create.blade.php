@@ -25,7 +25,7 @@
                     @csrf
                     <!-- looping event -->
                     <div class="form-group">
-                        <label for="event_id">event</label>
+                        <label for="event_id">Event</label>
                         <select class="form-control" name="event_id" id="event_id">
                             @foreach($events as $event)
                             <option value="{{ $event->id_event }}">{{ $event->event_name }}</option>
@@ -35,7 +35,7 @@
 
                     <!-- looping $squads -->
                     <div class="form-group">
-                        <label for="id_squad">id_squad</label>
+                        <label for="id_squad">Squad</label>
                         <select class="form-control" name="squad_id" id="squad_id">
                             @foreach($squads as $squad)
                             <option value="{{ $squad->id_squad }}">{{ $squad->squad_name }}</option>
@@ -44,13 +44,12 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="isfree">isfree</label>
-                        <input type="text" class="form-control" name="isfree" id="isfree" placeholder="isfree">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="ispaid">ispaid</label>
-                        <input type="text" class="form-control" name="ispaid" id="ispaid" placeholder="ispaid">
+                        <label for="ispaid">Is Paid</label>
+                        <select class="form-control" name="ispaid" id="ispaid">
+                            <option>Pilih</option>
+                            <option value="0">Belum Bayar</option>
+                            <option value="1">Sudah Bayar</option>
+                        </select>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                         <button type="submit" class="btn btn-primary">Submit</button>

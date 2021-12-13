@@ -24,9 +24,9 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>jabatan</th>
-                                <th>ig</th>
-                                <th>fb</th>
+                                <th>Jabatan</th>
+                                <th>Instagram</th>
+                                <th>Facebook</th>
                                 <th>Action</th>
                             </tr>
                         </thead>

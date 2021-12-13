@@ -25,6 +25,15 @@ use Illuminate\Support\Facades\Auth; ?>
   <link rel="stylesheet" href="/template/css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="/template/images/favicon.png" />
+  <style>
+
+      .menu a{
+        margin-right: 10px;
+        margin-bottom: 10px;
+        text-decoration: none;
+      }
+
+  </style>
 </head>
 
 <body>
@@ -407,9 +416,9 @@ use Illuminate\Support\Facades\Auth; ?>
                     <li class="nav-item"> <a class="nav-link" href="/events">All Events</a></li>
                   <?php endif; ?>
                   <li class="nav-item"> <a class="nav-link" href="/events/events">My Events</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="/event_teams">Event Teams</a></li>
+                  <!-- <li class="nav-item"> <a class="nav-link" href="/event_teams">Event Teams</a></li>
                   <li class="nav-item"> <a class="nav-link" href="/event_inv_teams">Invited Teams</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="/event_winner">Event Winner</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/event_winner">Event Winner</a></li> -->
                 </ul>
               </div>
             </li>
@@ -425,7 +434,7 @@ use Illuminate\Support\Facades\Auth; ?>
               <div class="collapse" id="Games">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="/games">Games</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="/game_categories">Game Category</a></li>
+                  <!-- <li class="nav-item"> <a class="nav-link" href="/game_categories">Game Category</a></li> -->
                 </ul>
               </div>
             </li>
@@ -444,8 +453,8 @@ use Illuminate\Support\Facades\Auth; ?>
                     <li class="nav-item"> <a class="nav-link" href="/managements">All Managements</a></li>
                   <?php endif; ?>
                   <li class="nav-item"> <a class="nav-link" href="/managements/managements">My Managements</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="/management_inv_squads">Managements Invite Squad</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="/request_managements/requestFromSquads">Request join from Squad</a></li>
+                  <!-- <li class="nav-item"> <a class="nav-link" href="/management_inv_squads">Managements Invite Squad</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/request_managements/requestFromSquads">Request join from Squad</a></li> -->
                 </ul>
               </div>
             </li>
@@ -464,13 +473,11 @@ use Illuminate\Support\Facades\Auth; ?>
                     <li class="nav-item"> <a class="nav-link" href="/squads">All Squads</a></li>
                   <?php endif; ?>
                   <li class="nav-item"> <a class="nav-link" href="/squads/squads">My Squads</a></li>
-                  <!-- Invite player -->
+                  <!-- <li class="nav-item"> <a class="nav-link" href="/event_inv_teams/invite">Invited from events</a></li>
                   <li class="nav-item"> <a class="nav-link" href="/squad_inv_players">Invite squad player</a></li>
-                  <!-- Request join squad from player -->
                   <li class="nav-item"> <a class="nav-link" href="/request_squads/requestFromPlayers">Request join from player</a></li>
-                  <!-- invite from managements -->
                   <li class="nav-item"> <a class="nav-link" href="/management_inv_squads/invite">Invite from managements</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="/request_managements">Request join to managements</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/request_managements">Request join to managements</a></li> -->
                 </ul>
               </div>
             </li>
@@ -489,10 +496,8 @@ use Illuminate\Support\Facades\Auth; ?>
                     <li class="nav-item"> <a class="nav-link" href="/players">All Game Account</a></li>
                   <?php endif; ?>
                   <li class="nav-item"> <a class="nav-link" href="/players/players">My Game Account</a></li>
-                  <!-- Invite from squads -->
-                  <li class="nav-item"> <a class="nav-link" href="/squad_inv_players/inviteFromSquad">Invite from squad</a></li>
-                  <!-- Request join to a squad -->
-                  <li class="nav-item"> <a class="nav-link" href="/request_squads">Request join to squad</a></li>
+                  <!-- <li class="nav-item"> <a class="nav-link" href="/squad_inv_players/inviteFromSquad">Invite from squad</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/request_squads">Request join to squad</a></li> -->
                 </ul>
               </div>
             </li>
@@ -508,6 +513,7 @@ use Illuminate\Support\Facades\Auth; ?>
               <div class="collapse" id="Users">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="/users">Users</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/admin">Admin</a></li>
                 </ul>
               </div>
             </li><?php endif; ?>

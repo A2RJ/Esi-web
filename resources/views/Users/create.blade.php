@@ -29,7 +29,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="nama">user role</label>
+                        <label for="nama">fullname</label>
                         <input type="text" class="form-control" name="nama" id="nama" placeholder="nama">
                     </div>
 

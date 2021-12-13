@@ -14,8 +14,10 @@ class Squad_inv_playersController extends Controller
     {
         $squad_inv_players = Squad_inv_players::join('players', 'squad_inv_players.player_id', 'players.id_player')
             ->join('squads', 'squad_inv_players.squad_id', 'squads.id_squad')
+            ->where('players.user_id', Auth::user()->id_user)
             ->select('squad_inv_players.*', 'players.ingame_name', 'squads.squad_name')
             ->paginate(10);
+            
         return view('squad_inv_players.index', compact('squad_inv_players'));
     }
 

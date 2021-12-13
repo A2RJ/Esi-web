@@ -27,7 +27,7 @@
                     <!-- @method('PUT') -->
 
                     <div class="form-group">
-                        <label for="game_category">game_category</label>
+                        <label for="game_category">Game Category</label>
                         <input class="form-control" name="game_category" id="game_category" type="text" placeholder="{{ $game_categories->game_category }}" value="{{ $game_categories->game_category }}">
                     </div>
 

@@ -16,9 +16,17 @@
                 <p class="card-description">
                     Daftar player yang terdaftar
                 </p>
-                <a class="btn btn-success" href="/players/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
-                    Tambah
-                </a>
+                <div class="menu">
+                    <a class="btn btn-sm btn-success" href="/players/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                        Tambah
+                    </a>
+                    <a class="btn btn-sm btn-success" href="/squad_inv_players/inviteFromSquad" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                        Squad invite
+                    </a>
+                    <a class="btn btn-sm btn-success" href="/request_squads" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                        Request squad
+                    </a>
+                </div>
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>

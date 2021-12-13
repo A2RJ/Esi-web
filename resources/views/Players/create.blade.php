@@ -21,7 +21,7 @@
                     </ul>
                 </div>
                 @endif
-                <form action="/players/store" method="POST" class="forms-sample">
+                <form action="/players/store" method="POST" enctype="multipart/form-data" class="forms-sample">
                     @csrf
                     <!-- select games -->
                     <div class="form-group">
@@ -46,7 +46,7 @@
 
                     <div class="form-group">
                         <label for="player_image">player_image</label>
-                        <input type="text" class="form-control" name="player_image" id="player_image" placeholder="player_image">
+                        <input type="file" class="form-control" name="player_image" id="player_image" placeholder="player_image">
                     </div>
 
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">

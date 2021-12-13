@@ -24,9 +24,8 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>game_category</th>
-                                <th>created_at</th>
-                                <th>updated_at</th>
+                                <th>Game Category</th>
+                                <th>Tanggal</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -36,7 +35,6 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{$data->game_category}}</td>
                                 <td>{{$data->created_at}}</td>
-                                <td>{{$data->updated_at}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
                                         <a href="/game_categories/show/{{$data->id_game_category }}" title="show" class="badge badge-info">Show</a>

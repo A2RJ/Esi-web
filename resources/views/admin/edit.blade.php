@@ -26,17 +26,17 @@
                     @csrf
                     <!-- @method('PUT') -->
                     <div class="form-group">
-                        <label for="jabatan">jabatan</label>
+                        <label for="jabatan">Jabatan</label>
                         <input class="form-control" name="jabatan" id="jabatan" type="text" placeholder="{{ $admin->jabatan }}" value="{{ $admin->jabatan }}">
                     </div>
 
                     <div class="form-group">
-                        <label for="ig">ig</label>
+                        <label for="ig">Instagram</label>
                         <input class="form-control" name="ig" id="ig" type="text" placeholder="{{ $admin->ig }}" value="{{ $admin->ig }}">
                     </div>
 
                     <div class="form-group">
-                        <label for="fb">fb</label>
+                        <label for="fb">Facebook</label>
                         <input class="form-control" name="fb" id="fb" type="text" placeholder="{{ $admin->fb }}" value="{{ $admin->fb }}">
                     </div>
 

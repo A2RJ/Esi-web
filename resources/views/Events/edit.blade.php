@@ -36,47 +36,47 @@
           </div>
 
           <div class="form-group">
-            <label for="event_name">event_name</label>
+            <label for="event_name">Event Name</label>
             <input class="form-control" name="event_name" id="event_name" type="text" placeholder="{{ $event->event_name }}" value="{{ $event->event_name }}">
           </div>
 
           <div class="form-group">
-            <label for="event_image">event_image</label>
+            <label for="event_image">Event Image</label>
             <input class="form-control" name="event_image" id="event_image" type="text" placeholder="{{ $event->event_image }}" value="{{ $event->event_image }}">
           </div>
 
           <div class="form-group">
-            <label for="slot">slot</label>
+            <label for="slot">Slot</label>
             <input class="form-control" name="slot" id="slot" type="text" placeholder="{{ $event->slot }}" value="{{ $event->slot }}">
           </div>
 
           <div class="form-group">
-            <label for="pricepool">pricepool</label>
+            <label for="pricepool">Price Pool</label>
             <input class="form-control" name="pricepool" id="pricepool" type="text" placeholder="{{ $event->pricepool }}" value="{{ $event->pricepool }}">
           </div>
 
           <div class="form-group">
-            <label for="isfree">isfree</label>
+            <label for="isfree">Is free</label>
             <input class="form-control" name="isfree" id="isfree" type="text" placeholder="{{ $event->isfree }}" value="{{ $event->isfree }}">
           </div>
 
           <div class="form-group">
-            <label for="detail">detail</label>
+            <label for="detail">Detail</label>
             <input class="form-control" name="detail" id="detail" type="text" placeholder="{{ $event->detail }}" value="{{ $event->detail }}">
           </div>
 
           <div class="form-group">
-            <label for="peraturan">peraturan</label>
+            <label for="peraturan">Peraturan</label>
             <input class="form-control" name="peraturan" id="peraturan" type="text" placeholder="{{ $event->peraturan }}" value="{{ $event->peraturan }}">
           </div>
 
           <div class="form-group">
-            <label for="start">start</label>
+            <label for="start">Start</label>
             <input class="form-control" name="start" id="start" type="text" placeholder="{{ $event->start }}" value="{{ $event->start }}">
           </div>
 
           <div class="form-group">
-            <label for="end">end</label>
+            <label for="end">End</label>
             <input class="form-control" name="end" id="end" type="text" placeholder="{{ $event->end }}" value="{{ $event->end }}">
           </div>
 

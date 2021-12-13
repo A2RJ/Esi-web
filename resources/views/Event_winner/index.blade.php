@@ -24,10 +24,9 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>event</th>
-                                <th>squad</th>
-                                <th>created_at</th>
-                                <th>updated_at</th>
+                                <th>Event</th>
+                                <th>Squad</th>
+                                <th>Tanggal</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -38,7 +37,6 @@
                                 <td>{{$data->events->event_name}}</td>
                                 <td>{{$data->squads->squad_name}}</td>
                                 <td>{{$data->created_at}}</td>
-                                <td>{{$data->updated_at}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
                                         <a href="/event_winner/show/{{$data->id_event_winner }}" title="show" class="badge badge-info">Show</a>

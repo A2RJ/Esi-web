@@ -27,7 +27,7 @@
                     <!-- @method('PUT') -->
                     <!-- looping events -->
                     <div class="form-group">
-                        <label for="event_id">event</label>
+                        <label for="event_id">Event</label>
                         <select class="form-control" name="event_id" id="event_id">
                             @foreach($events as $event)
                             <option value="{{ $event->id_event }}" {{ $event->id_event == $event_inv_teams->id_event ? 'selected' : '' }}>{{ $event->event_name }}</option>
@@ -37,7 +37,7 @@
 
                     <!-- looping squads -->
                     <div class="form-group">
-                        <label for="squad_id">squad</label>
+                        <label for="squad_id">Squad</label>
                         <select class="form-control" name="squad_id" id="squad_id">
                             @foreach($squads as $squad)
                             <option value="{{ $squad->id_squad }}" {{ $squad->id_squad == $event_inv_teams->id_squad ? 'selected' : '' }}>{{ $squad->squad_name }}</option>

@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
-@section('title', 'games')
+@section('title', 'event_inv_teams')
 
 @section('content')
 <div class="row">
@@ -12,43 +12,41 @@
                 </div>
                 @endif
 
-                <h4 class="card-title">Games</h4>
+                <h4 class="card-title">Invite teams</h4>
                 <p class="card-description">
-                    Daftar game
+                    Squadmu telah diinvite untuk bergabung di event ini.
                 </p>
-                <div class="menu">
-                    <a class="btn btn-sm btn-success" href="/games/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
-                        Tambah game
-                    </a>
-                    <a class="btn btn-sm btn-success" href="/game_categories" title="Create a data"> <i class="fas fa-plus-circle"></i>
-                        Kategori game
-                    </a>
-                </div>
+                <a class="btn btn-success" href="/event_inv_teams/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                    Tambah
+                </a>
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>game_name</th>
-                                <th>category</th>
-                                <th>created_at</th>
-                                <th>updated_at</th>
+                                <th>Event</th>
+                                <th>Squad</th>
+                                <th>Tanggal Invite</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($games as $data)
+                            @foreach ($event_inv_teams as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{$data->game_name}}</td>
-                                <td>{{$data->category->game_category}}</td>
+                                <td>{{$data->event_name}}</td>
+                                <td>{{$data->squad_name}}</td>
                                 <td>{{$data->created_at}}</td>
-                                <td>{{$data->updated_at}}</td>
+                                <td>{{$data->status ? 'Diterima' : 'Ditolak'}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
-                                        <a href="/games/show/{{$data->id_game }}" title="show" class="badge badge-info">Show</a>
-                                        <a href="/games/edit/{{$data->id_game }}" class="badge badge-warning">Edit</a>
-                                        <a href="/games/destroy/{{$data->id_game }}" class="badge badge-danger">Delete</a>
+                                        <?php if ($data->status) { ?>
+                                            <a href="/event_inv_teams/destroy/{{$data->id_event_inv_teams}}" class="badge badge-danger">Delete</a>
+                                        <?php } else { ?>
+                                            <a href="/event_inv_teams/terima/{{$data->id_event_inv_teams}}" class="badge badge-warning">Terima</a>
+                                            <a href="/event_inv_teams/destroy/{{$data->id_event_inv_teams}}" class="badge badge-danger">Tolak</a>
+                                        <?php } ?>
                                     </div>
                                 </td>
                             </tr>

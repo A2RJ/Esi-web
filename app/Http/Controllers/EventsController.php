@@ -28,7 +28,7 @@ class EventsController extends Controller
         $teams = Event_teams::join('squads', 'event_teams.squad_id', 'squads.id_squad')
             ->where('event_teams.event_id', $id)
             ->get();
-        
+
         return view('events.show', compact('event', 'teams'));
     }
 
@@ -57,7 +57,7 @@ class EventsController extends Controller
             "end" => "required"
         ]);
         Events::create($request->all());
-        if(Auth::user()->user_role !== 'admin') return redirect('events/events')->with('success', 'Event created successfully');
+        if (Auth::user()->user_role !== 'admin') return redirect('events/events')->with('success', 'Event created successfully');
         return redirect('/events')->with('success', 'Data berhasil ditambahkan');
     }
 
@@ -88,7 +88,7 @@ class EventsController extends Controller
         ]);
         Events::findOrFail($id)->update($request->all());
 
-        if(Auth::user()->user_role !== 'admin') return redirect('events/events')->with('success', 'Event created successfully');
+        if (Auth::user()->user_role !== 'admin') return redirect('events/events')->with('success', 'Event created successfully');
         return redirect('/events')->with('success', 'Data berhasil diubah');
     }
 
@@ -97,14 +97,15 @@ class EventsController extends Controller
         $event = Events::findOrFail($id);
         $event->delete();
 
-        if(Auth::user()->user_role !== 'admin') return redirect('events/events')->with('success', 'Event created successfully');
+        if (Auth::user()->user_role !== 'admin') return redirect('events/events')->with('success', 'Event created successfully');
         return redirect('/events')->with('success', 'Data berhasil dihapus');
     }
 
     // ambil data event berdasarkan user login
     public function events()
     {
-        $events = Events::where('user_id', auth()->user()->id_user)->paginate(10);
+        $events = Events::where('user_id', auth()->user()->id_user)
+            ->paginate(10);
         return view('events.index', compact('events'));
     }
 }

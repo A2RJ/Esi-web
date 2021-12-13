@@ -7,19 +7,24 @@ use App\Models\Event_teams;
 use App\Models\Events;
 use App\Models\Squads;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class Event_inv_teamsController extends Controller
 {
     public function index()
     {
-        $event_inv_teams = Event_inv_teams::with('squads', 'events')
+        $event_inv_teams = Event_inv_teams::join('squads', 'event_inv_teams.squad_id', 'squads.id_squad')
+            ->join('events', 'event_inv_teams.event_id', 'events.id_event')
+            ->select('event_inv_teams.*', 'squads.squad_name', 'events.event_name')
+            ->where('events.user_id', Auth::user()->id_user)
             ->paginate(10);
+
         return view('event_inv_teams.index', compact('event_inv_teams'));
     }
 
     public function create()
     {
-        $events = Events::all();
+        $events = Events::where('user_id', Auth::user()->id_user)->get();
         $squads = Squads::all();
         return view('event_inv_teams.create', compact('events', 'squads'));
     }
@@ -44,7 +49,7 @@ class Event_inv_teamsController extends Controller
 
     public function edit($id)
     {
-        $events = Events::all();
+        $events = Events::where('user_id', Auth::user()->id_user)->get();
         $squads = Squads::all();
         $event_inv_teams = Event_inv_teams::findOrFail($id);
         return view('event_inv_teams.edit', compact('event_inv_teams', 'events', 'squads'));
@@ -62,32 +67,26 @@ class Event_inv_teamsController extends Controller
         return redirect('event_inv_teams')->with('success', 'Event_inv_teams deleted successfully');
     }
 
-    // get all event_inv_teams by squad_id
-    public function getEventInvTeamsBySquadId($id)
+    public function invite()
     {
-        return Event_inv_teams::where('squad_id', $id)->where('status', false)->get();
+        $event_inv_teams = Event_inv_teams::join('squads', 'event_inv_teams.squad_id', 'squads.id_squad')
+            ->join('players', 'event_inv_teams.player_id', 'players.id_player')
+            ->join('events', 'event_inv_teams.event_id', 'events.id_event')
+            ->select('event_inv_teams.*', 'squads.squad_name', 'events.event_name')
+            ->where('players.user_id', Auth::user()->id_user)
+            ->paginate(10);
+        return view('event_inv_teams.invite', compact('event_inv_teams'));
     }
 
-    // accept event_inv_teams
-    public function acceptEventInvTeams(Request $request)
+    public function terima($id)
     {
-        // update event_inv_teams status
-        Event_inv_teams::where('id_event_inv_teams', $request->id_event_inv_teams)
-            ->update(['status' => true]);
+        $event_inv_teams = Event_inv_teams::findOrFail($id);
         Event_teams::create([
-            'event_id' => $request->event_id,
-            'squad_id' => $request->squad_id,
-            'ispaid' => $request->ispaid,
+            'event_id' => $event_inv_teams->event_id,
+            'squad_id' => $event_inv_teams->squad_id,
         ]);
-        return true;
-    }
-
-    // reject event_inv_teams
-    public function rejectEventInvTeams(Request $request)
-    {
-        // update event_inv_teams status
-        Event_inv_teams::where('id_event_inv_teams', $request->id_event_inv_teams)
-            ->update(['status' => false]);
-        return true;
+        $event_inv_teams->status = 1;
+        $event_inv_teams->save();
+        return redirect('event_inv_teams/invite')->with('success', 'Event_inv_teams terima successfully');
     }
 }

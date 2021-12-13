@@ -16,9 +16,17 @@
                 <p class="card-description">
                     Daftar Management yang terdaftar
                 </p>
-                <a class="btn btn-success" href="/managements/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
-                    Tambah
-                </a>
+                <div class="menu">
+                    <a class="btn btn-sm btn-success" href="/managements/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                        Tambah management
+                    </a>
+                    <a class="btn btn-sm btn-success" href="/management_inv_squads" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                        Invite squad
+                    </a>
+                    <a class="btn btn-sm btn-success" href="/request_managements/requestFromSquads" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                        Request join
+                    </a>
+                </div>
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>

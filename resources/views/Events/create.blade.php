@@ -35,48 +35,48 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="event_name">event_name</label>
+                        <label for="event_name">Event Name</label>
                         <input type="text" class="form-control" name="event_name" id="event_name" placeholder="event_name">
                     </div>
 
                     <div class="form-group">
-                        <label for="event_image">event_image</label>
+                        <label for="event_image">Event Image</label>
                         <input type="text" class="form-control" name="event_image" id="event_image" placeholder="event_image">
                     </div>
 
                     <div class="form-group">
-                        <label for="slot">slot</label>
+                        <label for="slot">Slot</label>
                         <input type="text" class="form-control" name="slot" id="slot" placeholder="slot">
                     </div>
 
                     <div class="form-group">
-                        <label for="pricepool">pricepool</label>
+                        <label for="pricepool">Price Pool</label>
                         <input type="text" class="form-control" name="pricepool" id="pricepool" placeholder="pricepool">
                     </div>
 
                     <div class="form-group">
-                        <label for="isfree">isfree</label>
+                        <label for="isfree">Is free</label>
                         <input type="text" class="form-control" name="isfree" id="isfree" placeholder="isfree">
                     </div>
 
                     <div class="form-group">
-                        <label for="detail">detail</label>
+                        <label for="detail">Detail</label>
                         <input type="text" class="form-control" name="detail" id="detail" placeholder="detail">
                     </div>
 
                     <div class="form-group">
-                        <label for="peraturan">peraturan</label>
+                        <label for="peraturan">Peraturan</label>
                         <input type="text" class="form-control" name="peraturan" id="peraturan" placeholder="peraturan">
                     </div>
 
                     <div class="form-group">
-                        <label for="start">start</label>
-                        <input type="text" class="form-control" name="start" id="start" placeholder="start">
+                        <label for="start">Start</label>
+                        <input type="date" class="form-control" name="start" id="start" placeholder="start">
                     </div>
 
                     <div class="form-group">
-                        <label for="end">end</label>
-                        <input type="text" class="form-control" name="end" id="end" placeholder="end">
+                        <label for="end">End</label>
+                        <input type="date" class="form-control" name="end" id="end" placeholder="end">
                     </div>
 
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">

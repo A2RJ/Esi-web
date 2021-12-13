@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Upload;
 use App\Models\Games;
 use App\Models\Players;
 use App\Models\Squads;
@@ -30,16 +31,20 @@ class PlayersController extends Controller
     {
         $request['user_id'] = Auth::user()->id_user;
         $request['squad_id'] = null;
+        $request->player_image = null;
+        
         $request->validate([
             "game_id" => "required",
             "ingame_name" => "required",
             "ingame_id" => "required",
-            "player_image" => "required",
+            "player_image" => "required|image|mimes:jpeg,png,jpg,gif,svg|max:2048",
         ]);
 
-        Players::create($request->all());
+        $player = Players::create($request->all());
+        $player->player_image = Upload::uploadFile($request, 'player_image');
+        $player->save();
 
-        if(Auth::user()->user_role !== 'admin') return redirect('players.players')->with('success', 'Player created successfully');
+        if (Auth::user()->user_role !== 'admin') return redirect('players/players')->with('success', 'Player created successfully');
         return redirect('/players')->with('success', 'Player has been added');
     }
 
@@ -68,7 +73,7 @@ class PlayersController extends Controller
     {
         Players::find($id)->update($request->all());
 
-        if(Auth::user()->user_role !== 'admin') return redirect('players.players')->with('success', 'Player created successfully');
+        if (Auth::user()->user_role !== 'admin') return redirect('players/players')->with('success', 'Player created successfully');
         return redirect('/players')->with('success', 'Player has been updated');
     }
 
@@ -76,7 +81,7 @@ class PlayersController extends Controller
     {
         Players::find($id)->delete();
 
-        if(Auth::user()->user_role !== 'admin') return redirect('players.players')->with('success', 'Player created successfully');
+        if (Auth::user()->user_role !== 'admin') return redirect('players/players')->with('success', 'Player created successfully');
         return redirect('/players')->with('success', 'Player has been deleted');
     }
 

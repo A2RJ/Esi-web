@@ -65,7 +65,7 @@ Route::group(['prefix' => 'users', 'middleware' => ['auth', 'admin']], function 
 });
 
 // players
-Route::group(['prefix' => 'players', 'middleware' => ['auth', 'player', 'management', 'admin']], function () {
+Route::group(['prefix' => 'players', 'middleware' => ['auth']], function () {
     Route::get('/', [PlayersController::class, 'index']);
     Route::get('/create', [PlayersController::class, 'create']);
     Route::get('/show/{id}', [PlayersController::class, 'show']);
@@ -201,7 +201,9 @@ Route::group(['prefix' => 'event_teams', 'middleware' => 'auth'], function () {
 Route::group(['prefix' => 'event_inv_teams', 'middleware' => 'auth'], function () {
     Route::get('/', [Event_inv_teamsController::class, 'index']);
     Route::get('/create', [Event_inv_teamsController::class, 'create']);
+    Route::get('/invite', [Event_inv_teamsController::class, 'invite']);
     Route::get('/show/{id}', [Event_inv_teamsController::class, 'show']);
+    Route::get('/terima/{id}', [Event_inv_teamsController::class, 'terima']);
     Route::post('/store', [Event_inv_teamsController::class, 'store']);
     Route::get('/edit/{id}', [Event_inv_teamsController::class, 'edit']);
     Route::post('/update/{id}', [Event_inv_teamsController::class, 'update']);

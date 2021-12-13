@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -25,7 +26,8 @@ class AdminController extends Controller
      */
     public function create()
     {
-        return view('admin.create');
+        $users = User::all();
+        return view('admin.create', compact('users'));
     }
 
     /**
@@ -37,6 +39,7 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            "user_id" => "required",
             "jabatan" => "required",
             "ig" => "required",
             "fb" => "required",

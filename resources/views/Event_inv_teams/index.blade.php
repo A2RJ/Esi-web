@@ -24,9 +24,10 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>event</th>
-                                <th>squad</th>
+                                <th>Event</th>
+                                <th>Squad</th>
                                 <th>Tanggal invite</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -34,8 +35,9 @@
                             @foreach ($event_inv_teams as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{$data->events->event_name}}</td>
-                                <td>{{$data->squads->squad_name}}</td>
+                                <td>{{$data->event_name}}</td>
+                                <td>{{$data->squad_name}}</td>
+                                <td>{{$data->status ? 'Diterima' : 'Ditolak'}}</td>
                                 <td>{{$data->created_at}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">

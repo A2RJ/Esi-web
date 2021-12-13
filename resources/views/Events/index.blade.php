@@ -16,18 +16,29 @@
                 <p class="card-description">
                     Daftar event yang telah dibuat
                 </p>
-                <a class="btn btn-success" href="/events/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
-                    Tambah
-                </a>
+                <div class="menu">
+                    <a class="btn btn-sm btn-success" href="/events/create" title="Create a data">
+                        Tambah events
+                    </a>
+                    <a class="btn btn-sm btn-success" href="/event_teams" title="Create a data">
+                        Teams partisipan
+                    </a>
+                    <a class="btn btn-sm btn-success" href="/event_inv_teams" title="Create a data">
+                        Invite teams
+                    </a>
+                    <a class="btn btn-sm btn-success" href="/event_winner" title="Create a data">
+                        Event winners
+                    </a>
+                </div>
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>owner</th>
-                                <th>event_name</th>
-                                <th>game</th>
-                                <th>slot</th>
+                                <th>Owner</th>
+                                <th>Event Name</th>
+                                <th>Game</th>
+                                <th>Slot</th>
                                 <th>Action</th>
                             </tr>
                         </thead>

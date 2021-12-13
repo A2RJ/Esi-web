@@ -91,8 +91,12 @@ class Request_squadsController extends Controller
 
     public function requestFromPlayers()
     {
-        $request_squads = Request_squads::with('squads', 'players')
+        $request_squads = Request_squads::join('squads', 'request_squads.squad_id', 'squads.id_squad')
+            ->join('players', 'request_squads.player_id', 'players.id_player')
+            ->where('players.user_id', Auth::user()->id_user)
+            ->select('request_squads.*', 'squads.name_squad', 'players.ingame_name')
             ->paginate(10);
+
         return view('request_squads.request', compact('request_squads'));
     }
 

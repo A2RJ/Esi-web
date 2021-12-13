@@ -26,10 +26,8 @@
                                 <th>#</th>
                                 <th>Events</th>
                                 <th>Squad</th>
-                                <th>isfree</th>
-                                <th>ispaid</th>
-                                <th>created_at</th>
-                                <th>updated_at</th>
+                                <th>Is Paid</th>
+                                <th>Tanggal</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -39,10 +37,8 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{$data->event_name}}</td>
                                 <td>{{$data->squad_name}}</td>
-                                <td>{{$data->isfree == 1 ? 'YA' : 'TIDAK'}}</td>
                                 <td>{{$data->ispaid == 1 ? 'YA' : 'TIDAK'}}</td>
                                 <td>{{$data->created_at}}</td>
-                                <td>{{$data->updated_at}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
                                         <!-- <a href="/event_teams/show/{{$data->id_event_teams }}" title="show" class="badge badge-info">Show</a> -->

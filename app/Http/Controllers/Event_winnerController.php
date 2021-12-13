@@ -5,21 +5,25 @@ namespace App\Http\Controllers;
 use App\Models\Event_winner;
 use App\Models\Events;
 use App\Models\Squads;
-use Illuminate\Console\Scheduling\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class Event_winnerController extends Controller
 {
     public function index()
     {
-        $event_winner = Event_winner::with('events', 'squads')
+        $event_winner = Event_winner::join('events', 'event_winners.event_id', 'events.id_event')
+            ->join('squads', 'event_winners.squad_id', 'squads.id_squad')
+            ->select('event_winners.*', 'events.event_name', 'squads.squad_name')
+            ->where('events.user_id', Auth::user()->id_user)
             ->paginate(10);
+
         return view('event_winner.index', compact('event_winner'));
     }
 
     public function create()
     {
-        $events = Events::all();
+        $events = Events::where('user_id', Auth::user()->id_user)->get();
         $squads = Squads::all();
         return view('event_winner.create', compact('events', 'squads'));
     }

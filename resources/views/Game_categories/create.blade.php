@@ -25,7 +25,7 @@
                     @csrf
 
                     <div class="form-group">
-                        <label for="game_category">game_category</label>
+                        <label for="game_category">Game Category</label>
                         <input type="text" class="form-control" name="game_category" id="game_category" placeholder="game_category">
                     </div>
 

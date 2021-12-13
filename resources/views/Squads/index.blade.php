@@ -16,14 +16,31 @@
                 <p class="card-description">
                     Daftar squad yang terdaftar
                 </p>
-                <a class="btn btn-success" href="/squads/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
-                    Tambah
-                </a>
+                <div class="menu">
+                    <a class="btn btn-sm btn-success" href="/squads/create" title="Create a data">
+                        Tambah squad
+                    </a>
+                    <a class="btn btn-sm btn-success" href="/event_inv_teams/invite" title="Create a data">
+                        Event invite
+                    </a>
+                    <a class="btn btn-sm btn-success" href="/squad_inv_players" title="Create a data">
+                        Invite player
+                    </a>
+                    <a class="btn btn-sm btn-success" href="/request_squads/requestFromPlayers" title="Create a data">
+                        Request join
+                    </a>
+                    <a class="btn btn-sm btn-success" href="/management_inv_squads/invite" title="Create a data">
+                        Management invite
+                    </a>
+                    <a class="btn btn-sm btn-success" href="/request_managements" title="Create a data">
+                        Request management
+                    </a>
+                </div>
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>#</th> 
+                                <th>#</th>
                                 <th>squad_name</th>
                                 <th>squad_leader</th>
                                 <th>management_id</th>
@@ -35,7 +52,7 @@
                         <tbody>
                             @foreach ($squads as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
-                                <td>{{ $loop->iteration }}</td> 
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{$data->squad_name}}</td>
                                 <td>{{$data->leader->ingame_name}}</td>
                                 <td>{{$data->management ? $data->management->management_name : 'Tidak join management'}}</td>
