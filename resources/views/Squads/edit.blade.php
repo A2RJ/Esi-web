@@ -25,6 +25,17 @@
                 <form action="/squads/update/{{$squad->id_squad}}" method="POST">
                     @csrf
                     <!-- @method('PUT') -->
+                    <!-- select games -->
+                    <div class="form-group">
+                        <label for="game_id">Games</label>
+                        <select class="form-control" id="game_id" name="game_id">
+                            <option value="">-- Select Games --</option>
+                            @foreach ($games as $game)
+                            <option value="{{ $game->id_game }}" {{ $game->id_game == $squad->game_id ? 'selected' : '' }}>{{ $game->game_name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
                     <!-- select players -->
                     <div class="form-group">
                         <label for="squad_leader">Select Player</label>

@@ -7,6 +7,7 @@ use App\Http\Controllers\Event_winnerController;
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\Game_categoriesController;
 use App\Http\Controllers\GamesController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Management_inv_squadsController;
 use App\Http\Controllers\ManagementsController;
 use App\Http\Controllers\PlayersController;
@@ -42,6 +43,8 @@ Route::get('/home', function () {
 Route::get('/error', function () {
     return view('test.error');
 });
+
+Route::get('/player/{id}', [HomeController::class, 'management']);
 
 // admin
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {

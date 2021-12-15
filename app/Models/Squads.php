@@ -16,12 +16,16 @@ class Squads extends Model
      */
     protected $primaryKey = 'id_squad';
 
-    protected $fillable =  [ "squad_name", "squad_leader", "management_id"  ];
+    protected $fillable =  ["game_id", "squad_name", "squad_leader", "management_id"];
 
-    // hasMany players
+    public function game()
+    {
+        return $this->hasOne(Games::class, 'id_game', 'game_id');
+    }
+
     public function players()
     {
-        return $this->belongsTo(Players::class, 'squad_id', 'id_squad');
+        return $this->hasMany(Players::class, 'squad_id', 'id_squad');
     }
 
     public function leader()

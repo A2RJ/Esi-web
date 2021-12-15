@@ -33,7 +33,7 @@ class Events extends Model
     // event_winners
     public function event_winners()
     {
-        return $this->hasMany(Event_winners::class, 'event_id', 'id_event');
+        return $this->hasMany(Event_winner::class, 'event_id', 'id_event');
     }
 
     // owner
