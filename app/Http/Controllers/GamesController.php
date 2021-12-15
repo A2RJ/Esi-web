@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Upload;
 use App\Models\Game_categories;
 use App\Models\Games;
 use Illuminate\Http\Request;
@@ -29,7 +30,9 @@ class GamesController extends Controller
             "game_category_id" => "required",
         ]);
 
-        Games::create($request->all());
+        $game = Games::create($request->all());
+        $game->game_image = Upload::uploadFile($request, 'game_image');
+        $game->save();
         return redirect('/games')->with('success', 'Game has been added');
     }
 
@@ -48,7 +51,12 @@ class GamesController extends Controller
 
     public function update(Request $request, $id)
     {
-        Games::find($id)->update($request->all());
+        $game = Games::find($id)->update($request->all());
+        if ($request->hasFile('game_image')) {
+            $game->game_image = Upload::uploadFile($request, 'game_image');
+            $game->save();
+        }
+
         return redirect('/games')->with('success', 'Game has been updated');
     }
 

@@ -32,7 +32,7 @@ class PlayersController extends Controller
         $request['user_id'] = Auth::user()->id_user;
         $request['squad_id'] = null;
         $request->player_image = null;
-        
+
         $request->validate([
             "game_id" => "required",
             "ingame_name" => "required",
@@ -71,7 +71,11 @@ class PlayersController extends Controller
 
     public function update(Request $request, $id)
     {
-        Players::find($id)->update($request->all());
+        $player = Players::find($id)->update($request->all());
+        if($request->hasFile('player_image')){
+            $player->player_image = Upload::uploadFile($request, 'player_image');
+            $player->save();
+        }
 
         if (Auth::user()->user_role !== 'admin') return redirect('players/players')->with('success', 'Player created successfully');
         return redirect('/players')->with('success', 'Player has been updated');

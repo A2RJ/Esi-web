@@ -22,7 +22,7 @@
                 </div>
                 @endif
 
-                <form action="/users/update/{{$user->id_user}}" method="POST">
+                <form action="/users/update/{{$user->id_user}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <!-- @method('PUT') -->
                     <div class="form-group">

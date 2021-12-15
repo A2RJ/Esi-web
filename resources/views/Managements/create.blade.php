@@ -21,7 +21,7 @@
                     </ul>
                 </div>
                 @endif
-                <form action="/managements/store" method="POST" class="forms-sample">
+                <form action="/managements/store" method="POST" enctype="multipart/form-data" class="forms-sample">
                     @csrf
                     <div class="form-group">
                         <label for="management_name">management_name</label>

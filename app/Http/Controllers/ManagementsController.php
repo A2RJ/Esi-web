@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Upload;
 use App\Models\Managements;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -31,7 +32,10 @@ class ManagementsController extends Controller
             "web_url" => "required",
             "alamat" => "required",
         ]);
-        Managements::create($request->all());
+        $management = Managements::create($request->all());
+        $management->management_image = Upload::uploadFile($request, 'management_image');
+        $management->save();
+
         if (Auth::user()->user_role == 'management') return redirect('/managements/managements')->with('success', 'Management created successfully.');
         return redirect('managements')->with('success', 'Management created successfully.');
     }
@@ -50,7 +54,11 @@ class ManagementsController extends Controller
 
     public function update(Request $request, $id)
     {
-        Managements::find($id)->update($request->all());
+        $management = Managements::find($id)->update($request->all());
+        if($request->hasFile('management_image')){
+            $management->management_image = Upload::uploadFile($request, 'management_image');
+            $management->save();
+        }
         
         if (Auth::user()->user_role == 'management') return redirect('/managements/managements')->with('success', 'Management created successfully.');
         return redirect('managements')->with('success', 'Management updated successfully.');

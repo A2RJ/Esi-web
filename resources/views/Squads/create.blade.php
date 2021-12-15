@@ -21,7 +21,7 @@
                     </ul>
                 </div>
                 @endif
-                <form action="/squads/store" method="POST" class="forms-sample">
+                <form action="/squads/store" method="POST" enctype="multipart/form-data" class="forms-sample">
                     @csrf
                     <!-- select games -->
                     <div class="form-group">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Upload;
 use App\Models\Games;
 use App\Models\Players;
 use App\Models\Squads;
@@ -34,6 +35,9 @@ class SquadsController extends Controller
         ]);
 
         $squad = Squads::create($request->all());
+        $squad->squad_image = Upload::uploadFile($request, 'squad_image');
+        $squad->save();
+        
         Players::where('id_player', $request->squad_leader)->update(['squad_id' => $squad->id_squad]);
 
         if (Auth::user()->user_role !== 'admin') return redirect('squads/squads')->with('success', 'Squad created successfully');
@@ -58,6 +62,10 @@ class SquadsController extends Controller
     public function update(Request $request, $id)
     {
         $squad = Squads::find($id)->update($request->all());
+        if($request->hasFile('squad_image')) {
+            $squad->squad_image = Upload::uploadFile($request, 'squad_image');
+            $squad->save();
+        }
         Players::where('id_player', $request->squad_leader)->update(['squad_id' => $squad->id_squad]);
 
         if (Auth::user()->user_role !== 'admin') return redirect('squads/squads')->with('success', 'Squad created successfully');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Upload;
 use App\Models\Event_teams;
 use Illuminate\Http\Request;
 use App\Models\Events;
@@ -56,7 +57,10 @@ class EventsController extends Controller
             "start" => "required",
             "end" => "required"
         ]);
-        Events::create($request->all());
+        $event = Events::create($request->all());
+        $event->event_image = Upload::uploadFile($request, 'event_image');
+        $event->save();
+        
         if (Auth::user()->user_role !== 'admin') return redirect('events/events')->with('success', 'Event created successfully');
         return redirect('/events')->with('success', 'Data berhasil ditambahkan');
     }
@@ -86,7 +90,11 @@ class EventsController extends Controller
             "start" => "required",
             "end" => "required"
         ]);
-        Events::findOrFail($id)->update($request->all());
+        $event = Events::findOrFail($id)->update($request->all());
+        if($request->hasFile('event_image')){
+            $event->event_image = Upload::uploadFile($request, 'event_image');
+            $event->save();
+        }
 
         if (Auth::user()->user_role !== 'admin') return redirect('events/events')->with('success', 'Event created successfully');
         return redirect('/events')->with('success', 'Data berhasil diubah');

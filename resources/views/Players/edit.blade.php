@@ -22,7 +22,7 @@
                 </div>
                 @endif
 
-                <form action="/players/update/{{$players->id_player}}" method="POST">
+                <form action="/players/update/{{$players->id_player}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <!-- @method('PUT') -->
                     <!-- select game -->

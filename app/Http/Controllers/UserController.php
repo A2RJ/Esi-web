@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Upload;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -37,8 +38,10 @@ class UserController extends Controller
             "user_image" => "required",
         ]);
         $user  = User::create($request->all());
+        $user->user_image = Upload::uploadFile($request, 'user_image');
         $user->password = Hash::make($request->password);
         $user->save();
+
         return redirect('users')->with('success', 'User created successfully');
     }
 
@@ -53,6 +56,10 @@ class UserController extends Controller
         $user = User::find($id)->update($request->all());
         if ($request->has('password')) {
             $user->password = Hash::make($request->password);
+            $user->save();
+        }
+        if ($request->hasFile('user_image')) {
+            $user->user_image = Upload::uploadFile($request, 'user_image');
             $user->save();
         }
         return redirect('/users')->with('success', 'User updated successfully');

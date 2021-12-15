@@ -21,7 +21,7 @@
                     </ul>
                 </div>
                 @endif
-                <form action="/games/store" method="POST" class="forms-sample">
+                <form action="/games/store" method="POST" enctype="multipart/form-data" class="forms-sample">
                     @csrf
 
                     <div class="form-group">

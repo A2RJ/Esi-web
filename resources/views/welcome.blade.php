@@ -9,7 +9,7 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/carousnap/carousnap@v1.7/carousnap/carousnap.css" integrity="sha384-AvIUz0OeqILp4fNEi51z9HqDHi/FXyvB54l4CFzgP3pV8V67SxE8j0CEmLHWIu/e" crossorigin="anonymous" />
     <!-- Styles -->
     <style>
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -524,13 +524,24 @@
                         </a>
                     </div>
                 </div>
-
+                <!-- <div class="carouSnap">
+                    <div class="numbSlide"></div>
+                    <div class="bnSlide"></div>
+                    <div class="photoCollect">
+                        <img src="https://images.pexels.com/photos/10004169/pexels-photo-10004169.jpeg" alt="#alt-image" title="#title-image" loading="lazy" />
+                        <img src="https://images.pexels.com/photos/10004169/pexels-photo-10004169.jpeg" alt="#alt-image" title="#title-image" loading="lazy" />
+                        <img src="https://images.pexels.com/photos/10004169/pexels-photo-10004169.jpeg" alt="#alt-image" title="#title-image" loading="lazy" />
+                    </div>
+                    <div class="indCat"></div>
+                </div> -->
                 <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
                     Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/gh/carousnap/carousnap@v1.7/carousnap/carousnap.js" integrity="sha384-1mHmu4fyyExEnjX4DGx0QsSsPWPIaJ7oFcQ3LIL/gAT7t5i6mNfW80xJOzEHfNgv" crossorigin="anonymous"></script>
 </body>
 
 </html>
