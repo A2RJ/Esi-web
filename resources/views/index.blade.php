@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="/landing-page/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="/landing-page/vendors/aos/css/aos.css">
     <link rel="stylesheet" href="/landing-page/css/style.min.css">
+
+    <style>
+    </style>
 </head>
 
 <body id="body" data-spy="scroll" data-target=".navbar" data-offset="100">
@@ -37,23 +40,30 @@
                             <a class="nav-link" href="#header-section">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#features-section">Games</a>
+                            <a class="nav-link" href="#events-section">Events</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#features-section">Events</a>
+                            <a class="nav-link" href="#squads-section">Squads</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#digital-marketing-section">Squads</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#digital-marketing-section">Managements</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#digital-marketing-section">Players</a>
+                            <a class="nav-link" href="#managements-section">Managements</a>
                         </li>
                         <li class="nav-item btn-contact-us pl-4 pl-lg-0">
-                            <button class="btn btn-outline-info p-2" data-toggle="modal" data-target="#exampleModal">Register</button>
-                            <button class="btn btn-outline-info p-2" data-toggle="modal" data-target="#exampleModal">Login</button>
+                            @if (Route::has('login'))
+                            @auth
+                            <a href="/home">
+                                <button class="btn btn-outline-info p-2">Dashboard</button>
+                            </a>
+                            @else
+                            <a href="/register">
+                                <button class="btn btn-outline-info p-2">Register</button>
+                            </a>
+                            <a href="/login">
+                                <button class="btn btn-outline-info p-2">Login</button>
+                            </a>
+
+                            @endauth
+                            @endif
                         </li>
                     </ul>
                 </div>
@@ -67,111 +77,84 @@
             <img src="/landing-page/images/Group171.svg" alt="" class="img-fluid">
         </div>
     </div>
-
-    <!-- looping users -->
-    <div class="table-responsive">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>user role</th>
-                    <th>nama</th>
-                    <th>Tanggal daftar</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($users as $data)
-                <tr class="text-gray-700 dark:text-gray-400">
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{$data->user_role}}</td>
-                    <td>{{$data->nama}}</td>
-                    <td>{{$data->created_at}}</td>
-                    <td class="px-4 py-3">
-                        <div class="flex items-center space-x-4 text-sm">
-                            <a href="/users/show/{{$data->id_user }}" title="show" class="badge badge-info">Show</a>
-                            <a href="/users/edit/{{$data->id_user }}" class="badge badge-warning">Edit</a>
-                            <a href="/users/destroy/{{$data->id_user }}" class="badge badge-danger">Delete</a>
-                        </div>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-        {{ $users->appends(['players' => $players->currentPage(), 'squads' => $squads->currentPage()])->links() }}
-    </div>
-    <div class="table-responsive">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>user</th>
-                    <th>squad</th>
-                    <th>game</th>
-                    <th>created_at</th>
-                    <th>updated_at</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($players as $data)
-                <tr class="text-gray-700 dark:text-gray-400">
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{$data->ingame_name}}</td>
-                    <td>{{$data->squad ? $data->squad->squad_name : 'Tidak join squad'}}</td>
-                    <td>{{$data->game->game_name}}</td>
-                    <td>{{$data->created_at}}</td>
-                    <td>{{$data->updated_at}}</td>
-                    <td class="px-4 py-3">
-                        <div class="flex items-center space-x-4 text-sm">
-                            <a href="/players/show/{{$data->id_player }}" title="show" class="badge badge-info">Show</a>
-                            <a href="/players/edit/{{$data->id_player }}" class="badge badge-warning">Edit</a>
-                            <a href="/players/destroy/{{$data->id_player }}" class="badge badge-danger">Delete</a>
-                        </div>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-        {{ $players->appends(['users' => $users->currentPage(), 'squads' => $squads->currentPage()])->links() }}
-    </div>
-    <div class="table-responsive">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>squad_name</th>
-                    <th>squad_leader</th>
-                    <th>management_id</th>
-                    <th>created_at</th>
-                    <th>updated_at</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($squads as $data)
-                <tr class="text-gray-700 dark:text-gray-400">
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{$data->squad_name}}</td>
-                    <td>{{$data->leader->ingame_name}}</td>
-                    <td>{{$data->management ? $data->management->management_name : 'Tidak join management'}}</td>
-                    <td>{{$data->created_at}}</td>
-                    <td>{{$data->updated_at}}</td>
-                    <td class="px-4 py-3">
-                        <div class="flex items-center space-x-4 text-sm">
-                            <a href="/squads/show/{{$data->id_squad }}" title="show" class="badge badge-info">Show</a>
-                            <a href="/squads/edit/{{$data->id_squad }}" class="badge badge-warning">Edit</a>
-                            <a href="/squads/destroy/{{$data->id_squad }}" class="badge badge-danger">Delete</a>
-                        </div>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-        {{ $squads->appends(['users' => $users->currentPage(), 'players' => $players->currentPage()])->links() }}
-    </div>
     <div class="content-wrapper">
         <div class="container">
+            <section class="customer-feedback">
+                <div class="row mt-5" id="events-section">
+                    <div class="col-12 text-center pb-5">
+                        <h2>Daftar event</h2>
+                        <h6 class="section-subtitle text-muted m-0">Berikut adalah event yang bisa kamu ikuti.</h6>
+                    </div>
+                    <!-- looping events -->
+                    @foreach($events as $event)
+                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <div class="bg-success text-center card-contents rounded" style="background-image: url('/landing-page/images/Group115.svg'); background-size: cover;">
+                                    <div style="height: 200px;"></div>
+                                </div>
+                                <div class="card-details text-center pt-4">
+                                    <h6 class="m-0 pb-1">{{ $event->event_name }}</h6>
+                                    <p>Join {{ $event->created_at->format('d, M Y') }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                    <div class="col-12 d-flex justify-content-center">
+                        {{ $events->appends(['squads' => $squads->currentPage(), 'managements' => $managements->currentPage()])->links() }}
+                    </div>
+                </div>
+                <div class="row mt-5" id="squads-section">
+                    <div class="col-12 text-center pb-5">
+                        <h2>Ayo cek squadmu</h2>
+                        <h6 class="section-subtitle text-muted m-0">Cek data mu dibawah iya.</h6>
+                    </div>
+                    <!-- looping users -->
+                    @foreach($squads as $squad)
+                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <div class="bg-success text-center card-contents rounded" style="background-image: url('/landing-page/images/Group115.svg'); background-size: cover;">
+                                    <div style="height: 200px;"></div>
+                                </div>
+                                <div class="card-details text-center pt-4">
+                                    <h6 class="m-0 pb-1">{{$squad->squad_name}}</h6>
+                                    <p>Join {{ $squad->created_at->format('d, M Y') }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                    <div class="col-12 d-flex justify-content-center">
+                        {{ $squads->appends(['events' => $events->currentPage(), 'managements' => $managements->currentPage()])->links() }}
+                    </div>
+                </div>
+                <div class="row mt-5" id="managements-section">
+                    <div class="col-12 text-center pb-5">
+                        <h2>Butuh management?</h2>
+                        <h6 class="section-subtitle text-muted m-0">Cek dibawah iya.</h6>
+                    </div>
+                    @foreach($managements as $management)
+                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <div class="bg-success text-center card-contents rounded" style="background-image: url('/landing-page/images/Group115.svg'); background-size: cover;">
+                                    <div style="height: 200px;"></div>
+                                </div>
+                                <div class="card-details text-center pt-4">
+                                    <h6 class="m-0 pb-1">{{$management->management_name}}</h6>
+                                    <p>Join {{ $management->created_at->format('d, M Y') }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                    <div class="col-12 d-flex justify-content-center">
+                        {{ $managements->appends(['events' => $events->currentPage(), 'squads' => $squads->currentPage()])->links() }}
+                    </div>
+                </div>
+            </section>
             <section class="features-overview" id="features-section">
                 <div class="content-header">
                     <h2>How does it works</h2>
@@ -237,215 +220,19 @@
                     </div>
                 </div>
             </section>
-            <section class="case-studies" id="case-studies-section">
-                <div class="row grid-margin">
-                    <div class="col-12 text-center pb-5">
-                        <h2>Our case studies</h2>
-                        <h6 class="section-subtitle text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum.</h6>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3 stretch-card mb-3 mb-lg-0" data-aos="zoom-in">
-                        <div class="card color-cards">
-                            <div class="card-body p-0">
-                                <div class="bg-primary text-center card-contents">
-                                    <div class="card-image">
-                                        <img src="/landing-page/images/Group95.svg" class="case-studies-card-img" alt="">
-                                    </div>
-                                    <div class="card-desc-box d-flex align-items-center justify-content-around">
-                                        <div>
-                                            <h6 class="text-white pb-2 px-3">Know more about Online marketing</h6>
-                                            <button class="btn btn-white">Read More</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-details text-center pt-4">
-                                    <h6 class="m-0 pb-1">Online Marketing</h6>
-                                    <p>Seo, Marketing</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3 stretch-card mb-3 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
-                        <div class="card color-cards">
-                            <div class="card-body p-0">
-                                <div class="bg-warning text-center card-contents">
-                                    <div class="card-image">
-                                        <img src="/landing-page/images/Group108.svg" class="case-studies-card-img" alt="">
-                                    </div>
-                                    <div class="card-desc-box d-flex align-items-center justify-content-around">
-                                        <div>
-                                            <h6 class="text-white pb-2 px-3">Know more about Web Development</h6>
-                                            <button class="btn btn-white">Read More</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-details text-center pt-4">
-                                    <h6 class="m-0 pb-1">Web Development</h6>
-                                    <p>Developing, Designing</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3 stretch-card mb-3 mb-lg-0" data-aos="zoom-in" data-aos-delay="400">
-                        <div class="card color-cards">
-                            <div class="card-body p-0">
-                                <div class="bg-violet text-center card-contents">
-                                    <div class="card-image">
-                                        <img src="/landing-page/images/Group126.svg" class="case-studies-card-img" alt="">
-                                    </div>
-                                    <div class="card-desc-box d-flex align-items-center justify-content-around">
-                                        <div>
-                                            <h6 class="text-white pb-2 px-3">Know more about Web Designing</h6>
-                                            <button class="btn btn-white">Read More</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-details text-center pt-4">
-                                    <h6 class="m-0 pb-1">Web Designing</h6>
-                                    <p>Designing, Developing</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3 stretch-card" data-aos="zoom-in" data-aos-delay="600">
-                        <div class="card color-cards">
-                            <div class="card-body p-0">
-                                <div class="bg-success text-center card-contents">
-                                    <div class="card-image">
-                                        <img src="/landing-page/images/Group115.svg" class="case-studies-card-img" alt="">
-                                    </div>
-                                    <div class="card-desc-box d-flex align-items-center justify-content-around">
-                                        <div>
-                                            <h6 class="text-white pb-2 px-3">Know more about Software Development</h6>
-                                            <button class="btn btn-white">Read More</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-details text-center pt-4">
-                                    <h6 class="m-0 pb-1">Software Development</h6>
-                                    <p>Developing, Designing</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="customer-feedback" id="feedback-section">
-                <div class="row">
-                    <div class="col-12 text-center pb-5">
-                        <h2>What our customers have to say</h2>
-                        <h6 class="section-subtitle text-muted m-0">Lorem ipsum dolor sit amet, tincidunt vestibulum.</h6>
-                    </div>
-                    <div class="owl-carousel owl-theme grid-margin">
-                        <div class="card customer-cards">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <img src="/landing-page/images/face2.jpg" width="89" height="89" alt="" class="img-customer">
-                                    <p class="m-0 py-3 text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
-                                    <div class="content-divider m-auto"></div>
-                                    <h6 class="card-title pt-3">Tony Martinez</h6>
-                                    <h6 class="customer-designation text-muted m-0">Marketing Manager</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card customer-cards">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <img src="/landing-page/images/face3.jpg" width="89" height="89" alt="" class="img-customer">
-                                    <p class="m-0 py-3 text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
-                                    <div class="content-divider m-auto"></div>
-                                    <h6 class="card-title pt-3">Sophia Armstrong</h6>
-                                    <h6 class="customer-designation text-muted m-0">Marketing Manager</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card customer-cards">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <img src="/landing-page/images/face20.jpg" width="89" height="89" alt="" class="img-customer">
-                                    <p class="m-0 py-3 text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
-                                    <div class="content-divider m-auto"></div>
-                                    <h6 class="card-title pt-3">Cody Lambert</h6>
-                                    <h6 class="customer-designation text-muted m-0">Marketing Manager</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card customer-cards">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <img src="/landing-page/images/face15.jpg" width="89" height="89" alt="" class="img-customer">
-                                    <p class="m-0 py-3 text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
-                                    <div class="content-divider m-auto"></div>
-                                    <h6 class="card-title pt-3">Cody Lambert</h6>
-                                    <h6 class="customer-designation text-muted m-0">Marketing Manager</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card customer-cards">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <img src="/landing-page/images/face16.jpg" width="89" height="89" alt="" class="img-customer">
-                                    <p class="m-0 py-3 text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
-                                    <div class="content-divider m-auto"></div>
-                                    <h6 class="card-title pt-3">Cody Lambert</h6>
-                                    <h6 class="customer-designation text-muted m-0">Marketing Manager</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card customer-cards">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <img src="/landing-page/images/face1.jpg" width="89" height="89" alt="" class="img-customer">
-                                    <p class="m-0 py-3 text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
-                                    <div class="content-divider m-auto"></div>
-                                    <h6 class="card-title pt-3">Tony Martinez</h6>
-                                    <h6 class="customer-designation text-muted m-0">Marketing Manager</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card customer-cards">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <img src="/landing-page/images/face2.jpg" width="89" height="89" alt="" class="img-customer">
-                                    <p class="m-0 py-3 text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
-                                    <div class="content-divider m-auto"></div>
-                                    <h6 class="card-title pt-3">Tony Martinez</h6>
-                                    <h6 class="customer-designation text-muted m-0">Marketing Manager</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card customer-cards">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <img src="/landing-page/images/face3.jpg" width="89" height="89" alt="" class="img-customer">
-                                    <p class="m-0 py-3 text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
-                                    <div class="content-divider m-auto"></div>
-                                    <h6 class="card-title pt-3">Sophia Armstrong</h6>
-                                    <h6 class="customer-designation text-muted m-0">Marketing Manager</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card customer-cards">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <img src="/landing-page/images/face20.jpg" width="89" height="89" alt="" class="img-customer">
-                                    <p class="m-0 py-3 text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
-                                    <div class="content-divider m-auto"></div>
-                                    <h6 class="card-title pt-3">Cody Lambert</h6>
-                                    <h6 class="customer-designation text-muted m-0">Marketing Manager</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
             <section class="contact-us" id="contact-section">
                 <div class="contact-us-bgimage grid-margin">
                     <div class="pb-4">
-                        <h4 class="px-3 px-md-0 m-0" data-aos="fade-down">Do you have any projects?</h4>
-                        <h4 class="pt-1" data-aos="fade-down">Contact us</h4>
+                        <h4 class="px-3 px-md-0 m-0" data-aos="fade-down">Belum bergabung?</h4>
+                        <!-- <h4 class="pt-1" data-aos="fade-down">Contact us</h4> -->
                     </div>
                     <div data-aos="fade-up">
-                        <button class="btn btn-rounded btn-outline-danger">Contact us</button>
+                        <a href="/register">
+                            <button class="btn btn-rounded btn-outline-info">Register</button>
+                        </a>
+                        <a href="/login">
+                            <button class="btn btn-rounded btn-outline-info">Login</button>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -498,36 +285,7 @@
             <footer class="border-top">
                 <p class="text-center text-muted pt-4">Copyright © 2019<a href="https://www.bootstrapdash.com/" class="px-1">Bootstrapdash.</a>All rights reserved.</p>
             </footer>
-            <!-- Modal for Contact - us Button -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title" id="exampleModalLabel">Contact Us</h4>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="form-group">
-                                    <label for="Name">Name</label>
-                                    <input type="text" class="form-control" id="Name" placeholder="Name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="Email">Email</label>
-                                    <input type="email" class="form-control" id="Email-1" placeholder="Email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="Message">Message</label>
-                                    <textarea class="form-control" id="Message" placeholder="Enter your Message"></textarea>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-success">Submit</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
     <script src="/landing-page/vendors/jquery/jquery.min.js"></script>

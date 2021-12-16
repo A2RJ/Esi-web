@@ -16,10 +16,9 @@ use App\Http\Controllers\Request_squadsController;
 use App\Http\Controllers\Squad_inv_playersController;
 use App\Http\Controllers\SquadsController;
 use App\Http\Controllers\UserController;
-use App\Models\Players;
+use App\Models\Events;
+use App\Models\Managements;
 use App\Models\Squads;
-use App\Models\Users;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -34,31 +33,43 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 Auth::routes();
 
-Route::get('/', function (Request $request) {
-    $users = Users::latest();
-    if ($request->user) $users->where('nama', 'LIKE', '%' . $request->user . '%');
-    $players = Players::latest();
-    if ($request->player) $players->where('ingame_name', 'LIKE', '%' . $request->player . '%');
+Route::get('/', function () {
+    $events = Events::latest();
+    if (request('event')) {
+        $events = $events->where('event_name', 'LIKE', '%' . request('event') . '%');
+    }
+
     $squads = Squads::latest();
-    if ($request->squad) $squads->where('squad_name', 'LIKE', '%' . $request->squad . '%');
+    if (request('squad')) $squads->where('squad_name', 'LIKE', '%' . request('squad') . '%');
 
-    $users = $users->paginate(3, ['*'], 'users');
-    $players = $players->paginate(2, ['*'], 'players');
-    $squads = $squads->paginate(1, ['*'], 'squads');
-    return view('index', compact('users', 'players', 'squads'));
+    $managements = Managements::latest();
+    if (request('management')) $managements->where('management_name', 'LIKE', '%' . request('management') . '%');
+
+    $events = $events->paginate(6, ['*'], 'events');
+    $squads = $squads->paginate(6, ['*'], 'squads');
+    $managements = $managements->paginate(6, ['*'], 'managements');
+
+    return view('index', compact('events', 'squads', 'managements'));
 });
 
-Route::get('/home', function () {
-    return view('test.index');
-});
+Route::group(['prefix' => '/home'], function () {
+    Route::get('/error', function () {
+        return view('test.error');
+    });
 
-Route::get('/error', function () {
-    return view('test.error');
+    Route::get('/home', function () {
+        return view('test.index');
+    })->middleware('auth');
+    
+    Route::get('/event/{id}', [HomeController::class, 'event']);
+    Route::get('/player/{id}', [HomeController::class, 'player']);
+    Route::get('/squad/{id}', [HomeController::class, 'squad']);
+    Route::get('/management/{id}', [HomeController::class, 'management']);
 });
-
-Route::get('/player/{id}', [HomeController::class, 'management']);
 
 // admin
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
