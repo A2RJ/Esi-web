@@ -16,7 +16,10 @@ use App\Http\Controllers\Request_squadsController;
 use App\Http\Controllers\Squad_inv_playersController;
 use App\Http\Controllers\SquadsController;
 use App\Http\Controllers\UserController;
+use App\Models\Players;
+use App\Models\Squads;
 use App\Models\Users;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -33,9 +36,18 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', function () {
-    $users = Users::paginate(4);
-    return view('index', compact('users'));
+Route::get('/', function (Request $request) {
+    $users = Users::latest();
+    if ($request->user) $users->where('nama', 'LIKE', '%' . $request->user . '%');
+    $players = Players::latest();
+    if ($request->player) $players->where('ingame_name', 'LIKE', '%' . $request->player . '%');
+    $squads = Squads::latest();
+    if ($request->squad) $squads->where('squad_name', 'LIKE', '%' . $request->squad . '%');
+
+    $users = $users->paginate(3, ['*'], 'users');
+    $players = $players->paginate(2, ['*'], 'players');
+    $squads = $squads->paginate(1, ['*'], 'squads');
+    return view('index', compact('users', 'players', 'squads'));
 });
 
 Route::get('/home', function () {

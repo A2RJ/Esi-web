@@ -68,6 +68,108 @@
         </div>
     </div>
 
+    <!-- looping users -->
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>user role</th>
+                    <th>nama</th>
+                    <th>Tanggal daftar</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($users as $data)
+                <tr class="text-gray-700 dark:text-gray-400">
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{$data->user_role}}</td>
+                    <td>{{$data->nama}}</td>
+                    <td>{{$data->created_at}}</td>
+                    <td class="px-4 py-3">
+                        <div class="flex items-center space-x-4 text-sm">
+                            <a href="/users/show/{{$data->id_user }}" title="show" class="badge badge-info">Show</a>
+                            <a href="/users/edit/{{$data->id_user }}" class="badge badge-warning">Edit</a>
+                            <a href="/users/destroy/{{$data->id_user }}" class="badge badge-danger">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+        {{ $users->appends(['players' => $players->currentPage(), 'squads' => $squads->currentPage()])->links() }}
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>user</th>
+                    <th>squad</th>
+                    <th>game</th>
+                    <th>created_at</th>
+                    <th>updated_at</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($players as $data)
+                <tr class="text-gray-700 dark:text-gray-400">
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{$data->ingame_name}}</td>
+                    <td>{{$data->squad ? $data->squad->squad_name : 'Tidak join squad'}}</td>
+                    <td>{{$data->game->game_name}}</td>
+                    <td>{{$data->created_at}}</td>
+                    <td>{{$data->updated_at}}</td>
+                    <td class="px-4 py-3">
+                        <div class="flex items-center space-x-4 text-sm">
+                            <a href="/players/show/{{$data->id_player }}" title="show" class="badge badge-info">Show</a>
+                            <a href="/players/edit/{{$data->id_player }}" class="badge badge-warning">Edit</a>
+                            <a href="/players/destroy/{{$data->id_player }}" class="badge badge-danger">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+        {{ $players->appends(['users' => $users->currentPage(), 'squads' => $squads->currentPage()])->links() }}
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>squad_name</th>
+                    <th>squad_leader</th>
+                    <th>management_id</th>
+                    <th>created_at</th>
+                    <th>updated_at</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($squads as $data)
+                <tr class="text-gray-700 dark:text-gray-400">
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{$data->squad_name}}</td>
+                    <td>{{$data->leader->ingame_name}}</td>
+                    <td>{{$data->management ? $data->management->management_name : 'Tidak join management'}}</td>
+                    <td>{{$data->created_at}}</td>
+                    <td>{{$data->updated_at}}</td>
+                    <td class="px-4 py-3">
+                        <div class="flex items-center space-x-4 text-sm">
+                            <a href="/squads/show/{{$data->id_squad }}" title="show" class="badge badge-info">Show</a>
+                            <a href="/squads/edit/{{$data->id_squad }}" class="badge badge-warning">Edit</a>
+                            <a href="/squads/destroy/{{$data->id_squad }}" class="badge badge-danger">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+        {{ $squads->appends(['users' => $users->currentPage(), 'players' => $players->currentPage()])->links() }}
+    </div>
     <div class="content-wrapper">
         <div class="container">
             <section class="features-overview" id="features-section">
