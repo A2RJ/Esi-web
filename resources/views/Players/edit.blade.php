@@ -48,7 +48,7 @@
 
                     <div class="form-group">
                         <label for="player_image">player_image</label>
-                        <input class="form-control" name="player_image" id="player_image" type="text" placeholder="{{ $players->player_image }}" value="{{ $players->player_image }}">
+                        <input class="form-control" name="player_image" id="player_image" type="file">
                     </div>
 
                     <div class="mt-5">

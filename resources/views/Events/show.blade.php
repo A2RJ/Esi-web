@@ -94,7 +94,7 @@
     </div>
 
     <!-- looping event teams -->
-    @foreach($teams as $event_team)
+    @foreach($event->event_teams as $event_team)
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>name:</strong>

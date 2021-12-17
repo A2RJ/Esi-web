@@ -88,17 +88,26 @@
                     <!-- looping events -->
                     @foreach($events as $event)
                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
-                        <div class="card">
-                            <div class="card-body p-0">
-                                <div class="bg-success text-center card-contents rounded" style="background-image: url('/landing-page/images/Group115.svg'); background-size: cover;">
-                                    <div style="height: 200px;"></div>
-                                </div>
-                                <div class="card-details text-center pt-4">
-                                    <h6 class="m-0 pb-1">{{ $event->event_name }}</h6>
-                                    <p>Join {{ $event->created_at->format('d, M Y') }}</p>
+                        <a href="/home/event/{{$event->id_event}}">
+                            <div class="card">
+                                <div class="card-body p-0">
+                                    <?php
+                                    if (!$event->event_image) {
+                                        $image = 'Group115.svg';
+                                    } else {
+                                        $image = $event->event_image;
+                                    }
+                                    ?>
+                                    <div class="bg-success text-center card-contents rounded" style="background-image: url('/images/{{$image}}'); background-size: cover;">
+                                        <div style="height: 200px;"></div>
+                                    </div>
+                                    <div class="card-details text-center pt-4">
+                                        <h6 class="m-0 pb-1">{{ $event->event_name }}</h6>
+                                        <p>Join {{ $event->created_at->format('d, M Y') }}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     @endforeach
                     <div class="col-12 d-flex justify-content-center">
@@ -113,17 +122,19 @@
                     <!-- looping users -->
                     @foreach($squads as $squad)
                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
-                        <div class="card">
-                            <div class="card-body p-0">
-                                <div class="bg-success text-center card-contents rounded" style="background-image: url('/landing-page/images/Group115.svg'); background-size: cover;">
-                                    <div style="height: 200px;"></div>
-                                </div>
-                                <div class="card-details text-center pt-4">
-                                    <h6 class="m-0 pb-1">{{$squad->squad_name}}</h6>
-                                    <p>Join {{ $squad->created_at->format('d, M Y') }}</p>
+                        <a href="/home/squad/{{$squad->id_squad}}">
+                            <div class="card">
+                                <div class="card-body p-0">
+                                    <div class="bg-success text-center card-contents rounded" style="background-image: url('/landing-page/images/Group115.svg'); background-size: cover;">
+                                        <div style="height: 200px;"></div>
+                                    </div>
+                                    <div class="card-details text-center pt-4">
+                                        <h6 class="m-0 pb-1">{{$squad->squad_name}}</h6>
+                                        <p>Join {{ $squad->created_at->format('d, M Y') }}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     @endforeach
                     <div class="col-12 d-flex justify-content-center">
@@ -137,17 +148,19 @@
                     </div>
                     @foreach($managements as $management)
                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
-                        <div class="card">
-                            <div class="card-body p-0">
-                                <div class="bg-success text-center card-contents rounded" style="background-image: url('/landing-page/images/Group115.svg'); background-size: cover;">
-                                    <div style="height: 200px;"></div>
-                                </div>
-                                <div class="card-details text-center pt-4">
-                                    <h6 class="m-0 pb-1">{{$management->management_name}}</h6>
-                                    <p>Join {{ $management->created_at->format('d, M Y') }}</p>
+                        <a href="/home/management/{{$management->id_management}}">
+                            <div class="card">
+                                <div class="card-body p-0">
+                                    <div class="bg-success text-center card-contents rounded" style="background-image: url('/landing-page/images/Group115.svg'); background-size: cover;">
+                                        <div style="height: 200px;"></div>
+                                    </div>
+                                    <div class="card-details text-center pt-4">
+                                        <h6 class="m-0 pb-1">{{$management->management_name}}</h6>
+                                        <p>Join {{ $management->created_at->format('d, M Y') }}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     @endforeach
                     <div class="col-12 d-flex justify-content-center">

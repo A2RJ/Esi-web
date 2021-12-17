@@ -63,6 +63,7 @@ class SquadsController extends Controller
     {
         $squad = Squads::find($id)->update($request->all());
         if($request->hasFile('squad_image')) {
+            $squad = Squads::find($id);
             $squad->squad_image = Upload::uploadFile($request, 'squad_image');
             $squad->save();
         }

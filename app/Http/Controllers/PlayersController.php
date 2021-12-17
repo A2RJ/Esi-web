@@ -51,7 +51,7 @@ class PlayersController extends Controller
     public function show($id)
     {
         $players = Players::find($id);
-        return view('players.show', compact('players'));
+        return view('players.detail', compact('players'));
     }
 
     public function account($id)
@@ -72,7 +72,9 @@ class PlayersController extends Controller
     public function update(Request $request, $id)
     {
         $player = Players::find($id)->update($request->all());
+        
         if($request->hasFile('player_image')){
+            $player = Players::find($id);
             $player->player_image = Upload::uploadFile($request, 'player_image');
             $player->save();
         }

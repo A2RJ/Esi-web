@@ -52,6 +52,11 @@
                         <input class="form-control" name="squad_name" id="squad_name" type="text" placeholder="{{ $squad->squad_name }}" value="{{ $squad->squad_name }}">
                     </div>
 
+                    <div class="form-group">
+                        <label for="squad_image">squad_image</label>
+                        <input class="form-control" name="squad_image" id="squad_image" type="file" placeholder="{{ $squad->squad_image }}" value="{{ $squad->squad_image }}">
+                    </div>
+
                     <div class="mt-5">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>

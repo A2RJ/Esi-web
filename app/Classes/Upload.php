@@ -12,11 +12,11 @@ class Upload
     public static function uploadFile(Request $request, $field)
     {
         if ($request->hasFile($field)) {
-            $file = $request->file($field);
-            $fileName = Auth::user()->id_user . "_" . date('d.m.Y.') . uniqid() . "." . $file->extension();
-            $file->storeAs('images', $fileName, 'public');
+            $request['image'] = $request->file($field);
+            $fileName = date('d_m_Y_') . uniqid() . "." . $request['image']->extension();
+            $request->image->move(public_path('images'), $fileName);
         } else {
-            $fileName = 'default.jpg';
+            $fileName = 'Group115.svg';
         }
 
         return $fileName;

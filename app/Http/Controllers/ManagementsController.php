@@ -56,6 +56,7 @@ class ManagementsController extends Controller
     {
         $management = Managements::find($id)->update($request->all());
         if($request->hasFile('management_image')){
+            $management = Managements::find($id);
             $management->management_image = Upload::uploadFile($request, 'management_image');
             $management->save();
         }

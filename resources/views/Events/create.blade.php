@@ -41,7 +41,7 @@
 
                     <div class="form-group">
                         <label for="event_image">Event Image</label>
-                        <input type="text" class="form-control" name="event_image" id="event_image" placeholder="event_image">
+                        <input type="file" class="form-control" name="event_image" id="event_image" placeholder="event_image">
                     </div>
 
                     <div class="form-group">

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event_teams;
+use App\Models\Event_winner;
 use App\Models\Events;
 use App\Models\Managements;
 use App\Models\Players;
@@ -21,7 +23,7 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * detail the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
@@ -42,10 +44,16 @@ class HomeController extends Controller
 
     public function event($id)
     {
-        $event = Events::with('owner', 'game', 'event_winners', 'event_teams')
+        $event = Events::with('owner', 'game')
             ->find($id);
+        $teams = Event_teams::join('squads', 'event_teams.squad_id', 'squads.id_squad')
+            ->where('event_teams.event_id', $id)
+            ->get();
+        $winners = Event_winner::join('squads', 'event_winners.squad_id', 'squads.id_squad')
+            ->where('event_winners.event_id', $id)
+            ->get();
 
-        return view('events.detail', compact('event'));
+        return view('events.detail', compact('event', 'teams', 'winners'));
     }
 
     public function player($id)
@@ -56,13 +64,13 @@ class HomeController extends Controller
 
     public function squad($id)
     {
-        $squad = Squads::with('game', 'leader', 'players', 'management')->find($id);
+        $squad = Squads::with('game', 'user', 'leader', 'players', 'management')->find($id);
         return view('squads.detail', compact('squad'));
     }
 
     public function management($id)
     {
-        return $management = Managements::with('squads')->find($id);
+        $management = Managements::with('squads')->find($id);
         return view('managements.detail', compact('management'));
     }
 }

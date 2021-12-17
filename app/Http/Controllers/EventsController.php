@@ -92,6 +92,7 @@ class EventsController extends Controller
         ]);
         $event = Events::findOrFail($id)->update($request->all());
         if($request->hasFile('event_image')){
+            $event = Events::findOrFail($id);
             $event->event_image = Upload::uploadFile($request, 'event_image');
             $event->save();
         }

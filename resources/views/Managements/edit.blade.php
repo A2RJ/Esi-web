@@ -32,7 +32,7 @@
 
                     <div class="form-group">
                         <label for="management_image">management_image</label>
-                        <input class="form-control" name="management_image" id="management_image" type="text" placeholder="{{ $management->management_image }}" value="{{ $management->management_image }}">
+                        <input class="form-control" name="management_image" id="management_image" type="file" placeholder="{{ $management->management_image }}" value="{{ $management->management_image }}">
                     </div>
 
                     <div class="form-group">

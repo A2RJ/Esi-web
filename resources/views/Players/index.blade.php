@@ -32,11 +32,10 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>user</th>
-                                <th>squad</th>
-                                <th>game</th>
-                                <th>created_at</th>
-                                <th>updated_at</th>
+                                <th>User</th>
+                                <th>Squad</th>
+                                <th>Game</th>
+                                <th>Dibuat Pada</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -48,10 +47,9 @@
                                 <td>{{$data->squad ? $data->squad->squad_name : 'Tidak join squad'}}</td>
                                 <td>{{$data->game->game_name}}</td>
                                 <td>{{$data->created_at}}</td>
-                                <td>{{$data->updated_at}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
-                                        <a href="/players/show/{{$data->id_player }}" title="show" class="badge badge-info">Show</a>
+                                        <a href="/home/player/{{$data->id_player }}" title="show" class="badge badge-info">Show</a>
                                         <a href="/players/edit/{{$data->id_player }}" class="badge badge-warning">Edit</a>
                                         <a href="/players/destroy/{{$data->id_player }}" class="badge badge-danger">Delete</a>
                                     </div>

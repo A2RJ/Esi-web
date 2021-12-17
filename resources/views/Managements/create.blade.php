@@ -30,7 +30,7 @@
 
                     <div class="form-group">
                         <label for="management_image">management_image</label>
-                        <input type="text" class="form-control" name="management_image" id="management_image" placeholder="management_image">
+                        <input type="file" class="form-control" name="management_image" id="management_image" placeholder="management_image">
                     </div>
 
                     <div class="form-group">

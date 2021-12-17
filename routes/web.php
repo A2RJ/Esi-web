@@ -16,6 +16,7 @@ use App\Http\Controllers\Request_squadsController;
 use App\Http\Controllers\Squad_inv_playersController;
 use App\Http\Controllers\SquadsController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\Auth as MiddlewareAuth;
 use App\Models\Events;
 use App\Models\Managements;
 use App\Models\Squads;
@@ -61,7 +62,7 @@ Route::group(['prefix' => '/home'], function () {
         return view('test.error');
     });
 
-    Route::get('/home', function () {
+    Route::get('/', function () {
         return view('test.index');
     })->middleware('auth');
     
@@ -206,7 +207,7 @@ Route::group(['prefix' => 'game_categories', 'middleware' => 'auth'], function (
 Route::group(['prefix' => 'events', 'middleware' => 'auth'], function () {
     Route::get('/', [EventsController::class, 'index']);
     Route::get('/create', [EventsController::class, 'create']);
-    Route::get('/show/{id}', [EventsController::class, 'show']);
+    Route::get('/show/{id}', [EventsController::class, 'show'])->withoutMiddleware([MiddlewareAuth::class]);
     Route::get('/events', [EventsController::class, 'events']);
     Route::post('/store', [EventsController::class, 'store']);
     Route::get('/edit/{id}', [EventsController::class, 'edit']);

@@ -42,7 +42,7 @@
 
           <div class="form-group">
             <label for="event_image">Event Image</label>
-            <input class="form-control" name="event_image" id="event_image" type="text" placeholder="{{ $event->event_image }}" value="{{ $event->event_image }}">
+            <input class="form-control" name="event_image" id="event_image" type="file" placeholder="{{ $event->event_image }}" value="{{ $event->event_image }}">
           </div>
 
           <div class="form-group">

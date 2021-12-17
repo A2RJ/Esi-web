@@ -35,6 +35,6 @@ class Players extends Model
 
     public function management()
     {
-        return $this->hasManyThrough(Managements::class, Squads::class, 'management_id', 'id_management', 'squad_id', 'id_squad');
+        return $this->hasOneThrough(Managements::class, Squads::class, 'management_id', 'id_management', 'squad_id', 'id_squad');
     }
 }
