@@ -29,7 +29,11 @@
                 <button class="btn btn-sm btn-outline-info p-1">Join event</button>
             </a>
             <div class="col-12 p-0">
-                <p class="py-4 m-0 text-muted">Slot event {{ $event->slot }}, prize pool {{ $event->pricepool }}, {{ $event->isfree ? 'Free' : 'Not Free/Paid' }}. <br> Start {{ $event->start}}, End {{ $event->end }}</p>
+                <p class="py-4 m-0 text-muted">
+                    Slot event: {{ $event->slot }} <br>
+                    Prize pool: {{ $event->pricepool }} <br>
+                    Biaya: {{ $event->isfree ? 'Free' : 'Rp.' . $event->price . '/Slot' }}. <br>
+                    Waktu: {{ $event->start}} - {{ $event->end }}</p>
 
                 <p class="font-weight-medium text-muted">{{ $event->detail }}</p>
                 <p class="font-weight-medium text-muted">{{ $event->peraturan }}</p>

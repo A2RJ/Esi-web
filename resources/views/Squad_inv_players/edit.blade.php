@@ -36,8 +36,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="status">status</label>
-                        <input class="form-control" name="status" id="status" type="text" placeholder="{{ $squad_inv_players->status }}" value="{{ $squad_inv_players->status }}">
+                        <!-- <label for="status">status</label> -->
+                        <input class="form-control" name="status" id="status" type="hidden" placeholder="{{ $squad_inv_players->status }}" value="{{ $squad_inv_players->status }}">
                     </div>
 
                     <div class="mt-5">

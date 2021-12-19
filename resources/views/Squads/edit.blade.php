@@ -38,11 +38,11 @@
 
                         <!-- select players -->
                         <div class="form-group col-sm-6">
-                            <label for="squad_leader">Select Player</label>
+                            <label for="squad_leader">Select Leader</label>
                             <select class="form-control" name="squad_leader" id="squad_leader">
-                                <option>-- Select Player --</option>
+                                <option value="{{$player->id_player}}" selected>{{$player->ingame_name}}</option>
                                 @foreach($players as $player)
-                                <option value="{{$player->id_player}}" {{ $squad->squad_leader == $player->id_player ? 'selected' : '' }}>{{$player->ingame_name}}</option>
+                                <option value="{{$player->id_player}}">{{$player->ingame_name}}</option>
                                 @endforeach
                             </select>
                         </div>

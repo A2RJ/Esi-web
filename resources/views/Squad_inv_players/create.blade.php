@@ -45,16 +45,13 @@
                     <div class="form-group">
                         <label for="squad_id">Select Squad</label>
                         <select class="form-control form-control-lg" id="squad_id" name="squad_id">
-                            <option value="">Select Squad</option>
-                            @foreach($squads as $squad)
                             <option value="{{ $squad->id_squad }}">{{ $squad->squad_name }}</option>
-                            @endforeach
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="status">status</label>
-                        <input type="text" class="form-control" name="status" id="status" value="0" readonly>
+                        <!-- <label for="status">status</label> -->
+                        <input type="hidden" class="form-control" name="status" id="status" value="0" readonly>
                     </div>
 
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">

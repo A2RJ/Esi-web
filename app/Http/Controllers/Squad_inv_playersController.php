@@ -17,18 +17,19 @@ class Squad_inv_playersController extends Controller
             ->where('players.user_id', Auth::user()->id_user)
             ->select('squad_inv_players.*', 'players.ingame_name', 'squads.squad_name')
             ->paginate(10);
-            
+
         return view('squad_inv_players.index', compact('squad_inv_players'));
     }
 
-    public function create()
+    public function create($id)
     {
-        $players = Players::all();
-        $squads = Squads::join('players', 'squads.id_squad', 'players.squad_id')
+        $players = Players::where('squad_id', null)->get();
+        $squad = Squads::join('players', 'squads.id_squad', 'players.squad_id')
             ->where('players.user_id', Auth::user()->id_user)
             ->select('squads.id_squad', 'squads.squad_name')
-            ->get();
-        return view('squad_inv_players.create', compact('players', 'squads'));
+            ->find($id);
+            
+        return view('squad_inv_players.create', compact('players', 'squad'));
     }
 
     public function store(Request $request)
@@ -49,7 +50,7 @@ class Squad_inv_playersController extends Controller
         }
 
         Squad_inv_players::create($request->all());
-        return redirect('squad_inv_players')->with('success', 'Squad_inv_players created successfully');
+        return redirect('squads/setSquad/' . $request->squad_id)->with('success', 'Squad_inv_players created successfully');
     }
 
     public function show($id)
@@ -82,7 +83,7 @@ class Squad_inv_playersController extends Controller
     public function destroy($id)
     {
         Squad_inv_players::find($id)->delete();
-        return redirect('squad_inv_players')->with('success', 'Squad_inv_players deleted successfully');
+        return redirect(url()->previous())->with('success', 'Squad_inv_players deleted successfully');
     }
 
     // invite from squad

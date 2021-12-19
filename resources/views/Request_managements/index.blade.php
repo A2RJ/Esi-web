@@ -17,7 +17,7 @@
                     Daftar request join yang masih dalam proses
                 </p>
                 <a class="btn btn-primary" href="/request_managements/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
-                    Tambah
+                    Create
                 </a>
                 <div class="table-responsive">
                     <table class="table table-hover">

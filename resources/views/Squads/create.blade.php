@@ -35,7 +35,7 @@
                         </div>
                         <!-- select players -->
                         <div class="form-group col-sm-6">
-                            <label for="squad_leader">Select Players</label>
+                            <label for="squad_leader">Select Leader</label>
                             <select class="form-control" id="squad_leader" name="squad_leader">
                                 <option>Select Player</option>
                                 @foreach($players as $player)

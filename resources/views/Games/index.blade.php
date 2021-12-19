@@ -18,7 +18,7 @@
                 </p>
                 <div class="menu">
                     <a class="btn btn-primary" href="/games/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
-                        Tambah game
+                        Create game
                     </a>
                     <a class="btn btn-primary" href="/game_categories" title="Create a data"> <i class="fas fa-plus-circle"></i>
                         Kategori game

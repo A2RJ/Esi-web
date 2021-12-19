@@ -87,8 +87,7 @@ class PlayersController extends Controller
     {
         Players::find($id)->delete();
 
-        if (Auth::user()->user_role !== 'admin') return redirect('players/players')->with('success', 'Player created successfully');
-        return redirect('/players')->with('success', 'Player has been deleted');
+        return redirect(url()->previous())->with('success', 'Player has been deleted');
     }
 
     // ambil data player berdasarkan user login

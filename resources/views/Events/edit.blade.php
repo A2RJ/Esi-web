@@ -51,23 +51,31 @@
           </div>
 
           <div class="form-group">
+            <label for="price">Fee/Slot</label>
+            <input class="form-control" name="price" id="price" type="text" placeholder="{{ $event->price }}" value="{{ $event->price }}">
+          </div>
+
+          <div class="form-group">
             <label for="pricepool">Price Pool</label>
             <input class="form-control" name="pricepool" id="pricepool" type="text" placeholder="{{ $event->pricepool }}" value="{{ $event->pricepool }}">
           </div>
 
           <div class="form-group">
             <label for="isfree">Is free</label>
-            <input class="form-control" name="isfree" id="isfree" type="text" placeholder="{{ $event->isfree }}" value="{{ $event->isfree }}">
+            <select class="form-control" name="isfree" id="isfree">
+              <option value="0" {{$event->isfree == 0 ? 'selected' : ''}}>No</option>
+              <option value="1" {{$event->isfree == 1 ? 'selected' : ''}}>Yes</option>
+            </select>
           </div>
 
           <div class="form-group">
             <label for="detail">Detail</label>
-            <input class="form-control" name="detail" id="detail" type="text" placeholder="{{ $event->detail }}" value="{{ $event->detail }}">
+            <textarea class="form-control" name="detail" id="detail" rows="3" placeholder="{{ $event->detail }}">{{ $event->detail }}</textarea>
           </div>
 
           <div class="form-group">
             <label for="peraturan">Peraturan</label>
-            <input class="form-control" name="peraturan" id="peraturan" type="text" placeholder="{{ $event->peraturan }}" value="{{ $event->peraturan }}">
+            <textarea class="form-control" name="peraturan" id="peraturan" rows="3" placeholder="{{ $event->peraturan }}">{{ $event->peraturan }}</textarea>
           </div>
 
           <div class="form-group">

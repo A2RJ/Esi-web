@@ -18,7 +18,7 @@
                     Menu untuk invite player
                 </p>
                 <a class="btn btn-primary" href="/squad_inv_players/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
-                    Tambah
+                    Create
                 </a>
                 <div class="table-responsive">
                     <table class="table table-hover">

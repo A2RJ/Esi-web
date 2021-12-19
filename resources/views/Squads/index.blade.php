@@ -18,17 +18,17 @@
                 </p>
                 <div class="menu">
                     <a class="btn btn-primary" href="/squads/create" title="Create a data">
-                        Tambah squad
+                        Create squad
                     </a>
                     <a class="btn btn-primary" href="/event_inv_teams/invite" title="Create a data">
                         Event invite
                     </a>
-                    <a class="btn btn-primary" href="/squad_inv_players" title="Create a data">
+                    <!-- <a class="btn btn-primary" href="/squad_inv_players" title="Create a data">
                         Invite player
                     </a>
                     <a class="btn btn-primary" href="/request_squads/requestFromPlayers" title="Create a data">
                         Request join
-                    </a>
+                    </a> -->
                     <a class="btn btn-primary" href="/management_inv_squads/invite" title="Create a data">
                         Management invite
                     </a>
@@ -36,16 +36,15 @@
                         Request management
                     </a>
                 </div>
-                <div class="table-responsive">
+                <div class="table-responsive mt-4">
                     <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>squad_name</th>
-                                <th>squad_leader</th>
-                                <th>management_id</th>
-                                <th>created_at</th>
-                                <th>updated_at</th>
+                                <th>Squad Name</th>
+                                <th>Squad Leader</th>
+                                <th>Management Id</th>
+                                <th>Dibuat Pada</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -56,10 +55,10 @@
                                 <td>{{$data->squad_name}}</td>
                                 <td>{{$data->leader->ingame_name}}</td>
                                 <td>{{$data->management ? $data->management->management_name : 'Tidak join management'}}</td>
-                                <td>{{$data->created_at}}</td>
-                                <td>{{$data->updated_at}}</td>
+                                <td>{{$data->created_at->format('d-m-Y')}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
+                                        <a href="/squads/setSquad/{{$data->id_squad }}" title="show" class="badge badge-info">Detail</a>
                                         <a href="/squads/show/{{$data->id_squad }}" title="show" class="badge badge-info">Show</a>
                                         <a href="/squads/edit/{{$data->id_squad }}" class="badge badge-warning">Edit</a>
                                         <a href="/squads/destroy/{{$data->id_squad }}" class="badge badge-danger">Delete</a>
@@ -69,6 +68,9 @@
                             @endforeach
                         </tbody>
                     </table>
+                </div>
+                <div class="col-12 d-flex justify-content-center">
+                    {{ $squads->links() }}
                 </div>
             </div>
         </div>

@@ -63,7 +63,21 @@ Route::group(['prefix' => '/home'], function () {
     });
 
     Route::get('/', function () {
-        return view('test.index');
+        $events = Events::latest();
+        if (request('event')) {
+            $events = $events->where('event_name', 'LIKE', '%' . request('event') . '%');
+        }
+    
+        $squads = Squads::latest();
+        if (request('squad')) $squads->where('squad_name', 'LIKE', '%' . request('squad') . '%');
+    
+        $managements = Managements::latest();
+        if (request('management')) $managements->where('management_name', 'LIKE', '%' . request('management') . '%');
+    
+        $events = $events->paginate(6, ['*'], 'events');
+        $squads = $squads->paginate(6, ['*'], 'squads');
+        $managements = $managements->paginate(6, ['*'], 'managements');
+        return view('test.index', compact('events', 'squads', 'managements'));
     })->middleware('auth');
     
     Route::get('/event/{id}', [HomeController::class, 'event']);
@@ -110,6 +124,8 @@ Route::group(['prefix' => 'squads', 'middleware' => 'auth'], function () {
     Route::get('/', [SquadsController::class, 'index']);
     Route::get('/create', [SquadsController::class, 'create']);
     Route::get('/show/{id}', [SquadsController::class, 'show']);
+    Route::get('/setSquad/{id}', [SquadsController::class, 'setSquad']);
+    Route::get('/destroyFromSquad/{id}', [SquadsController::class, 'destroyFromSquad']);
     Route::get('/squads', [SquadsController::class, 'squads']);
     Route::post('/store', [SquadsController::class, 'store']);
     Route::get('/edit/{id}', [SquadsController::class, 'edit']);
@@ -121,7 +137,7 @@ Route::group(['prefix' => 'squads', 'middleware' => 'auth'], function () {
 Route::group(['prefix' => 'squad_inv_players', 'middleware' => 'auth'], function () {
     Route::get('/', [Squad_inv_playersController::class, 'index']);
     Route::get('/inviteFromSquad', [Squad_inv_playersController::class, 'inviteFromSquad']);
-    Route::get('/create', [Squad_inv_playersController::class, 'create']);
+    Route::get('/create/{id}', [Squad_inv_playersController::class, 'create']);
     Route::get('/show/{id}', [Squad_inv_playersController::class, 'show']);
     Route::get('/terima/{id}', [Squad_inv_playersController::class, 'terima']);
     Route::post('/store', [Squad_inv_playersController::class, 'store']);

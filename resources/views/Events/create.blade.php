@@ -43,38 +43,48 @@
                             <label for="event_image">Event Image</label>
                             <input type="file" class="form-control" name="event_image" id="event_image" placeholder="event_image">
                         </div>
+
                         <div class="col-sm-6 form-group">
                             <label for="slot">Slot</label>
-                            <input type="text" class="form-control" name="slot" id="slot" placeholder="slot">
+                            <input type="number" class="form-control" name="slot" id="slot" placeholder="slot">
+                        </div>
+
+                        <div class="col-sm-6 form-group">
+                            <label for="price">Fee/Slot</label>
+                            <input type="number" class="form-control" name="price" id="price" placeholder="price">
                         </div>
 
                         <div class="col-sm-6 form-group">
                             <label for="pricepool">Price Pool</label>
-                            <input type="text" class="form-control" name="pricepool" id="pricepool" placeholder="pricepool">
+                            <input type="number" class="form-control" name="pricepool" id="pricepool" placeholder="pricepool">
                         </div>
 
                         <div class="col-sm-6 form-group">
                             <label for="isfree">Is free</label>
-                            <input type="text" class="form-control" name="isfree" id="isfree" placeholder="isfree">
+                            <select class="form-control" id="isfree" name="isfree">
+                                <option>-- Select Is free --</option>
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
                         </div>
 
                         <div class="col-sm-6 form-group">
-                            <label for="detail">Detail</label>
-                            <input type="text" class="form-control" name="detail" id="detail" placeholder="detail">
+                            <label for="detail">Detail</label> <br>
+                            <textarea class="form-control" name="detail" id="detail" placeholder="detail"></textarea>
                         </div>
 
                         <div class="col-sm-6 form-group">
                             <label for="peraturan">Peraturan</label>
-                            <input type="text" class="form-control" name="peraturan" id="peraturan" placeholder="peraturan">
+                            <textarea class="form-control" name="peraturan" id="peraturan" rows="10" placeholder="peraturan"></textarea>
                         </div>
 
                         <div class="col-sm-6 form-group">
-                            <label for="start">Start</label>
+                            <label for="start">Mulai event</label>
                             <input type="date" class="form-control" name="start" id="start" placeholder="start">
                         </div>
 
                         <div class="col-sm-6 form-group">
-                            <label for="end">End</label>
+                            <label for="end">Selesai event</label>
                             <input type="date" class="form-control" name="end" id="end" placeholder="end">
                         </div>
 

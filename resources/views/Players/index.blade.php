@@ -18,7 +18,7 @@
                 </p>
                 <div class="menu">
                     <a class="btn btn-primary" href="/players/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
-                        Tambah
+                        Create
                     </a>
                     <a class="btn btn-primary" href="/squad_inv_players/inviteFromSquad" title="Create a data"> <i class="fas fa-plus-circle"></i>
                         Squad invite
@@ -58,6 +58,9 @@
                             @endforeach
                         </tbody>
                     </table>
+                </div>
+                <div class="col-12 d-flex justify-content-center">
+                    {{ $players->links() }}
                 </div>
             </div>
         </div>

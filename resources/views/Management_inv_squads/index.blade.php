@@ -14,10 +14,10 @@
 
                 <h4 class="card-title">Management Invite Squad</h4>
                 <p class="card-description">
-                    Daftar squad yang telah diinvite untuk bergabung dalam management, invite squad dengan klik tombol tambah
+                    Daftar squad yang telah diinvite untuk bergabung dalam management, invite squad dengan klik tombol Create
                 </p>
                 <a class="btn btn-primary" href="/management_inv_squads/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
-                    Tambah
+                    Create
                 </a>
                 <div class="table-responsive">
                     <table class="table table-hover">

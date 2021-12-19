@@ -18,7 +18,7 @@
                 </p>
                 <div class="menu">
                     <a class="btn btn-primary" href="/events/create" title="Create a data">
-                        Tambah events
+                        Create events
                     </a>
                 </div>
                 <div class="table-responsive mt-4">
@@ -53,6 +53,9 @@
                             @endforeach
                         </tbody>
                     </table>
+                </div>
+                <div class="d-flex justify-content-center">
+                    {{ $events->links() }}
                 </div>
             </div>
         </div>

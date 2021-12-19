@@ -17,7 +17,7 @@
                     Invite teams untuk join events mu
                 </p>
                 <a class="btn btn-primary" href="/event_inv_teams/create/{{$id}}" title="Create a data"> <i class="fas fa-plus-circle"></i>
-                    Tambah
+                    Create
                 </a>
                 <div class="table-responsive">
                     <table class="table table-hover">
@@ -70,7 +70,7 @@
                     Teams yang mengikuti event
                 </p>
                 <a class="btn btn-primary" href="/event_teams/create/{{$id}}" title="Create a data"> <i class="fas fa-plus-circle"></i>
-                    Tambah
+                    Create
                 </a>
                 <div class="table-responsive">
                     <table class="table table-hover">
@@ -123,7 +123,7 @@
                     Pemenang Event
                 </p>
                 <a class="btn btn-primary" href="/event_winner/create/{{$id}}" title="Create a data"> <i class="fas fa-plus-circle"></i>
-                    Tambah
+                    Create
                 </a>
                 <div class="table-responsive">
                     <table class="table table-hover">

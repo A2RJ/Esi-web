@@ -17,7 +17,7 @@
                     Daftar kategori game
                 </p>
                 <a class="btn btn-primary" href="/game_categories/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
-                    Tambah
+                    Create
                 </a>
                 <div class="table-responsive">
                     <table class="table table-hover">

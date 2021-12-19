@@ -86,7 +86,7 @@ class Request_squadsController extends Controller
     public function destroy($id)
     {
         Request_squads::findOrFail($id)->delete();
-        return redirect('request_squads')->with('success', 'Request_squads deleted successfully');
+        return redirect(url()->previous())->with('success', 'Request_squads deleted successfully');
     }
 
     public function requestFromPlayers()
@@ -107,6 +107,6 @@ class Request_squadsController extends Controller
         $request_squads->status = 1;
         $request_squads->save();
 
-        return redirect('request_squads/requestFromPlayers')->with('success', 'Request_squads updated successfully');
+        return redirect(url()->previous())->with('success', 'Request_squads updated successfully');
     }
 }

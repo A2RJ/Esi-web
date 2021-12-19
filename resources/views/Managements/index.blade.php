@@ -18,7 +18,7 @@
                 </p>
                 <div class="menu">
                     <a class="btn btn-primary" href="/managements/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
-                        Tambah management
+                        Create management
                     </a>
                     <a class="btn btn-primary" href="/management_inv_squads" title="Create a data"> <i class="fas fa-plus-circle"></i>
                         Invite squad
@@ -54,6 +54,9 @@
                             @endforeach
                         </tbody>
                     </table>
+                </div>
+                <div class="col-12 d-flex justify-content-center">
+                    {{ $managements->links() }}
                 </div>
             </div>
         </div>
