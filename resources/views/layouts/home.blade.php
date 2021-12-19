@@ -11,14 +11,14 @@
     <link rel="stylesheet" href="/landing-page/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="/landing-page/vendors/aos/css/aos.css">
     <link rel="stylesheet" href="/landing-page/css/style.min.css">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/carousnap/carousnap@v1.7/carousnap/carousnap.css" integrity="sha384-AvIUz0OeqILp4fNEi51z9HqDHi/FXyvB54l4CFzgP3pV8V67SxE8j0CEmLHWIu/e" crossorigin="anonymous" />
     <style>
     </style>
 </head>
 
 <body id="body" data-spy="scroll" data-target=".navbar" data-offset="100">
     <header id="header-section">
-        <nav class="navbar navbar-expand-lg pl-3 pl-sm-0" id="navbar">
+        <nav class="navbar navbar-expand-lg pl-3 pl-sm-0 {{!\Request::is('/') ? 'bg-white' : '' }}" id="navbar">
             <div class="container">
                 <div class="navbar-brand-wrapper d-flex w-100">
                     <img src="/landing-page/images/Group2.svg" alt="">
@@ -30,7 +30,9 @@
                     <ul class="navbar-nav align-items-lg-center align-items-start ml-auto">
                         <li class="d-flex align-items-center justify-content-between pl-4 pl-lg-0">
                             <div class="navbar-collapse-logo">
-                                <img src="/landing-page/images/Group2.svg" alt="">
+                                <a href="/">
+                                    <img src="/landing-page/images/Group2.svg" alt="">
+                                </a>
                             </div>
                             <button class="navbar-toggler close-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="mdi mdi-close navbar-toggler-icon pl-5"></span>
@@ -39,15 +41,17 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                         </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="/home#events-section">Events</a>
+                        @if(\Request::is('/'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="#events-section">Events</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#squads-section">Squads</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#managements-section">Managements</a>
-                        </li> -->
+                        </li>
+                        @endif
                         <li class="nav-item btn-contact-us pl-4 pl-lg-0">
                             @if (Route::has('login'))
                             @auth
@@ -73,7 +77,7 @@
 
     @yield('content')
 
-    <section class="container contact-details" id="contact-details-section">
+    <section class="container contact-details" style="margin-top: 150px;" id="contact-details-section">
         <div class="row text-center text-md-left">
             <div class="col-12 col-md-6 col-lg-3 grid-margin">
                 <img src="/landing-page/images/Group2.svg" alt="" class="pb-2">
@@ -125,6 +129,7 @@
             <p class="text-center text-muted pt-4">Copyright © 2019<a href="https://www.bootstrapdash.com/" class="px-1">Bootstrapdash.</a>All rights reserved.</p>
         </footer>
     </section>
+    <script src="https://cdn.jsdelivr.net/gh/carousnap/carousnap@v1.7/carousnap/carousnap.js" integrity="sha384-1mHmu4fyyExEnjX4DGx0QsSsPWPIaJ7oFcQ3LIL/gAT7t5i6mNfW80xJOzEHfNgv" crossorigin="anonymous"></script>
     <script src="/landing-page/vendors/jquery/jquery.min.js"></script>
     <script src="/landing-page/vendors/bootstrap/bootstrap.min.js"></script>
     <script src="/landing-page/vendors/owl-carousel/js/owl.carousel.min.js"></script>

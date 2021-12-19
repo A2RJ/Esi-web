@@ -16,7 +16,7 @@
                 <p class="card-description">
                    Kelola admin yang terdaftar
                 </p>
-                <a class="btn btn-success" href="/admin/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                <a class="btn btn-primary" href="/admin/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
                     Tambah
                 </a>
                 <div class="table-responsive">

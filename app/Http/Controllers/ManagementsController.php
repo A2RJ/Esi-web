@@ -43,7 +43,7 @@ class ManagementsController extends Controller
     public function show($id)
     {
         $management = Managements::find($id);
-        return view('managements.show', compact('management'));
+        return view('managements.detail', compact('management'));
     }
 
     public function edit($id)

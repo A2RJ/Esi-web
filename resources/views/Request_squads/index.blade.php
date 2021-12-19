@@ -16,7 +16,7 @@
                 <p class="card-description">
                     Menu player request join squad
                 </p>
-                <a class="btn btn-success" href="/request_squads/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                <a class="btn btn-primary" href="/request_squads/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
                     Tambah
                 </a>
                 <div class="table-responsive">

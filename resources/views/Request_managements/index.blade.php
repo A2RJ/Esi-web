@@ -16,7 +16,7 @@
                 <p class="card-description">
                     Daftar request join yang masih dalam proses
                 </p>
-                <a class="btn btn-success" href="/request_managements/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                <a class="btn btn-primary" href="/request_managements/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
                     Tambah
                 </a>
                 <div class="table-responsive">

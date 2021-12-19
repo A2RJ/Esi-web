@@ -17,22 +17,22 @@
                     Daftar squad yang terdaftar
                 </p>
                 <div class="menu">
-                    <a class="btn btn-sm btn-success" href="/squads/create" title="Create a data">
+                    <a class="btn btn-primary" href="/squads/create" title="Create a data">
                         Tambah squad
                     </a>
-                    <a class="btn btn-sm btn-success" href="/event_inv_teams/invite" title="Create a data">
+                    <a class="btn btn-primary" href="/event_inv_teams/invite" title="Create a data">
                         Event invite
                     </a>
-                    <a class="btn btn-sm btn-success" href="/squad_inv_players" title="Create a data">
+                    <a class="btn btn-primary" href="/squad_inv_players" title="Create a data">
                         Invite player
                     </a>
-                    <a class="btn btn-sm btn-success" href="/request_squads/requestFromPlayers" title="Create a data">
+                    <a class="btn btn-primary" href="/request_squads/requestFromPlayers" title="Create a data">
                         Request join
                     </a>
-                    <a class="btn btn-sm btn-success" href="/management_inv_squads/invite" title="Create a data">
+                    <a class="btn btn-primary" href="/management_inv_squads/invite" title="Create a data">
                         Management invite
                     </a>
-                    <a class="btn btn-sm btn-success" href="/request_managements" title="Create a data">
+                    <a class="btn btn-primary" href="/request_managements" title="Create a data">
                         Request management
                     </a>
                 </div>

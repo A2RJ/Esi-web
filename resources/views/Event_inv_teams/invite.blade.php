@@ -16,7 +16,7 @@
                 <p class="card-description">
                     Squadmu telah diinvite untuk bergabung di event ini.
                 </p>
-                <a class="btn btn-success" href="/event_inv_teams/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                <a class="btn btn-primary" href="/event_inv_teams/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
                     Tambah
                 </a>
                 <div class="table-responsive">

@@ -1,4 +1,3 @@
-
 @extends('layouts.home')
 @section('title', 'events')
 
@@ -10,7 +9,17 @@
     </div>
     <div class="row mb-5">
         <div class="col-sm-3 col-md-4 col-xl-6 col-lg-6" data-aos="fade-left">
-            <img src="/landing-page/images/Group1.png" alt="" class="img-fluid">
+            <div class="carouSnap  carouSnap-round">
+                <div class="numbSlide"></div>
+                <div class="bnSlide"></div>
+                <div class="photoCollect">
+                    <!-- YOUR IMAGES HERE (Maximum 10 Photos & Minimum 1 Photo) -->
+                    <a href="/images/{{$squad->squad_image}}">
+                        <img src="/images/{{$squad->squad_image}}" alt="#no-image" title="#title-image" loading="lazy" />
+                    </a>
+                </div>
+                <div class="indCat"></div>
+            </div>
         </div>
         <div class="col-sm-3 col-md-4 col-xl-6 col-lg-6" data-aos="fade-right">
             <h3 class="m-0" style="display: inline-block;">{{$squad->squad_name}}</h3>

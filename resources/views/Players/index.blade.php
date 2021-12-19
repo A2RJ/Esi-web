@@ -17,13 +17,13 @@
                     Daftar player yang terdaftar
                 </p>
                 <div class="menu">
-                    <a class="btn btn-sm btn-success" href="/players/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                    <a class="btn btn-primary" href="/players/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
                         Tambah
                     </a>
-                    <a class="btn btn-sm btn-success" href="/squad_inv_players/inviteFromSquad" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                    <a class="btn btn-primary" href="/squad_inv_players/inviteFromSquad" title="Create a data"> <i class="fas fa-plus-circle"></i>
                         Squad invite
                     </a>
-                    <a class="btn btn-sm btn-success" href="/request_squads" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                    <a class="btn btn-primary" href="/request_squads" title="Create a data"> <i class="fas fa-plus-circle"></i>
                         Request squad
                     </a>
                 </div>

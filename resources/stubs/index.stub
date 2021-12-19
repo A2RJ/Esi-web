@@ -16,7 +16,7 @@
                 <p class="card-description">
                 Add class <code>.table-hover</code>
                 </p>
-                 <a class="btn btn-success" href="/{{crudName}}/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                 <a class="btn btn-primary" href="/{{crudName}}/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
             Tambah
             </a>
                 <div class="table-responsive">

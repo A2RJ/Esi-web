@@ -21,6 +21,6 @@ class Player
             return $next($request);
         }
 
-        return redirect('/error');
+        return redirect('/home/error');
     }
 }

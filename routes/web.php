@@ -208,6 +208,7 @@ Route::group(['prefix' => 'events', 'middleware' => 'auth'], function () {
     Route::get('/', [EventsController::class, 'index']);
     Route::get('/create', [EventsController::class, 'create']);
     Route::get('/show/{id}', [EventsController::class, 'show'])->withoutMiddleware([MiddlewareAuth::class]);
+    Route::get('/setEvent/{id}', [EventsController::class, 'setEvent']);
     Route::get('/events', [EventsController::class, 'events']);
     Route::post('/store', [EventsController::class, 'store']);
     Route::get('/edit/{id}', [EventsController::class, 'edit']);
@@ -218,7 +219,7 @@ Route::group(['prefix' => 'events', 'middleware' => 'auth'], function () {
 // event teams
 Route::group(['prefix' => 'event_teams', 'middleware' => 'auth'], function () {
     Route::get('/', [Event_teamsController::class, 'index']);
-    Route::get('/create', [Event_teamsController::class, 'create']);
+    Route::get('/create/{id}', [Event_teamsController::class, 'create']);
     Route::get('/show/{id}', [Event_teamsController::class, 'show']);
     Route::post('/store', [Event_teamsController::class, 'store']);
     Route::get('/edit/{id}', [Event_teamsController::class, 'edit']);
@@ -229,7 +230,7 @@ Route::group(['prefix' => 'event_teams', 'middleware' => 'auth'], function () {
 // event inv teams
 Route::group(['prefix' => 'event_inv_teams', 'middleware' => 'auth'], function () {
     Route::get('/', [Event_inv_teamsController::class, 'index']);
-    Route::get('/create', [Event_inv_teamsController::class, 'create']);
+    Route::get('/create/{id}', [Event_inv_teamsController::class, 'create']);
     Route::get('/invite', [Event_inv_teamsController::class, 'invite']);
     Route::get('/show/{id}', [Event_inv_teamsController::class, 'show']);
     Route::get('/terima/{id}', [Event_inv_teamsController::class, 'terima']);
@@ -242,7 +243,7 @@ Route::group(['prefix' => 'event_inv_teams', 'middleware' => 'auth'], function (
 // event winners
 Route::group(['prefix' => 'event_winner', 'middleware' => 'auth'], function () {
     Route::get('/', [Event_winnerController::class, 'index']);
-    Route::get('/create', [Event_winnerController::class, 'create']);
+    Route::get('/create/{id}', [Event_winnerController::class, 'create']);
     Route::get('/show/{id}', [Event_winnerController::class, 'show']);
     Route::post('/store', [Event_winnerController::class, 'store']);
     Route::get('/edit/{id}', [Event_winnerController::class, 'edit']);

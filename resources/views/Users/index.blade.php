@@ -16,7 +16,7 @@
                 <p class="card-description">
                     Daftar user yang terdaftar di sistem
                 </p>
-                <a class="btn btn-success" href="/users/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                <a class="btn btn-primary" href="/users/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
                     Tambah
                 </a>
                 <div class="table-responsive">

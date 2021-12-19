@@ -22,9 +22,9 @@ class Event_inv_teamsController extends Controller
         return view('event_inv_teams.index', compact('event_inv_teams'));
     }
 
-    public function create()
+    public function create($id)
     {
-        $events = Events::where('user_id', Auth::user()->id_user)->get();
+        $events = Events::where('user_id', Auth::user()->id_user)->find($id);
         $squads = Squads::all();
         return view('event_inv_teams.create', compact('events', 'squads'));
     }
@@ -37,7 +37,7 @@ class Event_inv_teamsController extends Controller
         ]);
 
         Event_inv_teams::create($request->all());
-        return redirect('event_inv_teams')->with('success', 'Event_inv_teams created successfully');
+        return redirect('events/setEvent/' . $request->event_id)->with('event_inv_teams', 'Event_inv_teams created successfully');
     }
 
     public function show($id)
@@ -58,13 +58,16 @@ class Event_inv_teamsController extends Controller
     public function update(Request $request, $id)
     {
         Event_inv_teams::find($id)->update($request->all());
-        return redirect('event_inv_teams')->with('success', 'Event_inv_teams updated successfully');
+        return redirect('events/setEvent/' . $request->event_id)->with('event_inv_teams', 'Event_inv_teams updated successfully');
     }
 
     public function destroy($id)
     {
-        Event_inv_teams::findOrFail($id)->delete();
-        return redirect('event_inv_teams')->with('success', 'Event_inv_teams deleted successfully');
+        $event = Event_inv_teams::findOrFail($id);
+        $event_id = $event->event_id;
+        $event->delete();
+
+        return redirect('events/setEvent/' . $event_id)->with('event_inv_teams', 'Event_inv_teams deleted successfully');
     }
 
     public function invite()
@@ -87,6 +90,6 @@ class Event_inv_teamsController extends Controller
         ]);
         $event_inv_teams->status = 1;
         $event_inv_teams->save();
-        return redirect('event_inv_teams/invite')->with('success', 'Event_inv_teams terima successfully');
+        return redirect('event_inv_teams/invite')->with('event_inv_teams', 'Event_inv_teams terima successfully');
     }
 }

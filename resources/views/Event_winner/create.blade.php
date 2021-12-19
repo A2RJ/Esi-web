@@ -7,9 +7,9 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Add New event winner</h4>
-                <p class="card-description">
+                <!-- <p class="card-description">
                     <a class="btn btn-primary" href="/event_winner" title="Go back"> Batal </a>
-                </p>
+                </p> -->
 
                 @if ($errors->any())
                 <div class="alert alert-danger">
@@ -27,10 +27,7 @@
                     <div class="form-group">
                         <label for="event_id">Event</label>
                         <select class="form-control" name="event_id" id="event_id">
-                            <option value="">Pilih Event</option>
-                            @foreach($events as $event)
-                            <option value="{{ $event->id_event }}">{{ $event->event_name }}</option>
-                            @endforeach
+                            <option value="{{ $events->id_event }}" selected>{{ $events->event_name }}</option>
                         </select>
                     </div>
 

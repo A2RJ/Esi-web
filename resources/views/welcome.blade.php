@@ -528,9 +528,9 @@
                     <div class="numbSlide"></div>
                     <div class="bnSlide"></div>
                     <div class="photoCollect">
-                        <img src="https://images.pexels.com/photos/10004169/pexels-photo-10004169.jpeg" alt="#alt-image" title="#title-image" loading="lazy" />
-                        <img src="https://images.pexels.com/photos/10004169/pexels-photo-10004169.jpeg" alt="#alt-image" title="#title-image" loading="lazy" />
-                        <img src="https://images.pexels.com/photos/10004169/pexels-photo-10004169.jpeg" alt="#alt-image" title="#title-image" loading="lazy" />
+                        <img src="https://images.pexels.com/photos/10004169/pexels-photo-10004169.jpeg" alt="#no-image" title="#title-image" loading="lazy" />
+                        <img src="https://images.pexels.com/photos/10004169/pexels-photo-10004169.jpeg" alt="#no-image" title="#title-image" loading="lazy" />
+                        <img src="https://images.pexels.com/photos/10004169/pexels-photo-10004169.jpeg" alt="#no-image" title="#title-image" loading="lazy" />
                     </div>
                     <div class="indCat"></div>
                 </div> -->

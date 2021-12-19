@@ -7,9 +7,9 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Add New event teams</h4>
-                <p class="card-description">
+                <!-- <p class="card-description">
                     <a class="btn btn-primary" href="/event_teams" title="Go back"> Batal </a>
-                </p>
+                </p> -->
 
                 @if ($errors->any())
                 <div class="alert alert-danger">
@@ -27,9 +27,7 @@
                     <div class="form-group">
                         <label for="event_id">Event</label>
                         <select class="form-control" name="event_id" id="event_id">
-                            @foreach($events as $event)
-                            <option value="{{ $event->id_event }}">{{ $event->event_name }}</option>
-                            @endforeach
+                      <option value="{{$events->id_event}}" selected>{{ $events->event_name }}</option>
                         </select>
                     </div>
 
@@ -44,7 +42,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="ispaid">Is Paid</label>
+                        <label for="ispaid">Status pembayaran</label>
                         <select class="form-control" name="ispaid" id="ispaid">
                             <option>Pilih</option>
                             <option value="0">Belum Bayar</option>

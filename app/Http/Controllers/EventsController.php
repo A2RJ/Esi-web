@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Classes\Upload;
+use App\Models\Event_inv_teams;
 use App\Models\Event_teams;
+use App\Models\Event_winner;
 use Illuminate\Http\Request;
 use App\Models\Events;
 use App\Models\Games;
@@ -23,14 +25,16 @@ class EventsController extends Controller
 
     public function show($id)
     {
-        $event = Events::join('games', 'events.game_id', 'games.id_game')
-            ->with('owner')
-            ->findOrFail($id);
+        $event = Events::with('owner', 'game')
+            ->find($id);
         $teams = Event_teams::join('squads', 'event_teams.squad_id', 'squads.id_squad')
             ->where('event_teams.event_id', $id)
             ->get();
+        $winners = Event_winner::join('squads', 'event_winners.squad_id', 'squads.id_squad')
+            ->where('event_winners.event_id', $id)
+            ->get();
 
-        return view('events.show', compact('event', 'teams'));
+        return view('events.detail', compact('event', 'teams', 'winners'));
     }
 
     public function create()
@@ -60,7 +64,7 @@ class EventsController extends Controller
         $event = Events::create($request->all());
         $event->event_image = Upload::uploadFile($request, 'event_image');
         $event->save();
-        
+
         if (Auth::user()->user_role !== 'admin') return redirect('events/events')->with('success', 'Event created successfully');
         return redirect('/events')->with('success', 'Data berhasil ditambahkan');
     }
@@ -91,7 +95,7 @@ class EventsController extends Controller
             "end" => "required"
         ]);
         $event = Events::findOrFail($id)->update($request->all());
-        if($request->hasFile('event_image')){
+        if ($request->hasFile('event_image')) {
             $event = Events::findOrFail($id);
             $event->event_image = Upload::uploadFile($request, 'event_image');
             $event->save();
@@ -116,5 +120,30 @@ class EventsController extends Controller
         $events = Events::where('user_id', auth()->user()->id_user)
             ->paginate(10);
         return view('events.index', compact('events'));
+    }
+
+    public function setEvent($id)
+    {
+        $event_teams = Event_teams::join('events', 'event_teams.event_id', 'events.id_event')
+            ->join('squads', 'event_teams.squad_id', 'squads.id_squad')
+            ->select('event_teams.*', 'events.event_name', 'squads.squad_name')
+            ->where('events.user_id', Auth::user()->id_user)
+            ->where('event_teams.event_id', $id)
+            ->paginate(10);
+
+        $event_inv_teams = Event_inv_teams::join('squads', 'event_inv_teams.squad_id', 'squads.id_squad')
+            ->join('events', 'event_inv_teams.event_id', 'events.id_event')
+            ->select('event_inv_teams.*', 'squads.squad_name', 'events.event_name')
+            ->where('events.user_id', Auth::user()->id_user)
+            ->where('event_inv_teams.event_id', $id)
+            ->paginate(10);
+
+        $event_winner = Event_winner::join('events', 'event_winners.event_id', 'events.id_event')
+            ->join('squads', 'event_winners.squad_id', 'squads.id_squad')
+            ->select('event_winners.*', 'events.event_name', 'squads.squad_name')
+            ->where('events.user_id', Auth::user()->id_user)
+            ->paginate(10);
+
+            return view('events.setEvent', compact('event_teams', 'event_inv_teams', 'event_winner', 'id'));
     }
 }

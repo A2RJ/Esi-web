@@ -17,26 +17,23 @@
                     Daftar Management yang terdaftar
                 </p>
                 <div class="menu">
-                    <a class="btn btn-sm btn-success" href="/managements/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                    <a class="btn btn-primary" href="/managements/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
                         Tambah management
                     </a>
-                    <a class="btn btn-sm btn-success" href="/management_inv_squads" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                    <a class="btn btn-primary" href="/management_inv_squads" title="Create a data"> <i class="fas fa-plus-circle"></i>
                         Invite squad
                     </a>
-                    <a class="btn btn-sm btn-success" href="/request_managements/requestFromSquads" title="Create a data"> <i class="fas fa-plus-circle"></i>
-                        Request join
+                    <a class="btn btn-primary" href="/request_managements/requestFromSquads" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                        Request join management
                     </a>
                 </div>
-                <div class="table-responsive">
+                <div class="table-responsive mt-4">
                     <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>user_id</th>
-                                <th>management_name</th>
-                                <th>management_image</th>
-                                <th>created_at</th>
-                                <th>updated_at</th>
+                                <th>Nama Management</th>
+                                <th>Dibuat Pada</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -44,11 +41,8 @@
                             @foreach ($managements as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{$data->user_id}}</td>
                                 <td>{{$data->management_name}}</td>
-                                <td>{{$data->management_image}}</td>
-                                <td>{{$data->created_at}}</td>
-                                <td>{{$data->updated_at}}</td>
+                                <td>{{$data->created_at->format('d-m-Y')}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
                                         <a href="/managements/show/{{$data->id_management }}" title="show" class="badge badge-info">Show</a>

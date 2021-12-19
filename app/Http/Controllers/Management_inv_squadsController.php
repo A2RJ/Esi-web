@@ -22,7 +22,7 @@ class Management_inv_squadsController extends Controller
 
     public function create()
     {
-        $squads = Squads::all();
+        $squads = Squads::where('management_id', null)->get();
         $managements = Managements::where('user_id', Auth::user()->id_user)->get();
 
         return view('management_inv_squads.create', compact('squads', 'managements'));

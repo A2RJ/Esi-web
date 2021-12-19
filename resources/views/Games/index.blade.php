@@ -17,10 +17,10 @@
                     Daftar game
                 </p>
                 <div class="menu">
-                    <a class="btn btn-sm btn-success" href="/games/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                    <a class="btn btn-primary" href="/games/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
                         Tambah game
                     </a>
-                    <a class="btn btn-sm btn-success" href="/game_categories" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                    <a class="btn btn-primary" href="/game_categories" title="Create a data"> <i class="fas fa-plus-circle"></i>
                         Kategori game
                     </a>
                 </div>

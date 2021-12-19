@@ -7,9 +7,9 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Add New managements</h4>
-                <p class="card-description">
+                <!-- <p class="card-description">
                     <a class="btn btn-primary" href="/managements" title="Go back"> Batal </a>
-                </p>
+                </p> -->
 
                 @if ($errors->any())
                 <div class="alert alert-danger">
@@ -25,29 +25,31 @@
                 <form action="/managements/update/{{$management->id_management}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <!-- @method('PUT') -->
-                    <div class="form-group">
-                        <label for="management_name">management_name</label>
-                        <input class="form-control" name="management_name" id="management_name" type="text" placeholder="{{ $management->management_name }}" value="{{ $management->management_name }}">
-                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <label for="management_name">management_name</label>
+                            <input class="form-control" name="management_name" id="management_name" type="text" placeholder="{{ $management->management_name }}" value="{{ $management->management_name }}">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="management_image">management_image</label>
-                        <input class="form-control" name="management_image" id="management_image" type="file" placeholder="{{ $management->management_image }}" value="{{ $management->management_image }}">
-                    </div>
+                        <div class="form-group col-sm-6">
+                            <label for="management_image">management_image</label>
+                            <input class="form-control" name="management_image" id="management_image" type="file" placeholder="{{ $management->management_image }}" value="{{ $management->management_image }}">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="kontak">kontak</label>
-                        <input class="form-control" name="kontak" id="kontak" type="text" placeholder="{{ $management->kontak }}" value="{{ $management->kontak }}">
-                    </div>
+                        <div class="form-group col-sm-6">
+                            <label for="kontak">kontak</label>
+                            <input class="form-control" name="kontak" id="kontak" type="text" placeholder="{{ $management->kontak }}" value="{{ $management->kontak }}">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="web_url">web_url</label>
-                        <input class="form-control" name="web_url" id="web_url" type="text" placeholder="{{ $management->web_url }}" value="{{ $management->web_url }}">
-                    </div>
+                        <div class="form-group col-sm-6">
+                            <label for="web_url">web_url</label>
+                            <input class="form-control" name="web_url" id="web_url" type="text" placeholder="{{ $management->web_url }}" value="{{ $management->web_url }}">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="alamat">alamat</label>
-                        <input class="form-control" name="alamat" id="alamat" type="text" placeholder="{{ $management->alamat }}" value="{{ $management->alamat }}">
+                        <div class="form-group col-sm-6">
+                            <label for="alamat">alamat</label>
+                            <input class="form-control" name="alamat" id="alamat" type="text" placeholder="{{ $management->alamat }}" value="{{ $management->alamat }}">
+                        </div>
                     </div>
 
                     <div class="mt-5">

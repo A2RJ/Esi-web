@@ -7,9 +7,9 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Add New admin</h4>
-                <p class="card-description">
+                <!-- <p class="card-description">
                     <a class="btn btn-primary" href="/admin" title="Go back"> Batal </a>
-                </p>
+                </p> -->
 
                 @if ($errors->any())
                 <div class="alert alert-danger">
@@ -24,28 +24,30 @@
                 <form action="/admin/store" method="POST" class="forms-sample">
                     @csrf
                     <!-- select users -->
-                    <div class="form-group">
-                        <label for="user_id">Select Users</label>
-                        <select class="form-control form-control-lg" id="user_id" name="user_id">
-                            @foreach($users as $user)
-                            <option value="{{ $user->id_user }}">{{ $user->nama }}</option>
-                            @endforeach
-                        </select>
-                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <label for="user_id">Select Users</label>
+                            <select class="form-control form-control-lg" id="user_id" name="user_id">
+                                @foreach($users as $user)
+                                <option value="{{ $user->id_user }}">{{ $user->nama }}</option>
+                                @endforeach
+                            </select>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="jabatan">Jabatan</label>
-                        <input type="text" class="form-control" name="jabatan" id="jabatan" placeholder="jabatan">
-                    </div>
+                        <div class="form-group col-sm-6">
+                            <label for="jabatan">Jabatan</label>
+                            <input type="text" class="form-control" name="jabatan" id="jabatan" placeholder="jabatan">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="ig">Instagram</label>
-                        <input type="text" class="form-control" name="ig" id="ig" placeholder="ig">
-                    </div>
+                        <div class="form-group col-sm-6">
+                            <label for="ig">Instagram</label>
+                            <input type="text" class="form-control" name="ig" id="ig" placeholder="ig">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="fb">Facebook</label>
-                        <input type="text" class="form-control" name="fb" id="fb" placeholder="fb">
+                        <div class="form-group col-sm-6">
+                            <label for="fb">Facebook</label>
+                            <input type="text" class="form-control" name="fb" id="fb" placeholder="fb">
+                        </div>
                     </div>
 
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">

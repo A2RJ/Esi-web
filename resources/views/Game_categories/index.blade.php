@@ -16,7 +16,7 @@
                 <p class="card-description">
                     Daftar kategori game
                 </p>
-                <a class="btn btn-success" href="/game_categories/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                <a class="btn btn-primary" href="/game_categories/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
                     Tambah
                 </a>
                 <div class="table-responsive">

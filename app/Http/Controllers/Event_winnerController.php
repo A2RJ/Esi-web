@@ -21,10 +21,13 @@ class Event_winnerController extends Controller
         return view('event_winner.index', compact('event_winner'));
     }
 
-    public function create()
+    public function create($id)
     {
-        $events = Events::where('user_id', Auth::user()->id_user)->get();
-        $squads = Squads::all();
+        $events = Events::where('user_id', Auth::user()->id_user)->find($id);
+        $squads = Squads::join('event_teams', 'squads.id_squad', 'event_teams.squad_id')
+            ->where('event_teams.event_id', $id)
+            ->select('squads.*')
+            ->get();
         return view('event_winner.create', compact('events', 'squads'));
     }
 
@@ -35,7 +38,7 @@ class Event_winnerController extends Controller
             'squad_id' => 'required',
         ]);
         Event_winner::create($request->all());
-        return redirect('event_winner')->with('success', 'Event winner created successfully');
+        return redirect('events/setEvent/' . $request->event_id)->with('event_winner', 'Event winner created successfully');
     }
 
     public function show($id)
@@ -55,12 +58,15 @@ class Event_winnerController extends Controller
     public function update(Request $request, $id)
     {
         Event_winner::find($id)->update($request->all());
-        return redirect('event_winner')->with('success', 'Event winner updated successfully');
+        return redirect('events/setEvent/' . $request->event_id)->with('event_winner', 'Event winner updated successfully');
     }
 
     public function destroy($id)
     {
-        Event_winner::find($id)->delete();
-        return redirect('event_winner')->with('success', 'Event winner deleted successfully');
+        $event = Event_winner::find($id);
+        $event_id = $event->event_id;
+        $event->delete();
+
+        return redirect('events/setEvent/' . $event_id)->with('event_winner', 'Event winner deleted successfully');
     }
 }

@@ -17,20 +17,11 @@
                     Daftar event yang telah dibuat
                 </p>
                 <div class="menu">
-                    <a class="btn btn-sm btn-success" href="/events/create" title="Create a data">
+                    <a class="btn btn-primary" href="/events/create" title="Create a data">
                         Tambah events
                     </a>
-                    <a class="btn btn-sm btn-success" href="/event_teams" title="Create a data">
-                        Teams partisipan
-                    </a>
-                    <a class="btn btn-sm btn-success" href="/event_inv_teams" title="Create a data">
-                        Invite teams
-                    </a>
-                    <a class="btn btn-sm btn-success" href="/event_winner" title="Create a data">
-                        Event winners
-                    </a>
                 </div>
-                <div class="table-responsive">
+                <div class="table-responsive mt-4">
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -52,6 +43,7 @@
                                 <td>{{$data->slot}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
+                                        <a href="/events/setEvent/{{$data->id_event }}" title="show" class="badge badge-info">Detail</a>
                                         <a href="/events/show/{{$data->id_event }}" title="show" class="badge badge-info">Show</a>
                                         <a href="/events/edit/{{$data->id_event }}" class="badge badge-warning">Edit</a>
                                         <a href="/events/destroy/{{$data->id_event }}" class="badge badge-danger">Delete</a>

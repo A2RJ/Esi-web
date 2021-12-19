@@ -30,7 +30,7 @@ class SquadsController extends Controller
     {
         $this->validate($request, [
             "game_id" => "required",
-            "squad_name" => "required",
+            "squad_name" => "required|unique:squads",
             "squad_leader" => "required",
         ]);
 
@@ -48,7 +48,7 @@ class SquadsController extends Controller
     {
         $games = Games::all();
         $squad = Squads::find($id);
-        return view('squads.show', compact('squad'));
+        return view('squads.detail', compact('squad'));
     }
 
     public function edit($id)

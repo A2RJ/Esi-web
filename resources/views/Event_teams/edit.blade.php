@@ -7,9 +7,9 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Edit New event_teams</h4>
-                <p class="card-description">
+                <!-- <p class="card-description">
                     <a class="btn btn-primary" href="/event_teams" title="Go back"> Batal </a>
-                </p>
+                </p> -->
 
                 @if ($errors->any())
                 <div class="alert alert-danger">

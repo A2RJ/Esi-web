@@ -7,9 +7,9 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Add New users</h4>
-                <p class="card-description">
+                <!-- <p class="card-description">
                     <a class="btn btn-primary" href="/users" title="Go back"> Batal </a>
-                </p>
+                </p> -->
 
                 @if ($errors->any())
                 <div class="alert alert-danger">
@@ -23,44 +23,46 @@
                 @endif
                 <form action="/users/store" method="POST" enctype="multipart/form-data" class="forms-sample">
                     @csrf
-                    <div class="form-group">
-                        <label for="user_role">user role</label>
-                        <input type="text" class="form-control" name="user_role" id="user_role" placeholder="user_role">
-                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <label for="user_role">user role</label>
+                            <input type="text" class="form-control" name="user_role" id="user_role" placeholder="user_role">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="nama">fullname</label>
-                        <input type="text" class="form-control" name="nama" id="nama" placeholder="nama">
-                    </div>
+                        <div class="form-group col-sm-6">
+                            <label for="nama">fullname</label>
+                            <input type="text" class="form-control" name="nama" id="nama" placeholder="nama">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="email">email</label>
-                        <input type="text" class="form-control" name="email" id="email" placeholder="email">
-                    </div>
+                        <div class="form-group col-sm-6">
+                            <label for="email">email</label>
+                            <input type="text" class="form-control" name="email" id="email" placeholder="email">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="password">password</label>
-                        <input type="text" class="form-control" name="password" id="password" placeholder="password">
-                    </div>
+                        <div class="form-group col-sm-6">
+                            <label for="password">password</label>
+                            <input type="text" class="form-control" name="password" id="password" placeholder="password">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="kontak">kontak</label>
-                        <input type="text" class="form-control" name="kontak" id="kontak" placeholder="kontak">
-                    </div>
+                        <div class="form-group col-sm-6">
+                            <label for="kontak">kontak</label>
+                            <input type="text" class="form-control" name="kontak" id="kontak" placeholder="kontak">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="alamat">alamat</label>
-                        <input type="text" class="form-control" name="alamat" id="alamat" placeholder="alamat">
-                    </div>
+                        <div class="form-group col-sm-6">
+                            <label for="alamat">alamat</label>
+                            <input type="text" class="form-control" name="alamat" id="alamat" placeholder="alamat">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="gender">gender</label>
-                        <input type="text" class="form-control" name="gender" id="gender" placeholder="gender">
-                    </div>
+                        <div class="form-group col-sm-6">
+                            <label for="gender">gender</label>
+                            <input type="text" class="form-control" name="gender" id="gender" placeholder="gender">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="user_image">user image</label>
-                        <input type="text" class="form-control" name="user_image" id="user_image" placeholder="user_image">
+                        <div class="form-group col-sm-6">
+                            <label for="user_image">user image</label>
+                            <input type="text" class="form-control" name="user_image" id="user_image" placeholder="user_image">
+                        </div>
                     </div>
 
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">

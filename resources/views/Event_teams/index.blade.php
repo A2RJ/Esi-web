@@ -16,7 +16,7 @@
                 <p class="card-description">
                     Teams yang mengikuti event
                 </p>
-                <a class="btn btn-success" href="/event_teams/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                <a class="btn btn-primary" href="/event_teams/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
                     Tambah
                 </a>
                 <div class="table-responsive">
