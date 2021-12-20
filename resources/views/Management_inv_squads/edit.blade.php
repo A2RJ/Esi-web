@@ -26,15 +26,15 @@
                     @csrf
                     <!-- @method('PUT') -->
                     <div class="form-group">
-                        <label for="management_id">management_id</label>
+                        <label for="management_id">Management</label>
                         <input class="form-control" name="management_id" id="management_id" type="text" placeholder="{{ $management_inv_squads->management_id }}" value="{{ $management_inv_squads->management_id }}">
                     </div>
 
                    <!-- looping squads with select -->
                     <div class="form-group">
-                        <label for="squad_id">squad_id</label>
+                        <label for="squad_id">Squad</label>
                         <select class="form-control" name="squad_id" id="squad_id">
-                            <option>-- Pilih Squad --</option>
+                            <option>-- Select Squad --</option>
                            @foreach($squads as $squad)
                             <option value="{{ $squad->id_squad }}" {{ $squad->id_squad == $management_inv_squads->squad_id ? 'selected' : '' }}>{{ $squad->squad_name }}</option>
                             @endforeach

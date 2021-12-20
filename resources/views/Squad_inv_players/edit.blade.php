@@ -26,17 +26,17 @@
                     @csrf
                     <!-- @method('PUT') -->
                     <div class="form-group">
-                        <label for="squad_id">squad_id</label>
+                        <label for="squad_id">Squad</label>
                         <input class="form-control" name="squad_id" id="squad_id" type="text" placeholder="{{ $squad_inv_players->squad_id }}" value="{{ $squad_inv_players->squad_id }}">
                     </div>
 
                     <div class="form-group">
-                        <label for="player_id">player_id</label>
+                        <label for="player_id">Player</label>
                         <input class="form-control" name="player_id" id="player_id" type="text" placeholder="{{ $squad_inv_players->player_id }}" value="{{ $squad_inv_players->player_id }}">
                     </div>
 
                     <div class="form-group">
-                        <!-- <label for="status">status</label> -->
+                        <!-- <label for="status">Status</label> -->
                         <input class="form-control" name="status" id="status" type="hidden" placeholder="{{ $squad_inv_players->status }}" value="{{ $squad_inv_players->status }}">
                     </div>
 

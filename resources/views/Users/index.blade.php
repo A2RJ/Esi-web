@@ -24,9 +24,9 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>user role</th>
-                                <th>nama</th>
-                                <th>Tanggal daftar</th>
+                                <th>User Role</th>
+                                <th>Nama</th>
+                                <th>Tanggal Daftar</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -39,7 +39,7 @@
                                 <td>{{$data->created_at}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
-                                        <a href="/users/show/{{$data->id_user }}" title="show" class="badge badge-info">Show</a>
+                                        <!-- <a href="/users/show/{{$data->id_user }}" title="show" class="badge badge-info">Show</a> -->
                                         <a href="/users/edit/{{$data->id_user }}" class="badge badge-warning">Edit</a>
                                         <a href="/users/destroy/{{$data->id_user }}" class="badge badge-danger">Delete</a>
                                     </div>

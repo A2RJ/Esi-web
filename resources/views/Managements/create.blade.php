@@ -25,27 +25,27 @@
                     @csrf
                     <div class="row">
                         <div class="form-group col-sm-6">
-                            <label for="management_name">management_name</label>
+                            <label for="management_name">Management Name</label>
                             <input type="text" class="form-control" name="management_name" id="management_name" placeholder="management_name">
                         </div>
 
                         <div class="form-group col-sm-6">
-                            <label for="management_image">management_image</label>
+                            <label for="management_image">Management Image</label>
                             <input type="file" class="form-control" name="management_image" id="management_image" placeholder="management_image">
                         </div>
 
                         <div class="form-group col-sm-6">
-                            <label for="kontak">kontak</label>
+                            <label for="kontak">Kontak</label>
                             <input type="text" class="form-control" name="kontak" id="kontak" placeholder="kontak">
                         </div>
 
                         <div class="form-group col-sm-6">
-                            <label for="web_url">web_url</label>
+                            <label for="web_url">Web Url</label>
                             <input type="text" class="form-control" name="web_url" id="web_url" placeholder="web_url">
                         </div>
 
                         <div class="form-group col-sm-6">
-                            <label for="alamat">alamat</label>
+                            <label for="alamat">Alamat</label>
                             <input type="text" class="form-control" name="alamat" id="alamat" placeholder="alamat">
                         </div>
                     </div>

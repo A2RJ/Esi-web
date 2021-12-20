@@ -24,11 +24,11 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>management</th>
-                                <th>squad_id</th>
-                                <th>tanggal invite</th>
-                                <th>status</th>
-                                <th>Action</th>
+                                <Th>Management</th>
+                                <Th>Squad</th>
+                                <Th>Tanggal Invite</th>
+                                <Th>Status</th>
+                                <Th>Action</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -15,6 +15,7 @@ class CreateAdminTable extends Migration
     {
         Schema::create('admin', function (Blueprint $table) {
             $table->integer('id_admin', true);
+            $table->integer('user_id')->nullable();
             $table->string('jabatan');
             $table->string('ig', 50);
             $table->string('fb');

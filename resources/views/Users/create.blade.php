@@ -25,42 +25,50 @@
                     @csrf
                     <div class="row">
                         <div class="form-group col-sm-6">
-                            <label for="user_role">user role</label>
-                            <input type="text" class="form-control" name="user_role" id="user_role" placeholder="user_role">
+                            <label for="user_role">User Role</label>
+                            <select name="user_role" id="user_role" class="form-control">
+                                <option value="player">Player</option>
+                                <option value="management">Management</option>
+                                <option value="admin">Admin</option>
+                            </select>
                         </div>
 
                         <div class="form-group col-sm-6">
-                            <label for="nama">fullname</label>
+                            <label for="nama">Fullname</label>
                             <input type="text" class="form-control" name="nama" id="nama" placeholder="nama">
                         </div>
 
                         <div class="form-group col-sm-6">
-                            <label for="email">email</label>
+                            <label for="email">Email</label>
                             <input type="text" class="form-control" name="email" id="email" placeholder="email">
                         </div>
 
                         <div class="form-group col-sm-6">
-                            <label for="password">password</label>
+                            <label for="password">Password</label>
                             <input type="text" class="form-control" name="password" id="password" placeholder="password">
                         </div>
 
                         <div class="form-group col-sm-6">
-                            <label for="kontak">kontak</label>
+                            <label for="kontak">Kontak</label>
                             <input type="text" class="form-control" name="kontak" id="kontak" placeholder="kontak">
                         </div>
 
                         <div class="form-group col-sm-6">
-                            <label for="alamat">alamat</label>
+                            <label for="alamat">Alamat</label>
                             <input type="text" class="form-control" name="alamat" id="alamat" placeholder="alamat">
                         </div>
 
                         <div class="form-group col-sm-6">
-                            <label for="gender">gender</label>
-                            <input type="text" class="form-control" name="gender" id="gender" placeholder="gender">
+                            <label for="gender">Gender</label>
+                            <!-- select gender -->
+                            <select class="form-control" id="gender" name="gender">
+                                <option value="l">Laki-Laki</option>
+                                <option value="p">Perempuan</option>
+                            </select>
                         </div>
 
                         <div class="form-group col-sm-6">
-                            <label for="user_image">user image</label>
+                            <label for="user_image">User Image</label>
                             <input type="text" class="form-control" name="user_image" id="user_image" placeholder="user_image">
                         </div>
                     </div>

@@ -48,7 +48,7 @@
 
                     <!-- looping ispaid -->
                     <div class="form-group">
-                        <label for="ispaid">Ispaid</label>
+                        <label for="ispaid">Status Pembayaran</label>
                         <select class="form-control" name="ispaid" id="ispaid">
                             <option value="0" {{ $event_team->ispaid == 0 ? 'selected' : '' }}>Belum Bayar</option>
                             <option value="1" {{ $event_team->ispaid == 1 ? 'selected' : '' }}>Sudah Bayar</option>

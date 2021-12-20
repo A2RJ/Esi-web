@@ -61,10 +61,11 @@
           </div>
 
           <div class="form-group">
-            <label for="isfree">Is free</label>
+            <label for="isfree">Status Pembayaran</label>
             <select class="form-control" name="isfree" id="isfree">
-              <option value="0" {{$event->isfree == 0 ? 'selected' : ''}}>No</option>
-              <option value="1" {{$event->isfree == 1 ? 'selected' : ''}}>Yes</option>
+              <option value="">Select</option>
+              <option value="0" {{$event->isfree == 0 ? 'selected' : ''}}>Free</option>
+              <option value="1" {{$event->isfree == 1 ? 'selected' : ''}}>Paid</option>
             </select>
           </div>
 

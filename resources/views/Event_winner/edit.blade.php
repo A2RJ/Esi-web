@@ -38,6 +38,7 @@
                     <div class="form-group">
                         <label for="squad_id">Squad</label>
                         <select class="form-control" name="squad_id" id="squad_id">
+                            <option value="">Select Squad</option>
                             @foreach($squads as $squad)
                             <option value="{{ $squad->id_squad }}" {{ $squad->id_squad == $event_winner->id_squad ? 'selected' : '' }}>{{ $squad->squad_name }}</option>
                             @endforeach

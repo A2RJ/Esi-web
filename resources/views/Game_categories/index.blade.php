@@ -37,7 +37,7 @@
                                 <td>{{$data->created_at}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
-                                        <a href="/game_categories/show/{{$data->id_game_category }}" title="show" class="badge badge-info">Show</a>
+                                        <!-- <a href="/game_categories/show/{{$data->id_game_category }}" title="show" class="badge badge-info">Show</a> -->
                                         <a href="/game_categories/edit/{{$data->id_game_category }}" class="badge badge-warning">Edit</a>
                                         <a href="/game_categories/destroy/{{$data->id_game_category }}" class="badge badge-danger">Delete</a>
                                     </div>

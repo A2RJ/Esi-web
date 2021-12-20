@@ -12,10 +12,12 @@
                 </div>
                 @endif
 
-                <h4 class="card-title">Players</h4>
+                <h4 class="card-title">{{ Request::is('players/players') ? 'My Game Account' : 'All Game Account' }}</h4>
                 <p class="card-description">
                     Daftar player yang terdaftar
                 </p>
+
+                @if(Request::is('players/players'))
                 <div class="menu">
                     <a class="btn btn-primary" href="/players/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
                         Create
@@ -27,6 +29,8 @@
                         Request squad
                     </a>
                 </div>
+                @endif
+
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
@@ -50,8 +54,10 @@
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
                                         <a href="/home/player/{{$data->id_player }}" title="show" class="badge badge-info">Show</a>
+                                        @if(Request::is('players/players'))
                                         <a href="/players/edit/{{$data->id_player }}" class="badge badge-warning">Edit</a>
                                         <a href="/players/destroy/{{$data->id_player }}" class="badge badge-danger">Delete</a>
+                                        @endif
                                     </div>
                                 </td>
                             </tr>

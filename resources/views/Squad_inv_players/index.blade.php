@@ -25,9 +25,9 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>squad_id</th>
-                                <th>player_id</th>
-                                <th>status</th>
+                                <th>Squad</th>
+                                <th>Player</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>

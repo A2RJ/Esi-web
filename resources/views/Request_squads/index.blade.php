@@ -23,11 +23,11 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th>player id</th>
-                                <th>squad id</th>
-                                <th>status</th>
-                                <th>Action</th>
+                                <Th>#</th>
+                                <Th>Player</th>
+                                <Th>Squad</th>
+                                <Th>Status</th>
+                                <Th>Action</th>
                             </tr>
                         </thead>
                         <tbody>

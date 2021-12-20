@@ -15,7 +15,9 @@ class CreateSquadsTable extends Migration
     {
         Schema::create('squads', function (Blueprint $table) {
             $table->integer('id_squad', true);
+            $table->integer('game_id');
             $table->string('squad_name', 50);
+            $table->string('squad_image')->nullable();
             $table->integer('squad_leader');
             $table->integer('management_id')->nullable();
             $table->timestamps();

@@ -12,15 +12,19 @@
                 </div>
                 @endif
 
-                <h4 class="card-title">Events</h4>
+                <h4 class="card-title"> {{ Request::is('events') ? 'All Events' : 'My Events' }}</h4>
                 <p class="card-description">
-                    Daftar event yang telah dibuat
+                    Daftar lengkap semua event yang telah di buat oleh pengguna
                 </p>
+
+                @if (Request::is('events/events'))
                 <div class="menu">
                     <a class="btn btn-primary" href="/events/create" title="Create a data">
                         Create events
                     </a>
                 </div>
+                @endif
+
                 <div class="table-responsive mt-4">
                     <table class="table table-hover">
                         <thead>
@@ -45,8 +49,10 @@
                                     <div class="flex items-center space-x-4 text-sm">
                                         <a href="/events/setEvent/{{$data->id_event }}" title="show" class="badge badge-info">Detail</a>
                                         <a href="/events/show/{{$data->id_event }}" title="show" class="badge badge-info">Show</a>
+                                        @if(!Request::is('events'))
                                         <a href="/events/edit/{{$data->id_event }}" class="badge badge-warning">Edit</a>
                                         <a href="/events/destroy/{{$data->id_event }}" class="badge badge-danger">Delete</a>
+                                        @endif
                                     </div>
                                 </td>
                             </tr>

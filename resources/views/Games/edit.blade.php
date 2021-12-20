@@ -26,19 +26,20 @@
                     @csrf
                     <!-- @method('PUT') -->
                     <div class="form-group">
-                        <label for="game_name">game_name</label>
+                        <label for="game_name">Game Name</label>
                         <input class="form-control" name="game_name" id="game_name" type="text" placeholder="{{ $games->game_name }}" value="{{ $games->game_name }}">
                     </div>
 
                     <div class="form-group">
-                        <label for="game_image">game_image</label>
-                        <input class="form-control" name="game_image" id="game_image" type="text" placeholder="{{ $games->game_image }}" value="{{ $games->game_image }}">
+                        <label for="game_image">Game Image</label>
+                        <input class="form-control" name="game_image" id="game_image" type="file" placeholder="{{ $games->game_image }}" value="{{ $games->game_image }}">
                     </div>
 
                     <!-- looping categories -->
                     <div class="form-group">
-                        <label for="game_category_id">Category</label>
+                        <label for="game_category_id">Game Category</label>
                         <select class="form-control" name="game_category_id" id="game_category_id">
+                            <option value="">-- Select Kategori --</option>
                             @foreach($categories as $category)
                             <option value="{{ $category->id_game_category  }}" {{ $category->id_game_category == $games->game_category_id ? 'selected' : '' }}>{{ $category->game_category }}</option>
                             @endforeach

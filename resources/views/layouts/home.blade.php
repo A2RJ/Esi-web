@@ -21,7 +21,7 @@
         <nav class="navbar navbar-expand-lg pl-3 pl-sm-0 {{!\Request::is('/') ? 'bg-white' : '' }}" id="navbar">
             <div class="container">
                 <div class="navbar-brand-wrapper d-flex w-100">
-                    <img src="/landing-page/images/Group2.svg" alt="">
+                    <img src="/landing-page/images/1639985799654.jpg" style="width: 80px;" alt="">
                     <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="mdi mdi-menu navbar-toggler-icon"></span>
                     </button>
@@ -31,7 +31,7 @@
                         <li class="d-flex align-items-center justify-content-between pl-4 pl-lg-0">
                             <div class="navbar-collapse-logo">
                                 <a href="/">
-                                    <img src="/landing-page/images/Group2.svg" alt="">
+                                    <img src="/landing-page/images/1639985799654.jpg" style="width: 80px;" alt="">
                                 </a>
                             </div>
                             <button class="navbar-toggler close-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,7 +80,7 @@
     <section class="container contact-details" style="margin-top: 150px;" id="contact-details-section">
         <div class="row text-center text-md-left">
             <div class="col-12 col-md-6 col-lg-3 grid-margin">
-                <img src="/landing-page/images/Group2.svg" alt="" class="pb-2">
+                <img src="/landing-page/images/1639985799654.jpg" style="width: 80px;" alt="" class="pb-2">
                 <div class="pt-2">
                     <p class="text-muted m-0">mikayla_beer@feil.name</p>
                     <p class="text-muted m-0">906-179-8309</p>

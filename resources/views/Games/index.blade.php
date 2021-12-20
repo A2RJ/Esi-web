@@ -29,11 +29,11 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>game_name</th>
-                                <th>category</th>
-                                <th>created_at</th>
-                                <th>updated_at</th>
-                                <th>Action</th>
+                                <Th>Game Name</th>
+                                <Th>Category</th>
+                                <Th>Game Image</th>
+                                <Th>Created_At</th>
+                                <Th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -42,11 +42,11 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{$data->game_name}}</td>
                                 <td>{{$data->category->game_category}}</td>
+                                <td><a class="badge badge-success" href="/images/{{$data->game_image}}" target="_blank">Image</a></td>
                                 <td>{{$data->created_at}}</td>
-                                <td>{{$data->updated_at}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
-                                        <a href="/games/show/{{$data->id_game }}" title="show" class="badge badge-info">Show</a>
+                                        <!-- <a href="/games/show/{{$data->id_game }}" title="show" class="badge badge-info">Show</a> -->
                                         <a href="/games/edit/{{$data->id_game }}" class="badge badge-warning">Edit</a>
                                         <a href="/games/destroy/{{$data->id_game }}" class="badge badge-danger">Delete</a>
                                     </div>

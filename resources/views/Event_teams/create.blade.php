@@ -27,7 +27,7 @@
                     <div class="form-group">
                         <label for="event_id">Event</label>
                         <select class="form-control" name="event_id" id="event_id">
-                      <option value="{{$events->id_event}}" selected>{{ $events->event_name }}</option>
+                            <option value="{{$events->id_event}}" selected>{{ $events->event_name }}</option>
                         </select>
                     </div>
 
@@ -35,6 +35,7 @@
                     <div class="form-group">
                         <label for="id_squad">Squad</label>
                         <select class="form-control" name="squad_id" id="squad_id">
+                            <option value="">Select Squad</option>
                             @foreach($squads as $squad)
                             <option value="{{ $squad->id_squad }}">{{ $squad->squad_name }}</option>
                             @endforeach
@@ -44,7 +45,7 @@
                     <div class="form-group">
                         <label for="ispaid">Status pembayaran</label>
                         <select class="form-control" name="ispaid" id="ispaid">
-                            <option>Pilih</option>
+                            <option value="">Pilih</option>
                             <option value="0">Belum Bayar</option>
                             <option value="1">Sudah Bayar</option>
                         </select>

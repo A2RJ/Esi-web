@@ -12,10 +12,12 @@
                 </div>
                 @endif
 
-                <h4 class="card-title">Squads</h4>
+                <h4 class="card-title">{{Request::is('squads/squads') ? 'My Squads' : 'All Squads' }}</h4>
                 <p class="card-description">
                     Daftar squad yang terdaftar
                 </p>
+
+                @if(Request::is('squads/squads'))
                 <div class="menu">
                     <a class="btn btn-primary" href="/squads/create" title="Create a data">
                         Create squad
@@ -23,12 +25,6 @@
                     <a class="btn btn-primary" href="/event_inv_teams/invite" title="Create a data">
                         Event invite
                     </a>
-                    <!-- <a class="btn btn-primary" href="/squad_inv_players" title="Create a data">
-                        Invite player
-                    </a>
-                    <a class="btn btn-primary" href="/request_squads/requestFromPlayers" title="Create a data">
-                        Request join
-                    </a> -->
                     <a class="btn btn-primary" href="/management_inv_squads/invite" title="Create a data">
                         Management invite
                     </a>
@@ -36,6 +32,8 @@
                         Request management
                     </a>
                 </div>
+                @endif
+
                 <div class="table-responsive mt-4">
                     <table class="table table-hover">
                         <thead>
@@ -58,10 +56,12 @@
                                 <td>{{$data->created_at->format('d-m-Y')}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
-                                        <a href="/squads/setSquad/{{$data->id_squad }}" title="show" class="badge badge-info">Detail</a>
                                         <a href="/squads/show/{{$data->id_squad }}" title="show" class="badge badge-info">Show</a>
+                                        @if(Request::is('squads/squads'))
+                                        <a href="/squads/setSquad/{{$data->id_squad }}" title="show" class="badge badge-info">Detail</a>
                                         <a href="/squads/edit/{{$data->id_squad }}" class="badge badge-warning">Edit</a>
                                         <a href="/squads/destroy/{{$data->id_squad }}" class="badge badge-danger">Delete</a>
+                                        @endif
                                     </div>
                                 </td>
                             </tr>

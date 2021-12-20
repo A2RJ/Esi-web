@@ -60,11 +60,11 @@
                         </div>
 
                         <div class="col-sm-6 form-group">
-                            <label for="isfree">Is free</label>
+                            <label for="isfree">Status Pembayaran</label>
                             <select class="form-control" id="isfree" name="isfree">
-                                <option>-- Select Is free --</option>
-                                <option value="1">Yes</option>
-                                <option value="0">No</option>
+                                <option value="">Select</option>
+                                <option value="1">Free</option>
+                                <option value="0">Paid</option>
                             </select>
                         </div>
 

@@ -29,6 +29,7 @@
                     <div class="form-group">
                         <label for="player_id">Player</label>
                         <select class="form-control" name="player_id" id="player_id">
+                            <option value="">Select Player</option>
                             @foreach($players as $player)
                             <option value="{{ $player->id_player }}" {{ $player->id_player == $request_squads->player_id ? 'selected' : '' }}>{{ $player->ingame_name }}</option>
                             @endforeach
@@ -39,6 +40,7 @@
                     <div class="form-group">
                         <label for="squad_id">Squad</label>
                         <select class="form-control" name="squad_id" id="squad_id">
+                            <option value="">Select Squad</option>
                             @foreach($squads as $squad)
                             <option value="{{ $squad->id_squad }}" {{ $squad->id_squad == $request_squads->squad_id ? 'selected' : '' }}>{{ $squad->squad_name }}</option>
                             @endforeach

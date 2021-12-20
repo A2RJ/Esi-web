@@ -14,7 +14,7 @@
 
                 <h4 class="card-title">Admin</h4>
                 <p class="card-description">
-                   Kelola admin yang terdaftar
+                    Kelola admin yang terdaftar
                 </p>
                 <a class="btn btn-primary" href="/admin/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
                     Create
@@ -39,7 +39,7 @@
                                 <td>{{$data->fb}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
-                                        <a href="/admin/show/{{$data->id_admin }}" title="show" class="badge badge-info">Show</a>
+                                        <!-- <a href="/admin/show/{{$data->id_admin }}" title="show" class="badge badge-info">Show</a> -->
                                         <a href="/admin/edit/{{$data->id_admin }}" class="badge badge-warning">Edit</a>
                                         <a href="/admin/destroy/{{$data->id_admin }}" class="badge badge-danger">Delete</a>
                                     </div>

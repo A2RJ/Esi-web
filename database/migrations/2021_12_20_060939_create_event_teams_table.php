@@ -18,6 +18,7 @@ class CreateEventTeamsTable extends Migration
             $table->integer('event_id');
             $table->integer('squad_id');
             $table->boolean('ispaid')->nullable();
+            $table->string('paid_image')->nullable();
             $table->timestamps();
         });
     }

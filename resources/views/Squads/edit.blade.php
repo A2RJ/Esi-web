@@ -29,7 +29,7 @@
                         <div class="form-group col-sm-6">
                             <label for="game_id">Games</label>
                             <select class="form-control" id="game_id" name="game_id">
-                                <option>-- Select Games --</option>
+                                <option value="">-- Select Games --</option>
                                 @foreach ($games as $game)
                                 <option value="{{ $game->id_game }}" {{ $game->id_game == $squad->game_id ? 'selected' : '' }}>{{ $game->game_name }}</option>
                                 @endforeach
@@ -48,12 +48,12 @@
                         </div>
 
                         <div class="form-group col-sm-6">
-                            <label for="squad_name">squad_name</label>
+                            <label for="squad_name">Squad Name</label>
                             <input class="form-control" name="squad_name" id="squad_name" type="text" placeholder="{{ $squad->squad_name }}" value="{{ $squad->squad_name }}">
                         </div>
 
                         <div class="form-group col-sm-6">
-                            <label for="squad_image">squad_image</label>
+                            <label for="squad_image">Squad Image</label>
                             <input class="form-control" name="squad_image" id="squad_image" type="file" placeholder="{{ $squad->squad_image }}" value="{{ $squad->squad_image }}">
                         </div>
                     </div>

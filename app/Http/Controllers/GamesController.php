@@ -51,10 +51,12 @@ class GamesController extends Controller
 
     public function update(Request $request, $id)
     {
-        $game = Games::find($id)->update($request->all());
+        $game = Games::find($id);
+        $gameUpdate = $game;
+        $game->update($request->all());
         if ($request->hasFile('game_image')) {
-            $game->game_image = Upload::uploadFile($request, 'game_image');
-            $game->save();
+            $gameUpdate->game_image = Upload::uploadFile($request, 'game_image');
+            $gameUpdate->save();
         }
 
         return redirect('/games')->with('success', 'Game has been updated');

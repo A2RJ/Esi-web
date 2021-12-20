@@ -51,18 +51,35 @@ class UserController extends Controller
         return view('users.edit', compact('user'));
     }
 
+    public function profile($id)
+    {
+        $user = User::find($id);
+        return view('users.edit', compact('user'));
+    }
+
     public function update(Request $request, $id)
     {
-        $user = User::find($id)->update($request->all());
-        if ($request->has('password')) {
-            $user->password = Hash::make($request->password);
-            $user->save();
+        $this->validate($request, [
+            "user_role" => "required",
+            "nama" => "required",
+            "email" => "required",
+            "password" => "nullable",
+            "kontak" => "required",
+            "alamat" => "required",
+            "gender" => "required",
+            "user_image" => "required",
+        ]);
+
+
+        if ($request->password2 !== '') {
+            $request['password'] = Hash::make($request->password2);
         }
+        $user = User::find($id)->update($request->all());
         if ($request->hasFile('user_image')) {
             $user->user_image = Upload::uploadFile($request, 'user_image');
             $user->save();
         }
-        return redirect('/users')->with('success', 'User updated successfully');
+        return redirect(url()->previous())->with('success', 'User updated successfully');
     }
 
     public function destroy($id)

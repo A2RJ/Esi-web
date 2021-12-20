@@ -27,17 +27,18 @@
                         <div class="form-group col-sm-6">
                             <label for="game_id">Games</label>
                             <select class="form-control" id="game_id" name="game_id">
+                                <option value="">Select game</option>
                                 @foreach ($games as $game)
                                 <option value="{{ $game->id_game }}">{{ $game->game_name }}</option>
                                 @endforeach
                             </select>
                         </div>
-                        
+
                         <!-- select players -->
                         <div class="form-group col-sm-6">
                             <label for="squad_leader">Select Leader</label>
                             <select class="form-control" id="squad_leader" name="squad_leader">
-                                <option>Select Player</option>
+                                <option value="">Select Player</option>
                                 @foreach($players as $player)
                                 <option value="{{ $player->id_player }}">{{ $player->ingame_name }}</option>
                                 @endforeach
@@ -45,12 +46,12 @@
                         </div>
 
                         <div class="form-group col-sm-6">
-                            <label for="squad_name">squad_name</label>
+                            <label for="squad_name">Squad Name</label>
                             <input type="text" class="form-control" name="squad_name" id="squad_name" placeholder="squad_name">
                         </div>
 
                         <div class="form-group col-sm-6">
-                            <label for="squad_image">squad_image</label>
+                            <label for="squad_image">Squad Image</label>
                             <input type="file" class="form-control" name="squad_image" id="squad_image" placeholder="squad_image">
                         </div>
                     </div>

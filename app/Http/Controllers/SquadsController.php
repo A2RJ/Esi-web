@@ -88,11 +88,7 @@ class SquadsController extends Controller
     public function squads()
     {
         $player = Players::where('user_id', Auth::user()->id_user)->get();
-        foreach ($player as $p) {
-            $id_player[] = $p->id_player;
-        }
-
-        $squads = Squads::whereIn('squad_leader', $id_player)
+        $squads = Squads::whereIn('squad_leader', $player->pluck('id_player'))
             ->with('leader', 'management')
             ->paginate(10);
 

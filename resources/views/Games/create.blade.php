@@ -25,20 +25,20 @@
                     @csrf
 
                     <div class="form-group">
-                        <label for="game_name">game_name</label>
+                        <label for="game_name">Game Name</label>
                         <input type="text" class="form-control" name="game_name" id="game_name" placeholder="game_name">
                     </div>
 
                     <div class="form-group">
-                        <label for="game_image">game_image</label>
-                        <input type="text" class="form-control" name="game_image" id="game_image" placeholder="game_image">
+                        <label for="game_image">Game Image</label>
+                        <input type="file" class="form-control" name="game_image" id="game_image" placeholder="game_image">
                     </div>
 
                     <!-- looping category -->
                     <div class="form-group">
-                        <label for="game_category_id">game_category</label>
+                        <label for="game_category_id">Game Category</label>
                         <select class="form-control" name="game_category_id" id="game_category_id">
-                            <option value="">-- Pilih Kategori --</option>
+                            <option value="">-- Select Kategori --</option>
                             @foreach($categories as $category)
                             <option value="{{ $category->id_game_category }}">{{ $category->game_category }}</option>
                             @endforeach

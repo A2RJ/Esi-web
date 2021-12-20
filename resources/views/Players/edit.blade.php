@@ -37,17 +37,17 @@
                         </div>
 
                         <div class="form-group col-sm-6">
-                            <label for="ingame_name">ingame_name</label>
+                            <label for="ingame_name">In Game Name</label>
                             <input class="form-control" name="ingame_name" id="ingame_name" type="text" placeholder="{{ $players->ingame_name }}" value="{{ $players->ingame_name }}">
                         </div>
 
                         <div class="form-group col-sm-6">
-                            <label for="ingame_id">ingame_id</label>
+                            <label for="ingame_id">In Game Id</label>
                             <input class="form-control" name="ingame_id" id="ingame_id" type="text" placeholder="{{ $players->ingame_id }}" value="{{ $players->ingame_id }}">
                         </div>
 
                         <div class="form-group col-sm-6">
-                            <label for="player_image">player_image</label>
+                            <label for="player_image">Player Image</label>
                             <input class="form-control" name="player_image" id="player_image" type="file">
                         </div>
 

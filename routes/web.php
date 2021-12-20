@@ -16,6 +16,7 @@ use App\Http\Controllers\Request_squadsController;
 use App\Http\Controllers\Squad_inv_playersController;
 use App\Http\Controllers\SquadsController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\Admin;
 use App\Http\Middleware\Auth as MiddlewareAuth;
 use App\Models\Events;
 use App\Models\Managements;
@@ -108,9 +109,10 @@ Route::group(['prefix' => 'users', 'middleware' => ['auth', 'admin']], function 
     Route::get('/', [UserController::class, 'index']);
     Route::get('/create', [UserController::class, 'create']);
     Route::get('/show/{id}', [UserController::class, 'show']);
+    Route::get('/profile/{id}', [UserController::class, 'profile'])->withoutMiddleware([MiddlewareAuth::class, Admin::class]);
     Route::post('/store', [UserController::class, 'store']);
     Route::get('/edit/{id}', [UserController::class, 'edit']);
-    Route::post('/update/{id}', [UserController::class, 'update']);
+    Route::post('/update/{id}', [UserController::class, 'update'])->withoutMiddleware([MiddlewareAuth::class, Admin::class]);;
     Route::get('/destroy/{id}', [UserController::class, 'destroy']);
 });
 

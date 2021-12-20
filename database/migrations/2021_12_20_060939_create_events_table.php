@@ -20,6 +20,7 @@ class CreateEventsTable extends Migration
             $table->string('event_name');
             $table->string('event_image');
             $table->string('slot', 10);
+            $table->string('price');
             $table->string('pricepool', 50);
             $table->boolean('isfree');
             $table->text('detail');
