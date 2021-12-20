@@ -415,6 +415,7 @@ use Illuminate\Support\Facades\Auth; ?>
                   <?php if (Auth::user()->user_role == 'admin') : ?>
                     <li class="nav-item"> <a class="nav-link" href="/events">All Events</a></li>
                   <?php endif; ?>
+                  <li class="nav-item"> <a class="nav-link" href="/events/followEvent">Events</a></li>
                   <li class="nav-item"> <a class="nav-link" href="/events/events">My Events</a></li>
                   <!-- <li class="nav-item"> <a class="nav-link" href="/event_teams">Event Teams</a></li>
                   <li class="nav-item"> <a class="nav-link" href="/event_inv_teams">Invited Teams</a></li>

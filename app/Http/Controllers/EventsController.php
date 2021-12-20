@@ -152,8 +152,6 @@ class EventsController extends Controller
 
     public function joinEvent($id)
     {
-        // check apakah user sudah join event
-
         $squads = Squads::join('players', 'squads.id_squad', 'players.squad_id')
             ->select('squads.*')
             ->where('players.user_id', Auth::user()->id_user)
@@ -164,6 +162,63 @@ class EventsController extends Controller
         $event = Events::findOrFail($id);
 
         return view('events.joinEvent', compact('event', 'squads'));
+    }
+
+    public function storeJoin(Request $request)
+    {
+        $request['ispaid'] = 0;
+        $this->validate($request, [
+            "event_id" => "required",
+            "squad_id" => "required",
+            "ispaid" => "required",
+        ]);
+
+        // check squad_id is already in event_teams
+        $event_teams = Event_teams::where('event_id', $request->event_id)
+            ->where('squad_id', $request->squad_id)
+            ->first();
+
+        if ($event_teams) {
+            return redirect('events/followEvent')->with('event_teams', 'Squad already in event.');
+        } else {
+            // if has paid_image
+            $event = Event_teams::create($request->all());
+            if ($request->hasFile('paid_image')) {
+                $event->paid_image = Upload::uploadFile($request, 'paid_image');
+                $event->save();
+            }
+            return redirect('events/followEvent')->with('event_teams', 'Join event successfully.');
+        }
+    }
+
+    public function editJoin($id)
+    {
+        $event_teams = Event_teams::join('events', 'event_teams.event_id', 'events.id_event')
+            ->join('squads', 'event_teams.squad_id', 'squads.id_squad')
+            ->select('event_teams.*', 'events.event_name', 'squads.squad_name')
+            ->find($id);
+
+        return view('events.joinEdit', compact('event_teams'));
+    }
+
+    // updateJoin
+    public function updateJoin(Request $request, $id)
+    {
+        $request['ispaid'] = 0;
+        $this->validate($request, [
+            "event_id" => "required",
+            "squad_id" => "required",
+            "ispaid" => "required",
+        ]);
+
+        $event = Event_teams::findOrFail($id)->update($request->all());
+        if ($request->hasFile('paid_image')) {
+            $image = Upload::uploadFile($request, 'paid_image');
+            $event = Event_teams::findOrFail($id);
+            $event->paid_image = $image;
+            $event->save();
+        }
+        return redirect('events/followEvent')->with('event_teams', 'Join event successfully.');
     }
 
     public function followEvent()
@@ -181,6 +236,6 @@ class EventsController extends Controller
             ->select('events.*', 'event_teams.*', 'squads.*')
             ->paginate(10);
 
-        return view('event_teams.index', compact('event_teams'));
+        return view('events.follow', compact('event_teams'));
     }
 }

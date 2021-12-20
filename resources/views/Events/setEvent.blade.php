@@ -79,6 +79,7 @@
                                 <th>Events</th>
                                 <th>Squad</th>
                                 <th>Status Pembayaran</th>
+                                <th>Bukti Pembayaran</th>
                                 <th>Tanggal</th>
                                 <th>Action</th>
                             </tr>
@@ -89,11 +90,17 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{$data->event_name}}</td>
                                 <td>{{$data->squad_name}}</td>
-                                <td>{{$data->ispaid == 1 ? 'OKE' : 'TIDAK'}}</td>
+                                <td><span class="badge badge-{{$data->ispaid == 1 ? 'success' : 'danger'}}"> {{$data->ispaid == 1 ? 'OKE' : 'TIDAK'}}</span></td>
+                                <?php if ($data->paid_image == null) { ?>
+                                    <td>Belum Upload</td>
+                                <?php } else { ?>
+                                    <td><a class="badge badge-success" href="/images/{{$data->paid_image}}" target="_blank">Lihat Bukti</a>
+                                    </td>
+                                <?php } ?>
                                 <td>{{$data->created_at->format('d-m-Y')}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
-                                        <!-- <a href="/event_teams/show/{{$data->id_event_teams }}" title="show" class="badge badge-info">Show</a> -->
+                                        <a href="/home/squad/{{$data->squad_id }}" title="show" class="badge badge-info">Show</a>
                                         <a href="/event_teams/edit/{{$data->id_event_teams }}" class="badge badge-warning">Edit</a>
                                         <a href="/event_teams/destroy/{{$data->id_event_teams }}" class="badge badge-danger">Delete</a>
                                     </div>

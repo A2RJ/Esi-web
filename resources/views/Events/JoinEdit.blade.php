@@ -6,7 +6,7 @@
     <div class="col-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Add New event teams</h4>
+                <h4 class="card-title">Edit New event_teams</h4>
                 <!-- <p class="card-description">
                     <a class="btn btn-primary" href="/event_teams" title="Go back"> Batal </a>
                 </p> -->
@@ -21,33 +21,33 @@
                     </ul>
                 </div>
                 @endif
-                <form action="/events/storeJoin" method="POST" enctype="multipart/form-data" class="forms-sample">
+
+                <form action="/events/updateJoin/{{$event_teams->id_event_teams}}" enctype="multipart/form-data" method="POST">
                     @csrf
+                    <!-- @method('PUT') -->
+
                     <!-- looping event -->
                     <div class="form-group">
                         <label for="event_id">Event</label>
                         <select class="form-control" name="event_id" id="event_id">
-                            <option value="{{$event->id_event}}" selected>{{ $event->event_name }}</option>
+                            <option value="{{ $event_teams->event_id }}" selected>{{ $event_teams->event_name }}</option>
                         </select>
                     </div>
 
-                    <!-- looping $squads -->
+                    <!-- looping event_teamss -->
                     <div class="form-group">
-                        <label for="id_squad">Squad</label>
+                        <label for="id_squads">Squads</label>
                         <select class="form-control" name="squad_id" id="squad_id">
-                            @foreach($squads as $squad)
-                            <option value="{{ $squad->id_squad }}">{{ $squad->squad_name }}</option>
-                            @endforeach
+                            <option value="{{ $event_teams->squad_id }}" selected>{{ $event_teams->squad_name }}</option>
                         </select>
                     </div>
 
-                    <!-- upload file paid_image -->
                     <div class="form-group">
-                        <label for="paid_image">Paid Image</label>
+                        <label for="paid_image">Bukti Pembayaran</label>
                         <input type="file" class="form-control" name="paid_image" id="paid_image">
                     </div>
 
-                    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                    <div class="mt-5">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </form>

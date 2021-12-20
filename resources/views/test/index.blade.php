@@ -40,7 +40,34 @@
                 </div>
                 @endforeach
                 <div class="col-12 d-flex justify-content-center">
-                    {{ $events->appends(['squads' => $squads->currentPage(), 'managements' => $managements->currentPage()])->links() }}
+                    {{ $events->appends(['players' => $players->currentPage(),'squads' => $squads->currentPage(), 'managements' => $managements->currentPage()])->links() }}
+                </div>
+            </div>
+            <div class="row mt-5" id="players-section">
+                <div class="col-12 text-center pb-5">
+                    <h2>Ayo cek player berbakat Sumbawa</h2>
+                    <h6 class="section-subtitle text-muted m-0">Cek data mu dibawah iya.</h6>
+                </div>
+                <!-- looping users -->
+                @foreach($players as $player)
+                <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
+                    <a href="/home/player/{{$player->id_player}}">
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <div class="bg-success text-center card-contents rounded" style="background-image: url('/images/{{$player->player_image}}'); background-size: cover;">
+                                    <div style="height: 200px;"></div>
+                                </div>
+                                <div class="card-details text-center pt-4">
+                                    <h6 class="m-0 pb-1">{{$player->ingame_name}}</h6>
+                                    <p>Join {{ $player->created_at->format('d, M Y') }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                @endforeach
+                <div class="col-12 d-flex justify-content-center">
+                    {{ $players->appends(['squads' => $squads->currentPage(),'events' => $events->currentPage(), 'managements' => $managements->currentPage()])->links() }}
                 </div>
             </div>
             <div class="row mt-5" id="squads-section">
@@ -54,7 +81,7 @@
                     <a href="/home/squad/{{$squad->id_squad}}">
                         <div class="card">
                             <div class="card-body p-0">
-                                <div class="bg-success text-center card-contents rounded" style="background-image: url('/landing-page/images/Group115.svg'); background-size: cover;">
+                                <div class="bg-success text-center card-contents rounded" style="background-image: url('/images/{{$squad->squad_image}}'); background-size: cover;">
                                     <div style="height: 200px;"></div>
                                 </div>
                                 <div class="card-details text-center pt-4">
@@ -67,7 +94,7 @@
                 </div>
                 @endforeach
                 <div class="col-12 d-flex justify-content-center">
-                    {{ $squads->appends(['events' => $events->currentPage(), 'managements' => $managements->currentPage()])->links() }}
+                    {{ $squads->appends(['players' => $players->currentPage(),'events' => $events->currentPage(), 'managements' => $managements->currentPage()])->links() }}
                 </div>
             </div>
             <div class="row mt-5" id="managements-section">
@@ -80,7 +107,7 @@
                     <a href="/home/management/{{$management->id_management}}">
                         <div class="card">
                             <div class="card-body p-0">
-                                <div class="bg-success text-center card-contents rounded" style="background-image: url('/landing-page/images/Group115.svg'); background-size: cover;">
+                                <div class="bg-success text-center card-contents rounded" style="background-image: url('/images/{{$management->management_image}}'); background-size: cover;">
                                     <div style="height: 200px;"></div>
                                 </div>
                                 <div class="card-details text-center pt-4">
@@ -93,7 +120,7 @@
                 </div>
                 @endforeach
                 <div class="col-12 d-flex justify-content-center">
-                    {{ $managements->appends(['events' => $events->currentPage(), 'squads' => $squads->currentPage()])->links() }}
+                    {{ $managements->appends(['players' => $players->currentPage(),'events' => $events->currentPage(), 'squads' => $squads->currentPage()])->links() }}
                 </div>
             </div>
         </section>

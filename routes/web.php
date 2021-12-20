@@ -19,6 +19,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Middleware\Auth as MiddlewareAuth;
 use App\Models\Events;
 use App\Models\Managements;
+use App\Models\Players;
 use App\Models\Squads;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -40,9 +41,10 @@ Auth::routes();
 
 Route::get('/', function () {
     $events = Events::latest();
-    if (request('event')) {
-        $events = $events->where('event_name', 'LIKE', '%' . request('event') . '%');
-    }
+    if (request('event')) $events = $events->where('event_name', 'LIKE', '%' . request('event') . '%');
+
+    $players = Players::latest();
+    if (request('player')) $players->where('ingame_name', 'LIKE', '%' . request('player') . '%');
 
     $squads = Squads::latest();
     if (request('squad')) $squads->where('squad_name', 'LIKE', '%' . request('squad') . '%');
@@ -51,10 +53,11 @@ Route::get('/', function () {
     if (request('management')) $managements->where('management_name', 'LIKE', '%' . request('management') . '%');
 
     $events = $events->paginate(6, ['*'], 'events');
+    $players = $players->paginate(6, ['*'], 'players');
     $squads = $squads->paginate(6, ['*'], 'squads');
     $managements = $managements->paginate(6, ['*'], 'managements');
 
-    return view('index', compact('events', 'squads', 'managements'));
+    return view('index', compact('events', 'players', 'squads', 'managements'));
 });
 
 Route::group(['prefix' => '/home'], function () {
@@ -67,19 +70,23 @@ Route::group(['prefix' => '/home'], function () {
         if (request('event')) {
             $events = $events->where('event_name', 'LIKE', '%' . request('event') . '%');
         }
-    
+
+        $players = Players::latest();
+        if (request('player')) $players->where('ingame_name', 'LIKE', '%' . request('player') . '%');
+
         $squads = Squads::latest();
         if (request('squad')) $squads->where('squad_name', 'LIKE', '%' . request('squad') . '%');
-    
+
         $managements = Managements::latest();
         if (request('management')) $managements->where('management_name', 'LIKE', '%' . request('management') . '%');
-    
+
         $events = $events->paginate(6, ['*'], 'events');
+        $players = $players->paginate(6, ['*'], 'players');
         $squads = $squads->paginate(6, ['*'], 'squads');
         $managements = $managements->paginate(6, ['*'], 'managements');
-        return view('test.index', compact('events', 'squads', 'managements'));
+        return view('test.index', compact('events', 'players', 'squads', 'managements'));
     })->middleware('auth');
-    
+
     Route::get('/event/{id}', [HomeController::class, 'event']);
     Route::get('/player/{id}', [HomeController::class, 'player']);
     Route::get('/squad/{id}', [HomeController::class, 'squad']);
@@ -229,8 +236,11 @@ Route::group(['prefix' => 'events', 'middleware' => 'auth'], function () {
     Route::get('/setEvent/{id}', [EventsController::class, 'setEvent']);
     Route::get('/events', [EventsController::class, 'events']);
     Route::post('/store', [EventsController::class, 'store']);
+    Route::post('/storeJoin', [EventsController::class, 'storeJoin']);
     Route::get('/edit/{id}', [EventsController::class, 'edit']);
+    Route::get('/editJoin/{id}', [EventsController::class, 'editJoin']);
     Route::post('/update/{id}', [EventsController::class, 'update']);
+    Route::post('/updateJoin/{id}', [EventsController::class, 'updateJoin']);
     Route::get('/destroy/{id}', [EventsController::class, 'destroy']);
 });
 
@@ -240,7 +250,6 @@ Route::group(['prefix' => 'event_teams', 'middleware' => 'auth'], function () {
     Route::get('/create/{id}', [Event_teamsController::class, 'create']);
     Route::get('/show/{id}', [Event_teamsController::class, 'show']);
     Route::post('/store', [Event_teamsController::class, 'store']);
-    Route::post('/storeJoin', [Event_teamsController::class, 'storeJoin']);
     Route::get('/edit/{id}', [Event_teamsController::class, 'edit']);
     Route::post('/update/{id}', [Event_teamsController::class, 'update']);
     Route::get('/destroy/{id}', [Event_teamsController::class, 'destroy']);
