@@ -27,6 +27,7 @@ class Request_managementsController extends Controller
         $squads = Squads::join('players', 'squads.id_squad', 'players.squad_id')
             ->where('players.user_id', Auth::user()->id_user)
             ->select('squads.*')
+            ->distinct()
             ->get();
 
         return view('request_managements.create', compact('squads', 'managements'));

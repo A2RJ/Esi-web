@@ -24,8 +24,12 @@
         <div class="col-sm-3 col-md-4 col-xl-6 col-lg-6" data-aos="fade-right">
             <h3 class="m-0" style="display: inline-block;">{{ $event->event_name }}</h3>
             <h6 class="text-muted">Game {{ $event->game->game_name}}, {{ $event->created_at->format('d, M Y') }}, {{ $event->created_at->diffForHumans() }} </h6>
-
-            <a href="/events/daftar">
+            @if ($message = Session::get('event_teams'))
+            <div class="alert alert-success">
+                <p>{{ $message }}</p>
+            </div>
+            @endif
+            <a href="/events/joinEvent/{{ $event->id_event }}">
                 <button class="btn btn-sm btn-outline-info p-1">Join event</button>
             </a>
             <div class="col-12 p-0">

@@ -24,7 +24,7 @@ class SquadsController extends Controller
     public function create()
     {
         $games = Games::all();
-        $players = Players::where('user_id', Auth::user()->id_user)->get();
+        $players = Players::where('user_id', Auth::user()->id_user)->where('squad_id', null)->get();
         return view('squads.create', compact('players', 'games'));
     }
 
@@ -114,7 +114,7 @@ class SquadsController extends Controller
         $request_squads = Request_squads::join('squads', 'request_squads.squad_id', 'squads.id_squad')
             ->join('players', 'request_squads.player_id', 'players.id_player')
             ->where('request_squads.squad_id', $id)
-            ->select('request_squads.*', 'squads.name_squad', 'players.ingame_name')
+            ->select('request_squads.*', 'squads.squad_name', 'players.ingame_name')
             ->paginate(10);
 
         return view('squads.show', compact('id', 'players', 'squad_inv_players', 'request_squads'));

@@ -13,9 +13,14 @@ class Request_squadsController extends Controller
 
     public function index()
     {
+        $players = Players::where('user_id', Auth::user()->id_user)->select('id_player')->get();
+        foreach ($players as $p) {
+            $player[] = $p->id_player;
+        }
         $request_squads = Request_squads::with('squads', 'players')
-            ->where('player_id', Auth::user()->id_user)
+            ->whereIn('player_id', $player)
             ->paginate(10);
+
         return view('request_squads.index', compact('request_squads'));
     }
 

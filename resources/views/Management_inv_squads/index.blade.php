@@ -44,8 +44,7 @@
                                         <?php if ($data->status) { ?>
                                             <a href="/management_inv_squads/destroy/{{$data->id_management_inv_squad }}" class="badge badge-danger">Delete</a>
                                         <?php } else { ?>
-                                            <a href="/management_inv_squads/terima/{{$data->id_management_inv_squad }}" class="badge badge-info">Terima</a>
-                                            <a href="/management_inv_squads/destroy/{{$data->id_management_inv_squad }}" class="badge badge-danger">Tolak</a>
+                                            <a href="/management_inv_squads/destroy/{{$data->id_management_inv_squad }}" class="badge badge-danger">Batal</a>
                                         <?php } ?>
                                     </div>
                                 </td>

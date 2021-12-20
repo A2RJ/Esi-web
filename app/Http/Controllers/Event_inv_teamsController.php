@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Event_inv_teams;
 use App\Models\Event_teams;
 use App\Models\Events;
+use App\Models\Players;
 use App\Models\Squads;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -72,12 +73,21 @@ class Event_inv_teamsController extends Controller
 
     public function invite()
     {
-        $event_inv_teams = Event_inv_teams::join('squads', 'event_inv_teams.squad_id', 'squads.id_squad')
-            ->join('players', 'event_inv_teams.player_id', 'players.id_player')
-            ->join('events', 'event_inv_teams.event_id', 'events.id_event')
-            ->select('event_inv_teams.*', 'squads.squad_name', 'events.event_name')
+        // join player with squad where player.user_id = Auth::user()->id_user
+        $squads = Squads::join('players', 'squads.id_squad', 'players.squad_id')
             ->where('players.user_id', Auth::user()->id_user)
+            ->select('squads.*')
+            ->distinct()
+            ->get();
+        // get squad_id from $squads
+        $squad_id = $squads->pluck('id_squad');
+        // get event_inv_teams where squad_id = $squad_id
+        $event_inv_teams = Event_inv_teams::join('events', 'events.id_event', 'event_inv_teams.event_id')
+            ->join('squads', 'squads.id_squad', 'event_inv_teams.squad_id')
+            ->whereIn('event_inv_teams.squad_id', $squad_id)
+            ->select('event_inv_teams.*', 'events.event_name', 'squads.squad_name')
             ->paginate(10);
+
         return view('event_inv_teams.invite', compact('event_inv_teams'));
     }
 
@@ -90,6 +100,7 @@ class Event_inv_teamsController extends Controller
         ]);
         $event_inv_teams->status = 1;
         $event_inv_teams->save();
+
         return redirect('event_inv_teams/invite')->with('event_inv_teams', 'Event_inv_teams terima successfully');
     }
 }

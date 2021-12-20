@@ -25,7 +25,7 @@
             <h3 class="m-0" style="display: inline-block;">{{$squad->squad_name}}</h3>
             <h6 class="text-muted">Game {{ $squad->game ? $squad->game->game_name : '' }}, Dibuat pada {{$squad->created_at->format('d, M Y')}}</h6>
 
-            <a href="/squads/daftar/{{$squad->id_squad}}">
+            <a href="/request_squads">
                 <button class="btn btn-sm btn-outline-info p-1">Join squad ini</button>
             </a>
             <div class="col-12 p-0">

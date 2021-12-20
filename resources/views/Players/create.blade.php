@@ -26,7 +26,7 @@
                     <!-- select games -->
                     <div class="row">
                         <div class="form-group col-sm-6">
-                            <label for="games">games</label>
+                            <label for="games">Games</label>
                             <select class="form-control" name="game_id" id="game_id">
                                 <option value="">Select games</option>
                                 @foreach($games as $game)
@@ -36,17 +36,17 @@
                         </div>
 
                         <div class="form-group col-sm-6">
-                            <label for="ingame_name">ingame_name</label>
+                            <label for="ingame_name">In Game Name</label>
                             <input type="text" class="form-control" name="ingame_name" id="ingame_name" placeholder="ingame_name">
                         </div>
 
                         <div class="form-group col-sm-6">
-                            <label for="ingame_id">ingame_id</label>
+                            <label for="ingame_id">In Game Id</label>
                             <input type="text" class="form-control" name="ingame_id" id="ingame_id" placeholder="ingame_id">
                         </div>
 
                         <div class="form-group col-sm-6">
-                            <label for="player_image">player_image</label>
+                            <label for="player_image">Player Image</label>
                             <input type="file" class="form-control" name="player_image" id="player_image" placeholder="player_image">
                         </div>
                     </div>

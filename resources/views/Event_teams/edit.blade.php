@@ -29,7 +29,7 @@
                     <!-- looping event -->
                     <div class="form-group">
                         <label for="event_id">Event</label>
-                        <select class="form-control" name="event_id" id="event_id" disabled>
+                        <select class="form-control" name="event_id" id="event_id">
                             @foreach ($events as $event)
                             <option value="{{ $event->id_event }}" {{ $event->id_event == $event_team->id_event ? 'selected' : '' }}>{{ $event->event_name }}</option>
                             @endforeach
@@ -39,7 +39,7 @@
                     <!-- looping $squads -->
                     <div class="form-group">
                         <label for="id_squads">Squads</label>
-                        <select class="form-control" name="squad_id" id="squad_id" disabled>
+                        <select class="form-control" name="squad_id" id="squad_id">
                             @foreach($squads as $squad)
                             <option value="{{ $squad->id_squad }}" {{ $squad->id_squad == $event_team->id_squad ? 'selected' : '' }}>{{ $squad->squad_name }}</option>
                             @endforeach

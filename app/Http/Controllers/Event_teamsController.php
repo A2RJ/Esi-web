@@ -40,11 +40,36 @@ class Event_teamsController extends Controller
         return redirect('events/setEvent/' . $request->event_id)->with('event_teams', 'Teams created successfully.');
     }
 
+    public function storeJoin(Request $request)
+    {
+        $request['ispaid'] = 0;
+        $this->validate($request, [
+            "event_id" => "required",
+            "squad_id" => "required",
+            "ispaid" => "required",
+        ]);
+
+        // check squad_id is already in event_teams
+        $event_teams = Event_teams::where('event_id', $request->event_id)
+            ->where('squad_id', $request->squad_id)
+            ->first();
+
+        if ($event_teams) {
+            return redirect('home/event/' . $request->event_id)->with('event_teams', 'Squad already in event.');
+        } else {
+            Event_teams::create($request->all());
+            return redirect('home/event/' . $request->event_id)->with('event_teams', 'Join event successfully.');
+        }
+    }
+
     public function edit($id)
     {
-        $event_team = Event_teams::find($id);
-        $events = Events::all();
-        $squads = Squads::all();
+        $event_team = Event_teams::find($id)->select('id_event_teams', 'event_id', 'squad_id', 'ispaid')->first();
+        $events = Events::find($event_team->event_id)
+            ->select('id_event', 'event_name')->get();
+        $squads = Squads::where('id_squad', $event_team->squad_id)
+            ->select('id_squad', 'squad_name')->get();
+
         return view('event_teams.edit', compact('event_team', 'squads', 'events'));
     }
 

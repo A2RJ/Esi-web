@@ -27,12 +27,12 @@
                         <div class="form-group col-sm-6">
                             <label for="game_id">Games</label>
                             <select class="form-control" id="game_id" name="game_id">
-                                <option>-- Select Games --</option>
                                 @foreach ($games as $game)
                                 <option value="{{ $game->id_game }}">{{ $game->game_name }}</option>
                                 @endforeach
                             </select>
                         </div>
+                        
                         <!-- select players -->
                         <div class="form-group col-sm-6">
                             <label for="squad_leader">Select Leader</label>

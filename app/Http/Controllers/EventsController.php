@@ -9,6 +9,7 @@ use App\Models\Event_winner;
 use Illuminate\Http\Request;
 use App\Models\Events;
 use App\Models\Games;
+use App\Models\Players;
 use App\Models\Squads;
 use App\Models\Users;
 use Illuminate\Support\Facades\Auth;
@@ -146,6 +147,40 @@ class EventsController extends Controller
             ->where('events.user_id', Auth::user()->id_user)
             ->paginate(10);
 
-            return view('events.setEvent', compact('event_teams', 'event_inv_teams', 'event_winner', 'id'));
+        return view('events.setEvent', compact('event_teams', 'event_inv_teams', 'event_winner', 'id'));
+    }
+
+    public function joinEvent($id)
+    {
+        // check apakah user sudah join event
+
+        $squads = Squads::join('players', 'squads.id_squad', 'players.squad_id')
+            ->select('squads.*')
+            ->where('players.user_id', Auth::user()->id_user)
+            ->distinct()
+            ->get();
+
+
+        $event = Events::findOrFail($id);
+
+        return view('events.joinEvent', compact('event', 'squads'));
+    }
+
+    public function followEvent()
+    {
+        // get squad by players
+        $squads = Squads::join('players', 'squads.id_squad', 'players.squad_id')
+            ->select('squads.id_squad')
+            ->where('players.user_id', Auth::user()->id_user)
+            ->distinct()
+            ->get();
+        //   join event_teams with squads
+        $event_teams = Events::join('event_teams', 'events.id_event', 'event_teams.event_id')
+            ->join('squads', 'event_teams.squad_id', 'squads.id_squad')
+            ->whereIn('squads.id_squad', $squads->pluck('id_squad'))
+            ->select('events.*', 'event_teams.*', 'squads.*')
+            ->paginate(10);
+
+        return view('event_teams.index', compact('event_teams'));
     }
 }

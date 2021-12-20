@@ -9,7 +9,7 @@
     </div>
     <div class="row mb-5">
         <div class="col-sm-3 col-md-4 col-xl-6 col-lg-6" data-aos="fade-left">
-        <div class="carouSnap  carouSnap-round">
+            <div class="carouSnap  carouSnap-round">
                 <div class="numbSlide"></div>
                 <div class="bnSlide"></div>
                 <div class="photoCollect">
@@ -24,6 +24,10 @@
         <div class="col-sm-3 col-md-4 col-xl-6 col-lg-6" data-aos="fade-right">
             <h3 class="m-0" style="display: inline-block;">{{$management->management_name}}</h3>
             <h6 class="text-muted">Dibuat pada {{$management->created_at->format('d, M Y')}}</h6>
+
+            <a href="/request_managements">
+                <button class="btn btn-sm btn-outline-info p-1">Join squad ini</button>
+            </a>
 
             <div class="col-12 p-0">
                 <p class="text-muted">

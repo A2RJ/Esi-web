@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Classes\Upload;
 use App\Models\Managements;
+use App\Models\Squads;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -68,6 +69,8 @@ class ManagementsController extends Controller
     public function destroy($id)
     {
         Managements::find($id)->delete();
+        // update squad management_id
+        Squads::where('management_id', $id)->update(['management_id' => $id]);
 
         if (Auth::user()->user_role == 'management') return redirect('/managements/managements')->with('success', 'Management created successfully.');
         return redirect('managements')->with('success', 'Management deleted successfully.');

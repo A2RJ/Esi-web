@@ -1,14 +1,14 @@
 @extends('layouts.dashboard')
-@section('title', 'request_squads')
+@section('title', 'event_teams')
 
 @section('content')
 <div class="row">
     <div class="col-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Add New request to squads</h4>
+                <h4 class="card-title">Add New event teams</h4>
                 <!-- <p class="card-description">
-                    <a class="btn btn-primary" href="/request_squads" title="Go back"> Batal </a>
+                    <a class="btn btn-primary" href="/event_teams" title="Go back"> Batal </a>
                 </p> -->
 
                 @if ($errors->any())
@@ -21,33 +21,24 @@
                     </ul>
                 </div>
                 @endif
-                <form action="/request_squads/store" method="POST" class="forms-sample">
+                <form action="/event_teams/storeJoin" method="POST" class="forms-sample">
                     @csrf
-                    <!-- players -->
+                    <!-- looping event -->
                     <div class="form-group">
-                        <label for="player_id">Player</label>
-                        <select class="form-control" name="player_id" id="player_id">
-                            <option value="">Please select</option>
-                            @foreach ($players as $player)
-                            <option value="{{ $player->id_player }}">{{ $player->ingame_name }}</option>
-                            @endforeach
+                        <label for="event_id">Event</label>
+                        <select class="form-control" name="event_id" id="event_id">
+                            <option value="{{$event->id_event}}" selected>{{ $event->event_name }}</option>
                         </select>
                     </div>
 
-                    <!-- squads -->
+                    <!-- looping $squads -->
                     <div class="form-group">
-                        <label for="squad_id">Squad</label>
+                        <label for="id_squad">Squad</label>
                         <select class="form-control" name="squad_id" id="squad_id">
-                            <option value="">Please select</option>
-                            @foreach ($squads as $squad)
+                            @foreach($squads as $squad)
                             <option value="{{ $squad->id_squad }}">{{ $squad->squad_name }}</option>
                             @endforeach
                         </select>
-                    </div>
-
-                    <div class="form-group">
-                        <!-- <label for="status">Status</label> -->
-                        <input type="hidden" class="form-control" name="status" id="status" value="0" placeholder="status">
                     </div>
 
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">

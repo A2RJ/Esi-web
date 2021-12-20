@@ -38,13 +38,13 @@
                                 <td>{{$data->event_name}}</td>
                                 <td>{{$data->squad_name}}</td>
                                 <td>{{$data->created_at}}</td>
-                                <td>{{$data->status ? 'Diterima' : 'Ditolak'}}</td>
+                                <td>{{$data->status ? 'Diterima' : 'Menunggu'}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
                                         <?php if ($data->status) { ?>
                                             <a href="/event_inv_teams/destroy/{{$data->id_event_inv_teams}}" class="badge badge-danger">Delete</a>
                                         <?php } else { ?>
-                                            <a href="/event_inv_teams/terima/{{$data->id_event_inv_teams}}" class="badge badge-warning">Terima</a>
+                                            <a href="/event_inv_teams/terima/{{$data->id_event_inv_teams}}" class="badge badge-info">Terima</a>
                                             <a href="/event_inv_teams/destroy/{{$data->id_event_inv_teams}}" class="badge badge-danger">Tolak</a>
                                         <?php } ?>
                                     </div>

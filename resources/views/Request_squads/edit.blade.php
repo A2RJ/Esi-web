@@ -27,7 +27,7 @@
                     <!-- @method('PUT') -->
                     <!-- players -->
                     <div class="form-group">
-                        <label for="player_id">player id</label>
+                        <label for="player_id">Player</label>
                         <select class="form-control" name="player_id" id="player_id">
                             @foreach($players as $player)
                             <option value="{{ $player->id_player }}" {{ $player->id_player == $request_squads->player_id ? 'selected' : '' }}>{{ $player->ingame_name }}</option>
@@ -37,7 +37,7 @@
 
                     <!-- squads -->
                     <div class="form-group">
-                        <label for="squad_id">squad id</label>
+                        <label for="squad_id">Squad</label>
                         <select class="form-control" name="squad_id" id="squad_id">
                             @foreach($squads as $squad)
                             <option value="{{ $squad->id_squad }}" {{ $squad->id_squad == $request_squads->squad_id ? 'selected' : '' }}>{{ $squad->squad_name }}</option>
@@ -46,8 +46,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="status">status</label>
-                        <input class="form-control" name="status" id="status" type="text" placeholder="{{ $request_squads->status }}" value="{{ $request_squads->status }}">
+                        <!-- <label for="status">status</label> -->
+                        <input class="form-control" name="status" id="status" type="hidden" placeholder="{{ $request_squads->status }}" value="{{ $request_squads->status }}">
                     </div>
 
                     <div class="mt-5">

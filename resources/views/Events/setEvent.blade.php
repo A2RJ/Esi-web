@@ -42,7 +42,6 @@
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
                                         <a href="/event_inv_teams/show/{{$data->id_event_inv_teams}}" title="show" class="badge badge-info">Show</a>
-                                        <a href="/event_inv_teams/edit/{{$data->id_event_inv_teams}}" class="badge badge-warning">Edit</a>
                                         <a href="/event_inv_teams/destroy/{{$data->id_event_inv_teams}}" class="badge badge-danger">Delete</a>
                                     </div>
                                 </td>
@@ -79,7 +78,7 @@
                                 <th>#</th>
                                 <th>Events</th>
                                 <th>Squad</th>
-                                <th>Is Paid</th>
+                                <th>Status Pembayaran</th>
                                 <th>Tanggal</th>
                                 <th>Action</th>
                             </tr>
@@ -90,7 +89,7 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{$data->event_name}}</td>
                                 <td>{{$data->squad_name}}</td>
-                                <td>{{$data->ispaid == 1 ? 'YA' : 'TIDAK'}}</td>
+                                <td>{{$data->ispaid == 1 ? 'OKE' : 'TIDAK'}}</td>
                                 <td>{{$data->created_at->format('d-m-Y')}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
