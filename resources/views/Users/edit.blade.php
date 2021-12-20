@@ -74,7 +74,7 @@
 
                         <div class="form-group col-sm-6">
                             <label for="user_image">User Image</label>
-                            <input class="form-control" name="user_image" id="user_image" type="text" placeholder="{{ $user->user_image }}" value="{{ $user->user_image }}">
+                            <input class="form-control" name="user_image" id="user_image" type="file" placeholder="{{ $user->user_image }}" value="{{ $user->user_image }}">
                         </div>
                     </div>
 

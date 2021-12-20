@@ -39,6 +39,3 @@
     -- list invite teams (squad)
     -- event teams
     -- event winner
-
-
-<!-- Perbaiki fungsi join squad di tabel event yang squad ikuti -->

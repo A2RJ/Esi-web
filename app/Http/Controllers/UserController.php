@@ -74,9 +74,11 @@ class UserController extends Controller
         if ($request->password2 !== '') {
             $request['password'] = Hash::make($request->password2);
         }
-        $user = User::find($id)->update($request->all());
+        $user = User::find($id);
+        $update = $user;
+        $user->update($request->all());
         if ($request->hasFile('user_image')) {
-            $user->user_image = Upload::uploadFile($request, 'user_image');
+            $update->user_image = Upload::uploadFile($request, 'user_image');
             $user->save();
         }
         return redirect(url()->previous())->with('success', 'User updated successfully');

@@ -112,7 +112,7 @@ Route::group(['prefix' => 'users', 'middleware' => ['auth', 'admin']], function 
     Route::get('/profile/{id}', [UserController::class, 'profile'])->withoutMiddleware([MiddlewareAuth::class, Admin::class]);
     Route::post('/store', [UserController::class, 'store']);
     Route::get('/edit/{id}', [UserController::class, 'edit']);
-    Route::post('/update/{id}', [UserController::class, 'update'])->withoutMiddleware([MiddlewareAuth::class, Admin::class]);;
+    Route::post('/update/{id}', [UserController::class, 'update'])->withoutMiddleware([MiddlewareAuth::class, Admin::class]);
     Route::get('/destroy/{id}', [UserController::class, 'destroy']);
 });
 
@@ -130,7 +130,7 @@ Route::group(['prefix' => 'players', 'middleware' => ['auth']], function () {
 
 // squads
 Route::group(['prefix' => 'squads', 'middleware' => 'auth'], function () {
-    Route::get('/', [SquadsController::class, 'index']);
+    Route::get('/', [SquadsController::class, 'index'])->middleware('admin');
     Route::get('/create', [SquadsController::class, 'create']);
     Route::get('/show/{id}', [SquadsController::class, 'show']);
     Route::get('/setSquad/{id}', [SquadsController::class, 'setSquad']);
@@ -170,7 +170,7 @@ Route::group(['prefix' => 'request_squads', 'middleware' => 'auth'], function ()
 
 // managements
 Route::group(['prefix' => 'managements', 'middleware' => 'auth'], function () {
-    Route::get('/', [ManagementsController::class, 'index']);
+    Route::get('/', [ManagementsController::class, 'index'])->middleware('admin');
     Route::get('/create', [ManagementsController::class, 'create']);
     Route::get('/show/{id}', [ManagementsController::class, 'show']);
     Route::get('/managements', [ManagementsController::class, 'managements']);
@@ -207,7 +207,7 @@ Route::group(['prefix' => 'request_managements', 'middleware' => 'auth'], functi
 });
 
 // games
-Route::group(['prefix' => 'games', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'games', 'middleware' => ['auth', 'admin']], function () {
     Route::get('/', [GamesController::class, 'index']);
     Route::get('/create', [GamesController::class, 'create']);
     Route::get('/show/{id}', [GamesController::class, 'show']);
@@ -218,7 +218,7 @@ Route::group(['prefix' => 'games', 'middleware' => 'auth'], function () {
 });
 
 // game categories
-Route::group(['prefix' => 'game_categories', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'game_categories', 'middleware' => ['auth', 'admin']], function () {
     Route::get('/', [Game_categoriesController::class, 'index']);
     Route::get('/create', [Game_categoriesController::class, 'create']);
     Route::get('/show/{id}', [Game_categoriesController::class, 'show']);
@@ -230,7 +230,7 @@ Route::group(['prefix' => 'game_categories', 'middleware' => 'auth'], function (
 
 // events
 Route::group(['prefix' => 'events', 'middleware' => 'auth'], function () {
-    Route::get('/', [EventsController::class, 'index']);
+    Route::get('/', [EventsController::class, 'index'])->middleware('admin');
     Route::get('/create', [EventsController::class, 'create']);
     Route::get('/followEvent', [EventsController::class, 'followEvent']);
     Route::get('/joinEvent/{id}', [EventsController::class, 'joinEvent']);
