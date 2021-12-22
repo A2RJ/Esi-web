@@ -9,7 +9,7 @@
         <h6 class="font-weight-normal text-muted pb-3">Simple is a simple template with a creative design that solves all your marketing and SEO queries.</h6>
     </div>
     <div class="col-sm-6">
-        <img src="/landing-page/images/Group171.svg" alt="" class="img-fluid">
+        <img src="/public/landing-page/images/Group171.svg" alt="" class="img-fluid">
 
     </div>
 </div>

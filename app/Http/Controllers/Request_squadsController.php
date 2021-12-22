@@ -14,14 +14,12 @@ class Request_squadsController extends Controller
     public function index()
     {
         $players = Players::where('user_id', Auth::user()->id_user)->select('id_player')->get();
-        foreach ($players as $p) {
-            $player[] = $p->id_player;
-        }
+
         $request_squads = Request_squads::with('squads', 'players')
-            ->whereIn('player_id', $player)
+            ->whereIn('player_id', $players->pluck('id_player'))
             ->paginate(10);
 
-        return view('request_squads.index', compact('request_squads'));
+        return view('Request_squads.index', compact('request_squads'));
     }
 
 
@@ -29,7 +27,7 @@ class Request_squadsController extends Controller
     {
         $players = Players::where('user_id', Auth::user()->id_user)->get();
         $squads = Squads::all();
-        return view('request_squads.create', compact('players', 'squads'));
+        return view('Request_squads.create', compact('players', 'squads'));
     }
 
     public function store(Request $request)
@@ -55,7 +53,7 @@ class Request_squadsController extends Controller
     public function show($id)
     {
         $request_squads = Request_squads::findOrFail($id);
-        return view('request_squads.show', compact('request_squads'));
+        return view('Request_squads.show', compact('request_squads'));
     }
 
     public function edit($id)
@@ -63,7 +61,7 @@ class Request_squadsController extends Controller
         $players = Players::where('user_id', Auth::user()->id_user)->get();
         $squads = Squads::all();
         $request_squads = Request_squads::findOrFail($id);
-        return view('request_squads.edit', compact('request_squads', 'players', 'squads'));
+        return view('Request_squads.edit', compact('request_squads', 'players', 'squads'));
     }
 
 
@@ -102,7 +100,7 @@ class Request_squadsController extends Controller
             ->select('request_squads.*', 'squads.name_squad', 'players.ingame_name')
             ->paginate(10);
 
-        return view('request_squads.request', compact('request_squads'));
+        return view('Request_squads.request', compact('request_squads'));
     }
 
     public function terima($id)

@@ -18,7 +18,7 @@ class Request_managementsController extends Controller
             ->where('players.user_id', Auth::user()->id_user)
             ->select('request_managements.*', 'squads.squad_name', 'managements.management_name')
             ->get();
-        return view('request_managements.index', compact('request_managements'));
+        return view('Request_managements.index', compact('request_managements'));
     }
 
     public function create()
@@ -30,7 +30,7 @@ class Request_managementsController extends Controller
             ->distinct()
             ->get();
 
-        return view('request_managements.create', compact('squads', 'managements'));
+        return view('Request_managements.create', compact('squads', 'managements'));
     }
 
     public function store(Request $request)
@@ -48,13 +48,13 @@ class Request_managementsController extends Controller
     public function show($id)
     {
         $request_managements = Request_managements::find($id);
-        return view('request_managements.show', compact('request_managements'));
+        return view('Request_managements.show', compact('request_managements'));
     }
 
     public function edit($id)
     {
         $request_managements = Request_managements::find($id);
-        return view('request_managements.edit', compact('request_managements'));
+        return view('Request_managements.edit', compact('request_managements'));
     }
 
     public function update(Request $request, $id)
@@ -84,7 +84,7 @@ class Request_managementsController extends Controller
             ->with('squad', 'management')
             ->get();
 
-        return view('request_managements.requestFromSquads', compact('request_managements'));
+        return view('Request_managements.requestFromSquads', compact('request_managements'));
     }
 
     // terima

@@ -13,13 +13,13 @@ class ManagementsController extends Controller
     public function index()
     {
         $managements = Managements::paginate(10);
-        return view('managements.index', compact('managements'));
+        return view('Managements.index', compact('managements'));
     }
 
     public function create()
     {
         $managements = Managements::paginate(10);
-        return view('managements.create', compact('managements'));
+        return view('Managements.create', compact('managements'));
     }
 
     public function store(Request $request)
@@ -44,13 +44,13 @@ class ManagementsController extends Controller
     public function show($id)
     {
         $management = Managements::find($id);
-        return view('managements.detail', compact('management'));
+        return view('Managements.detail', compact('management'));
     }
 
     public function edit($id)
     {
         $management = Managements::find($id);
-        return view('managements.edit', compact('management'));
+        return view('Managements.edit', compact('management'));
     }
 
     public function update(Request $request, $id)
@@ -79,6 +79,6 @@ class ManagementsController extends Controller
     public function managements()
     {
         $managements = Managements::where('user_id', Auth::user()->id_user)->paginate(10);
-        return view('managements.index', compact('managements'));
+        return view('Managements.index', compact('managements'));
     }
 }

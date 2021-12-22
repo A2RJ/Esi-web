@@ -10,21 +10,21 @@ use Illuminate\Support\Facades\Auth; ?>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>ESI @yield('title')</title>
   <!-- plugins:css -->
-  <link rel="stylesheet" href="/template/vendors/feather/feather.css">
-  <link rel="stylesheet" href="/template/vendors/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="/template/vendors/ti-icons/css/themify-icons.css">
-  <link rel="stylesheet" href="/template/vendors/typicons/typicons.css">
-  <link rel="stylesheet" href="/template/vendors/simple-line-icons/css/simple-line-icons.css">
-  <link rel="stylesheet" href="/template/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="/public/template/vendors/feather/feather.css">
+  <link rel="stylesheet" href="/public/template/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="/public/template/vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="/public/template/vendors/typicons/typicons.css">
+  <link rel="stylesheet" href="/public/template/vendors/simple-line-icons/css/simple-line-icons.css">
+  <link rel="stylesheet" href="/public/template/vendors/css/vendor.bundle.base.css">
   <!-- endinject -->
   <!-- Plugin css for this page -->
-  <link rel="stylesheet" href="/template/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
-  <link rel="stylesheet" href="/template/js/select.dataTables.min.css">
+  <link rel="stylesheet" href="/public/template/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+  <link rel="stylesheet" href="/public/template/js/select.dataTables.min.css">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="/template/css/vertical-layout-light/style.css">
+  <link rel="stylesheet" href="/public/template/css/vertical-layout-light/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="/template/images/favicon.png" />
+  <link rel="shortcut icon" href="/public/template/images/favicon.png" />
   <style>
     .menu a {
       margin-right: 10px;
@@ -51,10 +51,10 @@ use Illuminate\Support\Facades\Auth; ?>
         </div>
         <div>
           <a class="navbar-brand brand-logo" href="/">
-            <img src="/landing-page/images/1639985799654.jpg" style="height: 80px;" alt="logo" />
+            <img src="/public/landing-page/images/1639985799654.jpg" style="height: 80px;" alt="logo" />
           </a>
           <a class="navbar-brand brand-logo-mini" href="/">
-            <img src="/landing-page/images/1639985799654.jpg" style="height: 50px;" alt="logo" />
+            <img src="/public/landing-page/images/1639985799654.jpg" style="height: 50px;" alt="logo" />
           </a>
         </div>
       </div>
@@ -76,10 +76,10 @@ use Illuminate\Support\Facades\Auth; ?>
           </li>
           <li class="nav-item dropdown d-none d-lg-block user-dropdown">
             <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-              <img class="img-xs rounded-circle" src="/template/images/faces/face8.jpg" alt="Profile image"> </a>
+              <img class="img-xs rounded-circle" src="/public/template/images/faces/face8.jpg" alt="Profile image"> </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <div class="dropdown-header text-center">
-                <img class="img-md rounded-circle" src="/template/images/faces/face8.jpg" alt="Profile image">
+                <img class="img-md rounded-circle" src="/public/template/images/faces/face8.jpg" alt="Profile image">
                 <p class="mb-1 mt-3 font-weight-semibold">{{ auth()->user()->nama }}</p>
                 <p class="fw-light text-muted mb-0">{{ auth()->user()->email }}</p>
               </div>
@@ -239,24 +239,24 @@ use Illuminate\Support\Facades\Auth; ?>
   <!-- container-scroller -->
 
   <!-- plugins:js -->
-  <script src="/template/vendors/js/vendor.bundle.base.js"></script>
+  <script src="/public/template/vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->
   <!-- Plugin js for this page -->
-  <script src="/template/vendors/chart.js/Chart.min.js"></script>
-  <script src="/template/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-  <script src="/template/vendors/progressbar.js/progressbar.min.js"></script>
+  <script src="/public/template/vendors/chart.js/Chart.min.js"></script>
+  <script src="/public/template/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+  <script src="/public/template/vendors/progressbar.js/progressbar.min.js"></script>
 
   <!-- End plugin js for this page -->
   <!-- inject:js -->
-  <script src="/template/js/off-canvas.js"></script>
-  <script src="/template/js/hoverable-collapse.js"></script>
-  <script src="/template/js/template.js"></script>
-  <script src="/template/js/settings.js"></script>
-  <script src="/template/js/todolist.js"></script>
+  <script src="/public/template/js/off-canvas.js"></script>
+  <script src="/public/template/js/hoverable-collapse.js"></script>
+  <script src="/public/template/js/public/template.js"></script>
+  <script src="/public/template/js/settings.js"></script>
+  <script src="/public/template/js/todolist.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
-  <script src="/template/js/dashboard.js"></script>
-  <script src="/template/js/Chart.roundedBarCharts.js"></script>
+  <script src="/public/template/js/dashboard.js"></script>
+  <script src="/public/template/js/Chart.roundedBarCharts.js"></script>
   <!-- End custom js for this page-->
 </body>
 

@@ -17,7 +17,7 @@ class Management_inv_squadsController extends Controller
             ->where('managements.user_id', Auth::user()->id_user)
             ->paginate(10);
 
-        return view('management_inv_squads.index', compact('management_inv_squads'));
+        return view('Management_inv_squads.index', compact('management_inv_squads'));
     }
 
     public function create()
@@ -25,7 +25,7 @@ class Management_inv_squadsController extends Controller
         $squads = Squads::where('management_id', null)->get();
         $managements = Managements::where('user_id', Auth::user()->id_user)->get();
 
-        return view('management_inv_squads.create', compact('squads', 'managements'));
+        return view('Management_inv_squads.create', compact('squads', 'managements'));
     }
 
     public function store(Request $request)
@@ -42,14 +42,14 @@ class Management_inv_squadsController extends Controller
     public function show($id)
     {
         $management_inv_squads = Management_inv_squads::find($id);
-        return view('management_inv_squads.show', compact('management_inv_squads'));
+        return view('Management_inv_squads.show', compact('management_inv_squads'));
     }
 
     public function edit($id)
     {
         $squads = Squads::all();
         $management_inv_squads = Management_inv_squads::find($id);
-        return view('management_inv_squads.edit', compact('management_inv_squads', 'squads'));
+        return view('Management_inv_squads.edit', compact('management_inv_squads', 'squads'));
     }
 
     public function update(Request $request, $id)
@@ -71,7 +71,7 @@ class Management_inv_squadsController extends Controller
             ->join('players', 'players.squad_id', 'squads.id_squad')
             ->where('players.user_id', Auth::user()->id_user)
             ->paginate(10);
-        return view('management_inv_squads.invite', compact('management_inv_squads'));
+        return view('Management_inv_squads.invite', compact('management_inv_squads'));
     }
 
     public function terima($id)

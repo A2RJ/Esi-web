@@ -21,7 +21,7 @@ class EventsController extends Controller
         $events = Events::with('owner', 'game')
             ->paginate(10);
 
-        return view('events.index', compact('events'));
+        return view('Events.index', compact('events'));
     }
 
     public function show($id)
@@ -35,14 +35,14 @@ class EventsController extends Controller
             ->where('event_winners.event_id', $id)
             ->get();
 
-        return view('events.detail', compact('event', 'teams', 'winners'));
+        return view('Events.detail', compact('event', 'teams', 'winners'));
     }
 
     public function create()
     {
         $games = Games::all();
         $users = Users::all();
-        return view('events.create', compact('games', 'users'));
+        return view('Events.create', compact('games', 'users'));
     }
 
     public function store(Request $request)
@@ -76,7 +76,7 @@ class EventsController extends Controller
         $games = Games::all();
         $users = Users::all();
         $event = Events::findOrFail($id);
-        return view('events.edit', compact('event', 'games', 'users'));
+        return view('Events.edit', compact('event', 'games', 'users'));
     }
 
     public function update(Request $request, $id)
@@ -122,7 +122,7 @@ class EventsController extends Controller
     {
         $events = Events::where('user_id', auth()->user()->id_user)
             ->paginate(10);
-        return view('events.index', compact('events'));
+        return view('Events.index', compact('events'));
     }
 
     public function setEvent($id)
@@ -147,7 +147,7 @@ class EventsController extends Controller
             ->where('events.user_id', Auth::user()->id_user)
             ->paginate(10);
 
-        return view('events.setEvent', compact('event_teams', 'event_inv_teams', 'event_winner', 'id'));
+        return view('Events.setEvent', compact('event_teams', 'event_inv_teams', 'event_winner', 'id'));
     }
 
     public function joinEvent($id)
@@ -161,7 +161,7 @@ class EventsController extends Controller
 
         $event = Events::findOrFail($id);
 
-        return view('events.joinEvent', compact('event', 'squads'));
+        return view('Events.joinEvent', compact('event', 'squads'));
     }
 
     public function storeJoin(Request $request)
@@ -198,7 +198,7 @@ class EventsController extends Controller
             ->select('event_teams.*', 'events.event_name', 'squads.squad_name')
             ->find($id);
 
-        return view('events.joinEdit', compact('event_teams'));
+        return view('Events.joinEdit', compact('event_teams'));
     }
 
     // updateJoin
@@ -236,6 +236,6 @@ class EventsController extends Controller
             ->select('events.*', 'event_teams.*', 'squads.*')
             ->paginate(10);
 
-        return view('events.follow', compact('event_teams'));
+        return view('Events.follow', compact('event_teams'));
     }
 }

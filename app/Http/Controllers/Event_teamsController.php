@@ -18,14 +18,14 @@ class Event_teamsController extends Controller
             ->where('events.user_id', Auth::user()->id_user)
             ->paginate(10);
 
-        return view('event_teams.index', compact('event_teams'));
+        return view('Event_teams.index', compact('event_teams'));
     }
 
     public function create($id)
     {
         $events = Events::where('user_id', Auth::user()->id_user)->find($id);
         $squads = Squads::all();
-        return view('event_teams.create', compact('squads', 'events'));
+        return view('Event_teams.create', compact('squads', 'events'));
     }
 
     public function store(Request $request)
@@ -48,7 +48,7 @@ class Event_teamsController extends Controller
         $squads = Squads::where('id_squad', $event_team->squad_id)
             ->select('id_squad', 'squad_name')->get();
 
-        return view('event_teams.edit', compact('event_team', 'squads', 'events'));
+        return view('Event_teams.edit', compact('event_team', 'squads', 'events'));
     }
 
     public function update(Request $request, $id)
@@ -60,7 +60,7 @@ class Event_teamsController extends Controller
     public function show($id)
     {
         $event_team = Event_teams::find($id);
-        return view('event_teams.show', compact('event_team'));
+        return view('Event_teams.show', compact('event_team'));
     }
 
     public function destroy($id)

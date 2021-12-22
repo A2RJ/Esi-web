@@ -18,7 +18,7 @@ class Event_winnerController extends Controller
             ->where('events.user_id', Auth::user()->id_user)
             ->paginate(10);
 
-        return view('event_winner.index', compact('event_winner'));
+        return view('Event_winner.index', compact('event_winner'));
     }
 
     public function create($id)
@@ -28,7 +28,7 @@ class Event_winnerController extends Controller
             ->where('event_teams.event_id', $id)
             ->select('squads.*')
             ->get();
-        return view('event_winner.create', compact('events', 'squads'));
+        return view('Event_winner.create', compact('events', 'squads'));
     }
 
     public function store(Request $request)
@@ -44,7 +44,7 @@ class Event_winnerController extends Controller
     public function show($id)
     {
         $event_winner = Event_winner::find($id);
-        return view('event_winner.show', compact('event_winner'));
+        return view('Event_winner.show', compact('event_winner'));
     }
 
     public function edit($id)
@@ -52,7 +52,7 @@ class Event_winnerController extends Controller
         $events = Events::all();
         $squads = Squads::all();
         $event_winner = Event_winner::find($id);
-        return view('event_winner.edit', compact('event_winner', 'events', 'squads'));
+        return view('Event_winner.edit', compact('event_winner', 'events', 'squads'));
     }
 
     public function update(Request $request, $id)

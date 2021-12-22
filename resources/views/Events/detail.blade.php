@@ -14,8 +14,8 @@
                 <div class="bnSlide"></div>
                 <div class="photoCollect">
                     <!-- YOUR IMAGES HERE (Maximum 10 Photos & Minimum 1 Photo) -->
-                    <a href="/images/{{$event->event_image}}">
-                        <img src="/images/{{$event->event_image}}" alt="#no-image" title="#title-image" loading="lazy" />
+                    <a href="/public/images/{{$event->event_image}}">
+                        <img src="/public/images/{{$event->event_image}}" alt="#no-image" title="#title-image" loading="lazy" />
                     </a>
                 </div>
                 <div class="indCat"></div>

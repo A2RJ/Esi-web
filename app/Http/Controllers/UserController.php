@@ -12,17 +12,17 @@ class UserController extends Controller
     public function index()
     {
         $users = User::paginate(10);
-        return view('users.index', compact('users'));
+        return view('Users.index', compact('users'));
     }
     public function show($id)
     {
         $user = User::find($id);
-        return view('users.show', compact('user'));
+        return view('Users.show', compact('user'));
     }
 
     public function create()
     {
-        return view('users.create');
+        return view('Users.create');
     }
 
     public function store(Request $request)
@@ -48,13 +48,13 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('users.edit', compact('user'));
+        return view('Users.edit', compact('user'));
     }
 
     public function profile($id)
     {
         $user = User::find($id);
-        return view('users.edit', compact('user'));
+        return view('Users.edit', compact('user'));
     }
 
     public function update(Request $request, $id)

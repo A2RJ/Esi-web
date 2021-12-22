@@ -18,7 +18,7 @@ class Squad_inv_playersController extends Controller
             ->select('squad_inv_players.*', 'players.ingame_name', 'squads.squad_name')
             ->paginate(10);
 
-        return view('squad_inv_players.index', compact('squad_inv_players'));
+        return view('Squad_inv_players.index', compact('squad_inv_players'));
     }
 
     public function create($id)
@@ -29,7 +29,7 @@ class Squad_inv_playersController extends Controller
             ->select('squads.id_squad', 'squads.squad_name')
             ->find($id);
             
-        return view('squad_inv_players.create', compact('players', 'squad'));
+        return view('Squad_inv_players.create', compact('players', 'squad'));
     }
 
     public function store(Request $request)
@@ -56,13 +56,13 @@ class Squad_inv_playersController extends Controller
     public function show($id)
     {
         $squad_inv_players = Squad_inv_players::find($id);
-        return view('squad_inv_players.show', compact('squad_inv_players'));
+        return view('Squad_inv_players.show', compact('squad_inv_players'));
     }
 
     public function edit($id)
     {
         $squad_inv_players = Squad_inv_players::find($id);
-        return view('squad_inv_players.edit', compact('squad_inv_players'));
+        return view('Squad_inv_players.edit', compact('squad_inv_players'));
     }
 
     public function update(Request $request, $id)
@@ -95,7 +95,7 @@ class Squad_inv_playersController extends Controller
             ->select('squad_inv_players.*', 'players.ingame_name', 'squads.squad_name')
             ->paginate(10);
 
-        return view('squad_inv_players.invite', compact('squad_inv_players'));
+        return view('Squad_inv_players.invite', compact('squad_inv_players'));
     }
 
     public function terima($id)

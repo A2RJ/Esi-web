@@ -14,8 +14,8 @@
                 <div class="bnSlide"></div>
                 <div class="photoCollect">
                     <!-- YOUR IMAGES HERE (Maximum 10 Photos & Minimum 1 Photo) -->
-                    <a href="/images/{{$squad->squad_image}}">
-                        <img src="/images/{{$squad->squad_image}}" alt="#no-image" title="#title-image" loading="lazy" />
+                    <a href="/public/images/{{$squad->squad_image}}">
+                        <img src="/public/images/{{$squad->squad_image}}" alt="#no-image" title="#title-image" loading="lazy" />
                     </a>
                 </div>
                 <div class="indCat"></div>

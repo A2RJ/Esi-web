@@ -18,14 +18,14 @@ class SquadsController extends Controller
         $squads = Squads::with('game', 'leader', 'players', 'management')
             ->paginate(10);
 
-        return view('squads.index', compact('squads'));
+        return view('Squads.index', compact('squads'));
     }
 
     public function create()
     {
         $games = Games::all();
         $players = Players::where('user_id', Auth::user()->id_user)->where('squad_id', null)->get();
-        return view('squads.create', compact('players', 'games'));
+        return view('Squads.create', compact('players', 'games'));
     }
 
     public function store(Request $request)
@@ -50,7 +50,7 @@ class SquadsController extends Controller
     {
         $games = Games::all();
         $squad = Squads::find($id);
-        return view('squads.detail', compact('squad'));
+        return view('Squads.detail', compact('squad'));
     }
 
     public function edit($id)
@@ -59,7 +59,7 @@ class SquadsController extends Controller
         $squad = Squads::find($id);
         $player = Players::find($squad->squad_leader);
         $players = Players::where('user_id', Auth::user()->id_user)->where('squad_id', null)->get();
-        return view('squads.edit', compact('squad', 'player', 'players', 'games'));
+        return view('Squads.edit', compact('squad', 'player', 'players', 'games'));
     }
 
     public function update(Request $request, $id)
@@ -92,7 +92,7 @@ class SquadsController extends Controller
             ->with('leader', 'management')
             ->paginate(10);
 
-        return view('squads.index', compact('squads'));
+        return view('Squads.index', compact('squads'));
     }
 
     public function setSquad($id)
@@ -113,7 +113,7 @@ class SquadsController extends Controller
             ->select('request_squads.*', 'squads.squad_name', 'players.ingame_name')
             ->paginate(10);
 
-        return view('squads.show', compact('id', 'players', 'squad_inv_players', 'request_squads'));
+        return view('Squads.show', compact('id', 'players', 'squad_inv_players', 'request_squads'));
     }
 
     public function destroyFromSquad($id)

@@ -6,7 +6,7 @@
     <div class="container">
         <h1 class="font-weight-semibold">ESI Sumbawa<br>Nusa Tenggara Barat.</h1>
         <h6 class="font-weight-normal text-muted pb-3">Simple is a simple template with a creative design that solves all your marketing and SEO queries.</h6>
-        <img src="/landing-page/images/Group171.svg" alt="" class="img-fluid">
+        <img src="/public/landing-page/images/Group171.svg" alt="" class="img-fluid">
     </div>
 </div>
 <div class="content-wrapper">
@@ -128,7 +128,7 @@
             <div class="d-md-flex justify-content-between">
                 <div class="grid-margin d-flex justify-content-start">
                     <div class="features-width">
-                        <img src="/landing-page/images/Group12.svg" alt="" class="img-icons">
+                        <img src="/public/landing-page/images/Group12.svg" alt="" class="img-icons">
                         <h5 class="py-3">Speed<br>Optimisation</h5>
                         <p class="text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
                         <a href="#">
@@ -138,7 +138,7 @@
                 </div>
                 <div class="grid-margin d-flex justify-content-center">
                     <div class="features-width">
-                        <img src="/landing-page/images/Group7.svg" alt="" class="img-icons">
+                        <img src="/public/landing-page/images/Group7.svg" alt="" class="img-icons">
                         <h5 class="py-3">SEO and<br>Backlinks</h5>
                         <p class="text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
                         <a href="#">
@@ -148,7 +148,7 @@
                 </div>
                 <div class="grid-margin d-flex justify-content-end">
                     <div class="features-width">
-                        <img src="/landing-page/images/Group5.svg" alt="" class="img-icons">
+                        <img src="/public/landing-page/images/Group5.svg" alt="" class="img-icons">
                         <h5 class="py-3">Content<br>Marketing</h5>
                         <p class="text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
                         <a href="#">
@@ -168,12 +168,12 @@
                     </div>
                 </div>
                 <div class="col-12 col-lg-5 p-0 img-digital grid-margin grid-margin-lg-0" data-aos="fade-left">
-                    <img src="/landing-page/images/Group1.png" alt="" class="img-fluid">
+                    <img src="/public/landing-page/images/Group1.png" alt="" class="img-fluid">
                 </div>
             </div>
             <div class="row align-items-center">
                 <div class="col-12 col-lg-7 text-center flex-item grid-margin" data-aos="fade-right">
-                    <img src="/landing-page/images/Group2.png" alt="" class="img-fluid">
+                    <img src="/public/landing-page/images/Group2.png" alt="" class="img-fluid">
                 </div>
                 <div class="col-12 col-lg-5 flex-item grid-margin" data-aos="fade-left">
                     <h3 class="m-0">Leading Digital Agency<br>for Business Solution.</h3>

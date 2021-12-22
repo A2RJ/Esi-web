@@ -13,13 +13,13 @@ class GamesController extends Controller
     {
         $games = Games::with('category')
             ->paginate(10);
-        return view('games.index', compact('games'));
+        return view('Games.index', compact('games'));
     }
 
     public function create()
     {
         $categories = Game_categories::all();
-        return view('games.create', compact('categories'));
+        return view('Games.create', compact('categories'));
     }
 
     public function store(Request $request)
@@ -39,14 +39,14 @@ class GamesController extends Controller
     public function show($id)
     {
         $games = Games::find($id);
-        return view('games.show', compact('games'));
+        return view('Games.show', compact('games'));
     }
 
     public function edit($id)
     {
         $games = Games::find($id);
         $categories = Game_categories::all();
-        return view('games.edit', compact('games', 'categories'));
+        return view('Games.edit', compact('games', 'categories'));
     }
 
     public function update(Request $request, $id)

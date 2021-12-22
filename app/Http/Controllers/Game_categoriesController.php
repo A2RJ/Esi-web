@@ -9,12 +9,12 @@ class Game_categoriesController extends Controller
     public function index()
     {
         $game_categories = Game_categories::paginate(10);
-        return view('game_categories.index', compact('game_categories'));
+        return view('Game_categories.index', compact('game_categories'));
     }
 
     public function create()
     {
-        return view('game_categories.create');
+        return view('Game_categories.create');
     }
 
     public function store(Request $request)
@@ -30,13 +30,13 @@ class Game_categoriesController extends Controller
     public function show($id)
     {
         $game_categories = Game_categories::find($id);
-        return view('game_categories.show', compact('game_categories'));
+        return view('Game_categories.show', compact('game_categories'));
     }
 
     public function edit($id)
     {
         $game_categories = Game_categories::find($id);
-        return view('game_categories.edit', compact('game_categories'));
+        return view('Game_categories.edit', compact('game_categories'));
     }
 
     public function update(Request $request, $id)

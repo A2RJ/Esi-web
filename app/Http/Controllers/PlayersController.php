@@ -16,7 +16,7 @@ class PlayersController extends Controller
     {
         $players = Players::with('user', 'game', 'squad')
             ->paginate(10);
-        return view('players.index', compact('players'));
+        return view('Players.index', compact('players'));
     }
 
     public function create()
@@ -24,7 +24,7 @@ class PlayersController extends Controller
         $users = Users::all();
         $games = Games::all();
         $squads = Squads::all();
-        return view('players.create', compact('users', 'games', 'squads'));
+        return view('Players.create', compact('users', 'games', 'squads'));
     }
 
     public function store(Request $request)
@@ -51,13 +51,13 @@ class PlayersController extends Controller
     public function show($id)
     {
         $players = Players::find($id);
-        return view('players.detail', compact('players'));
+        return view('Players.detail', compact('players'));
     }
 
     public function account($id)
     {
         $players = Players::where('user_id', $id)->paginate(10);
-        return view('players.account', compact('players'));
+        return view('Players.account', compact('players'));
     }
 
     public function edit($id)
@@ -66,7 +66,7 @@ class PlayersController extends Controller
         $games = Games::all();
         $squads = Squads::all();
         $players = Players::find($id);
-        return view('players.edit', compact('players', 'users', 'games', 'squads'));
+        return view('Players.edit', compact('players', 'users', 'games', 'squads'));
     }
 
     public function update(Request $request, $id)
@@ -96,6 +96,6 @@ class PlayersController extends Controller
         $players = Players::with('user', 'game', 'squad')
             ->where('user_id', Auth::user()->id_user)
             ->paginate(10);
-        return view('players.index', compact('players'));
+        return view('Players.index', compact('players'));
     }
 }
