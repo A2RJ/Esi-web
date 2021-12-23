@@ -6,11 +6,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/public/landing-page/vendors/owl-carousel/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="/public/landing-page/vendors/owl-carousel/css/owl.theme.default.css">
-    <link rel="stylesheet" href="/public/landing-page/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="/public/landing-page/vendors/aos/css/aos.css">
-    <link rel="stylesheet" href="/public/landing-page/css/style.min.css">
+    <link rel="stylesheet" href="/landing-page/vendors/owl-carousel/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/landing-page/vendors/owl-carousel/css/owl.theme.default.css">
+    <link rel="stylesheet" href="/landing-page/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/landing-page/vendors/aos/css/aos.css">
+    <link rel="stylesheet" href="/landing-page/css/style.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/carousnap/carousnap@v1.7/carousnap/carousnap.css" integrity="sha384-AvIUz0OeqILp4fNEi51z9HqDHi/FXyvB54l4CFzgP3pV8V67SxE8j0CEmLHWIu/e" crossorigin="anonymous" />
     <style>
     </style>
@@ -21,7 +21,7 @@
         <nav class="navbar navbar-expand-lg pl-3 pl-sm-0 {{!\Request::is('/') ? 'bg-white' : '' }}" id="navbar">
             <div class="container">
                 <div class="navbar-brand-wrapper d-flex w-100">
-                    <img src="/public/landing-page/images/1639985799654.jpg" style="width: 80px;" alt="">
+                    <img src="/landing-page/images/1639985799654.jpg" style="width: 80px;" alt="">
                     <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="mdi mdi-menu navbar-toggler-icon"></span>
                     </button>
@@ -31,7 +31,7 @@
                         <li class="d-flex align-items-center justify-content-between pl-4 pl-lg-0">
                             <div class="navbar-collapse-logo">
                                 <a href="/">
-                                    <img src="/public/landing-page/images/1639985799654.jpg" style="width: 80px;" alt="">
+                                    <img src="/landing-page/images/1639985799654.jpg" style="width: 80px;" alt="">
                                 </a>
                             </div>
                             <button class="navbar-toggler close-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,7 +80,7 @@
     <section class="container contact-details" style="margin-top: 150px;" id="contact-details-section">
         <div class="row text-center text-md-left">
             <div class="col-12 col-md-6 col-lg-3 grid-margin">
-                <img src="/public/landing-page/images/1639985799654.jpg" style="width: 80px;" alt="" class="pb-2">
+                <img src="/landing-page/images/1639985799654.jpg" style="width: 80px;" alt="" class="pb-2">
                 <div class="pt-2">
                     <p class="text-muted m-0">mikayla_beer@feil.name</p>
                     <p class="text-muted m-0">906-179-8309</p>
@@ -130,11 +130,11 @@
         </footer>
     </section>
     <script src="https://cdn.jsdelivr.net/gh/carousnap/carousnap@v1.7/carousnap/carousnap.js" integrity="sha384-1mHmu4fyyExEnjX4DGx0QsSsPWPIaJ7oFcQ3LIL/gAT7t5i6mNfW80xJOzEHfNgv" crossorigin="anonymous"></script>
-    <script src="/public/landing-page/vendors/jquery/jquery.min.js"></script>
-    <script src="/public/landing-page/vendors/bootstrap/bootstrap.min.js"></script>
-    <script src="/public/landing-page/vendors/owl-carousel/js/owl.carousel.min.js"></script>
-    <script src="/public/landing-page/vendors/aos/js/aos.js"></script>
-    <script src="/public/landing-page/js/landingpage.js"></script>
+    <script src="/landing-page/vendors/jquery/jquery.min.js"></script>
+    <script src="/landing-page/vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="/landing-page/vendors/owl-carousel/js/owl.carousel.min.js"></script>
+    <script src="/landing-page/vendors/aos/js/aos.js"></script>
+    <script src="/landing-page/js/landingpage.js"></script>
 </body>
 
 </html>

@@ -19,6 +19,8 @@
 # next update
 
 -   pagination untuk semua halaman
+-   fitur pencarian
+-   periksa middleware untuk setiap menu, caranya coba fitur lalu set middleware
 -   Testing
     -- register 3 level user
     -- login
