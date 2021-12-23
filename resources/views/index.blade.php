@@ -19,40 +19,10 @@
                 </div>
 
                 <!-- search bar events -->
-                <div class="col-12 d-flex justify-content-center">
-                    <form action="/" method="get">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="input-group">
-                                    <input type="text" name="event" class="form-control" placeholder="Cari event..." autocomplete="off" value="{{ app('request')->input('event') ? app('request')->input('event') : '' }}">
-                                    <!-- form append -->
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary py-0 px-2" type="submit">
-                                            Cari
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                <x-search name="event"></x-search>
 
                 <!-- empty events -->
-                @if(count($events) == 0)
-                <div class="col-12 text-center border rounded mt-5">
-                    <div class="card">
-                        <div class="card-body">
-                            <h6 class="section-subtitle text-warning m-0 mb-3">{{ app('request')->input('event') ? app('request')->input('event') . ' event tidak ditemukan' : 'Belum ada event yang tersedia.'  }}</h6>
-                            <!-- cancel search button -->
-                            @if(app('request')->input('event'))
-                            <a href="/">
-                                <button class="btn btn-outline-warning m-0 p-1">Cancel</button>
-                            </a>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-                @endif
+                <x-empty-data name="event" :items="$events"></x-empty-data>
 
                 @foreach($events as $event)
                 <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
@@ -81,43 +51,13 @@
                     <h6 class="section-subtitle text-muted m-0">Cek data mu dibawah iya.</h6>
                 </div>
 
-                <!-- search bar players -->
-                <div class="col-12 d-flex justify-content-center">
-                    <form action="/" method="get">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="input-group">
-                                    <input type="text" name="player" class="form-control" placeholder="Cari player..." autocomplete="off" value="{{ app('request')->input('player') ? app('request')->input('player') : '' }}">
-                                    <!-- form append -->
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary py-0 px-2" type="submit">
-                                            Cari
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                <!-- search player -->
+                <x-search name="player"></x-search>
 
-                <!-- empty players -->
-                @if(count($players) == 0)
-                <div class="col-12 text-center border rounded mt-5">
-                    <div class="card">
-                        <div class="card-body">
-                            <h6 class="section-subtitle text-warning m-0 mb-3">{{ app('request')->input('player') ? app('request')->input('player') . ' player tidak ditemukan' : 'Belum ada player yang tersedia.'  }}</h6>
-                            <!-- cancel search button -->
-                            @if(app('request')->input('player'))
-                            <a href="/">
-                                <button class="btn btn-outline-warning m-0 p-1">Cancel</button>
-                            </a>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-                @endif
+                <!-- empty player -->
+                <x-empty-data name="player" :items="$players"></x-empty-data>
 
-                <!-- looping users -->
+                <!-- looping players -->
                 @foreach($players as $player)
                 <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
                     <a href="/home/player/{{$player->id_player}}">
@@ -145,43 +85,13 @@
                     <h6 class="section-subtitle text-muted m-0">Cek data mu dibawah iya.</h6>
                 </div>
 
-                <!-- seacrh bar squads -->
-                <div class="col-12 d-flex justify-content-center">
-                    <form action="/" method="get">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="input-group">
-                                    <input type="text" name="squad" class="form-control" placeholder="Cari squad..." autocomplete="off" value="{{ app('request')->input('squad') ? app('request')->input('squad') : '' }}">
-                                    <!-- form append -->
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary py-0 px-2" type="submit">
-                                            Cari
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                <!-- search squad -->
+                <x-search name="squad"></x-search>
 
-                <!-- empty squads -->
-                @if(count($squads) == 0)
-                <div class="col-12 text-center border rounded mt-5">
-                    <div class="card">
-                        <div class="card-body">
-                            <h6 class="section-subtitle text-warning m-0 mb-3">{{ app('request')->input('squad') ? app('request')->input('squad') . ' squad tidak ditemukan' : 'Belum ada squad yang tersedia.'  }}</h6>
-                            <!-- cancel search button -->
-                            @if(app('request')->input('squad'))
-                            <a href="/">
-                                <button class="btn btn-outline-warning m-0 p-1">Cancel</button>
-                            </a>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-                @endif
+                <!-- empty squad -->
+                <x-empty-data name="squad" :items="$squads"></x-empty-data>
 
-                <!-- looping users -->
+                <!-- looping squads -->
                 @foreach($squads as $squad)
                 <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
                     <a href="/home/squad/{{$squad->id_squad}}">
@@ -209,42 +119,13 @@
                     <h6 class="section-subtitle text-muted m-0">Cek dibawah iya.</h6>
                 </div>
 
-                <!-- seacrh bar managements -->
-                <div class="col-12 d-flex justify-content-center">
-                    <form action="/" method="get">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="input-group">
-                                    <input type="text" name="management" class="form-control" placeholder="Cari management..." autocomplete="off" value="{{ app('request')->input('management') ? app('request')->input('management') : '' }}">
-                                    <!-- form append -->
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary py-0 px-2" type="submit">
-                                            Cari
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                <!-- search management -->
+                <x-search name="management"></x-search>
 
-                <!-- empty managements -->
-                @if(count($managements) == 0)
-                <div class="col-12 text-center border rounded mt-5">
-                    <div class="card">
-                        <div class="card-body">
-                            <h6 class="section-subtitle text-warning m-0 mb-3">{{ app('request')->input('management') ? app('request')->input('management') . ' management tidak ditemukan' : 'Belum ada management yang tersedia.'  }}</h6>
-                            <!-- cancel search button -->
-                            @if(app('request')->input('management'))
-                            <a href="/">
-                                <button class="btn btn-outline-warning m-0 p-1">Cancel</button>
-                            </a>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-                @endif
+                <!-- empty management -->
+                <x-empty-data name="management" :items="$managements"></x-empty-data>
 
+                <!-- looping management -->
                 @foreach($managements as $management)
                 <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
                     <a href="/home/management/{{$management->id_management}}">

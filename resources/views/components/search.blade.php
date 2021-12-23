@@ -1,4 +1,4 @@
-<div class="col-12 d-flex justify-content-center">
+<div class="col-12 d-flex justify-content-center mb-4">
     <form action="/" method="get">
         <div class="row">
             <div class="col-12">
