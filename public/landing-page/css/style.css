@@ -9666,28 +9666,28 @@ body.sidebar-open::before {
   opacity: 0;
 }
 
-.customer-feedback .customer-cards {
+.main-content .customer-cards {
   background: #f3f7fb;
   font-size: 18px;
   margin: 0px 12px;
   transition: all 0.7s ease-in-out;
 }
 
-.customer-feedback .customer-cards .img-customer {
+.main-content .customer-cards .img-customer {
   border-radius: 50%;
   transition: all 0.7s ease-in-out;
 }
 
-.customer-feedback .customer-cards:hover {
+.main-content .customer-cards:hover {
   background: #e4e7ea;
   transform: scale(1.02);
 }
 
-.customer-feedback .customer-cards:hover .img-customer {
+.main-content .customer-cards:hover .img-customer {
   transform: scale(1.05);
 }
 
-.customer-feedback .customer-cards .content-divider {
+.main-content .customer-cards .content-divider {
   width: 73px;
   height: 3px;
 }

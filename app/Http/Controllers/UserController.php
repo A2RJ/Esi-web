@@ -11,7 +11,11 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::paginate(10);
+        $users = User::latest();
+        if(request('user')){
+            $users = $users->where('nama', 'like', '%' . request('user') . '%');
+        }
+        $users = $users->paginate(10);
         return view('Users.index', compact('users'));
     }
     public function show($id)

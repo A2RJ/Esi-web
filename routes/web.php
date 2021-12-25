@@ -42,16 +42,20 @@ Auth::routes();
 
 Route::get('/', function () {
     $events = Events::latest();
-    if (request('event')) $events = $events->where('event_name', 'LIKE', '%' . request('event') . '%');
+    if (request('event')) 
+    $events = $events->where('event_name', 'LIKE', '%' . request('event') . '%');
 
     $players = Players::latest();
-    if (request('player')) $players->where('ingame_name', 'LIKE', '%' . request('player') . '%');
+    if (request('player')) 
+    $players->where('ingame_name', 'LIKE', '%' . request('player') . '%');
 
     $squads = Squads::latest();
-    if (request('squad')) $squads->where('squad_name', 'LIKE', '%' . request('squad') . '%');
+    if (request('squad')) 
+    $squads->where('squad_name', 'LIKE', '%' . request('squad') . '%');
 
     $managements = Managements::latest();
-    if (request('management')) $managements->where('management_name', 'LIKE', '%' . request('management') . '%');
+    if (request('management')) 
+    $managements->where('management_name', 'LIKE', '%' . request('management') . '%');
 
     $events = $events->paginate(6, ['*'], 'events');
     $players = $players->paginate(6, ['*'], 'players');

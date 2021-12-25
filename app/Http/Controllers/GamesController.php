@@ -11,8 +11,13 @@ class GamesController extends Controller
 {
     public function index()
     {
-        $games = Games::with('category')
-            ->paginate(10);
+        $games = Games::with('category')->latest();
+
+        if (request()->has('game')) {
+            $games = $games->where('game_name', 'LIKE', '%' . request()->game . '%');
+        }
+        
+        $games = $games->paginate(10);
         return view('Games.index', compact('games'));
     }
 

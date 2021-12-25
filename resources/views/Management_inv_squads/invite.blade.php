@@ -18,6 +18,8 @@
                 </p>
 
                 <div class="table-responsive">
+                    <!-- search event -->
+                    <x-search name="management_inv_squad"></x-search>
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -30,6 +32,14 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <!-- empty management_inv_squads -->
+                            @if($management_inv_squads->isEmpty())
+                            <tr>
+                                <td colspan="5" class="text-center">
+                                    <h4>Tidak ada data</h4>
+                                </td>
+                            </tr>
+                            @endif
                             @foreach ($management_inv_squads as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td>{{ $loop->iteration }}</td>

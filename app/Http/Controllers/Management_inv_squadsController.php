@@ -15,8 +15,13 @@ class Management_inv_squadsController extends Controller
         $management_inv_squads = Management_inv_squads::join('squads', 'management_inv_squads.squad_id', 'squads.id_squad')
             ->join('managements', 'management_inv_squads.management_id', 'managements.id_management')
             ->where('managements.user_id', Auth::user()->id_user)
-            ->paginate(10);
+            ->latest();
 
+        if (request()->has('management_inv_squad')) {
+            $management_inv_squads->where('squads.squad_name', 'LIKE', '%' . request('management_inv_squad') . '%')
+                ->orWhere('managements.management_name', 'LIKE', '%' . request('management_inv_squad') . '%');
+        }
+        $management_inv_squads = $management_inv_squads->paginate(10);
         return view('Management_inv_squads.index', compact('management_inv_squads'));
     }
 
@@ -70,7 +75,13 @@ class Management_inv_squadsController extends Controller
             ->join('managements', 'management_inv_squads.management_id', 'managements.id_management')
             ->join('players', 'players.squad_id', 'squads.id_squad')
             ->where('players.user_id', Auth::user()->id_user)
-            ->paginate(10);
+            ->latest();
+
+        if (request()->has('management_inv_squad')) {
+            $management_inv_squads = $management_inv_squads->where('managements.management_name', 'LIKE', '%' . request('management_inv_squad') . '%')
+                ->orWhere('squads.squad_name', 'LIKE', '%' . request('management_inv_squad') . '%');
+        }
+        $management_inv_squads = $management_inv_squads->paginate(10);
         return view('Management_inv_squads.invite', compact('management_inv_squads'));
     }
 

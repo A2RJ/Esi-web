@@ -17,7 +17,14 @@ class Request_managementsController extends Controller
             ->join('players', 'squads.squad_leader', 'players.id_player')
             ->where('players.user_id', Auth::user()->id_user)
             ->select('request_managements.*', 'squads.squad_name', 'managements.management_name')
-            ->get();
+            ->latest();
+
+        if (request()->has('request_management')) {
+            $request_managements->where('squads.squad_name', 'LIKE', '%' . request('request_management') . '%')
+                ->orWhere('managements.management_name', 'LIKE', '%' . request('request_management') . '%');
+        }
+
+        $request_managements = $request_managements->paginate(10);
         return view('Request_managements.index', compact('request_managements'));
     }
 
@@ -82,8 +89,13 @@ class Request_managementsController extends Controller
             ->where('managements.user_id', Auth::user()->id_user)
             ->select('request_managements.*')
             ->with('squad', 'management')
-            ->get();
+            ->latest();
 
+        if (request()->has('request_management')) {
+            $request_managements->where('managements.management_name', 'LIKE', '%' . request('request_management') . '%');
+        }
+        
+        $request_managements = $request_managements->paginate(10);
         return view('Request_managements.requestFromSquads', compact('request_managements'));
     }
 

@@ -35,6 +35,10 @@
                 @endif
 
                 <div class="table-responsive mt-4">
+
+                    <!-- search bar events -->
+                    <x-search name="squad"></x-search>
+
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -47,6 +51,15 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <!-- empty squads -->
+                            @if($squads->isEmpty())
+                            <tr>
+                                <td colspan="5" class="text-center">
+                                    <h4>Tidak ada data</h4>
+                                </td>
+                            </tr>
+                            @endif
+                            
                             @foreach ($squads as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td>{{ $loop->iteration }}</td>

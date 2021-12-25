@@ -17,6 +17,8 @@
                     Daftar player
                 </p>
                 <div class="table-responsive">
+                    <!-- search player -->
+                    <x-search name="player"></x-search>
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -29,6 +31,14 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <!-- empty players -->
+                            @if($players->isEmpty())
+                            <tr>
+                                <td colspan="5" class="text-center">
+                                    <h4>Tidak ada data</h4>
+                                </td>
+                            </tr>
+                            @endif
                             @foreach ($players as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td>{{ $loop->iteration }}</td>
@@ -72,6 +82,8 @@
                     Create
                 </a>
                 <div class="table-responsive">
+                    <!-- search squad_inv_player -->
+                    <x-search name="squad_inv_player"></x-search>
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -84,6 +96,14 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <!-- empty squad_inv_players -->
+                            @if($squad_inv_players->isEmpty())
+                            <tr>
+                                <td colspan="5" class="text-center">
+                                    <h4>Tidak ada data</h4>
+                                </td>
+                            </tr>
+                            @endif
                             @foreach ($squad_inv_players as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td>{{ $loop->iteration }}</td>
@@ -116,6 +136,8 @@
                 </p>
 
                 <div class="table-responsive">
+                    <!-- search request_squad -->
+                    <x-search name="request_squad"></x-search>
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -128,6 +150,14 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <!-- empty request_squads -->
+                            @if($request_squads->isEmpty())
+                            <tr>
+                                <td colspan="5" class="text-center">
+                                    <h4>Tidak ada data</h4>
+                                </td>
+                            </tr>
+                            @endif
                             @foreach ($request_squads as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td>{{ $loop->iteration }}</td>

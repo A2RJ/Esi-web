@@ -259,6 +259,7 @@ use Illuminate\Support\Facades\Auth; ?>
   <script src="/template/js/dashboard.js"></script>
   <script src="/template/js/Chart.roundedBarCharts.js"></script>
   <!-- End custom js for this page-->
+  @livewireAssets 
 </body>
 
 </html>

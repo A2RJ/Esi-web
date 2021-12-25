@@ -32,6 +32,10 @@
                 @endif
 
                 <div class="table-responsive">
+
+                    <!-- search bar events -->
+                    <x-search name="player"></x-search>
+
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -44,6 +48,15 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <!-- empty players -->
+                            @if($players->isEmpty())
+                            <tr>
+                                <td colspan="5" class="text-center">
+                                    <h4>Tidak ada data</h4>
+                                </td>
+                            </tr>
+                            @endif
+                            
                             @foreach ($players as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td>{{ $loop->iteration }}</td>

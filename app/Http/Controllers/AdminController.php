@@ -15,7 +15,11 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $admin = Admin::all();
+        $admin = Admin::latest();
+        if(request('admin')) {
+            $admin->where('jabatan', 'LIKE', '%' . request('admin') . '%');
+        }
+        $admin = $admin->paginate(10);
         return view('Admin.index', compact('admin'));
     }
 
@@ -94,6 +98,6 @@ class AdminController extends Controller
     public function destroy($id)
     {
         Admin::find($id)->delete();
-        return redirect('admin')->with('success', 'Data berhasil dihapus');
+        return redirect(url()->previous())->with('success', 'Data berhasil dihapus');
     }
 }

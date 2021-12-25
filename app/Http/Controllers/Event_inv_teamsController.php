@@ -86,7 +86,14 @@ class Event_inv_teamsController extends Controller
             ->join('squads', 'squads.id_squad', 'event_inv_teams.squad_id')
             ->whereIn('event_inv_teams.squad_id', $squad_id)
             ->select('event_inv_teams.*', 'events.event_name', 'squads.squad_name')
-            ->paginate(10);
+            ->latest();
+
+        if (request()->has('event_inv_team')) {
+            $event_inv_teams = $event_inv_teams->where('events.event_name', 'like', '%' . request('event_inv_team') . '%')
+                ->orWhere('squads.squad_name', 'like', '%' . request('event_inv_team') . '%');
+        }
+
+        $event_inv_teams = $event_inv_teams->paginate(10);
 
         return view('Event_inv_teams.invite', compact('event_inv_teams'));
     }

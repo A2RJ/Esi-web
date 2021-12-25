@@ -14,8 +14,13 @@ class PlayersController extends Controller
 {
     public function index()
     {
-        $players = Players::with('user', 'game', 'squad')
-            ->paginate(10);
+        $players = Players::with('user', 'game', 'squad')->latest();
+
+        if (request()->has('player')) {
+            $players = $players->where('ingame_name', 'LIKE', '%' . request()->player . '%');
+        }
+
+        $players = $players->paginate(10);
         return view('Players.index', compact('players'));
     }
 
@@ -94,8 +99,13 @@ class PlayersController extends Controller
     public function players()
     {
         $players = Players::with('user', 'game', 'squad')
-            ->where('user_id', Auth::user()->id_user)
-            ->paginate(10);
+            ->where('user_id', Auth::user()->id_user)->latest();
+
+        if (request()->has('player')) {
+            $players = $players->where('ingame_name', 'LIKE', '%' . request()->player . '%');
+        }
+
+        $players = $players->paginate(10);
         return view('Players.index', compact('players'));
     }
 }

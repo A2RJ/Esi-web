@@ -8,7 +8,13 @@ class Game_categoriesController extends Controller
 {
     public function index()
     {
-        $game_categories = Game_categories::paginate(10);
+        $game_categories = Game_categories::latest();
+
+        if (request()->has('game_category')) {
+            $game_categories = $game_categories->where('game_category', 'LIKE', '%' . request('game_category') . '%');
+        }
+
+        $game_categories = $game_categories->paginate(10);
         return view('Game_categories.index', compact('game_categories'));
     }
 

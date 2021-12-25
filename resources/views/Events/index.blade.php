@@ -26,6 +26,8 @@
                 @endif
 
                 <div class="table-responsive mt-4">
+                    <!-- search -->
+                    <x-search name="event"></x-search>
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -38,6 +40,14 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <!-- empty events -->
+                            @if($events->isEmpty())
+                            <tr>
+                                <td colspan="5" class="text-center">
+                                    <h4>Tidak ada data</h4>
+                                </td>
+                            </tr>
+                            @endif
                             @foreach ($events as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td>{{ $loop->iteration }}</td>

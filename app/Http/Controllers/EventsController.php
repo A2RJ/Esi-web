@@ -18,9 +18,14 @@ class EventsController extends Controller
 {
     public function index()
     {
-        $events = Events::with('owner', 'game')
-            ->paginate(10);
+        $events = Events::with('owner', 'game')->latest();
 
+        // if has event search like
+        if (request()->has('event')) {
+            $events = $events->where('event_name', 'LIKE', '%' . request('event') . '%');
+        }
+
+        $events = $events->paginate(10);
         return view('Events.index', compact('events'));
     }
 
@@ -68,7 +73,7 @@ class EventsController extends Controller
         $event->save();
 
         if (Auth::user()->user_role !== 'admin') return redirect('events/events')->with('success', 'Event created successfully');
-        return redirect('/events')->with('success', 'Data berhasil ditambahkan');
+        return redirect('/events/events')->with('success', 'Data berhasil ditambahkan');
     }
 
     public function edit($id)
@@ -105,7 +110,7 @@ class EventsController extends Controller
         }
 
         if (Auth::user()->user_role !== 'admin') return redirect('events/events')->with('success', 'Event created successfully');
-        return redirect('/events')->with('success', 'Data berhasil diubah');
+        return redirect('/events/events')->with('success', 'Data berhasil diubah');
     }
 
     public function destroy($id)
@@ -114,14 +119,20 @@ class EventsController extends Controller
         $event->delete();
 
         if (Auth::user()->user_role !== 'admin') return redirect('events/events')->with('success', 'Event created successfully');
-        return redirect('/events')->with('success', 'Data berhasil dihapus');
+        return redirect('/events/events')->with('success', 'Data berhasil dihapus');
     }
 
     // ambil data event berdasarkan user login
     public function events()
     {
         $events = Events::where('user_id', auth()->user()->id_user)
-            ->paginate(10);
+            ->latest();
+        // if has event search like
+        if (request()->has('event')) {
+            $events = $events->where('event_name', 'LIKE', '%' . request('event') . '%');
+        }
+
+        $events = $events->paginate(10);
         return view('Events.index', compact('events'));
     }
 
@@ -132,20 +143,44 @@ class EventsController extends Controller
             ->select('event_teams.*', 'events.event_name', 'squads.squad_name')
             ->where('events.user_id', Auth::user()->id_user)
             ->where('event_teams.event_id', $id)
-            ->paginate(10);
+            ->latest();
+
+        // if has event search like
+        if (request()->has('event_team')) {
+            $event_teams = $event_teams->where('events.event_name', 'LIKE', '%' . request('event_team') . '%')
+                ->orWhere('squads.squad_name', 'LIKE', '%' . request('event_team') . '%');
+        }
+
+        $event_teams = $event_teams->paginate(10);
 
         $event_inv_teams = Event_inv_teams::join('squads', 'event_inv_teams.squad_id', 'squads.id_squad')
             ->join('events', 'event_inv_teams.event_id', 'events.id_event')
             ->select('event_inv_teams.*', 'squads.squad_name', 'events.event_name')
             ->where('events.user_id', Auth::user()->id_user)
             ->where('event_inv_teams.event_id', $id)
-            ->paginate(10);
+            ->latest();
+
+        // if has event_inv_team search like
+        if (request()->has('event_inv_team')) {
+            $event_inv_teams = $event_inv_teams->where('events.event_name', 'LIKE', '%' . request('event_inv_team') . '%')
+                ->orWhere('squads.squad_name', 'LIKE', '%' . request('event_inv_team') . '%');
+        }
+
+        $event_inv_teams = $event_inv_teams->paginate(10);
 
         $event_winner = Event_winner::join('events', 'event_winners.event_id', 'events.id_event')
             ->join('squads', 'event_winners.squad_id', 'squads.id_squad')
             ->select('event_winners.*', 'events.event_name', 'squads.squad_name')
             ->where('events.user_id', Auth::user()->id_user)
-            ->paginate(10);
+            ->latest();
+
+        // if has event_winner search like
+        if (request()->has('event_winner')) {
+            $event_winner = $event_winner->where('events.event_name', 'LIKE', '%' . request('event_winner') . '%')
+                ->orWhere('squads.squad_name', 'LIKE', '%' . request('event_winner') . '%');
+        }
+
+        $event_winner = $event_winner->paginate(10);
 
         return view('Events.setEvent', compact('event_teams', 'event_inv_teams', 'event_winner', 'id'));
     }
@@ -234,8 +269,14 @@ class EventsController extends Controller
             ->join('squads', 'event_teams.squad_id', 'squads.id_squad')
             ->whereIn('squads.id_squad', $squads->pluck('id_squad'))
             ->select('events.*', 'event_teams.*', 'squads.*')
-            ->paginate(10);
+            ->latest();
 
+        // if has event search like 
+        if (request()->has('event')) {
+            $event_teams = $event_teams->where('events.event_name', 'LIKE', '%' . request('event') . '%');
+        }
+
+        $event_teams = $event_teams->paginate(10);
         return view('Events.follow', compact('event_teams'));
     }
 }

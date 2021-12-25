@@ -19,6 +19,10 @@
                 <a class="btn btn-primary" href="/admin/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
                     Create
                 </a>
+
+                <!-- search admin -->
+                <x-search name="admin" />
+
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
@@ -31,6 +35,13 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @if($admin->isEmpty())
+                            <tr>
+                                <td colspan="5" class="text-center">
+                                    <h4>Tidak ada data</h4>
+                                </td>
+                            </tr>
+                            @endif
                             @foreach ($admin as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td>{{ $loop->iteration }}</td>

@@ -20,6 +20,8 @@
                     Create
                 </a>
                 <div class="table-responsive">
+                    <!-- seacrh event_inv_team -->
+                    <x-search name="event_inv_team"></x-search>
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -32,6 +34,14 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <!-- empty event_inv_teams -->
+                            @if($event_inv_teams->isEmpty())
+                            <tr>
+                                <td colspan="5" class="text-center">
+                                    <h4>Tidak ada data</h4>
+                                </td>
+                            </tr>
+                            @endif
                             @foreach ($event_inv_teams as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td>{{ $loop->iteration }}</td>
@@ -72,6 +82,8 @@
                     Create
                 </a>
                 <div class="table-responsive">
+                    <!-- seacrh event_inv_team -->
+                    <x-search name="event_team"></x-search>
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -85,6 +97,14 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <!-- empty event_inv_teams -->
+                            @if($event_teams->isEmpty())
+                            <tr>
+                                <td colspan="5" class="text-center">
+                                    <h4>Tidak ada data</h4>
+                                </td>
+                            </tr>
+                            @endif
                             @foreach ($event_teams as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td>{{ $loop->iteration }}</td>
@@ -132,6 +152,8 @@
                     Create
                 </a>
                 <div class="table-responsive">
+                    <!-- seacrh event_winner -->
+                    <x-search name="event_winner"></x-search>
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -143,6 +165,14 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <!-- empty event_winner -->
+                            @if($event_winner->isEmpty())
+                            <tr>
+                                <td colspan="5" class="text-center">
+                                    <h4>Tidak ada data</h4>
+                                </td>
+                            </tr>
+                            @endif
                             @foreach ($event_winner as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td>{{ $loop->iteration }}</td>

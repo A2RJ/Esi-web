@@ -20,6 +20,8 @@
                     Create
                 </a>
                 <div class="table-responsive">
+                    <!-- search -->
+                    <x-search name="game_category"></x-search>
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -30,6 +32,14 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <!-- empty game_categories -->
+                            @if($game_categories->isEmpty())
+                            <tr>
+                                <td colspan="5" class="text-center">
+                                    <h4>Tidak ada data</h4>
+                                </td>
+                            </tr>
+                            @endif
                             @foreach ($game_categories as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td>{{ $loop->iteration }}</td>

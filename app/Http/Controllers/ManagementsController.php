@@ -12,7 +12,13 @@ class ManagementsController extends Controller
 {
     public function index()
     {
-        $managements = Managements::paginate(10);
+        $managements = Managements::latest();
+
+        if (request()->has('management')) {
+            $managements = $managements->where('management_name', 'LIKE', '%' . request()->management . '%');
+        }
+
+        $managements = $managements->paginate(10);
         return view('Managements.index', compact('managements'));
     }
 
@@ -78,7 +84,13 @@ class ManagementsController extends Controller
 
     public function managements()
     {
-        $managements = Managements::where('user_id', Auth::user()->id_user)->paginate(10);
+        $managements = Managements::where('user_id', Auth::user()->id_user)->latest();
+        
+        if (request()->has('management')) {
+            $managements = $managements->where('management_name', 'LIKE', '%' . request()->management . '%');
+        }
+
+        $managements = $managements->paginate(10);
         return view('Managements.index', compact('managements'));
     }
 }

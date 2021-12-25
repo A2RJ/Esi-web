@@ -32,6 +32,8 @@
                 @endif
 
                 <div class="table-responsive mt-4">
+                    <!-- search management -->
+                    <x-search name="management"></x-search>
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -42,6 +44,14 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <!-- empty management -->
+                            @if($managements->isEmpty())
+                            <tr>
+                                <td colspan="5" class="text-center">
+                                    <h4>Tidak ada data</h4>
+                                </td>
+                            </tr>
+                            @endif
                             @foreach ($managements as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td>{{ $loop->iteration }}</td>

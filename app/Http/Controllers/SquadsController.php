@@ -15,8 +15,14 @@ class SquadsController extends Controller
 {
     public function index()
     {
-        $squads = Squads::with('game', 'leader', 'players', 'management')
-            ->paginate(10);
+        $squads = Squads::with('game', 'leader', 'players', 'management')->latest();
+
+        if (request()->has('squad')) {
+            $squads = $squads->where('squad_name', 'LIKE', '%' . request()->squad . '%')
+                ->orWhere('squad_leader', 'LIKE', '%' . request()->squad . '%');
+        }
+
+        $squads = $squads->paginate(10);
 
         return view('Squads.index', compact('squads'));
     }
@@ -89,8 +95,14 @@ class SquadsController extends Controller
     {
         $player = Players::where('user_id', Auth::user()->id_user)->get();
         $squads = Squads::whereIn('squad_leader', $player->pluck('id_player'))
-            ->with('leader', 'management')
-            ->paginate(10);
+            ->with('leader', 'management')->latest();
+
+        if (request()->has('squad')) {
+            $squads = $squads->where('squad_name', 'LIKE', '%' . request()->squad . '%')
+                ->orWhere('squad_leader', 'LIKE', '%' . request()->squad . '%');
+        }
+
+        $squads = $squads->paginate(10);
 
         return view('Squads.index', compact('squads'));
     }
@@ -99,19 +111,39 @@ class SquadsController extends Controller
     {
         $players = Players::with('user', 'game', 'squad')
             ->where('squad_id', $id)
-            ->paginate(10);
+            ->latest();
+
+        if (request()->has('player')) {
+            $players = $players->where('ingame_name', 'LIKE', '%' . request()->player . '%');
+        }
+
+        $players = $players->paginate(10);
 
         $squad_inv_players = Squad_inv_players::join('players', 'squad_inv_players.player_id', 'players.id_player')
             ->join('squads', 'squad_inv_players.squad_id', 'squads.id_squad')
             ->where('squad_inv_players.squad_id', $id)
             ->select('squad_inv_players.*', 'players.ingame_name', 'squads.squad_name')
-            ->paginate(10);
+            ->latest();
+
+        if (request()->has('squad_inv_player')) {
+            $squad_inv_players = $squad_inv_players->where('players.ingame_name', 'LIKE', '%' . request()->player . '%')
+                ->orWhere('squads.squad_name', 'LIKE', '%' . request()->player . '%');
+        }
+
+        $squad_inv_players = $squad_inv_players->paginate(10);
 
         $request_squads = Request_squads::join('squads', 'request_squads.squad_id', 'squads.id_squad')
             ->join('players', 'request_squads.player_id', 'players.id_player')
             ->where('request_squads.squad_id', $id)
             ->select('request_squads.*', 'squads.squad_name', 'players.ingame_name')
-            ->paginate(10);
+            ->latest();
+
+        if (request()->has('request_squad')) {
+            $request_squads = $request_squads->where('players.ingame_name', 'LIKE', '%' . request()->player . '%')
+                ->orWhere('squads.squad_name', 'LIKE', '%' . request()->player . '%');
+        }
+
+        $request_squads = $request_squads->paginate(10);
 
         return view('Squads.show', compact('id', 'players', 'squad_inv_players', 'request_squads'));
     }
