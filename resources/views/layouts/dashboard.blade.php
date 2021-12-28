@@ -10,21 +10,21 @@ use Illuminate\Support\Facades\Auth; ?>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>ESI @yield('title')</title>
   <!-- plugins:css -->
-  <link rel="stylesheet" href="/template/vendors/feather/feather.css">
-  <link rel="stylesheet" href="/template/vendors/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="/template/vendors/ti-icons/css/themify-icons.css">
-  <link rel="stylesheet" href="/template/vendors/typicons/typicons.css">
-  <link rel="stylesheet" href="/template/vendors/simple-line-icons/css/simple-line-icons.css">
-  <link rel="stylesheet" href="/template/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="/assets/template/vendors/feather/feather.css">
+  <link rel="stylesheet" href="/assets/template/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="/assets/template/vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="/assets/template/vendors/typicons/typicons.css">
+  <link rel="stylesheet" href="/assets/template/vendors/simple-line-icons/css/simple-line-icons.css">
+  <link rel="stylesheet" href="/assets/template/vendors/css/vendor.bundle.base.css">
   <!-- endinject -->
   <!-- Plugin css for this page -->
-  <link rel="stylesheet" href="/template/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
-  <link rel="stylesheet" href="/template/js/select.dataTables.min.css">
+  <!-- <link rel="stylesheet" href="/assets/template/vendors/datatables.net-bs4/dataTables.bootstrap4.css"> -->
+  <!-- <link rel="stylesheet" href="/assets/template/js/select.dataTables.min.css"> -->
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="/template/css/vertical-layout-light/style.css">
+  <link rel="stylesheet" href="/assets/template/css/vertical-layout-light/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="/template/images/favicon.png" />
+  <link rel="shortcut icon" href="/assets/template/images/favicon.png" />
   <style>
     .menu a {
       margin-right: 10px;
@@ -51,10 +51,10 @@ use Illuminate\Support\Facades\Auth; ?>
         </div>
         <div>
           <a class="navbar-brand brand-logo" href="/">
-            <img src="/landing-page/images/1639985799654.jpg" style="height: 80px;" alt="logo" />
+            <img src="/assets/landing-page/images/1639985799654.jpg" style="height: 80px;" alt="logo" />
           </a>
           <a class="navbar-brand brand-logo-mini" href="/">
-            <img src="/landing-page/images/1639985799654.jpg" style="height: 50px;" alt="logo" />
+            <img src="/assets/landing-page/images/1639985799654.jpg" style="height: 50px;" alt="logo" />
           </a>
         </div>
       </div>
@@ -76,22 +76,17 @@ use Illuminate\Support\Facades\Auth; ?>
           </li>
           <li class="nav-item dropdown d-none d-lg-block user-dropdown">
             <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-              <img class="img-xs rounded-circle" src="/template/images/faces/face8.jpg" alt="Profile image"> </a>
+              <img class="img-xs rounded-circle" src="/assets/template/images/faces/face8.jpg" alt="Profile image"> </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <div class="dropdown-header text-center">
-                <img class="img-md rounded-circle" src="/template/images/faces/face8.jpg" alt="Profile image">
+                <img class="img-md rounded-circle" src="/assets/template/images/faces/face8.jpg" alt="Profile image">
                 <p class="mb-1 mt-3 font-weight-semibold">{{ auth()->user()->nama }}</p>
                 <p class="fw-light text-muted mb-0">{{ auth()->user()->email }}</p>
               </div>
-              <a class="dropdown-item" href="/users/profile/{{auth()->user()->id_user}}"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile</a>
-              <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+              <a class="dropdown-item" href="/anggota/users/profile/{{auth()->user()->id_user}}"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile</a>
+              <a class="dropdown-item" href="/anggota/logout">
                 <i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out
               </a>
-
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
-              </form>
             </div>
           </li>
         </ul>
@@ -123,10 +118,10 @@ use Illuminate\Support\Facades\Auth; ?>
               <div class="collapse" id="Events">
                 <ul class="nav flex-column sub-menu">
                   <?php if (Auth::user()->user_role == 'admin') : ?>
-                    <li class="nav-item"> <a class="nav-link" href="/events">All Events</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/anggota/events">All Events</a></li>
                   <?php endif; ?>
-                  <li class="nav-item"> <a class="nav-link" href="/events/followEvent">Events</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="/events/events">My Events</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/anggota/events/followEvent">Events</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/anggota/events/events">My Events</a></li>
                 </ul>
               </div>
             </li>
@@ -141,7 +136,7 @@ use Illuminate\Support\Facades\Auth; ?>
               </a>
               <div class="collapse" id="Games">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="/games">Games</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/anggota/games">Games</a></li>
                 </ul>
               </div>
             </li>
@@ -157,9 +152,9 @@ use Illuminate\Support\Facades\Auth; ?>
               <div class="collapse" id="Managements">
                 <ul class="nav flex-column sub-menu">
                   <?php if (Auth::user()->user_role == 'admin') : ?>
-                    <li class="nav-item"> <a class="nav-link" href="/managements">All Managements</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/anggota/managements">All Managements</a></li>
                   <?php endif; ?>
-                  <li class="nav-item"> <a class="nav-link" href="/managements/managements">My Managements</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/anggota/managements/managements">My Managements</a></li>
                 </ul>
               </div>
             </li>
@@ -175,9 +170,9 @@ use Illuminate\Support\Facades\Auth; ?>
               <div class="collapse" id="Squads">
                 <ul class="nav flex-column sub-menu">
                   <?php if (Auth::user()->user_role == 'admin') : ?>
-                    <li class="nav-item"> <a class="nav-link" href="/squads">All Squads</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/anggota/squads">All Squads</a></li>
                   <?php endif; ?>
-                  <li class="nav-item"> <a class="nav-link" href="/squads/squads">My Squads</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/anggota/squads/squads">My Squads</a></li>
                 </ul>
               </div>
             </li>
@@ -193,9 +188,9 @@ use Illuminate\Support\Facades\Auth; ?>
               <div class="collapse" id="GameAccount">
                 <ul class="nav flex-column sub-menu">
                   <?php if (Auth::user()->user_role == 'admin') : ?>
-                    <li class="nav-item"> <a class="nav-link" href="/players">All Game Account</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/anggota/players">All Game Account</a></li>
                   <?php endif; ?>
-                  <li class="nav-item"> <a class="nav-link" href="/players/players">My Game Account</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/anggota/players/players">My Game Account</a></li>
                 </ul>
               </div>
             </li>
@@ -210,8 +205,8 @@ use Illuminate\Support\Facades\Auth; ?>
               </a>
               <div class="collapse" id="Users">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="/users">Users</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="/admin">Admin</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/anggota/users">Users</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/anggota/admin">Admin</a></li>
                 </ul>
               </div>
             </li>
@@ -227,7 +222,7 @@ use Illuminate\Support\Facades\Auth; ?>
         <!-- partial:partials/_footer.html -->
         <footer class="footer">
           <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash.</span>
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin assets/template</a> from BootstrapDash.</span>
             <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2021. All rights reserved.</span>
           </div>
         </footer>
@@ -240,26 +235,25 @@ use Illuminate\Support\Facades\Auth; ?>
   <!-- container-scroller -->
 
   <!-- plugins:js -->
-  <script src="/template/vendors/js/vendor.bundle.base.js"></script>
+  <script src="/assets/template/vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->
   <!-- Plugin js for this page -->
-  <script src="/template/vendors/chart.js/Chart.min.js"></script>
-  <script src="/template/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-  <script src="/template/vendors/progressbar.js/progressbar.min.js"></script>
+  <script src="/assets/template/vendors/chart.js/Chart.min.js"></script>
+  <script src="/assets/template/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+  <script src="/assets/template/vendors/progressbar.js/progressbar.min.js"></script>
 
   <!-- End plugin js for this page -->
   <!-- inject:js -->
-  <script src="/template/js/off-canvas.js"></script>
-  <script src="/template/js/hoverable-collapse.js"></script>
-  <script src="/template/js/template.js"></script>
-  <script src="/template/js/settings.js"></script>
-  <script src="/template/js/todolist.js"></script>
+  <script src="/assets/template/js/off-canvas.js"></script>
+  <script src="/assets/template/js/hoverable-collapse.js"></script>
+  <script src="/assets/template/js/template.js"></script>
+  <script src="/assets/template/js/settings.js"></script>
+  <script src="/assets/template/js/todolist.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
-  <script src="/template/js/dashboard.js"></script>
-  <script src="/template/js/Chart.roundedBarCharts.js"></script>
+  <script src="/assets/template/js/dashboard.js"></script>
+  <script src="/assets/template/js/Chart.roundedBarCharts.js"></script>
   <!-- End custom js for this page-->
-  @livewireAssets 
 </body>
 
 </html>
