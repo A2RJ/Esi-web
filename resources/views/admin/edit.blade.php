@@ -26,6 +26,16 @@
                     @csrf
                     <!-- @method('PUT') -->
                     <div class="row">
+                        <!-- looping users -->
+                        <div class="form-group col-sm-6">
+                            <label>User:</label>
+                            <select class="form-control">
+                                @foreach ($users as $user)
+                                <option value="{{$user->id_user}}" {{$user->id_user == $admin->id_user ? 'selected' : ''}}>{{$user->nama}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
                         <div class="form-group col-sm-6">
                             <label for="jabatan">Jabatan</label>
                             <input class="form-control" name="jabatan" id="jabatan" type="text" placeholder="{{ $admin->jabatan }}" value="{{ $admin->jabatan }}">
@@ -41,7 +51,7 @@
                             <input class="form-control" name="fb" id="fb" type="text" placeholder="{{ $admin->fb }}" value="{{ $admin->fb }}">
                         </div>
                     </div>
-                    
+
                     <div class="mt-5">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>

@@ -48,8 +48,7 @@ class SquadsController extends Controller
 
         Players::where('id_player', $request->squad_leader)->update(['squad_id' => $squad->id_squad]);
 
-        if (Auth::user()->user_role !== 'admin') return redirect('squads/squads')->with('success', 'Squad created successfully');
-        return redirect('squads')->with('success', 'Squad created successfully');
+        return redirect('/squads/squads')->with('success', 'Squad created successfully');
     }
 
     public function show($id)
@@ -79,8 +78,7 @@ class SquadsController extends Controller
         }
         Players::where('id_player', $request->squad_leader)->update(['squad_id' => $id]);
 
-        if (Auth::user()->user_role !== 'admin') return redirect('squads/squads')->with('success', 'Squad created successfully');
-        return redirect('squads')->with('success', 'Squad updated successfully');
+        return redirect('/squads/squads')->with('success', 'Squad updated successfully');
     }
 
     public function destroy($id)

@@ -71,7 +71,7 @@ class UserController extends Controller
             "kontak" => "required",
             "alamat" => "required",
             "gender" => "required",
-            "user_image" => "required",
+            "user_image" => "nullable",
         ]);
 
 

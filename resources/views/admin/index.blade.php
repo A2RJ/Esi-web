@@ -28,6 +28,7 @@
                         <thead>
                             <tr>
                                 <th>#</th>
+                                <th>User</th>
                                 <th>Jabatan</th>
                                 <th>Instagram</th>
                                 <th>Facebook</th>
@@ -45,6 +46,7 @@
                             @foreach ($admin as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td>{{ $loop->iteration }}</td>
+                                <td>{{$data->user->nama}}</td>
                                 <td>{{$data->jabatan}}</td>
                                 <td>{{$data->ig}}</td>
                                 <td>{{$data->fb}}</td>

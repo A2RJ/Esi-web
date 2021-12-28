@@ -18,4 +18,10 @@ class Admin extends Model
     protected $primaryKey = 'id_admin';
 
     protected $fillable =  ["user_id", "jabatan", "ig", "fb",];
+
+    // hasOne user
+    public function user()
+    {
+        return $this->hasOne(Users::class, 'id_user', 'user_id');
+    }
 }

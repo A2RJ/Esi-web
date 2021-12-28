@@ -39,6 +39,12 @@ use Illuminate\Support\Facades\Route;
 
 
 Auth::routes();
+// route logout
+
+Route::get('/logout', function(){
+    Auth::logout();
+    return redirect('/');
+})->name('logout');
 
 Route::get('/', function () {
     $events = Events::latest();
@@ -122,7 +128,7 @@ Route::group(['prefix' => 'users', 'middleware' => ['auth', 'admin']], function 
 
 // players
 Route::group(['prefix' => 'players', 'middleware' => ['auth']], function () {
-    Route::get('/', [PlayersController::class, 'index']);
+    Route::get('/', [PlayersController::class, 'index'])->middleware('admin');
     Route::get('/create', [PlayersController::class, 'create']);
     Route::get('/show/{id}', [PlayersController::class, 'show']);
     Route::get('/players', [PlayersController::class, 'players']);

@@ -49,8 +49,7 @@ class PlayersController extends Controller
         $player->player_image = Upload::uploadFile($request, 'player_image');
         $player->save();
 
-        if (Auth::user()->user_role !== 'admin') return redirect('players/players')->with('success', 'Player created successfully');
-        return redirect('/players')->with('success', 'Player has been added');
+        return redirect('/players/players')->with('success', 'Player has been added');
     }
 
     public function show($id)
@@ -84,8 +83,7 @@ class PlayersController extends Controller
             $player->save();
         }
 
-        if (Auth::user()->user_role !== 'admin') return redirect('players/players')->with('success', 'Player created successfully');
-        return redirect('/players')->with('success', 'Player has been updated');
+        return redirect('/players/players')->with('success', 'Player has been updated');
     }
 
     public function destroy($id)

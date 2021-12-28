@@ -15,7 +15,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $admin = Admin::latest();
+        $admin = Admin::with('user')->latest();
         if(request('admin')) {
             $admin->where('jabatan', 'LIKE', '%' . request('admin') . '%');
         }
@@ -43,7 +43,7 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            "user_id" => "required",
+            "user_id" => "required|unique:admin",
             "jabatan" => "required",
             "ig" => "required",
             "fb" => "required",
@@ -72,8 +72,9 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
+        $users = User::all();
         $admin = Admin::find($id);
-        return view('Admin.edit', compact('admin'));
+        return view('Admin.edit', compact('admin', 'users'));
     }
 
     /**

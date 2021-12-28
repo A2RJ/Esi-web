@@ -32,16 +32,6 @@ class HomeController extends Controller
         return view('index');
     }
 
-    // public function home()
-    // {
-    //     $events = Events::with('owner', 'game')->paginate(10);
-    //     $players = Players::with('squad', 'game')->paginate(10);
-    //     $squads = Squads::with('leader', 'game')->paginate(10);
-    //     $managements = Managements::paginate(10);
-
-    //     return view('home', compact('events', 'players', 'squads', 'managements'));
-    // }
-
     public function event($id)
     {
         $event = Events::with('owner', 'game')

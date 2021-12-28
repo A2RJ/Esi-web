@@ -72,7 +72,6 @@ class EventsController extends Controller
         $event->event_image = Upload::uploadFile($request, 'event_image');
         $event->save();
 
-        if (Auth::user()->user_role !== 'admin') return redirect('events/events')->with('success', 'Event created successfully');
         return redirect('/events/events')->with('success', 'Data berhasil ditambahkan');
     }
 
@@ -109,7 +108,6 @@ class EventsController extends Controller
             $event->save();
         }
 
-        if (Auth::user()->user_role !== 'admin') return redirect('events/events')->with('success', 'Event created successfully');
         return redirect('/events/events')->with('success', 'Data berhasil diubah');
     }
 
@@ -118,7 +116,6 @@ class EventsController extends Controller
         $event = Events::findOrFail($id);
         $event->delete();
 
-        if (Auth::user()->user_role !== 'admin') return redirect('events/events')->with('success', 'Event created successfully');
         return redirect('/events/events')->with('success', 'Data berhasil dihapus');
     }
 
