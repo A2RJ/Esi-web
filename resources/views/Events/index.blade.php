@@ -12,12 +12,12 @@
                 </div>
                 @endif
 
-                <h4 class="card-title"> {{ Request::is('anggota/events') ? 'All Events' : 'My Events' }}</h4>
+                <h4 class="card-title"> {{ url()->current() == env('URL') . '/events' ? 'All Events' : 'My Events' }}</h4>
                 <p class="card-description">
                     Daftar lengkap semua event yang telah di buat oleh pengguna
                 </p>
 
-                @if (Request::is('anggota/events/events'))
+                @if (url()->current() == env('URL') . '/events/events')
                 <div class="menu">
                     <a class="btn btn-primary" href="/anggota/events/create" title="Create a data">
                         Create events
@@ -59,7 +59,7 @@
                                     <div class="flex items-center space-x-4 text-sm">
                                         <a href="/anggota/events/setEvent/{{$data->id_event }}" title="show" class="badge badge-info">Detail</a>
                                         <a href="/anggota/events/show/{{$data->id_event }}" title="show" class="badge badge-info">Show</a>
-                                        @if(!Request::is('anggota/events'))
+                                        @if(url()->current() !== env('URL') . '/events'))
                                         <a href="/anggota/events/edit/{{$data->id_event }}" class="badge badge-warning">Edit</a>
                                         <a href="/anggota/events/destroy/{{$data->id_event }}" class="badge badge-danger">Delete</a>
                                         @endif

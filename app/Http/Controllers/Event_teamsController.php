@@ -37,7 +37,7 @@ class Event_teamsController extends Controller
         ]);
 
         Event_teams::create($request->all());
-        return redirect('anggota/events/setEvent/' . $request->event_id)->with('event_teams', 'Teams created successfully.');
+        return redirect('/events/setEvent/' . $request->event_id)->with('event_teams', 'Teams created successfully.');
     }
 
     public function edit($id)
@@ -54,7 +54,7 @@ class Event_teamsController extends Controller
     public function update(Request $request, $id)
     {
         Event_teams::find($id)->update($request->all());
-        return redirect('anggota/events/setEvent/' . $request->event_id)->with('event_teams', 'Teams updated successfully.');
+        return redirect('/events/setEvent/' . $request->event_id)->with('event_teams', 'Teams updated successfully.');
     }
 
     public function show($id)

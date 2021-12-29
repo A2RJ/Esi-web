@@ -43,24 +43,24 @@ class HomeController extends Controller
             ->where('event_winners.event_id', $id)
             ->get();
 
-        return view('events.detail', compact('event', 'teams', 'winners'));
+        return view('Events.detail', compact('event', 'teams', 'winners'));
     }
 
     public function player($id)
     {
         $player = Players::with('game', 'user', 'squad', 'management')->find($id);
-        return view('players.detail', compact('player'));
+        return view('Players.detail', compact('player'));
     }
 
     public function squad($id)
     {
         $squad = Squads::with('game', 'user', 'leader', 'players', 'management')->find($id);
-        return view('squads.detail', compact('squad'));
+        return view('Squads.detail', compact('squad'));
     }
 
     public function management($id)
     {
         $management = Managements::with('squads')->find($id);
-        return view('managements.detail', compact('management'));
+        return view('Managements.detail', compact('management'));
     }
 }

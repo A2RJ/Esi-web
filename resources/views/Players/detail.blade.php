@@ -14,8 +14,8 @@
                 <div class="bnSlide"></div>
                 <div class="photoCollect">
                     <!-- YOUR IMAGES HERE (Maximum 10 Photos & Minimum 1 Photo) -->
-                    <a href="/anggota/public/assets/images/{{$player->player_image}}">
-                        <img src="/anggota/public/assets/images/{{$player->player_image}}" alt="#no-image" title="#title-image" loading="lazy" />
+                    <a href="{{env('ASSETS')}}/assets/images/{{$player->player_image}}">
+                        <img src="{{env('ASSETS')}}/assets/images/{{$player->player_image}}" alt="#no-image" title="#title-image" loading="lazy" />
                     </a>
                 </div>
                 <div class="indCat"></div>

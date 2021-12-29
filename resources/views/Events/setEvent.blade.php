@@ -114,7 +114,7 @@
                                 <?php if ($data->paid_image == null) { ?>
                                     <td>Belum Upload</td>
                                 <?php } else { ?>
-                                    <td><a class="badge badge-success" href="/anggota/public/assets/images/{{$data->paid_image}}" target="_blank">Lihat Bukti</a>
+                                    <td><a class="badge badge-success" href="{{env('ASSETS')}}/assets/images/{{$data->paid_image}}" target="_blank">Lihat Bukti</a>
                                     </td>
                                 <?php } ?>
                                 <td>{{$data->created_at->format('d-m-Y')}}</td>

@@ -48,7 +48,7 @@ class SquadsController extends Controller
 
         Players::where('id_player', $request->squad_leader)->update(['squad_id' => $squad->id_squad]);
 
-        return redirect('anggota/squads/squads')->with('success', 'Squad created successfully');
+        return redirect('/squads/squads')->with('success', 'Squad created successfully');
     }
 
     public function show($id)
@@ -78,7 +78,7 @@ class SquadsController extends Controller
         }
         Players::where('id_player', $request->squad_leader)->update(['squad_id' => $id]);
 
-        return redirect('anggota/squads/squads')->with('success', 'Squad updated successfully');
+        return redirect('/squads/squads')->with('success', 'Squad updated successfully');
     }
 
     public function destroy($id)

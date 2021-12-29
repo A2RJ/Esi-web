@@ -45,7 +45,7 @@ Route::prefix('anggota')->group(function () {
 
     Route::get('/logout', function () {
         Auth::logout();
-        return redirect('/anggota/login');
+        return redirect('/login');
     })->name('logout');
 
     Route::get('/', function () {

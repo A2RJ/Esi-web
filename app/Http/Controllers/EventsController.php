@@ -72,7 +72,7 @@ class EventsController extends Controller
         $event->event_image = Upload::uploadFile($request, 'event_image');
         $event->save();
 
-        return redirect('anggota/events/events')->with('success', 'Data berhasil ditambahkan');
+        return redirect('/events/events')->with('success', 'Data berhasil ditambahkan');
     }
 
     public function edit($id)
@@ -108,7 +108,7 @@ class EventsController extends Controller
             $event->save();
         }
 
-        return redirect('anggota/events/events')->with('success', 'Data berhasil diubah');
+        return redirect('/events/events')->with('success', 'Data berhasil diubah');
     }
 
     public function destroy($id)
@@ -116,7 +116,7 @@ class EventsController extends Controller
         $event = Events::findOrFail($id);
         $event->delete();
 
-        return redirect('anggota/events/events')->with('success', 'Data berhasil dihapus');
+        return redirect('/events/events')->with('success', 'Data berhasil dihapus');
     }
 
     // ambil data event berdasarkan user login
@@ -211,7 +211,7 @@ class EventsController extends Controller
             ->first();
 
         if ($event_teams) {
-            return redirect('anggota/events/followEvent')->with('event_teams', 'Squad already in event.');
+            return redirect('/events/followEvent')->with('event_teams', 'Squad already in event.');
         } else {
             // if has paid_image
             $event = Event_teams::create($request->all());
@@ -219,7 +219,7 @@ class EventsController extends Controller
                 $event->paid_image = Upload::uploadFile($request, 'paid_image');
                 $event->save();
             }
-            return redirect('anggota/events/followEvent')->with('event_teams', 'Join event successfully.');
+            return redirect('/events/followEvent')->with('event_teams', 'Join event successfully.');
         }
     }
 
@@ -250,7 +250,7 @@ class EventsController extends Controller
             $event->paid_image = $image;
             $event->save();
         }
-        return redirect('anggota/events/followEvent')->with('event_teams', 'Join event successfully.');
+        return redirect('/events/followEvent')->with('event_teams', 'Join event successfully.');
     }
 
     public function followEvent()

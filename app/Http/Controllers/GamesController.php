@@ -38,7 +38,7 @@ class GamesController extends Controller
         $game = Games::create($request->all());
         $game->game_image = Upload::uploadFile($request, 'game_image');
         $game->save();
-        return redirect('anggota/games')->with('success', 'Game has been added');
+        return redirect('/games')->with('success', 'Game has been added');
     }
 
     public function show($id)
@@ -64,12 +64,12 @@ class GamesController extends Controller
             $gameUpdate->save();
         }
 
-        return redirect('anggota/games')->with('success', 'Game has been updated');
+        return redirect('/games')->with('success', 'Game has been updated');
     }
 
     public function destroy($id)
     {
         Games::find($id)->delete();
-        return redirect('anggota/games')->with('success', 'Game has been deleted');
+        return redirect('/games')->with('success', 'Game has been deleted');
     }
 }

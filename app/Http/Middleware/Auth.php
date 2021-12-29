@@ -20,6 +20,6 @@ class Auth
         // check if user is logged in
         return FacadesAuth::check()
             ? $next($request)
-            : redirect('anggota/login');
+            : redirect('/login');
     }
 }

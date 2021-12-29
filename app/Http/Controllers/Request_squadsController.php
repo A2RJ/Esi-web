@@ -42,12 +42,12 @@ class Request_squadsController extends Controller
             ->first();
 
         if ($player->squad_id) {
-            return redirect('anggota/squad_inv_players/create')
+            return redirect('/squad_inv_players/create')
                 ->with('error', 'Player is already in a squad');
         }
 
         Request_squads::create($request->all());
-        return redirect('anggota/request_squads')->with('success', 'Request_squads created successfully');
+        return redirect('/request_squads')->with('success', 'Request_squads created successfully');
     }
 
     public function show($id)
@@ -77,13 +77,13 @@ class Request_squadsController extends Controller
             ->first();
 
         if ($player->squad_id) {
-            return redirect('anggota/squad_inv_players/create')
+            return redirect('/squad_inv_players/create')
                 ->with('error', 'Player is already in a squad');
         }
 
         Request_squads::findOrFail($id)
             ->update($request->all());
-        return redirect('anggota/request_squads')->with('success', 'Request_squads updated successfully');
+        return redirect('/request_squads')->with('success', 'Request_squads updated successfully');
     }
 
     public function destroy($id)

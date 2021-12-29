@@ -48,7 +48,7 @@ class UserController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
 
-        return redirect('anggota/users')->with('success', 'User created successfully');
+        return redirect('/users')->with('success', 'User created successfully');
     }
 
     public function edit($id)
@@ -93,6 +93,6 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::find($id)->delete();
-        return redirect('anggota/users')->with('success', 'User deleted successfully');
+        return redirect('/users')->with('success', 'User deleted successfully');
     }
 }

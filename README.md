@@ -42,8 +42,13 @@
     -- event teams
     -- event winner
 
+# Progress
+
+-   url()->current() == env('URL') . '/events'
+
 # Upload
-- disable prefix angggota web.php
-- isi public copy ke root folder
-- ubah index.php
-- ubah assets menjadi anggota/public/assets
+
+-   disable prefix angggota web.php
+-   isi public copy ke root folder
+-   ubah index.php
+-   ubah assets menjadi anggota/public/assets

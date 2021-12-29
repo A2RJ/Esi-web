@@ -12,12 +12,12 @@
                 </div>
                 @endif
 
-                <h4 class="card-title">{{Request::is('anggota/squads/squads') ? 'My Squads' : 'All Squads' }}</h4>
+                <h4 class="card-title">{{url()->current() == env('URL') . '/squads/squads' ? 'My Squads' : 'All Squads' }}</h4>
                 <p class="card-description">
                     Daftar squad yang terdaftar
                 </p>
 
-                @if(Request::is('anggota/squads/squads'))
+                @if(url()->current() == env('URL') . '/squads/squads')
                 <div class="menu">
                     <a class="btn btn-primary" href="/anggota/squads/create" title="Create a data">
                         Create squad
@@ -70,7 +70,7 @@
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
                                         <a href="/anggota/squads/show/{{$data->id_squad }}" title="show" class="badge badge-info">Show</a>
-                                        @if(Request::is('anggota/squads/squads'))
+                                        @if(url()->current() == env('URL') . '/squads/squads')
                                         <a href="/anggota/squads/setSquad/{{$data->id_squad }}" title="show" class="badge badge-info">Detail</a>
                                         <a href="/anggota/squads/edit/{{$data->id_squad }}" class="badge badge-warning">Edit</a>
                                         <a href="/anggota/squads/destroy/{{$data->id_squad }}" class="badge badge-danger">Delete</a>

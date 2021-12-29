@@ -49,7 +49,7 @@ class AdminController extends Controller
             "fb" => "required",
         ]);
         Admin::create($request->all());
-        return redirect('anggota/admin')->with('success', 'Data berhasil ditambahkan');
+        return redirect('/admin')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -87,7 +87,7 @@ class AdminController extends Controller
     public function update(Request $request, $id)
     {
         Admin::find($id)->update($request->all());
-        return redirect('anggota/admin')->with('success', 'Data berhasil diubah');
+        return redirect('/admin')->with('success', 'Data berhasil diubah');
     }
 
     /**

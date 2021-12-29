@@ -52,7 +52,7 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{$data->game_name}}</td>
                                 <td>{{$data->category->game_category}}</td>
-                                <td><a class="badge badge-success" href="/anggota/public/assets/images/{{$data->game_image}}" target="_blank">Image</a></td>
+                                <td><a class="badge badge-success" href="{{env('ASSETS')}}/assets/images/{{$data->game_image}}" target="_blank">Image</a></td>
                                 <td>{{$data->created_at}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
