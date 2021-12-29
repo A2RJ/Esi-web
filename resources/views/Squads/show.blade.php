@@ -48,9 +48,9 @@
                                 <td>{{$data->created_at->format('d-m-Y')}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
-                                        <a href="/home/player/{{$data->id_player }}" title="show" class="badge badge-info">Show</a>
+                                        <a href="/anggota/home/player/{{$data->id_player }}" title="show" class="badge badge-info">Show</a>
                                         @if($data->id_player !== $data->squad->squad_leader)
-                                        <a href="/squads/destroyFromSquad/{{$data->id_player }}" class="badge badge-danger">Delete from squad</a>
+                                        <a href="/anggota/squads/destroyFromSquad/{{$data->id_player }}" class="badge badge-danger">Delete from squad</a>
                                         @endif
                                     </div>
                                 </td>
@@ -78,7 +78,7 @@
                 <p class="card-description">
                     Menu untuk invite player
                 </p>
-                <a class="btn btn-primary" href="/squad_inv_players/create/{{$id}}" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                <a class="btn btn-primary" href="/squad_inv_players/create/{{$id}}" title="Create a data"> 
                     Create
                 </a>
                 <div class="table-responsive">
@@ -113,7 +113,7 @@
                                 <td>{{$data->created_at->format('d-m-Y')}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
-                                        <a href="/squad_inv_players/destroy/{{$data->id_squad_inv_player }}" class="badge badge-danger">{{$data->status ? 'Delete' : 'Batal'}}</a>
+                                        <a href="/anggota/squad_inv_players/destroy/{{$data->id_squad_inv_player }}" class="badge badge-danger">{{$data->status ? 'Delete' : 'Batal'}}</a>
                                     </div>
                                 </td>
                             </tr>
@@ -168,10 +168,10 @@
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
                                         <?php if ($data->status) { ?>
-                                            <a href="/request_squads/destroy/{{$data->id_request_squad }}" class="badge badge-danger">Delete</a>
+                                            <a href="/anggota/request_squads/destroy/{{$data->id_request_squad }}" class="badge badge-danger">Delete</a>
                                         <?php } else { ?>
-                                            <a href="/request_squads/terima/{{$data->id_request_squad }}" title="terima" class="badge badge-info">Terima</a>
-                                            <a href="/request_squads/destroy/{{$data->id_request_squad }}" class="badge badge-danger">Tolak</a>
+                                            <a href="/anggota/request_squads/terima/{{$data->id_request_squad }}" title="terima" class="badge badge-info">Terima</a>
+                                            <a href="/anggota/request_squads/destroy/{{$data->id_request_squad }}" class="badge badge-danger">Tolak</a>
                                         <?php } ?>
                                     </div>
                                 </td>

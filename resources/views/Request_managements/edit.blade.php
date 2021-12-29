@@ -8,7 +8,7 @@
             <div class="card-body">
                 <h4 class="card-title">Add New request to managements</h4>
                 <!-- <p class="card-description">
-                    <a class="btn btn-primary" href="/request_managements" title="Go back"> Batal </a>
+                    <a class="btn btn-primary" href="/anggota/request_managements" title="Go back"> Batal </a>
                 </p> -->
 
                 @if ($errors->any())
@@ -22,7 +22,7 @@
                 </div>
                 @endif
 
-                <form action="/request_managements/update/{{$request_managements->id_request_management}}" method="POST">
+                <form action="/anggota/request_managements/update/{{$request_managements->id_request_management}}" method="POST">
                     @csrf
                     <!-- @method('PUT') -->
                     <div class="form-group">
@@ -35,7 +35,7 @@
                         <input class="form-control" name="management_id" id="management_id" type="text" placeholder="{{ $request_managements->management_id }}" value="{{ $request_managements->management_id }}">
                     </div>
 
-                    <div class="mt-5">
+                    <div class="mt-2 col-12">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </form>

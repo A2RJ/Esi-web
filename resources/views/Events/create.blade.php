@@ -8,7 +8,7 @@
             <div class="card-body">
                 <h4 class="card-title">Add New events</h4>
                 <!-- <p class="card-description">
-                    <a class="btn btn-primary" href="/events" title="Go back"> Batal </a>
+                    <a class="btn btn-primary" href="/anggota/events" title="Go back"> Batal </a>
                 </p> -->
 
                 @if ($errors->any())
@@ -22,7 +22,7 @@
                 </div>
                 @endif
                 <!-- class col-sm-8 offset-2 -->
-                <form action="/events/store" method="POST" enctype="multipart/form-data" class="forms-sample">
+                <form action="/anggota/events/store" method="POST" enctype="multipart/form-data" class="forms-sample">
                     @csrf
                     <div class="row">
                         <div class="col-sm-6 form-group">

@@ -8,7 +8,7 @@
             <div class="card-body">
                 <h4 class="card-title">Add New players</h4>
                 <!-- <p class="card-description">
-                    <a class="btn btn-primary" href="/players" title="Go back"> Batal </a>
+                    <a class="btn btn-primary" href="/anggota/players" title="Go back"> Batal </a>
                 </p> -->
 
                 @if ($errors->any())
@@ -21,7 +21,7 @@
                     </ul>
                 </div>
                 @endif
-                <form action="/players/store" method="POST" enctype="multipart/form-data" class="forms-sample">
+                <form action="/anggota/players/store" method="POST" enctype="multipart/form-data" class="forms-sample">
                     @csrf
                     <!-- select games -->
                     <div class="row">

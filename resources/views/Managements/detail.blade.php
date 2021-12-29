@@ -14,8 +14,8 @@
                 <div class="bnSlide"></div>
                 <div class="photoCollect">
                     <!-- YOUR IMAGES HERE (Maximum 10 Photos & Minimum 1 Photo) -->
-                    <a href="/public/images/{{$management->management_image}}">
-                        <img src="/public/images/{{$management->management_image}}" alt="#no-image" title="#title-image" loading="lazy" />
+                    <a href="/anggota/public/assets/images/{{$management->management_image}}">
+                        <img src="/anggota/public/assets/images/{{$management->management_image}}" alt="#no-image" title="#title-image" loading="lazy" />
                     </a>
                 </div>
                 <div class="indCat"></div>
@@ -25,7 +25,7 @@
             <h3 class="m-0" style="display: inline-block;">{{$management->management_name}}</h3>
             <h6 class="text-muted">Dibuat pada {{$management->created_at->format('d, M Y')}}</h6>
 
-            <a href="/request_managements">
+            <a href="/anggota/request_managements">
                 <button class="btn btn-sm btn-outline-info p-1">Join squad ini</button>
             </a>
 
@@ -48,7 +48,7 @@
                     <li>Belum ada squad</li>
                     @endif
                     @foreach($management->squads as $squad)
-                    <li> <a class="text-info" href="/home/squad/{{$squad->id_squad}}">{{ $squad->squad_name }}</a></li>
+                    <li> <a class="text-info" href="/anggota/home/squad/{{$squad->id_squad}}">{{ $squad->squad_name }}</a></li>
                     @endforeach
                 </ul>
             </div>

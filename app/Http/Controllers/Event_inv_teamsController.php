@@ -38,7 +38,7 @@ class Event_inv_teamsController extends Controller
         ]);
 
         Event_inv_teams::create($request->all());
-        return redirect('events/setEvent/' . $request->event_id)->with('event_inv_teams', 'Event_inv_teams created successfully');
+        return redirect('anggota/events/setEvent/' . $request->event_id)->with('event_inv_teams', 'Event_inv_teams created successfully');
     }
 
     public function show($id)
@@ -59,7 +59,7 @@ class Event_inv_teamsController extends Controller
     public function update(Request $request, $id)
     {
         Event_inv_teams::find($id)->update($request->all());
-        return redirect('events/setEvent/' . $request->event_id)->with('event_inv_teams', 'Event_inv_teams updated successfully');
+        return redirect('anggota/events/setEvent/' . $request->event_id)->with('event_inv_teams', 'Event_inv_teams updated successfully');
     }
 
     public function destroy($id)
@@ -68,7 +68,7 @@ class Event_inv_teamsController extends Controller
         $event_id = $event->event_id;
         $event->delete();
 
-        return redirect('events/setEvent/' . $event_id)->with('event_inv_teams', 'Event_inv_teams deleted successfully');
+        return redirect('anggota/events/setEvent/' . $event_id)->with('event_inv_teams', 'Event_inv_teams deleted successfully');
     }
 
     public function invite()
@@ -108,6 +108,6 @@ class Event_inv_teamsController extends Controller
         $event_inv_teams->status = 1;
         $event_inv_teams->save();
 
-        return redirect('event_inv_teams/invite')->with('event_inv_teams', 'Event_inv_teams terima successfully');
+        return redirect('anggota/event_inv_teams/invite')->with('event_inv_teams', 'Event_inv_teams terima successfully');
     }
 }

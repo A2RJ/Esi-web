@@ -8,7 +8,7 @@
             <div class="card-body">
                 <h4 class="card-title">Add New users</h4>
                 <!-- <p class="card-description">
-                    <a class="btn btn-primary" href="/users" title="Go back"> Batal </a>
+                    <a class="btn btn-primary" href="/anggota/users" title="Go back"> Batal </a>
                 </p> -->
 
                 @if ($errors->any())
@@ -21,7 +21,7 @@
                     </ul>
                 </div>
                 @endif
-                <form action="/users/store" method="POST" enctype="multipart/form-data" class="forms-sample">
+                <form action="/anggota/users/store" method="POST" enctype="multipart/form-data" class="forms-sample">
                     @csrf
                     <div class="row">
                         <div class="form-group col-sm-6">
@@ -69,7 +69,7 @@
 
                         <div class="form-group col-sm-6">
                             <label for="user_image">User Image</label>
-                            <input type="text" class="form-control" name="user_image" id="user_image" placeholder="user_image">
+                            <input  class="form-control" name="user_image" id="user_image" type="file">
                         </div>
                     </div>
 

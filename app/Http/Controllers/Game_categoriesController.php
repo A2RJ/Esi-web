@@ -30,7 +30,7 @@ class Game_categoriesController extends Controller
         ]);
 
         Game_categories::create($request->all());
-        return redirect('game_categories')->with('success', 'Game_categories created successfully');
+        return redirect('anggota/game_categories')->with('success', 'Game_categories created successfully');
     }
 
     public function show($id)
@@ -48,12 +48,12 @@ class Game_categoriesController extends Controller
     public function update(Request $request, $id)
     {
         Game_categories::find($id)->update($request->all());
-        return redirect('game_categories')->with('success', 'Game_categories updated successfully');
+        return redirect('anggota/game_categories')->with('success', 'Game_categories updated successfully');
     }
 
     public function destroy($id)
     {
         Game_categories::find($id)->delete();
-        return redirect('game_categories')->with('success', 'Game_categories deleted successfully');
+        return redirect('anggota/game_categories')->with('success', 'Game_categories deleted successfully');
     }
 }

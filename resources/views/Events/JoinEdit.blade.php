@@ -8,7 +8,7 @@
             <div class="card-body">
                 <h4 class="card-title">Edit New event_teams</h4>
                 <!-- <p class="card-description">
-                    <a class="btn btn-primary" href="/event_teams" title="Go back"> Batal </a>
+                    <a class="btn btn-primary" href="/anggota/event_teams" title="Go back"> Batal </a>
                 </p> -->
 
                 @if ($errors->any())
@@ -22,7 +22,7 @@
                 </div>
                 @endif
 
-                <form action="/events/updateJoin/{{$event_teams->id_event_teams}}" enctype="multipart/form-data" method="POST">
+                <form action="/anggota/events/updateJoin/{{$event_teams->id_event_teams}}" enctype="multipart/form-data" method="POST">
                     @csrf
                     <!-- @method('PUT') -->
 
@@ -47,7 +47,7 @@
                         <input type="file" class="form-control" name="paid_image" id="paid_image">
                     </div>
 
-                    <div class="mt-5">
+                    <div class="mt-5 col-12">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </form>

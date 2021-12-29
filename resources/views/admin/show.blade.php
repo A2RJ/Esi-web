@@ -8,7 +8,7 @@
                 <h2>  {{ $admin->id_admin }}</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="Admin/index" title="Go back"> Go back<i class="fas fa-backward "></i> </a>
+                <a class="btn btn-primary" href="/anggota/admin/index" title="Go back"> Go back<i class="fas fa-backward "></i> </a>
             </div>
         </div>
     </div>

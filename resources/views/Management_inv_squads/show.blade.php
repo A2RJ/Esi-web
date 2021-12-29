@@ -8,7 +8,7 @@
                 <h2>  {{ $management_inv_squads->id_management_inv_squad }}</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="Management_inv_squads/index" title="Go back"> Go back<i class="fas fa-backward "></i> </a>
+                <a class="btn btn-primary" href="/anggota/Management_inv_squads/index" title="Go back"> Go back<i class="fas fa-backward "></i> </a>
             </div>
         </div>
     </div>

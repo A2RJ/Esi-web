@@ -8,7 +8,7 @@
             <div class="card-body">
                 <h4 class="card-title">Add New games</h4>
                 <p class="card-description">
-                    <a class="btn btn-primary" href="/games" title="Go back"> Batal </a>
+                    <a class="btn btn-primary" href="/anggota/games" title="Go back"> Batal </a>
                 </p>
 
                 @if ($errors->any())
@@ -21,7 +21,7 @@
                     </ul>
                 </div>
                 @endif
-                <form action="/games/store" method="POST" enctype="multipart/form-data" class="forms-sample">
+                <form action="/anggota/games/store" method="POST" enctype="multipart/form-data" class="forms-sample">
                     @csrf
 
                     <div class="form-group">

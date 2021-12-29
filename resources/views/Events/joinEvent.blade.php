@@ -8,7 +8,7 @@
             <div class="card-body">
                 <h4 class="card-title">Add New event teams</h4>
                 <!-- <p class="card-description">
-                    <a class="btn btn-primary" href="/event_teams" title="Go back"> Batal </a>
+                    <a class="btn btn-primary" href="/anggota/event_teams" title="Go back"> Batal </a>
                 </p> -->
 
                 @if ($errors->any())
@@ -21,7 +21,7 @@
                     </ul>
                 </div>
                 @endif
-                <form action="/events/storeJoin" method="POST" enctype="multipart/form-data" class="forms-sample">
+                <form action="/anggota/events/storeJoin" method="POST" enctype="multipart/form-data" class="forms-sample">
                     @csrf
                     <!-- looping event -->
                     <div class="form-group">

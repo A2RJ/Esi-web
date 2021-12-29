@@ -8,7 +8,7 @@
                 <h2>  {{ $games->id_game }}</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="Games/index" title="Go back"> Go back<i class="fas fa-backward "></i> </a>
+                <a class="btn btn-primary" href="/anggota/Games/index" title="Go back"> Go back<i class="fas fa-backward "></i> </a>
             </div>
         </div>
     </div>

@@ -16,7 +16,7 @@
                 <p class="card-description">
                     Daftar kategori game
                 </p>
-                <a class="btn btn-primary" href="/game_categories/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                <a class="btn btn-primary" href="/anggota/game_categories/create" title="Create a data"> 
                     Create
                 </a>
                 <div class="table-responsive">
@@ -47,9 +47,9 @@
                                 <td>{{$data->created_at}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
-                                        <!-- <a href="/game_categories/show/{{$data->id_game_category }}" title="show" class="badge badge-info">Show</a> -->
-                                        <a href="/game_categories/edit/{{$data->id_game_category }}" class="badge badge-warning">Edit</a>
-                                        <a href="/game_categories/destroy/{{$data->id_game_category }}" class="badge badge-danger">Delete</a>
+                                        <!-- <a href="/anggota/game_categories/show/{{$data->id_game_category }}" title="show" class="badge badge-info">Show</a> -->
+                                        <a href="/anggota/game_categories/edit/{{$data->id_game_category }}" class="badge badge-warning">Edit</a>
+                                        <a href="/anggota/game_categories/destroy/{{$data->id_game_category }}" class="badge badge-danger">Delete</a>
                                     </div>
                                 </td>
                             </tr>

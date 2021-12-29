@@ -6,7 +6,7 @@
     <defs>
         <polygon id="path-1" points="0 352 490 352 490 0 0 0"></polygon>
     </defs>
-    <g id="Marshmello_public/assets/landing-page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="Marshmello_public/landing-page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Simple_landngpage" transform="translate(-542.000000, -331.000000)">
             <g id="Group-171" transform="translate(528.000000, 331.000000)">
                 <path d="M411.847091,262 L113.152909,262 C109.201274,262 106,258.805349 106,254.866255 L106,71.1337445 C106,67.1946514 109.201274,64 113.152909,64 L411.847091,64 C415.798726,64 419,67.1946514 419,71.1337445 L419,254.866255 C419,258.805349 415.798726,262 411.847091,262 Z" id="Stroke-1" stroke="#E2B3B3" stroke-width="0.443"></path>

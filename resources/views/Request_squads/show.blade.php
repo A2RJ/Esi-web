@@ -8,7 +8,7 @@
                 <h2>  {{ $request_squads->id_request_squad }}</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="Request_squads/index" title="Go back"> Go back<i class="fas fa-backward "></i> </a>
+                <a class="btn btn-primary" href="/anggota/Request_squads/index" title="Go back"> Go back<i class="fas fa-backward "></i> </a>
             </div>
         </div>
     </div>

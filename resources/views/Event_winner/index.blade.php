@@ -16,7 +16,7 @@
                 <p class="card-description">
                     Pemenang Event
                 </p>
-                <a class="btn btn-primary" href="/event_winner/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                <a class="btn btn-primary" href="/anggota/event_winner/create" title="Create a data"> 
                     Create
                 </a>
                 <div class="table-responsive">
@@ -39,9 +39,9 @@
                                 <td>{{$data->created_at}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
-                                        <a href="/event_winner/show/{{$data->id_event_winner }}" title="show" class="badge badge-info">Show</a>
-                                        <a href="/event_winner/edit/{{$data->id_event_winner }}" class="badge badge-warning">Edit</a>
-                                        <a href="/event_winner/destroy/{{$data->id_event_winner }}" class="badge badge-danger">Delete</a>
+                                        <a href="/anggota/event_winner/show/{{$data->id_event_winner }}" title="show" class="badge badge-info">Show</a>
+                                        <a href="/anggota/event_winner/edit/{{$data->id_event_winner }}" class="badge badge-warning">Edit</a>
+                                        <a href="/anggota/event_winner/destroy/{{$data->id_event_winner }}" class="badge badge-danger">Delete</a>
                                     </div>
                                 </td>
                             </tr>

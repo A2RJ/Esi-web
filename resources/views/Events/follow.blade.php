@@ -49,15 +49,15 @@
                                 <?php if ($data->paid_image == null) { ?>
                                     <td>Belum Upload</td>
                                 <?php } else { ?>
-                                    <td><a class="badge badge-success" href="/public/images/{{$data->paid_image}}" target="_blank">Lihat Bukti</a>
+                                    <td><a class="badge badge-success" href="/anggota/public/assets/images/{{$data->paid_image}}" target="_blank">Lihat Bukti</a>
                                     </td>
                                 <?php } ?>
                                 <td>{{$data->created_at}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
-                                        <!-- <a href="/event_teams/show/{{$data->id_event_teams }}" title="show" class="badge badge-info">Show</a> -->
-                                        <a href="/events/editJoin/{{$data->id_event_teams }}" class="badge badge-warning">Upload bukti</a>
-                                        <a href="/event_teams/destroy/{{$data->id_event_teams }}" class="badge badge-danger">Delete</a>
+                                        <!-- <a href="/anggota/event_teams/show/{{$data->id_event_teams }}" title="show" class="badge badge-info">Show</a> -->
+                                        <a href="/anggota/events/editJoin/{{$data->id_event_teams }}" class="badge badge-warning">Upload bukti</a>
+                                        <a href="/anggota/event_teams/destroy/{{$data->id_event_teams }}" class="badge badge-danger">Delete</a>
                                     </div>
                                 </td>
                             </tr>

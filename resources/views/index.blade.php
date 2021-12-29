@@ -6,7 +6,7 @@
     <div class="container">
         <h1 class="font-weight-semibold">ESI Sumbawa<br>Nusa Tenggara Barat.</h1>
         <h6 class="font-weight-normal text-muted pb-3">Simple is a simple assets/template with a creative design that solves all your marketing and SEO queries.</h6>
-        <img src="/assets/landing-page/images/Group171.svg" alt="" class="img-fluid">
+        <img src="/anggota/public/assets/landing-page/images/Group171.svg" alt="" class="img-fluid">
     </div>
 </div>
 <div class="content-wrapper">
@@ -26,10 +26,10 @@
 
                 @foreach($events as $event)
                 <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
-                    <a href="/home/event/{{$event->id_event}}">
+                    <a href="/anggota/home/event/{{$event->id_event}}">
                         <div class="card">
                             <div class="card-body p-0">
-                                <div class="bg-success text-center card-contents rounded" style="background-image: url('/images/{{$event->event_image}}'); background-size: cover;">
+                                <div class="bg-success text-center card-contents rounded" style="background-image: url('/anggota/public/assets/images/{{$event->event_image}}'); background-size: cover;">
                                     <div style="height: 200px;"></div>
                                 </div>
                                 <div class="card-details text-center pt-4">
@@ -60,10 +60,10 @@
                 <!-- looping players -->
                 @foreach($players as $player)
                 <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
-                    <a href="/home/player/{{$player->id_player}}">
+                    <a href="/anggota/home/player/{{$player->id_player}}">
                         <div class="card">
                             <div class="card-body p-0">
-                                <div class="bg-success text-center card-contents rounded" style="background-image: url('/images/{{$player->player_image}}'); background-size: cover;">
+                                <div class="bg-success text-center card-contents rounded" style="background-image: url('/anggota/public/assets/images/{{$player->player_image}}'); background-size: cover;">
                                     <div style="height: 200px;"></div>
                                 </div>
                                 <div class="card-details text-center pt-4">
@@ -94,10 +94,10 @@
                 <!-- looping squads -->
                 @foreach($squads as $squad)
                 <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
-                    <a href="/home/squad/{{$squad->id_squad}}">
+                    <a href="/anggota/home/squad/{{$squad->id_squad}}">
                         <div class="card">
                             <div class="card-body p-0">
-                                <div class="bg-success text-center card-contents rounded" style="background-image: url('/images/{{$squad->squad_image}}'); background-size: cover;">
+                                <div class="bg-success text-center card-contents rounded" style="background-image: url('/anggota/public/assets/images/{{$squad->squad_image}}'); background-size: cover;">
                                     <div style="height: 200px;"></div>
                                 </div>
                                 <div class="card-details text-center pt-4">
@@ -128,10 +128,10 @@
                 <!-- looping management -->
                 @foreach($managements as $management)
                 <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
-                    <a href="/home/management/{{$management->id_management}}">
+                    <a href="/anggota/home/management/{{$management->id_management}}">
                         <div class="card">
                             <div class="card-body p-0">
-                                <div class="bg-success text-center card-contents rounded" style="background-image: url('/images/{{$management->management_image}}'); background-size: cover;">
+                                <div class="bg-success text-center card-contents rounded" style="background-image: url('/anggota/public/assets/images/{{$management->management_image}}'); background-size: cover;">
                                     <div style="height: 200px;"></div>
                                 </div>
                                 <div class="card-details text-center pt-4">
@@ -156,30 +156,30 @@
             <div class="d-md-flex justify-content-between">
                 <div class="grid-margin d-flex justify-content-start">
                     <div class="features-width">
-                        <img src="/assets/landing-page/images/Group12.svg" alt="" class="img-icons">
+                        <img src="/anggota/public/assets/landing-page/images/Group12.svg" alt="" class="img-icons">
                         <h5 class="py-3">Speed<br>Optimisation</h5>
                         <p class="text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
-                        <a href="#">
+                        <a href="/anggota#">
                             <p class="readmore-link">Readmore</p>
                         </a>
                     </div>
                 </div>
                 <div class="grid-margin d-flex justify-content-center">
                     <div class="features-width">
-                        <img src="/assets/landing-page/images/Group7.svg" alt="" class="img-icons">
+                        <img src="/anggota/public/assets/landing-page/images/Group7.svg" alt="" class="img-icons">
                         <h5 class="py-3">SEO and<br>Backlinks</h5>
                         <p class="text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
-                        <a href="#">
+                        <a href="/anggota#">
                             <p class="readmore-link">Readmore</p>
                         </a>
                     </div>
                 </div>
                 <div class="grid-margin d-flex justify-content-end">
                     <div class="features-width">
-                        <img src="/assets/landing-page/images/Group5.svg" alt="" class="img-icons">
+                        <img src="/anggota/public/assets/landing-page/images/Group5.svg" alt="" class="img-icons">
                         <h5 class="py-3">Content<br>Marketing</h5>
                         <p class="text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
-                        <a href="#">
+                        <a href="/anggota#">
                             <p class="readmore-link">Readmore</p>
                         </a>
                     </div>
@@ -196,12 +196,12 @@
                     </div>
                 </div>
                 <div class="col-12 col-lg-5 p-0 img-digital grid-margin grid-margin-lg-0" data-aos="fade-left">
-                    <img src="/assets/landing-page/images/Group1.png" alt="" class="img-fluid">
+                    <img src="/anggota/public/assets/landing-page/images/Group1.png" alt="" class="img-fluid">
                 </div>
             </div>
             <div class="row align-items-center">
                 <div class="col-12 col-lg-7 text-center flex-item grid-margin" data-aos="fade-right">
-                    <img src="/assets/landing-page/images/Group2.png" alt="" class="img-fluid">
+                    <img src="/anggota/public/assets/landing-page/images/Group2.png" alt="" class="img-fluid">
                 </div>
                 <div class="col-12 col-lg-5 flex-item grid-margin" data-aos="fade-left">
                     <h3 class="m-0">Leading Digital Agency<br>for Business Solution.</h3>
@@ -220,10 +220,10 @@
                     <!-- <h4 class="pt-1" data-aos="fade-down">Contact us</h4> -->
                 </div>
                 <div data-aos="fade-up">
-                    <a href="/register">
+                    <a href="/anggota/register">
                         <button class="btn btn-rounded btn-outline-info">Register</button>
                     </a>
-                    <a href="/login">
+                    <a href="/anggota/login">
                         <button class="btn btn-rounded btn-outline-info">Login</button>
                     </a>
                 </div>

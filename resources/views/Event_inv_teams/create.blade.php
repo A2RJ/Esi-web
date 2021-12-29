@@ -21,7 +21,7 @@
                     </ul>
                 </div>
                 @endif
-                <form action="/event_inv_teams/store" method="POST" class="forms-sample">
+                <form action="/anggota/event_inv_teams/store" method="POST" class="forms-sample">
                     @csrf
                     <!-- looping event -->
                     <div class="form-group">

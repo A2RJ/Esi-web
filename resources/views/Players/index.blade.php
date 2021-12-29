@@ -12,20 +12,20 @@
                 </div>
                 @endif
 
-                <h4 class="card-title">{{ Request::is('players/players') ? 'My Game Account' : 'All Game Account' }}</h4>
+                <h4 class="card-title">{{ Request::is('anggota/players/players') ? 'My Game Account' : 'All Game Account' }}</h4>
                 <p class="card-description">
                     Daftar player yang terdaftar
                 </p>
 
-                @if(Request::is('players/players'))
+                @if(Request::is('anggota/players/players'))
                 <div class="menu">
-                    <a class="btn btn-primary" href="/players/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                    <a class="btn btn-primary" href="/anggota/players/create" title="Create a data"> 
                         Create
                     </a>
-                    <a class="btn btn-primary" href="/squad_inv_players/inviteFromSquad" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                    <a class="btn btn-primary" href="/anggota/squad_inv_players/inviteFromSquad" title="Create a data"> 
                         Squad invite
                     </a>
-                    <a class="btn btn-primary" href="/request_squads" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                    <a class="btn btn-primary" href="/anggota/request_squads" title="Create a data"> 
                         Request squad
                     </a>
                 </div>
@@ -66,10 +66,10 @@
                                 <td>{{$data->created_at}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
-                                        <a href="/home/player/{{$data->id_player }}" title="show" class="badge badge-info">Show</a>
-                                        @if(Request::is('players/players'))
-                                        <a href="/players/edit/{{$data->id_player }}" class="badge badge-warning">Edit</a>
-                                        <a href="/players/destroy/{{$data->id_player }}" class="badge badge-danger">Delete</a>
+                                        <a href="/anggota/home/player/{{$data->id_player }}" title="show" class="badge badge-info">Show</a>
+                                        @if(Request::is('anggota/players/players'))
+                                        <a href="/anggota/players/edit/{{$data->id_player }}" class="badge badge-warning">Edit</a>
+                                        <a href="/anggota/players/destroy/{{$data->id_player }}" class="badge badge-danger">Delete</a>
                                         @endif
                                     </div>
                                 </td>

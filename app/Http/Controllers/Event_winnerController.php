@@ -38,7 +38,7 @@ class Event_winnerController extends Controller
             'squad_id' => 'required',
         ]);
         Event_winner::create($request->all());
-        return redirect('events/setEvent/' . $request->event_id)->with('event_winner', 'Event winner created successfully');
+        return redirect('anggota/events/setEvent/' . $request->event_id)->with('event_winner', 'Event winner created successfully');
     }
 
     public function show($id)
@@ -58,7 +58,7 @@ class Event_winnerController extends Controller
     public function update(Request $request, $id)
     {
         Event_winner::find($id)->update($request->all());
-        return redirect('events/setEvent/' . $request->event_id)->with('event_winner', 'Event winner updated successfully');
+        return redirect('anggota/events/setEvent/' . $request->event_id)->with('event_winner', 'Event winner updated successfully');
     }
 
     public function destroy($id)
@@ -67,6 +67,6 @@ class Event_winnerController extends Controller
         $event_id = $event->event_id;
         $event->delete();
 
-        return redirect('events/setEvent/' . $event_id)->with('event_winner', 'Event winner deleted successfully');
+        return redirect('anggota/events/setEvent/' . $event_id)->with('event_winner', 'Event winner deleted successfully');
     }
 }

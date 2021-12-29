@@ -21,6 +21,6 @@ class Management
             return $next($request);
         }
 
-        return redirect('/home/error');
+        return redirect('anggota/home/error');
     }
 }

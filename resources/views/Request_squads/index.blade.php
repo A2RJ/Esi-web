@@ -16,7 +16,7 @@
                 <p class="card-description">
                     Menu player request join squad
                 </p>
-                <a class="btn btn-primary" href="/request_squads/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                <a class="btn btn-primary" href="/anggota/request_squads/create" title="Create a data"> 
                     Create
                 </a>
                 <div class="table-responsive">
@@ -39,7 +39,7 @@
                                 <td>{{$data->status ? 'Accepted' : 'Waiting'}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
-                                        <a href="/request_squads/destroy/{{$data->id_request_squad }}" class="badge badge-danger">{{$data->status ? 'Delete' : 'Batal'}}</a>
+                                        <a href="/anggota/request_squads/destroy/{{$data->id_request_squad }}" class="badge badge-danger">{{$data->status ? 'Delete' : 'Batal'}}</a>
                                     </div>
                                 </td>
                             </tr>

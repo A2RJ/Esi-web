@@ -14,8 +14,8 @@
                 <div class="bnSlide"></div>
                 <div class="photoCollect">
                     <!-- YOUR IMAGES HERE (Maximum 10 Photos & Minimum 1 Photo) -->
-                    <a href="/public/images/{{$player->player_image}}">
-                        <img src="/public/images/{{$player->player_image}}" alt="#no-image" title="#title-image" loading="lazy" />
+                    <a href="/anggota/public/assets/images/{{$player->player_image}}">
+                        <img src="/anggota/public/assets/images/{{$player->player_image}}" alt="#no-image" title="#title-image" loading="lazy" />
                     </a>
                 </div>
                 <div class="indCat"></div>
@@ -34,9 +34,9 @@
                     <li>Game: {{ $player->game->game_name }}</li>
                     <li>Kontak: {{ $player->user->kontak }}</li>
                     <li>Email: {{ $player->user->email }}</li>
-                    <li>Squad: @if($player->squad) <a class="text-info" href="/home/squad/{{$player->squad->id_squad}}">{{$player->squad->squad_name}}</a> @else Player tidak bergabung dalam squad @endif</li>
+                    <li>Squad: @if($player->squad) <a class="text-info" href="/anggota/home/squad/{{$player->squad->id_squad}}">{{$player->squad->squad_name}}</a> @else Player tidak bergabung dalam squad @endif</li>
                     @if($player->management)
-                    <li>management: <a class="text-info" href="/home/management/{{$player->management->id_management}}">{{ $player->management->management_name }}</a></li>
+                    <li>management: <a class="text-info" href="/anggota/home/management/{{$player->management->id_management}}">{{ $player->management->management_name }}</a></li>
                     @else
                     <li>Management: Belum bergabung dalam management</li>
                     @endif

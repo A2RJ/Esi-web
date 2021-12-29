@@ -8,7 +8,7 @@
             <div class="card-body">
                 <h4 class="card-title">Add New squad_inv_players</h4>
                 <!-- <p class="card-description">
-                    <a class="btn btn-primary" href="/squad_inv_players" title="Go back"> Batal </a>
+                    <a class="btn btn-primary" href="/anggota/squad_inv_players" title="Go back"> Batal </a>
                 </p> -->
 
                 @if ($errors->any())
@@ -28,7 +28,7 @@
                     {{Session::get('error')}}
                 </div>
                 @endif
-                <form action="/squad_inv_players/store" method="POST" class="forms-sample">
+                <form action="/anggota/squad_inv_players/store" method="POST" class="forms-sample">
                     @csrf
                     <!-- select users -->
                     <div class="form-group">

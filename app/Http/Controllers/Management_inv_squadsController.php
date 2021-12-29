@@ -41,7 +41,7 @@ class Management_inv_squadsController extends Controller
         ]);
         Management_inv_squads::create($request->all());
 
-        return redirect('management_inv_squads')->with('success', 'Management_inv_squads created successfully');
+        return redirect('anggota/management_inv_squads')->with('success', 'Management_inv_squads created successfully');
     }
 
     public function show($id)
@@ -60,13 +60,13 @@ class Management_inv_squadsController extends Controller
     public function update(Request $request, $id)
     {
         Management_inv_squads::find($id)->update($request->all());
-        return redirect('management_inv_squads')->with('success', 'Management_inv_squads updated successfully');
+        return redirect('anggota/management_inv_squads')->with('success', 'Management_inv_squads updated successfully');
     }
 
     public function destroy($id)
     {
         Management_inv_squads::find($id)->delete();
-        return redirect('management_inv_squads')->with('success', 'Management_inv_squads deleted successfully');
+        return redirect('anggota/management_inv_squads')->with('success', 'Management_inv_squads deleted successfully');
     }
 
     public function invite()
@@ -92,6 +92,6 @@ class Management_inv_squadsController extends Controller
         $management_inv_squads->status = 1;
         $management_inv_squads->save();
 
-        return redirect('management_inv_squads/invite')->with('success', 'Management_inv_squads updated successfully');
+        return redirect('anggota/management_inv_squads/invite')->with('success', 'Management_inv_squads updated successfully');
     }
 }

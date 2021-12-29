@@ -50,10 +50,10 @@
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
                                         <?php if ($data->status) { ?>
-                                            <a href="/request_managements/destroy/{{$data->id_request_management }}" class="badge badge-danger">Delete</a>
+                                            <a href="/anggota/request_managements/destroy/{{$data->id_request_management }}" class="badge badge-danger">Delete</a>
                                         <?php } else { ?>
-                                            <a href="/request_managements/terima/{{$data->id_request_management }}" class="badge badge-info">Terima</a>
-                                            <a href="/request_managements/destroy/{{$data->id_request_management }}" class="badge badge-danger">Tolak</a>
+                                            <a href="/anggota/request_managements/terima/{{$data->id_request_management }}" class="badge badge-info">Terima</a>
+                                            <a href="/anggota/request_managements/destroy/{{$data->id_request_management }}" class="badge badge-danger">Tolak</a>
                                         <?php } ?>
                                     </div>
                                 </td>

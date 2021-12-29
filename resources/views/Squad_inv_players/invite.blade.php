@@ -39,10 +39,10 @@
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
                                         <?php if ($data->status) { ?>
-                                            <a href="/squad_inv_players/destroy/{{$data->id_squad_inv_player }}" class="badge badge-danger">Delete</a>
+                                            <a href="/anggota/squad_inv_players/destroy/{{$data->id_squad_inv_player }}" class="badge badge-danger">Delete</a>
                                         <?php } else { ?>
-                                            <a href="/squad_inv_players/terima/{{$data->id_squad_inv_player }}" title="show" class="badge badge-info">Terima</a>
-                                            <a href="/squad_inv_players/destroy/{{$data->id_squad_inv_player }}" class="badge badge-danger">Tolak</a>
+                                            <a href="/anggota/squad_inv_players/terima/{{$data->id_squad_inv_player }}" title="show" class="badge badge-info">Terima</a>
+                                            <a href="/anggota/squad_inv_players/destroy/{{$data->id_squad_inv_player }}" class="badge badge-danger">Tolak</a>
                                         <?php } ?>
                                     </div>
                                 </td>

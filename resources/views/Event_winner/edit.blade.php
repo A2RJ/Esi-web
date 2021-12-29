@@ -8,7 +8,7 @@
             <div class="card-body">
                 <h4 class="card-title">Add New event winner</h4>
                 <!-- <p class="card-description">
-                    <a class="btn btn-primary" href="/event_winner" title="Go back"> Batal </a>
+                    <a class="btn btn-primary" href="/anggota/event_winner" title="Go back"> Batal </a>
                 </p> -->
 
                 @if ($errors->any())
@@ -22,7 +22,7 @@
                 </div>
                 @endif
 
-                <form action="/event_winner/update/{{$event_winner->id_event_winner}}" method="POST">
+                <form action="/anggota/event_winner/update/{{$event_winner->id_event_winner}}" method="POST">
                     @csrf
                     <!-- @method('PUT') -->
                     <!-- looping events and squads -->
@@ -45,7 +45,7 @@
                         </select>
                     </div>
 
-                    <div class="mt-5">
+                    <div class="mt-5 col-12">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </form>

@@ -21,7 +21,7 @@
                     </ul>
                 </div>
                 @endif
-                <form action="/event_winner/store" method="POST" class="forms-sample">
+                <form action="/anggota/event_winner/store" method="POST" class="forms-sample">
                     @csrf
                     <!-- looping events and squads -->
                     <div class="form-group">

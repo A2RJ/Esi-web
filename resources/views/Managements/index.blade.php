@@ -12,20 +12,20 @@
                 </div>
                 @endif
 
-                <h4 class="card-title">{{ Request::is('managements') ? 'All Management' : 'My Management' }}</h4>
+                <h4 class="card-title">{{ Request::is('anggota/managements') ? 'All Management' : 'My Management' }}</h4>
                 <p class="card-description">
                     Daftar Management yang terdaftar
                 </p>
 
-                @if(Request::is('managements/managements'))
+                @if(Request::is('anggota/managements/managements'))
                 <div class="menu">
-                    <a class="btn btn-primary" href="/managements/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                    <a class="btn btn-primary" href="/anggota/managements/create" title="Create a data"> 
                         Create management
                     </a>
-                    <a class="btn btn-primary" href="/management_inv_squads" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                    <a class="btn btn-primary" href="/anggota/management_inv_squads" title="Create a data"> 
                         Invite squad
                     </a>
-                    <a class="btn btn-primary" href="/request_managements/requestFromSquads" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                    <a class="btn btn-primary" href="/anggota/request_managements/requestFromSquads" title="Create a data"> 
                         Request join management
                     </a>
                 </div>
@@ -59,10 +59,10 @@
                                 <td>{{$data->created_at->format('d-m-Y')}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
-                                        <a href="/managements/show/{{$data->id_management }}" title="show" class="badge badge-info">Show</a>
-                                        @if(Request::is('managements/managements'))
-                                        <a href="/managements/edit/{{$data->id_management }}" class="badge badge-warning">Edit</a>
-                                        <a href="/managements/destroy/{{$data->id_management }}" class="badge badge-danger">Delete</a>
+                                        <a href="/anggota/managements/show/{{$data->id_management }}" title="show" class="badge badge-info">Show</a>
+                                        @if(Request::is('anggota/managements/managements'))
+                                        <a href="/anggota/managements/edit/{{$data->id_management }}" class="badge badge-warning">Edit</a>
+                                        <a href="/anggota/managements/destroy/{{$data->id_management }}" class="badge badge-danger">Delete</a>
                                         @endif
                                     </div>
                                 </td>

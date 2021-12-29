@@ -8,7 +8,7 @@
             <div class="card-body">
                 <h4 class="card-title">Add New squad_inv_players</h4>
                 <!-- <p class="card-description">
-                    <a class="btn btn-primary" href="/squad_inv_players" title="Go back"> Batal </a>
+                    <a class="btn btn-primary" href="/anggota/squad_inv_players" title="Go back"> Batal </a>
                 </p> -->
 
                 @if ($errors->any())
@@ -22,7 +22,7 @@
                 </div>
                 @endif
 
-                <form action="/squad_inv_players/update/{{$squad_inv_players->id_squad_inv_player}}" method="POST">
+                <form action="/anggota/squad_inv_players/update/{{$squad_inv_players->id_squad_inv_player}}" method="POST">
                     @csrf
                     <!-- @method('PUT') -->
                     <div class="form-group">
@@ -40,7 +40,7 @@
                         <input class="form-control" name="status" id="status" type="hidden" placeholder="{{ $squad_inv_players->status }}" value="{{ $squad_inv_players->status }}">
                     </div>
 
-                    <div class="mt-5">
+                    <div class="mt-2 col-12">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
 

@@ -14,8 +14,8 @@
                 <div class="bnSlide"></div>
                 <div class="photoCollect">
                     <!-- YOUR IMAGES HERE (Maximum 10 Photos & Minimum 1 Photo) -->
-                    <a href="/public/images/{{$squad->squad_image}}">
-                        <img src="/public/images/{{$squad->squad_image}}" alt="#no-image" title="#title-image" loading="lazy" />
+                    <a href="/anggota/public/assets/images/{{$squad->squad_image}}">
+                        <img src="/anggota/public/assets/images/{{$squad->squad_image}}" alt="#no-image" title="#title-image" loading="lazy" />
                     </a>
                 </div>
                 <div class="indCat"></div>
@@ -25,7 +25,7 @@
             <h3 class="m-0" style="display: inline-block;">{{$squad->squad_name}}</h3>
             <h6 class="text-muted">Game {{ $squad->game ? $squad->game->game_name : '' }}, Dibuat pada {{$squad->created_at->format('d, M Y')}}</h6>
 
-            <a href="/request_squads">
+            <a href="/anggota/request_squads">
                 <button class="btn btn-sm btn-outline-info p-1">Join squad ini</button>
             </a>
             <div class="col-12 p-0">
@@ -34,14 +34,14 @@
                     <li>Leader: {{ $squad->leader->ingame_name }}</li>
                     <li>Kontak: {{ $squad->user ? $squad->user->nama : '' }}</li>
                     <li>Email: {{ $squad->user ? $squad->user->email : ''}}</li>
-                    <li>Management: @if($squad->management) <a class="text-info" href="/home/management/{{$squad->management->id_management}}">{{$squad->management->management_name}}</a> @else Squad tidak bergabung dalam management @endif</li>
+                    <li>Management: @if($squad->management) <a class="text-info" href="/anggota/home/management/{{$squad->management->id_management}}">{{$squad->management->management_name}}</a> @else Squad tidak bergabung dalam management @endif</li>
                 </ul>
                 </p>
                 <p class="py-4 m-0 text-muted">Member: </p>
                 <ul>
                     @foreach ($squad->players as $player)
                     <li>
-                        <a class="text-info" href="/home/player/{{$player->id_player}}">
+                        <a class="text-info" href="/anggota/home/player/{{$player->id_player}}">
                             {{ $player->ingame_name }}
                         </a>
                     </li>

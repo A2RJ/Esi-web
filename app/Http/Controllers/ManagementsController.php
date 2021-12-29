@@ -43,7 +43,7 @@ class ManagementsController extends Controller
         $management->management_image = Upload::uploadFile($request, 'management_image');
         $management->save();
 
-        return redirect('/managements/managements')->with('success', 'Management created successfully.');
+        return redirect('anggota/managements/managements')->with('success', 'Management created successfully.');
     }
 
     public function show($id)
@@ -67,7 +67,7 @@ class ManagementsController extends Controller
             $management->save();
         }
         
-        return redirect('/managements/managements')->with('success', 'Management updated successfully.');
+        return redirect('anggota/managements/managements')->with('success', 'Management updated successfully.');
     }
 
     public function destroy($id)
@@ -75,7 +75,7 @@ class ManagementsController extends Controller
         Managements::find($id)->delete();
         Squads::where('management_id', $id)->update(['management_id' => $id]);
 
-        return redirect('/managements/managements')->with('success', 'Management deleted successfully.');
+        return redirect('anggota/managements/managements')->with('success', 'Management deleted successfully.');
     }
 
     public function managements()

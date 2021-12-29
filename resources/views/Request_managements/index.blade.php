@@ -16,7 +16,7 @@
                 <p class="card-description">
                     Daftar request join yang masih dalam proses
                 </p>
-                <a class="btn btn-primary" href="/request_managements/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                <a class="btn btn-primary" href="/anggota/request_managements/create" title="Create a data"> 
                     Create
                 </a>
                 <div class="table-responsive">
@@ -49,7 +49,7 @@
                                 <td>{{$data->status ? 'Diterima' : 'Waiting' }}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
-                                        <a href="/request_managements/destroy/{{$data->id_request_management }}" class="badge badge-danger">Delete</a>
+                                        <a href="/anggota/request_managements/destroy/{{$data->id_request_management }}" class="badge badge-danger">Delete</a>
                                     </div>
                                 </td>
                             </tr>

@@ -21,7 +21,7 @@
                     </ul>
                 </div>
                 @endif
-                <form action="/admin/store" method="POST" class="forms-sample">
+                <form action="/anggota/admin/store" method="POST" class="forms-sample">
                     @csrf
                     <!-- select users -->
                     <div class="row">

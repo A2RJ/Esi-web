@@ -49,7 +49,7 @@ class Request_managementsController extends Controller
 
         Request_managements::create($request->all());
 
-        return redirect('request_managements')->with('success', 'Request_managements created successfully');
+        return redirect('anggota/request_managements')->with('success', 'Request_managements created successfully');
     }
 
     public function show($id)
@@ -73,13 +73,13 @@ class Request_managementsController extends Controller
 
         Request_managements::find($id)->update($request->all());
 
-        return redirect('request_managements')->with('success', 'Request_managements updated successfully');
+        return redirect('anggota/request_managements')->with('success', 'Request_managements updated successfully');
     }
 
     public function destroy($id)
     {
         Request_managements::find($id)->delete();
-        return redirect('request_managements')->with('success', 'Request_managements deleted successfully');
+        return redirect('anggota/request_managements')->with('success', 'Request_managements deleted successfully');
     }
 
     // requestFromSquads
@@ -107,6 +107,6 @@ class Request_managementsController extends Controller
         $request_managements->status = 1;
         $request_managements->save();
 
-        return redirect('request_managements/requestFromSquads');
+        return redirect('anggota/request_managements/requestFromSquads');
     }
 }

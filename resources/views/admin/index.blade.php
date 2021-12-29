@@ -16,7 +16,7 @@
                 <p class="card-description">
                     Kelola admin yang terdaftar
                 </p>
-                <a class="btn btn-primary" href="/admin/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                <a class="btn btn-primary" href="/anggota/admin/create" title="Create a data"> 
                     Create
                 </a>
 
@@ -52,9 +52,9 @@
                                 <td>{{$data->fb}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
-                                        <!-- <a href="/admin/show/{{$data->id_admin }}" title="show" class="badge badge-info">Show</a> -->
-                                        <a href="/admin/edit/{{$data->id_admin }}" class="badge badge-warning">Edit</a>
-                                        <a href="/admin/destroy/{{$data->id_admin }}" class="badge badge-danger">Delete</a>
+                                        <!-- <a href="/anggota/admin/show/{{$data->id_admin }}" title="show" class="badge badge-info">Show</a> -->
+                                        <a href="/anggota/admin/edit/{{$data->id_admin }}" class="badge badge-warning">Edit</a>
+                                        <a href="/anggota/admin/destroy/{{$data->id_admin }}" class="badge badge-danger">Delete</a>
                                     </div>
                                 </td>
                             </tr>

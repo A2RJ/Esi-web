@@ -14,8 +14,8 @@
                 <div class="bnSlide"></div>
                 <div class="photoCollect">
                     <!-- YOUR IMAGES HERE (Maximum 10 Photos & Minimum 1 Photo) -->
-                    <a href="/public/images/{{$event->event_image}}">
-                        <img src="/public/images/{{$event->event_image}}" alt="#no-image" title="#title-image" loading="lazy" />
+                    <a href="/anggota/public/assets/images/{{$event->event_image}}">
+                        <img src="/anggota/public/assets/images/{{$event->event_image}}" alt="#no-image" title="#title-image" loading="lazy" />
                     </a>
                 </div>
                 <div class="indCat"></div>
@@ -29,7 +29,7 @@
                 <p>{{ $message }}</p>
             </div>
             @endif
-            <a href="/events/joinEvent/{{ $event->id_event }}">
+            <a href="/anggota/events/joinEvent/{{ $event->id_event }}">
                 <button class="btn btn-sm btn-outline-info p-1">Join event</button>
             </a>
             <div class="col-12 p-0">
@@ -53,7 +53,7 @@
                 @endif
                 @foreach($teams as $event_teams)
                 <li>
-                    <a class="text-info" href="/home/squad/{{$event_teams->id_squad}}">
+                    <a class="text-info" href="/anggota/home/squad/{{$event_teams->id_squad}}">
                         <p>{{ $event_teams->squad_name }}</p>
                     </a>
                 </li>
@@ -68,7 +68,7 @@
                 @endif
                 @foreach($winners as $win)
                 <li>
-                    <a class="text-info" href="/home/squad/{{$win->squad_id}}">
+                    <a class="text-info" href="/anggota/home/squad/{{$win->squad_id}}">
                         <p>{{ $win->squad_name }}</p>
                     </a>
                 </li>

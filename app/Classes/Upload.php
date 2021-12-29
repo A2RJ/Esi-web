@@ -14,7 +14,7 @@ class Upload
         if ($request->hasFile($field)) {
             $request['image'] = $request->file($field);
             $fileName = date('d_m_Y_') . uniqid() . "." . $request['image']->extension();
-            $request->image->move(public_path('images'), $fileName);
+            $request->image->move(public_path('assets/images'), $fileName);
         } else {
             $fileName = 'Group115.svg';
         }

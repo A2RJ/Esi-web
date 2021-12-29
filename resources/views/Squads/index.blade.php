@@ -12,23 +12,23 @@
                 </div>
                 @endif
 
-                <h4 class="card-title">{{Request::is('squads/squads') ? 'My Squads' : 'All Squads' }}</h4>
+                <h4 class="card-title">{{Request::is('anggota/squads/squads') ? 'My Squads' : 'All Squads' }}</h4>
                 <p class="card-description">
                     Daftar squad yang terdaftar
                 </p>
 
-                @if(Request::is('squads/squads'))
+                @if(Request::is('anggota/squads/squads'))
                 <div class="menu">
-                    <a class="btn btn-primary" href="/squads/create" title="Create a data">
+                    <a class="btn btn-primary" href="/anggota/squads/create" title="Create a data">
                         Create squad
                     </a>
-                    <a class="btn btn-primary" href="/event_inv_teams/invite" title="Create a data">
+                    <a class="btn btn-primary" href="/anggota/event_inv_teams/invite" title="Create a data">
                         Event invite
                     </a>
-                    <a class="btn btn-primary" href="/management_inv_squads/invite" title="Create a data">
+                    <a class="btn btn-primary" href="/anggota/management_inv_squads/invite" title="Create a data">
                         Management invite
                     </a>
-                    <a class="btn btn-primary" href="/request_managements" title="Create a data">
+                    <a class="btn btn-primary" href="/anggota/request_managements" title="Create a data">
                         Request management
                     </a>
                 </div>
@@ -69,11 +69,11 @@
                                 <td>{{$data->created_at->format('d-m-Y')}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
-                                        <a href="/squads/show/{{$data->id_squad }}" title="show" class="badge badge-info">Show</a>
-                                        @if(Request::is('squads/squads'))
-                                        <a href="/squads/setSquad/{{$data->id_squad }}" title="show" class="badge badge-info">Detail</a>
-                                        <a href="/squads/edit/{{$data->id_squad }}" class="badge badge-warning">Edit</a>
-                                        <a href="/squads/destroy/{{$data->id_squad }}" class="badge badge-danger">Delete</a>
+                                        <a href="/anggota/squads/show/{{$data->id_squad }}" title="show" class="badge badge-info">Show</a>
+                                        @if(Request::is('anggota/squads/squads'))
+                                        <a href="/anggota/squads/setSquad/{{$data->id_squad }}" title="show" class="badge badge-info">Detail</a>
+                                        <a href="/anggota/squads/edit/{{$data->id_squad }}" class="badge badge-warning">Edit</a>
+                                        <a href="/anggota/squads/destroy/{{$data->id_squad }}" class="badge badge-danger">Delete</a>
                                         @endif
                                     </div>
                                 </td>

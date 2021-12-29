@@ -1,4 +1,4 @@
-@if(Request::is('/'))
+@if(Request::is('/anggota'))
 <div class="col-12 d-flex justify-content-center mb-4 mt-1">
     <form action="{{url()->current()}}" method="get">
         <div class="row">

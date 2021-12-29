@@ -22,7 +22,7 @@
                 </div>
                 @endif
 
-                <form action="/game_categories/update/{{$game_categories->id_game_category}}" method="POST">
+                <form action="/anggota/game_categories/update/{{$game_categories->id_game_category}}" method="POST">
                     @csrf
                     <!-- @method('PUT') -->
 
@@ -31,7 +31,7 @@
                         <input class="form-control" name="game_category" id="game_category" type="text" placeholder="{{ $game_categories->game_category }}" value="{{ $game_categories->game_category }}">
                     </div>
 
-                    <div class="mt-5">
+                    <div class="mt-2 col-12">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </form>

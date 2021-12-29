@@ -16,7 +16,7 @@
                 <p class="card-description">
                     Daftar user yang terdaftar di sistem
                 </p>
-                <a class="btn btn-primary" href="/users/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                <a class="btn btn-primary" href="/anggota/users/create" title="Create a data"> 
                     Create
                 </a>
                 <div class="table-responsive">
@@ -49,9 +49,9 @@
                                 <td>{{$data->created_at}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
-                                        <!-- <a href="/users/show/{{$data->id_user }}" title="show" class="badge badge-info">Show</a> -->
-                                        <a href="/users/edit/{{$data->id_user }}" class="badge badge-warning">Edit</a>
-                                        <a href="/users/destroy/{{$data->id_user }}" class="badge badge-danger">Delete</a>
+                                        <!-- <a href="/anggota/users/show/{{$data->id_user }}" title="show" class="badge badge-info">Show</a> -->
+                                        <a href="/anggota/users/edit/{{$data->id_user }}" class="badge badge-warning">Edit</a>
+                                        <a href="/anggota/users/destroy/{{$data->id_user }}" class="badge badge-danger">Delete</a>
                                     </div>
                                 </td>
                             </tr>

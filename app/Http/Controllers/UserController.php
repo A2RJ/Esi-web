@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Classes\Upload;
 use App\Models\User;
+use App\Models\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -11,9 +12,10 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::latest();
+        $users = Users::latest();
         if(request('user')){
-            $users = $users->where('nama', 'like', '%' . request('user') . '%');
+            $users = $users->where('nama', 'LIKE', '%' . request('user') . '%')
+            ->orWhere('user_role', 'LIKE', '%' . request('user') . '%');
         }
         $users = $users->paginate(10);
         return view('Users.index', compact('users'));
@@ -46,7 +48,7 @@ class UserController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
 
-        return redirect('users')->with('success', 'User created successfully');
+        return redirect('anggota/users')->with('success', 'User created successfully');
     }
 
     public function edit($id)
@@ -91,6 +93,6 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::find($id)->delete();
-        return redirect('/users')->with('success', 'User deleted successfully');
+        return redirect('anggota/users')->with('success', 'User deleted successfully');
     }
 }

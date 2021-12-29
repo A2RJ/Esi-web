@@ -8,7 +8,7 @@
             <div class="card-body">
                 <h4 class="card-title">Invite squads</h4>
                 <!-- <p class="card-description">
-                    <a class="btn btn-primary" href="/management_inv_squads" title="Go back"> Batal </a>
+                    <a class="btn btn-primary" href="/anggota/management_inv_squads" title="Go back"> Batal </a>
                 </p> -->
 
                 @if ($errors->any())
@@ -21,7 +21,7 @@
                     </ul>
                 </div>
                 @endif
-                <form action="/management_inv_squads/store" method="POST" class="forms-sample">
+                <form action="/anggota/management_inv_squads/store" method="POST" class="forms-sample">
                     @csrf
                     <!-- select managements -->
                     <div class="form-group">

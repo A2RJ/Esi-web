@@ -9,12 +9,12 @@
             <h4>Nusa Tenggara Barat.</h4>
             <h6 class="font-weight-normal text-muted pb-3">Simple is a simple assets/template with a creative design that solves all your marketing and SEO queries.</h6>
         </div>
-        <div class="col-sm-6">
-            <img src="/assets/assets/landing-page/images/Group171.svg" alt="" class="img-fluid">
+        <div class="col-sm-6 mt-5">
+            <img src="/anggota/public/assets/landing-page/images/Group171.svg" alt="" class="img-fluid">
 
         </div>
     </div>
-    <div class="content-wrapper">
+    <div class="content-wrapper bg-white">
         <div class="container">
             <section class="main-content">
                 <div class="row mt-5" id="events-section">
@@ -31,10 +31,10 @@
 
                     @foreach($events as $event)
                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
-                        <a href="/home/event/{{$event->id_event}}">
+                        <a href="/anggota/home/event/{{$event->id_event}}">
                             <div class="card">
                                 <div class="card-body p-0">
-                                    <div class="bg-success text-center card-contents rounded" style="background-image: url('/images/{{$event->event_image}}'); background-size: cover;">
+                                    <div class="bg-success text-center card-contents rounded" style="background-image: url('/anggota/public/assets/images/{{$event->event_image}}'); background-size: cover;">
                                         <div style="height: 200px;"></div>
                                     </div>
                                     <div class="card-details text-center pt-4">
@@ -65,10 +65,10 @@
                     <!-- looping players -->
                     @foreach($players as $player)
                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
-                        <a href="/home/player/{{$player->id_player}}">
+                        <a href="/anggota/home/player/{{$player->id_player}}">
                             <div class="card">
                                 <div class="card-body p-0">
-                                    <div class="bg-success text-center card-contents rounded" style="background-image: url('/images/{{$player->player_image}}'); background-size: cover;">
+                                    <div class="bg-success text-center card-contents rounded" style="background-image: url('/anggota/public/assets/images/{{$player->player_image}}'); background-size: cover;">
                                         <div style="height: 200px;"></div>
                                     </div>
                                     <div class="card-details text-center pt-4">
@@ -99,10 +99,10 @@
                     <!-- looping squads -->
                     @foreach($squads as $squad)
                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
-                        <a href="/home/squad/{{$squad->id_squad}}">
+                        <a href="/anggota/home/squad/{{$squad->id_squad}}">
                             <div class="card">
                                 <div class="card-body p-0">
-                                    <div class="bg-success text-center card-contents rounded" style="background-image: url('/images/{{$squad->squad_image}}'); background-size: cover;">
+                                    <div class="bg-success text-center card-contents rounded" style="background-image: url('/anggota/public/assets/images/{{$squad->squad_image}}'); background-size: cover;">
                                         <div style="height: 200px;"></div>
                                     </div>
                                     <div class="card-details text-center pt-4">
@@ -133,10 +133,10 @@
                     <!-- looping management -->
                     @foreach($managements as $management)
                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
-                        <a href="/home/management/{{$management->id_management}}">
+                        <a href="/anggota/home/management/{{$management->id_management}}">
                             <div class="card">
                                 <div class="card-body p-0">
-                                    <div class="bg-success text-center card-contents rounded" style="background-image: url('/images/{{$management->management_image}}'); background-size: cover;">
+                                    <div class="bg-success text-center card-contents rounded" style="background-image: url('/anggota/public/assets/images/{{$management->management_image}}'); background-size: cover;">
                                         <div style="height: 200px;"></div>
                                     </div>
                                     <div class="card-details text-center pt-4">

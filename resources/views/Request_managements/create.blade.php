@@ -8,7 +8,7 @@
             <div class="card-body">
                 <h4 class="card-title">Add New request join managements</h4>
                 <!-- <p class="card-description">
-                    <a class="btn btn-primary" href="/request_managements" title="Go back"> Batal </a>
+                    <a class="btn btn-primary" href="/anggota/request_managements" title="Go back"> Batal </a>
                 </p> -->
 
                 @if ($errors->any())
@@ -21,7 +21,7 @@
                     </ul>
                 </div>
                 @endif
-                <form action="/request_managements/store" method="POST" class="forms-sample">
+                <form action="/anggota/request_managements/store" method="POST" class="forms-sample">
                     @csrf
                     <!-- select squads -->
                     <div class="form-group">

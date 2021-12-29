@@ -45,12 +45,12 @@ class Squad_inv_playersController extends Controller
             ->first();
 
         if ($player->squad_id) {
-            return redirect('squad_inv_players/create')
+            return redirect('anggota/squad_inv_players/create')
                 ->with('error', 'Player is already in a squad');
         }
 
         Squad_inv_players::create($request->all());
-        return redirect('squads/setSquad/' . $request->squad_id)->with('success', 'Squad_inv_players created successfully');
+        return redirect('anggota/squads/setSquad/' . $request->squad_id)->with('success', 'Squad_inv_players created successfully');
     }
 
     public function show($id)
@@ -72,12 +72,12 @@ class Squad_inv_playersController extends Controller
             ->first();
 
         if ($player->squad_id) {
-            return redirect('squad_inv_players/create')
+            return redirect('anggota/squad_inv_players/create')
                 ->with('error', 'Player is already in a squad');
         }
 
         Squad_inv_players::find($id)->update($request->all());
-        return redirect('squad_inv_players')->with('success', 'Squad_inv_players updated successfully');
+        return redirect('anggota/squad_inv_players')->with('success', 'Squad_inv_players updated successfully');
     }
 
     public function destroy($id)
@@ -106,6 +106,6 @@ class Squad_inv_playersController extends Controller
 
         Players::find($squad->player_id)->update(['squad_id' => $squad->squad_id]);
 
-        return redirect('squad_inv_players')->with('success', 'Player has been added to squad');
+        return redirect('anggota/squad_inv_players')->with('success', 'Player has been added to squad');
     }
 }

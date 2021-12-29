@@ -41,3 +41,9 @@
     -- list invite teams (squad)
     -- event teams
     -- event winner
+
+# Upload
+- disable prefix angggota web.php
+- isi public copy ke root folder
+- ubah index.php
+- ubah assets menjadi anggota/public/assets

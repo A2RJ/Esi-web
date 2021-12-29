@@ -17,10 +17,10 @@
                     Daftar game
                 </p>
                 <div class="menu">
-                    <a class="btn btn-primary" href="/games/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                    <a class="btn btn-primary" href="/anggota/games/create" title="Create a data"> 
                         Create game
                     </a>
-                    <a class="btn btn-primary" href="/game_categories" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                    <a class="btn btn-primary" href="/anggota/game_categories" title="Create a data"> 
                         Kategori game
                     </a>
                 </div>
@@ -52,13 +52,13 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{$data->game_name}}</td>
                                 <td>{{$data->category->game_category}}</td>
-                                <td><a class="badge badge-success" href="/anggota/images/images/{{$data->game_image}}" target="_blank">Image</a></td>
+                                <td><a class="badge badge-success" href="/anggota/public/assets/images/{{$data->game_image}}" target="_blank">Image</a></td>
                                 <td>{{$data->created_at}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
-                                        <!-- <a href="/games/show/{{$data->id_game }}" title="show" class="badge badge-info">Show</a> -->
-                                        <a href="/games/edit/{{$data->id_game }}" class="badge badge-warning">Edit</a>
-                                        <a href="/games/destroy/{{$data->id_game }}" class="badge badge-danger">Delete</a>
+                                        <!-- <a href="/anggota/games/show/{{$data->id_game }}" title="show" class="badge badge-info">Show</a> -->
+                                        <a href="/anggota/games/edit/{{$data->id_game }}" class="badge badge-warning">Edit</a>
+                                        <a href="/anggota/games/destroy/{{$data->id_game }}" class="badge badge-danger">Delete</a>
                                     </div>
                                 </td>
                             </tr>

@@ -16,7 +16,7 @@
                 <p class="card-description">
                     Invite teams untuk join events mu
                 </p>
-                <a class="btn btn-primary" href="/event_inv_teams/create/{{$id}}" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                <a class="btn btn-primary" href="/anggota/event_inv_teams/create/{{$id}}" title="Create a data"> 
                     Create
                 </a>
                 <div class="table-responsive">
@@ -51,8 +51,8 @@
                                 <td>{{$data->created_at->format('d-m-Y')}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
-                                        <a href="/event_inv_teams/show/{{$data->id_event_inv_teams}}" title="show" class="badge badge-info">Show</a>
-                                        <a href="/event_inv_teams/destroy/{{$data->id_event_inv_teams}}" class="badge badge-danger">Delete</a>
+                                        <a href="/anggota/event_inv_teams/show/{{$data->id_event_inv_teams}}" title="show" class="badge badge-info">Show</a>
+                                        <a href="/anggota/event_inv_teams/destroy/{{$data->id_event_inv_teams}}" class="badge badge-danger">Delete</a>
                                     </div>
                                 </td>
                             </tr>
@@ -78,7 +78,7 @@
                 <p class="card-description">
                     Teams yang mengikuti event
                 </p>
-                <a class="btn btn-primary" href="/event_teams/create/{{$id}}" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                <a class="btn btn-primary" href="/anggota/event_teams/create/{{$id}}" title="Create a data"> 
                     Create
                 </a>
                 <div class="table-responsive">
@@ -114,15 +114,15 @@
                                 <?php if ($data->paid_image == null) { ?>
                                     <td>Belum Upload</td>
                                 <?php } else { ?>
-                                    <td><a class="badge badge-success" href="/public/images/{{$data->paid_image}}" target="_blank">Lihat Bukti</a>
+                                    <td><a class="badge badge-success" href="/anggota/public/assets/images/{{$data->paid_image}}" target="_blank">Lihat Bukti</a>
                                     </td>
                                 <?php } ?>
                                 <td>{{$data->created_at->format('d-m-Y')}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
-                                        <a href="/home/squad/{{$data->squad_id }}" title="show" class="badge badge-info">Show</a>
-                                        <a href="/event_teams/edit/{{$data->id_event_teams }}" class="badge badge-warning">Edit</a>
-                                        <a href="/event_teams/destroy/{{$data->id_event_teams }}" class="badge badge-danger">Delete</a>
+                                        <a href="/anggota/home/squad/{{$data->squad_id }}" title="show" class="badge badge-info">Show</a>
+                                        <a href="/anggota/event_teams/edit/{{$data->id_event_teams }}" class="badge badge-warning">Edit</a>
+                                        <a href="/anggota/event_teams/destroy/{{$data->id_event_teams }}" class="badge badge-danger">Delete</a>
                                     </div>
                                 </td>
                             </tr>
@@ -148,7 +148,7 @@
                 <p class="card-description">
                     Pemenang Event
                 </p>
-                <a class="btn btn-primary" href="/event_winner/create/{{$id}}" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                <a class="btn btn-primary" href="/anggota/event_winner/create/{{$id}}" title="Create a data"> 
                     Create
                 </a>
                 <div class="table-responsive">
@@ -181,9 +181,9 @@
                                 <td>{{$data->created_at->format('d-m-Y')}}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
-                                        <a href="/event_winner/show/{{$data->id_event_winner }}" title="show" class="badge badge-info">Show</a>
-                                        <a href="/event_winner/edit/{{$data->id_event_winner }}" class="badge badge-warning">Edit</a>
-                                        <a href="/event_winner/destroy/{{$data->id_event_winner }}" class="badge badge-danger">Delete</a>
+                                        <a href="/anggota/event_winner/show/{{$data->id_event_winner }}" title="show" class="badge badge-info">Show</a>
+                                        <a href="/anggota/event_winner/edit/{{$data->id_event_winner }}" class="badge badge-warning">Edit</a>
+                                        <a href="/anggota/event_winner/destroy/{{$data->id_event_winner }}" class="badge badge-danger">Delete</a>
                                     </div>
                                 </td>
                             </tr>

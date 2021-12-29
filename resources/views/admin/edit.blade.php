@@ -22,7 +22,7 @@
                 </div>
                 @endif
 
-                <form action="/admin/update/{{$admin->id_admin}}" method="POST">
+                <form action="/anggota/admin/update/{{$admin->id_admin}}" method="POST">
                     @csrf
                     <!-- @method('PUT') -->
                     <div class="row">
@@ -50,10 +50,10 @@
                             <label for="fb">Facebook</label>
                             <input class="form-control" name="fb" id="fb" type="text" placeholder="{{ $admin->fb }}" value="{{ $admin->fb }}">
                         </div>
-                    </div>
-
-                    <div class="mt-5">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        
+                        <div class="mt-2 col-12 d-flex justify-content-center">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
                     </div>
                 </form>
             </div>

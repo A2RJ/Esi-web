@@ -8,7 +8,7 @@
             <h2> {{ $event->id_event }}</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="/events" title="Go back"> Go back<i class="fas fa-backward "></i> </a>
+            <a class="btn btn-primary" href="/anggota/events" title="Go back"> Go back<i class="fas fa-backward "></i> </a>
         </div>
     </div>
 </div>

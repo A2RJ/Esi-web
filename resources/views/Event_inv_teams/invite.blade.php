@@ -16,7 +16,7 @@
                 <p class="card-description">
                     Squadmu telah diinvite untuk bergabung di event ini.
                 </p>
-                <!-- <a class="btn btn-primary" href="/event_inv_teams/create" title="Create a data"> <i class="fas fa-plus-circle"></i>
+                <!-- <a class="btn btn-primary" href="/event_inv_teams/create" title="Create a data"> 
                     Create
                 </a> -->
                 <div class="table-responsive">
@@ -52,10 +52,10 @@
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
                                         <?php if ($data->status) { ?>
-                                            <a href="/event_inv_teams/destroy/{{$data->id_event_inv_teams}}" class="badge badge-danger">Delete</a>
+                                            <a href="/anggota/event_inv_teams/destroy/{{$data->id_event_inv_teams}}" class="badge badge-danger">Delete</a>
                                         <?php } else { ?>
-                                            <a href="/event_inv_teams/terima/{{$data->id_event_inv_teams}}" class="badge badge-info">Terima</a>
-                                            <a href="/event_inv_teams/destroy/{{$data->id_event_inv_teams}}" class="badge badge-danger">Tolak</a>
+                                            <a href="/anggota/event_inv_teams/terima/{{$data->id_event_inv_teams}}" class="badge badge-info">Terima</a>
+                                            <a href="/anggota/event_inv_teams/destroy/{{$data->id_event_inv_teams}}" class="badge badge-danger">Tolak</a>
                                         <?php } ?>
                                     </div>
                                 </td>

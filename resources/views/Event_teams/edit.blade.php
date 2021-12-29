@@ -22,7 +22,7 @@
                 </div>
                 @endif
 
-                <form action="/event_teams/update/{{$event_team->id_event_teams}}" method="POST">
+                <form action="/anggota/event_teams/update/{{$event_team->id_event_teams}}" method="POST">
                     @csrf
                     <!-- @method('PUT') -->
 
@@ -55,7 +55,7 @@
                         </select>
                     </div>
 
-                    <div class="mt-5">
+                    <div class="mt-5 col-12">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </form>

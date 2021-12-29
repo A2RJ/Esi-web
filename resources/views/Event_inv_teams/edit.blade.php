@@ -22,7 +22,7 @@
                 </div>
                 @endif
 
-                <form action="/event_inv_teams/update/{{$event_inv_teams->id_event_inv_teams}}" method="POST">
+                <form action="/anggota/event_inv_teams/update/{{$event_inv_teams->id_event_inv_teams}}" method="POST">
                     @csrf
                     <!-- @method('PUT') -->
                     <!-- looping events -->
