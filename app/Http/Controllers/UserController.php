@@ -13,9 +13,9 @@ class UserController extends Controller
     public function index()
     {
         $users = Users::latest();
-        if(request('user')){
+        if (request('user')) {
             $users = $users->where('nama', 'LIKE', '%' . request('user') . '%')
-            ->orWhere('user_role', 'LIKE', '%' . request('user') . '%');
+                ->orWhere('user_role', 'LIKE', '%' . request('user') . '%');
         }
         $users = $users->paginate(10);
         return view('Users.index', compact('users'));
@@ -69,24 +69,25 @@ class UserController extends Controller
             "user_role" => "required",
             "nama" => "required",
             "email" => "required",
-            "password" => "nullable",
             "kontak" => "required",
             "alamat" => "required",
             "gender" => "required",
             "user_image" => "nullable",
         ]);
 
-
-        if ($request->password2 !== '') {
+        if ($request->password2) {
             $request['password'] = Hash::make($request->password2);
         }
+
         $user = User::find($id);
         $update = $user;
         $user->update($request->all());
+
         if ($request->hasFile('user_image')) {
             $update->user_image = Upload::uploadFile($request, 'user_image');
             $user->save();
         }
+        
         return redirect(url()->previous())->with('success', 'User updated successfully');
     }
 

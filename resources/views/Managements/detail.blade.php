@@ -14,9 +14,9 @@
                 <div class="bnSlide"></div>
                 <div class="photoCollect">
                     <!-- YOUR IMAGES HERE (Maximum 10 Photos & Minimum 1 Photo) -->
-                    <a href="{{env('ASSETS')}}/assets/images/{{$management->management_image}}">
+                    <!-- <a href="{{env('ASSETS')}}/assets/images/{{$management->management_image}}"> -->
                         <img src="{{env('ASSETS')}}/assets/images/{{$management->management_image}}" alt="#no-image" title="#title-image" loading="lazy" />
-                    </a>
+                    <!-- </a> -->
                 </div>
                 <div class="indCat"></div>
             </div>

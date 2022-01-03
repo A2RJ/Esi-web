@@ -27,6 +27,7 @@
                     <div class="form-group">
                         <label for="event_id">Event</label>
                         <select class="form-control" name="event_id" id="event_id">
+                            <option value="">Pilih Event</option>
                             <option value="{{$event->id_event}}" selected>{{ $event->event_name }}</option>
                         </select>
                     </div>
@@ -38,6 +39,10 @@
                             @foreach($squads as $squad)
                             <option value="{{ $squad->id_squad }}">{{ $squad->squad_name }}</option>
                             @endforeach
+                            <!-- empty squads -->
+                            @if($squads->isEmpty())
+                            <option value="">Tidak ada squad</option>
+                            @endif
                         </select>
                     </div>
 

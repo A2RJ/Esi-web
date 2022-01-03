@@ -59,7 +59,7 @@
                                     <div class="flex items-center space-x-4 text-sm">
                                         <a href="/anggota/events/setEvent/{{$data->id_event }}" title="show" class="badge badge-info">Detail</a>
                                         <a href="/anggota/events/show/{{$data->id_event }}" title="show" class="badge badge-info">Show</a>
-                                        @if(url()->current() !== env('URL') . '/events'))
+                                        @if(url()->current() !== env('URL') . '/events')
                                         <a href="/anggota/events/edit/{{$data->id_event }}" class="badge badge-warning">Edit</a>
                                         <a href="/anggota/events/destroy/{{$data->id_event }}" class="badge badge-danger">Delete</a>
                                         @endif
