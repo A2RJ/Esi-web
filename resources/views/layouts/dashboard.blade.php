@@ -51,10 +51,10 @@ use Illuminate\Support\Facades\Auth; ?>
         </div>
         <div>
           <a class="navbar-brand brand-logo" href="/anggota">
-            <img src="{{env('ASSETS')}}/assets/landing-page/images/1639985799654.jpg" style="height: 80px;" alt="logo" />
+            <img src="{{env('ASSETS')}}/assets/landing-page/images/esi.png" style="height: 80px;" alt="logo" />
           </a>
           <a class="navbar-brand brand-logo-mini" href="/anggota">
-            <img src="{{env('ASSETS')}}/assets/landing-page/images/1639985799654.jpg" style="height: 50px;" alt="logo" />
+            <img src="{{env('ASSETS')}}/assets/landing-page/images/esi.png" style="height: 50px;" alt="logo" />
           </a>
         </div>
       </div>
@@ -76,10 +76,10 @@ use Illuminate\Support\Facades\Auth; ?>
           </li>
           <li class="nav-item dropdown d-none d-lg-block user-dropdown">
             <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-              <img class="img-xs rounded-circle" src="{{env('ASSETS')}}/assets/template/images/faces/face8.jpg" alt="Profile image"> </a>
+              <img class="img-xs rounded-circle" src="{{env('ASSETS')}}/assets/images/{{auth()->user()->user_image}}" alt="Profile image"> </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <div class="dropdown-header text-center">
-                <img class="img-md rounded-circle" src="{{env('ASSETS')}}/assets/template/images/faces/face8.jpg" alt="Profile image">
+                <img style="width:100px;" class="img-md rounded-circle" src="{{env('ASSETS')}}/assets/images/{{auth()->user()->user_image}}" alt="Profile image">
                 <p class="mb-1 mt-3 font-weight-semibold">{{ auth()->user()->nama }}</p>
                 <p class="fw-light text-muted mb-0">{{ auth()->user()->email }}</p>
               </div>
@@ -212,12 +212,26 @@ use Illuminate\Support\Facades\Auth; ?>
             </li>
           <?php endif; ?>
           <!-- li logout -->
+          <li class="nav-item nav-category">Profile</li>
           <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#Profile" aria-expanded="false" aria-controls="Profile">
+              <i class="menu-icon mdi mdi-floor-plan"></i>
+              <span class="menu-title">Profile</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="Profile">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="/anggota/users/profile/{{auth()->user()->id_user}}">Profile</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/anggota/logout">Logout</a></li>
+              </ul>
+            </div>
+          </li>
+          <!-- <li class="nav-item">
             <a class="nav-link" href="/anggota/logout">
               <i class="mdi mdi-grid-large menu-icon"></i>
-              <span class="menu-title">Logout</span>
+              <span class="menu-title"></span>
             </a>
-          </li>
+          </li> -->
         </ul>
       </nav>
       <!-- partial -->
