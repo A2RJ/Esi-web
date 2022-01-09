@@ -6,10 +6,17 @@
     <div class="col-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Add New users</h4>
-                <!-- <p class="card-description">
-                    <a class="btn btn-primary" href="/anggota/users" title="Go back"> Batal </a>
-                </p> -->
+                <h4 class="card-title">Edit profile</h4>
+                <p class="card-description my-4">
+                    <a class="btn-sm btn-outline-success" href="/anggota/users/idcard" title="Download id card"> Download Id Card </a>
+                </p>
+
+                <!-- Check error froms session redirect -->
+                @if (session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+                @endif
 
                 @if ($errors->any())
                 <div class="alert alert-danger">
@@ -50,6 +57,16 @@
                         </div>
 
                         <div class="form-group col-sm-6">
+                            <label for="fb">Facebook</label>
+                            <input class="form-control" name="fb" id="fb" type="text" placeholder="{{ $user->fb }}" value="{{ $user->fb }}">
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label for="ig">Instagram</label>
+                            <input class="form-control" name="ig" id="ig" type="text" placeholder="{{ $user->ig }}" value="{{ $user->ig }}">
+                        </div>
+
+                        <div class="form-group col-sm-6">
                             <label for="password">Password</label>
                             <input class="form-control" name="password2" id="password2" type="text" placeholder="Optional">
                         </div>
@@ -75,6 +92,17 @@
                         <div class="form-group col-sm-6">
                             <label for="user_image">User Image</label>
                             <input class="form-control" name="user_image" id="user_image" type="file" placeholder="{{ $user->user_image }}" value="{{ $user->user_image }}">
+                        </div>
+
+                        <!-- kartu_identitas -->
+                        <div class="form-group col-sm-6">
+                            <label for="kartu_identitas">Kartu Identitas</label>
+                            <input class="form-control" name="kartu_identitas" id="kartu_identitas" type="file" placeholder="{{ $user->kartu_identitas }}" value="{{ $user->kartu_identitas }}">
+                            <!-- text help -->
+                            <br>
+                            <p id="fileHelp" class="form-text text-danger">
+                                <i>*Kartu identitas seperti KTP atau KK harus berformat .jpg, .jpeg, .png, .pdf</i>
+                            </p>
                         </div>
                     </div>
 

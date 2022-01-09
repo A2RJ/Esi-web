@@ -52,11 +52,15 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'user_role' => ['required'],
+            'uuid' => ['nullable'],
             'nama' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'fb' => ['nullable'],
+            'ig' => ['nullable'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             "kontak" => ['required', 'numeric'],
             "alamat" => ['required'],
+            "kota" => ['nullable'],
             "gender" => ['required'],
         ]);
     }
@@ -71,11 +75,15 @@ class RegisterController extends Controller
     {
         return Users::create([
             'user_role' => $data['user_role'],
+            'uuid' => date('YmdHis') . Users::latest()->first()->id_user + 1,
             'nama' => $data['nama'],
             'email' => $data['email'],
+            'fb' => null,
+            'ig' => null,
             'password' => Hash::make($data['password']),
             'kontak' => $data['kontak'],
             'alamat' => $data['alamat'],
+            'kartu_identitas' => null,
             'gender' => $data['gender'],
             'user_image' => 'Group115.svg'
         ]);

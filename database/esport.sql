@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 20 Des 2021 pada 08.11
--- Versi server: 10.4.21-MariaDB
--- Versi PHP: 8.0.12
+-- Waktu pembuatan: 09 Jan 2022 pada 09.19
+-- Versi server: 10.4.22-MariaDB
+-- Versi PHP: 8.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,6 +37,14 @@ CREATE TABLE `admin` (
   `updated_at` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `admin`
+--
+
+INSERT INTO `admin` (`id_admin`, `user_id`, `jabatan`, `ig`, `fb`, `created_at`, `updated_at`) VALUES
+(1, 3, 'Ketua Bidang Umum', 'Coba IG', 'Coba FB', '2021-12-23', '2021-12-29'),
+(3, 9, 'Ketua', 'Ig', 'Fb', '2021-12-29', '2021-12-29');
+
 -- --------------------------------------------------------
 
 --
@@ -60,6 +68,14 @@ CREATE TABLE `events` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `events`
+--
+
+INSERT INTO `events` (`id_event`, `game_id`, `user_id`, `event_name`, `event_image`, `slot`, `price`, `pricepool`, `isfree`, `detail`, `peraturan`, `start`, `end`, `created_at`, `updated_at`) VALUES
+(3, 3, 10, 'Event Uji Coba', '30_12_2021_61cd5fab47f96.jpg', '32', '100000', '5000000', 1, 'Detail', 'Aturan', '2022-01-01', '2022-01-31', '2021-12-29 23:28:43', '2021-12-29 23:28:43'),
+(4, 3, 11, 'First Event', '31_12_2021_61ceb467e2108.png', '21', '120000', '8000000', 0, 'Detail', 'Retet', '2021-12-31', '2021-12-31', '2021-12-30 23:42:31', '2021-12-30 23:42:32');
 
 -- --------------------------------------------------------
 
@@ -91,6 +107,13 @@ CREATE TABLE `event_teams` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `event_teams`
+--
+
+INSERT INTO `event_teams` (`id_event_teams`, `event_id`, `squad_id`, `ispaid`, `paid_image`, `created_at`, `updated_at`) VALUES
+(1, 3, 2, 1, '30_12_2021_61cd5fcfc0a51.png', '2021-12-29 23:29:19', '2022-01-08 21:31:06');
 
 -- --------------------------------------------------------
 
@@ -142,7 +165,7 @@ CREATE TABLE `games` (
 --
 
 INSERT INTO `games` (`id_game`, `game_name`, `game_image`, `game_category_id`, `created_at`, `updated_at`) VALUES
-(3, 'Mobile Legends', '20_12_2021_61c02c2eaad52.png', 2, '2021-12-19 23:09:34', '2021-12-19 23:09:34');
+(3, 'Mobile Legends', '20_12_2021_61c02c2eaad52.png', 2, '2021-12-19 15:09:34', '2021-12-19 15:09:34');
 
 -- --------------------------------------------------------
 
@@ -162,7 +185,7 @@ CREATE TABLE `game_categories` (
 --
 
 INSERT INTO `game_categories` (`id_game_category`, `game_category`, `created_at`, `updated_at`) VALUES
-(2, 'RPG', '2021-12-19 23:09:22', '2021-12-19 23:09:22');
+(2, 'RPG', '2021-12-19 15:09:22', '2021-12-19 15:09:22');
 
 -- --------------------------------------------------------
 
@@ -250,12 +273,21 @@ CREATE TABLE `players` (
   `user_id` int(11) NOT NULL,
   `squad_id` int(11) DEFAULT NULL,
   `game_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ingame_name` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ingame_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ingame_id` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
   `player_image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `players`
+--
+
+INSERT INTO `players` (`id_player`, `user_id`, `squad_id`, `game_id`, `ingame_name`, `ingame_id`, `player_image`, `created_at`, `updated_at`) VALUES
+(6, 3, NULL, '3', 'First player account', '1212121', '29_12_2021_61cbfed5d747b.jpg', '2021-12-28 22:23:17', '2021-12-28 23:01:21'),
+(7, 10, 2, '3', 'juno', 'juno', '30_12_2021_61cd5e8034aee.jpg', '2021-12-29 23:23:44', '2021-12-29 23:24:28'),
+(8, 11, 3, '3', 'coekill', '12121', '03_01_2022_61d327e2195a1.png', '2022-01-03 08:44:18', '2022-01-03 08:44:34');
 
 -- --------------------------------------------------------
 
@@ -304,6 +336,14 @@ CREATE TABLE `squads` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data untuk tabel `squads`
+--
+
+INSERT INTO `squads` (`id_squad`, `game_id`, `squad_name`, `squad_image`, `squad_leader`, `management_id`, `created_at`, `updated_at`) VALUES
+(2, 3, 'Uji Coba', '30_12_2021_61cd5eac701f1.jpg', 7, NULL, '2021-12-29 23:24:28', '2021-12-29 23:24:28'),
+(3, 3, 'AHHA Squad', '03_01_2022_61d327f250ef2.png', 8, NULL, '2022-01-03 08:44:34', '2022-01-03 08:44:34');
+
 -- --------------------------------------------------------
 
 --
@@ -328,11 +368,15 @@ CREATE TABLE `squad_inv_players` (
 CREATE TABLE `users` (
   `id_user` int(11) NOT NULL,
   `user_role` enum('player','management','admin') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fb` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ig` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `kontak` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
   `alamat` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kartu_identitas` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `gender` enum('l','p') COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -343,8 +387,11 @@ CREATE TABLE `users` (
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id_user`, `user_role`, `nama`, `email`, `password`, `kontak`, `alamat`, `gender`, `user_image`, `created_at`, `updated_at`) VALUES
-(3, 'admin', 'admin', 'admin@gmail.com', '$2y$10$rYcZbxwQ0/ZnQ7kX/KTs7OuT68HdFIEq8aOc3sLL8fVN62RvjOV.6', '2', '2', 'p', '2', '2021-12-05 19:28:41', '2021-12-05 22:34:04');
+INSERT INTO `users` (`id_user`, `user_role`, `uuid`, `nama`, `email`, `fb`, `ig`, `password`, `kontak`, `alamat`, `kartu_identitas`, `gender`, `user_image`, `created_at`, `updated_at`) VALUES
+(3, 'admin', '2022010907094811', 'ESI Sumbawa', 'esisumbawa@gmail.com', NULL, NULL, '$2y$10$rfUEKY3lugu5eXigo7oWb.9hM5oVr98Kb3ZvezEpmJbkcBXlQ2X56', '0834 4938 3434', 'Sumbawa', NULL, 'l', '30_12_2021_61cd61abe224c.jpg', '2021-12-05 11:28:41', '2021-12-29 23:37:15'),
+(9, 'admin', '2022010907094812', 'Made Widiarta', 'widiartaimade@gmail.com', NULL, NULL, '$2y$10$rfUEKY3lugu5eXigo7oWb.9hM5oVr98Kb3ZvezEpmJbkcBXlQ2X56', '1234', 'Jl. Kebayaan No. 11', NULL, 'l', '29_12_2021_61cc08436ccd5.jpg', '2021-12-28 23:03:31', '2021-12-28 23:03:55'),
+(10, 'player', '2022010907094813', 'Juno Praditya', 'juno.praditya@gmail.com', NULL, NULL, '$2y$10$rfUEKY3lugu5eXigo7oWb.9hM5oVr98Kb3ZvezEpmJbkcBXlQ2X56', '1234', 'Kebayan', NULL, 'l', '30_12_2021_61cd612955a78.jpg', '2021-12-28 23:08:22', '2021-12-29 23:36:44'),
+(11, 'admin', '2022010907094814', 'Ardiansyah Putra', 'ardi@gmail.com', 'kdlksds', '12121', '$2y$10$rfUEKY3lugu5eXigo7oWb.9hM5oVr98Kb3ZvezEpmJbkcBXlQ2X56', '728282', 'Akaka', NULL, 'l', '09_01_2022_61da713b7a869.png', '2021-12-30 00:25:47', '2022-01-09 00:14:36');
 
 --
 -- Indexes for dumped tables
@@ -475,13 +522,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `events`
 --
 ALTER TABLE `events`
-  MODIFY `id_event` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_event` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `event_inv_teams`
@@ -493,7 +540,7 @@ ALTER TABLE `event_inv_teams`
 -- AUTO_INCREMENT untuk tabel `event_teams`
 --
 ALTER TABLE `event_teams`
-  MODIFY `id_event_teams` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_event_teams` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `event_winners`
@@ -523,7 +570,7 @@ ALTER TABLE `game_categories`
 -- AUTO_INCREMENT untuk tabel `managements`
 --
 ALTER TABLE `managements`
-  MODIFY `id_management` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_management` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `management_inv_squads`
@@ -547,7 +594,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT untuk tabel `players`
 --
 ALTER TABLE `players`
-  MODIFY `id_player` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_player` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `request_managements`
@@ -565,19 +612,19 @@ ALTER TABLE `request_squads`
 -- AUTO_INCREMENT untuk tabel `squads`
 --
 ALTER TABLE `squads`
-  MODIFY `id_squad` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_squad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `squad_inv_players`
 --
 ALTER TABLE `squad_inv_players`
-  MODIFY `id_squad_inv_player` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_squad_inv_player` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

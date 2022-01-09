@@ -43,6 +43,18 @@
                             <input type="text" class="form-control" name="email" id="email" placeholder="email">
                         </div>
 
+                        <!-- fb -->
+                        <div class="form-group col-sm-6">
+                            <label for="fb">Facebook</label>
+                            <input type="text" class="form-control" name="fb" id="fb" placeholder="facebook">
+                        </div>
+
+                        <!-- ig -->
+                        <div class="form-group col-sm-6">
+                            <label for="ig">Instagram</label>
+                            <input type="text" class="form-control" name="ig" id="ig" placeholder="instagram">
+                        </div>
+
                         <div class="form-group col-sm-6">
                             <label for="password">Password</label>
                             <input type="text" class="form-control" name="password" id="password" placeholder="password">
@@ -69,7 +81,17 @@
 
                         <div class="form-group col-sm-6">
                             <label for="user_image">User Image</label>
-                            <input  class="form-control" name="user_image" id="user_image" type="file">
+                            <input class="form-control" name="user_image" id="user_image" type="file">
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label for="kartu_identitas">Kartu Identitas</label>
+                            <input class="form-control" name="kartu_identitas" id="kartu_identitas" type="file">
+                            <!-- text help -->
+                            <br>
+                            <p id="fileHelp" class="form-text text-danger">
+                                <i>*Kartu identitas seperti KTP atau KK harus berformat .jpg, .jpeg, .png, .pdf</i>
+                            </p>
                         </div>
                     </div>
 

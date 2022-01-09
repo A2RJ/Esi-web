@@ -78,7 +78,7 @@
                 <p class="card-description">
                     Menu untuk invite player
                 </p>
-                <a class="btn btn-primary" href="/squad_inv_players/create/{{$id}}" title="Create a data"> 
+                <a class="btn btn-primary" href="/anggota/squad_inv_players/create/{{$id}}" title="Create a data"> 
                     Create
                 </a>
                 <div class="table-responsive">

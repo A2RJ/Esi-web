@@ -120,6 +120,7 @@ Route::prefix('anggota')->group(function () {
     Route::group(['prefix' => 'users', 'middleware' => ['auth', 'admin']], function () {
         Route::get('/', [UserController::class, 'index']);
         Route::get('/create', [UserController::class, 'create']);
+        Route::get('/idcard', [UserController::class, 'idcard'])->withoutMiddleware([MiddlewareAuth::class, Admin::class]);
         Route::get('/show/{id}', [UserController::class, 'show']);
         Route::get('/profile/{id}', [UserController::class, 'profile'])->withoutMiddleware([MiddlewareAuth::class, Admin::class]);
         Route::post('/store', [UserController::class, 'store']);

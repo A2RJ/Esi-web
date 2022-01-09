@@ -49,6 +49,7 @@
 # Upload
 
 -   disable prefix angggota web.php
+-   edit file env('URL') ubah ke https://esisumbawa.or.id/anggota
 -   isi public copy ke root folder
 -   ubah index.php
 -   ubah assets menjadi anggota/public/assets

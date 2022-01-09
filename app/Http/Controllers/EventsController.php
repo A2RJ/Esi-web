@@ -213,7 +213,6 @@ class EventsController extends Controller
         if ($event_teams) {
             return redirect('/events/followEvent')->with('event_teams', 'Squad already in event.');
         } else {
-            // if has paid_image
             $event = Event_teams::create($request->all());
             if ($request->hasFile('paid_image')) {
                 $event->paid_image = Upload::uploadFile($request, 'paid_image');
