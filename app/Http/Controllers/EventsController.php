@@ -229,7 +229,7 @@ class EventsController extends Controller
             ->select('event_teams.*', 'events.event_name', 'squads.squad_name')
             ->find($id);
 
-        return view('Events.joinEdit', compact('event_teams'));
+        return view('Events.JoinEdit', compact('event_teams'));
     }
 
     // updateJoin
@@ -265,7 +265,7 @@ class EventsController extends Controller
             ->join('squads', 'event_teams.squad_id', 'squads.id_squad')
             ->whereIn('squads.id_squad', $squads->pluck('id_squad'))
             ->select('events.*', 'event_teams.*', 'squads.*')
-            ->latest();
+            ->latest('events.created_at');
 
         // if has event search like 
         if (request()->has('event')) {
