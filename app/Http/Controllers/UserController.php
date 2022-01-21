@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Classes\Upload;
+use App\Models\District;
+use App\Models\Province;
+use App\Models\Regency;
 use App\Models\Users;
+use App\Models\Village;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -43,12 +47,18 @@ class UserController extends Controller
             "password" => "required",
             "kontak" => "required",
             "alamat" => "required",
+            "province" => "required",
+            "regency" => "required",
+            "district" => "required",
+            "village" => "required",
             "kartu_identitas" => "nullable",
             "gender" => "required",
             "user_image" => "required",
         ]);
+
         $user  = Users::create($request->all());
-        $user->user_image = Upload::uploadFile($request, 'user_image');
+        $user->uuid = date('YmdHis') . Users::latest()->first()->id_user + 1;
+        $user->user_image = 'Group115.svg';
         $user->password = Hash::make($request->password);
         $user->save();
 
@@ -58,13 +68,23 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = Users::find($id);
-        return view('Users.edit', compact('user'));
+        $province = Province::find($user->province);
+        $regency = Regency::find($user->regency);
+        $district = District::find($user->district);
+        $village = Village::find($user->village);
+
+        return view('Users.edit', compact('user', 'province', 'regency', 'district', 'village'));
     }
 
     public function profile($id)
     {
         $user = Users::find($id);
-        return view('Users.edit', compact('user'));
+        $province = Province::find($user->province);
+        $regency = Regency::find($user->regency);
+        $district = District::find($user->district);
+        $village = Village::find($user->village);
+        
+        return view('Users.edit', compact('user', 'province', 'regency', 'district', 'village'));
     }
 
     public function update(Request $request, $id)
@@ -77,6 +97,10 @@ class UserController extends Controller
             "ig" => "nullable",
             "kontak" => "required",
             "alamat" => "required",
+            "province" => "required",
+            "regency" => "required",
+            "district" => "required",
+            "village" => "required",
             "kartu_identitas" => "nullable",
             "gender" => "required",
             "user_image" => "nullable",

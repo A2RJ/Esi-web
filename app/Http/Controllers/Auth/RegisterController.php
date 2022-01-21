@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use App\Models\Users;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+
 
 class RegisterController extends Controller
 {
@@ -54,12 +55,16 @@ class RegisterController extends Controller
             'user_role' => ['required'],
             'uuid' => ['nullable'],
             'nama' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'], // email_checker
             'fb' => ['nullable'],
             'ig' => ['nullable'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             "kontak" => ['required', 'numeric'],
             "alamat" => ['required'],
+            "province" => ['required'],
+            "regency" => ['required'],
+            "district" => ['required'],
+            "village" => ['required'],
             "kota" => ['nullable'],
             "gender" => ['required'],
         ]);
@@ -83,6 +88,10 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'kontak' => $data['kontak'],
             'alamat' => $data['alamat'],
+            'province' => $data['province'],
+            'regency' => $data['regency'],
+            'district' => $data['district'],
+            'village' => $data['village'],
             'kartu_identitas' => null,
             'gender' => $data['gender'],
             'user_image' => 'Group115.svg'

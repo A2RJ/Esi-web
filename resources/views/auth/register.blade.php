@@ -59,7 +59,7 @@
                             <label for="kontak" class="col-md-4 float-left col-form-label text-md-left">{{ __('kontak') }}</label>
 
                             <div class="col-md-6">
-                                <input id="kontak" type="text" class="form-control @error('kontak') is-invalid @enderror" name="kontak" value="{{ old('kontak') }}" required autocomplete="kontak">
+                                <input id="kontak" type="number" class="form-control @error('kontak') is-invalid @enderror" name="kontak" value="{{ old('kontak') }}" required autocomplete="kontak">
 
                                 @error('kontak')
                                 <span class="invalid-feedback" role="alert">
@@ -92,6 +92,66 @@
                                 <input id="alamat" type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat') }}" required autocomplete="alamat">
 
                                 @error('alamat')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- province -->
+                        <div class="row mb-3">
+                            <label for="province" class="col-md-4 float-left col-form-label text-md-left">Provinsi</label>
+                            <div class="col-md-6">
+                                <!-- select bootstrap -->
+                                <select onchange="getRegency()" class="form-control" id="province" name="province">
+                                </select>
+                                @error('province')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- regency -->
+                        <div class="row mb-3">
+                            <label for="regency" class="col-md-4 float-left col-form-label text-md-left">Kabupaten</label>
+                            <div class="col-md-6">
+                                <!-- select bootstrap -->
+                                <select onchange="getDistrict()" class="form-control" id="regency" name="regency">
+                                </select>
+                                @error('regency')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- district -->
+                        <div class="row mb-3">
+                            <label for="district" class="col-md-4 float-left col-form-label text-md-left">Kecamatan</label>
+                            <div class="col-md-6">
+                                <!-- select bootstrap -->
+                                <select onchange="getVillage()" class="form-control" id="district" name="district">
+                                </select>
+                                @error('district')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- village -->
+                        <div class="row mb-3">
+                            <label for="village" class="col-md-4 float-left col-form-label text-md-left">Kelurahan</label>
+                            <div class="col-md-6">
+                                <!-- select bootstrap -->
+                                <select class="form-control" id="village" name="village">
+                                </select>
+                                @error('village')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -134,4 +194,70 @@
         </div>
     </div>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", async function() {
+        getProvince = async function() {
+            const response = await fetch('/api/province');
+            const data = await response.json();
+            const select = document.getElementById('province');
+            data.forEach(element => {
+                const option = document.createElement('option');
+                option.value = element.id;
+                option.innerHTML = element.name;
+                select.appendChild(option);
+            });
+        }
+        getRegency = async () => {
+            const province = document.getElementById('province').value;
+            const response = await fetch(`/api/regency/${province}`);
+            const data = await response.json();
+            const select = document.getElementById('regency');
+            while (select.firstChild) {
+                select.removeChild(select.firstChild);
+            }
+            data.forEach(element => {
+                const option = document.createElement('option');
+                option.value = element.id;
+                option.innerHTML = element.name;
+                select.appendChild(option);
+            });
+        }
+
+        getDistrict = async () => {
+            const regency = document.getElementById('regency').value;
+            const response = await fetch(`/api/district/${regency}`);
+            const data = await response.json();
+            const select = document.getElementById('district');
+            while (select.firstChild) {
+                select.removeChild(select.firstChild);
+            }
+            data.forEach(element => {
+                const option = document.createElement('option');
+                option.value = element.id;
+                option.innerHTML = element.name;
+                select.appendChild(option);
+            });
+        }
+
+        getVillage = async () => {
+            const district = document.getElementById('district').value;
+            const response = await fetch(`/api/village/${district}`);
+            const data = await response.json();
+            const select = document.getElementById('village');
+            while (select.firstChild) {
+                select.removeChild(select.firstChild);
+            }
+            data.forEach(element => {
+                const option = document.createElement('option');
+                option.value = element.id;
+                option.innerHTML = element.name;
+                select.appendChild(option);
+            });
+        }
+
+        (async () => {
+            getProvince();
+        })();
+    });
+</script>
 @endsection

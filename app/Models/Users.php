@@ -10,7 +10,9 @@ use Laravel\Sanctum\HasApiTokens;
 
 class Users extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens,
+        HasFactory,
+        Notifiable;
 
 
     /**
@@ -20,5 +22,23 @@ class Users extends Authenticatable
      */
     protected $primaryKey = 'id_user';
 
-    protected $fillable =  [ "user_role", "uuid", "nama", "email", "fb", "ig", "password", "remember_token", "kontak", "alamat", "kartu_identitas", "gender", "user_image"  ];
+    protected $fillable =  [
+        "user_role",
+        "uuid",
+        "nama",
+        "email",
+        "fb",
+        "ig",
+        "password",
+        "remember_token",
+        "kontak",
+        "alamat",
+        'province',
+        'regency',
+        'district',
+        'village',
+        "kartu_identitas",
+        "gender",
+        "user_image"
+    ];
 }

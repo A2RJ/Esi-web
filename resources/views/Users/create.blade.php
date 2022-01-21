@@ -71,6 +71,30 @@
                         </div>
 
                         <div class="form-group col-sm-6">
+                            <label for="province">Provinsi</label>
+                            <select onchange="getRegency()" class="form-control" id="province" name="province">
+                            </select>
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label for="regency">Kabupaten</label>
+                            <select onchange="getDistrict()" class="form-control" id="regency" name="regency">
+                            </select>
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label for="district">Kecamatan</label>
+                            <select onchange="getVillage()" class="form-control" id="district" name="district">
+                            </select>
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label for="village">Kelurahan</label>
+                            <select class="form-control" id="village" name="village">
+                            </select>
+                        </div>
+
+                        <div class="form-group col-sm-6">
                             <label for="gender">Gender</label>
                             <!-- select gender -->
                             <select class="form-control" id="gender" name="gender">
@@ -103,4 +127,70 @@
         </div>
     </div>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", async function() {
+        getProvince = async function() {
+            const response = await fetch('/api/province');
+            const data = await response.json();
+            const select = document.getElementById('province');
+            data.forEach(element => {
+                const option = document.createElement('option');
+                option.value = element.id;
+                option.innerHTML = element.name;
+                select.appendChild(option);
+            });
+        }
+        getRegency = async () => {
+            const province = document.getElementById('province').value;
+            const response = await fetch(`/api/regency/${province}`);
+            const data = await response.json();
+            const select = document.getElementById('regency');
+            while (select.firstChild) {
+                select.removeChild(select.firstChild);
+            }
+            data.forEach(element => {
+                const option = document.createElement('option');
+                option.value = element.id;
+                option.innerHTML = element.name;
+                select.appendChild(option);
+            });
+        }
+
+        getDistrict = async () => {
+            const regency = document.getElementById('regency').value;
+            const response = await fetch(`/api/district/${regency}`);
+            const data = await response.json();
+            const select = document.getElementById('district');
+            while (select.firstChild) {
+                select.removeChild(select.firstChild);
+            }
+            data.forEach(element => {
+                const option = document.createElement('option');
+                option.value = element.id;
+                option.innerHTML = element.name;
+                select.appendChild(option);
+            });
+        }
+
+        getVillage = async () => {
+            const district = document.getElementById('district').value;
+            const response = await fetch(`/api/village/${district}`);
+            const data = await response.json();
+            const select = document.getElementById('village');
+            while (select.firstChild) {
+                select.removeChild(select.firstChild);
+            }
+            data.forEach(element => {
+                const option = document.createElement('option');
+                option.value = element.id;
+                option.innerHTML = element.name;
+                select.appendChild(option);
+            });
+        }
+
+        (async () => {
+            getProvince();
+        })();
+    });
+</script>
 @endsection

@@ -79,7 +79,7 @@ use Illuminate\Support\Facades\Auth; ?>
               <img class="img-xs rounded-circle" src="{{env('ASSETS')}}/assets/images/{{auth()->user()->user_image}}" alt="Profile image"> </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <div class="dropdown-header text-center">
-                <img style="width:100px;" class="img-md rounded-circle" src="{{env('ASSETS')}}/assets/images/{{auth()->user()->user_image}}" alt="Profile image">
+                <img style="width:100px;height:100px;" class="img-md rounded-circle" src="{{env('ASSETS')}}/assets/images/{{auth()->user()->user_image}}" alt="Profile image">
                 <p class="mb-1 mt-3 font-weight-semibold">{{ auth()->user()->nama }}</p>
                 <p class="fw-light text-muted mb-0">{{ auth()->user()->email }}</p>
               </div>

@@ -8,7 +8,10 @@
             <div class="card-body">
                 <h4 class="card-title">Edit profile</h4>
                 <p class="card-description my-4">
-                    <a class="btn-sm btn-outline-success" href="/anggota/users/idcard" title="Download id card"> Download Id Card </a>
+                    <!-- if auth()->user()->id_user == $user->id_user -->
+                    <?php if (auth()->user()->id_user == $user->id_user) { ?>
+                        <a class="btn-sm btn-outline-success" target="_blank" href="/anggota/users/idcard" title="Download id card" > Download Id Card </a>
+                    <?php } ?>
                 </p>
 
                 <!-- Check error froms session redirect -->
@@ -82,6 +85,42 @@
                         </div>
 
                         <div class="form-group col-sm-6">
+                            <label for="province">Provinsi</label>
+                            <select onclick="getRegency()" class="form-control" id="province" name="province">
+                                <?php if ($province != null) : ?>
+                                    <option value="<?= $province->id ?>"><?= $province->name ?></option>
+                                <?php endif ?>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label for="regency">Kabupaten</label>
+                            <select onclick="getDistrict()" class="form-control" id="regency" name="regency">
+                                <?php if ($regency != null) : ?>
+                                    <option value="<?= $regency->id ?>"><?= $regency->name ?></option>
+                                <?php endif ?>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label for="district">Kecamatan</label>
+                            <select onclick="getVillage()" class="form-control" id="district" name="district">
+                                <?php if ($district != null) : ?>
+                                    <option value="<?= $district->id ?>"><?= $district->name ?></option>
+                                <?php endif ?>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label for="village">Kelurahan</label>
+                            <select class="form-control" id="village" name="village">
+                                <?php if ($village != null) : ?>
+                                    <option value="<?= $village->id ?>"><?= $village->name ?></option>
+                                <?php endif ?>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-sm-6">
                             <label for="gender">Gender</label>
                             <select class="form-control" name="gender" id="exampleFormControlSelect1">
                                 <option value="p" {{$user->gender == 'p' ? 'selected' : ''}}>Perempuan</option>
@@ -91,13 +130,13 @@
 
                         <div class="form-group col-sm-6">
                             <label for="user_image">User Image</label>
-                            <input class="form-control" name="user_image" id="user_image" type="file" placeholder="{{ $user->user_image }}" value="{{ $user->user_image }}">
+                            <input class="form-control" name="user_image" id="user_image" type="file" accept="image/png, image/jpeg" placeholder="{{ $user->user_image }}" value="{{ $user->user_image }}">
                         </div>
 
                         <!-- kartu_identitas -->
                         <div class="form-group col-sm-6">
                             <label for="kartu_identitas">Kartu Identitas</label>
-                            <input class="form-control" name="kartu_identitas" id="kartu_identitas" type="file" placeholder="{{ $user->kartu_identitas }}" value="{{ $user->kartu_identitas }}">
+                            <input class="form-control" name="kartu_identitas" id="kartu_identitas" type="file"accept="image/png, image/jpeg, application/pdf" placeholder="{{ $user->kartu_identitas }}" value="{{ $user->kartu_identitas }}">
                             <!-- text help -->
                             <br>
                             <p id="fileHelp" class="form-text text-danger">
@@ -114,4 +153,70 @@
         </div>
     </div>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", async function() {
+        getProvince = async function() {
+            const response = await fetch('/api/province');
+            const data = await response.json();
+            const select = document.getElementById('province');
+            data.forEach(element => {
+                const option = document.createElement('option');
+                option.value = element.id;
+                option.innerHTML = element.name;
+                select.appendChild(option);
+            });
+        }
+        getRegency = async () => {
+            const province = document.getElementById('province').value;
+            const response = await fetch(`/api/regency/${province}`);
+            const data = await response.json();
+            const select = document.getElementById('regency');
+            while (select.firstChild) {
+                select.removeChild(select.firstChild);
+            }
+            data.forEach(element => {
+                const option = document.createElement('option');
+                option.value = element.id;
+                option.innerHTML = element.name;
+                select.appendChild(option);
+            });
+        }
+
+        getDistrict = async () => {
+            const regency = document.getElementById('regency').value;
+            const response = await fetch(`/api/district/${regency}`);
+            const data = await response.json();
+            const select = document.getElementById('district');
+            while (select.firstChild) {
+                select.removeChild(select.firstChild);
+            }
+            data.forEach(element => {
+                const option = document.createElement('option');
+                option.value = element.id;
+                option.innerHTML = element.name;
+                select.appendChild(option);
+            });
+        }
+
+        getVillage = async () => {
+            const district = document.getElementById('district').value;
+            const response = await fetch(`/api/village/${district}`);
+            const data = await response.json();
+            const select = document.getElementById('village');
+            while (select.firstChild) {
+                select.removeChild(select.firstChild);
+            }
+            data.forEach(element => {
+                const option = document.createElement('option');
+                option.value = element.id;
+                option.innerHTML = element.name;
+                select.appendChild(option);
+            });
+        }
+
+        (async () => {
+            getProvince();
+        })();
+    });
+</script>
 @endsection
